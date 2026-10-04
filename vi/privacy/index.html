@@ -18,7 +18,7 @@
   </header>
 
   <h1>Chính sách quyền riêng tư</h1>
-  <p class="muted">Có hiệu lực từ ngày 27/09/2026</p>
+  <p class="muted">Có hiệu lực từ ngày 04/10/2026</p>
 
   <p>Chính sách này giải thích cách ứng dụng Android <strong>AutoGest</strong> xử lý thông tin
     của bạn.</p>
@@ -29,8 +29,12 @@
       <li>Ứng dụng chạy hoàn toàn offline. Ứng dụng không xin quyền Internet nên không thể gửi bất cứ thứ
         gì cho chúng tôi hay cho ai khác.</li>
       <li>Chúng tôi không có máy chủ, không có tài khoản, không quảng cáo, không dùng SDK phân tích.</li>
-      <li>Dịch vụ Trợ năng chỉ đọc màn hình và thao tác khi một tập lệnh do <em>chính bạn</em> bật đang
-        chạy. Nội dung màn hình được xử lý ngay trên máy, không được lưu lại và không được chia sẻ.</li>
+      <li>Dịch vụ Trợ năng chỉ đọc màn hình và thao tác khi một tập lệnh do <em>chính bạn</em> bấm chạy
+        hoặc hẹn giờ đang chạy, khi bạn ghi thao tác, hoặc khi bạn chọn điểm hay cắt ảnh trên màn hình.
+        Nội dung màn hình được xử lý ngay trên máy; chỉ phần bạn lưu vào tập lệnh được giữ lại, và không
+        bao giờ được gửi cho chúng tôi.</li>
+      <li>Khi bạn ghi lại thao tác gõ phím, mọi lần chạm phím đều được lưu — kể cả trong ô mật khẩu. Ai có
+        tập lệnh đó cũng có thể biết bạn đã gõ gì, nên đừng chia sẻ nó (xem mục 1).</li>
       <li>Mọi thứ bạn tạo (tập lệnh, ảnh mẫu, lịch chạy, lịch sử chạy) nằm trong bộ nhớ riêng của ứng
         dụng trên điện thoại và bị xoá khi bạn gỡ ứng dụng.</li>
       <li><strong>Chỉ cài AutoGest từ Google Play.</strong> Các bản “mod”, “crack” trên trang web khác không
@@ -45,19 +49,41 @@
     dụng giải thích dịch vụ làm gì. Khi được bật, ứng dụng sẽ:</p>
   <ul>
     <li><strong>Đọc nội dung hiển thị trên màn hình</strong> — chữ, mô tả nội dung và vị trí các phần tử
-      của ứng dụng đang mở — để tìm đúng chỗ cần chạm, hoặc để kiểm tra điều kiện “chữ” trong tập lệnh.</li>
-    <li><strong>Chụp màn hình</strong> (Android 11 trở lên) chỉ khi tập lệnh có bước chạm theo ảnh, chờ
-      ảnh hoặc kiểm tra màu, để so màn hình với ảnh hay màu bạn đã chọn. Ảnh chụp chỉ nằm trong bộ nhớ
-      tạm trong lúc so khớp rồi bị bỏ ngay, không bao giờ được ghi xuống bộ nhớ máy.</li>
-    <li><strong>Thao tác thay bạn</strong> — chạm, nhấn giữ, vuốt, cuộn, nhập chữ, bấm Quay lại, Màn
-      hình chính, Ứng dụng gần đây và mở ứng dụng bạn chọn — đúng như các bước trong tập lệnh.</li>
-    <li><strong>Ghi lại cử chỉ của bạn</strong> khi bạn dùng tính năng ghi thao tác, để biến chúng thành
-      các bước. Không bước nào được thêm vào tập lệnh cho tới khi bạn xem lại và chấp nhận.</li>
+      của ứng dụng đang mở — để tìm chữ cho bước “Click chữ” hay điều kiện “chữ”, và để biết bàn phím ảo
+      đang nằm ở đâu. Khi bạn ghi lại thao tác gõ phím, ứng dụng đọc ô chữ bạn đang gõ để nhận ra bạn đã
+      gõ gì; khi bước “Gõ ký tự” chạy, ứng dụng đọc lại ô đó để kiểm tra đã gõ đúng chưa.</li>
+    <li><strong>Chụp màn hình</strong> (Android 11 trở lên) chỉ khi bạn chọn màu trên màn hình, đóng băng
+      màn hình để chọn điểm hay cắt ảnh mẫu, hoặc khi tập lệnh có bước hay điều kiện theo ảnh hoặc màu,
+      để so màn hình với ảnh hay màu bạn đã chọn. Ảnh chụp chỉ nằm trong bộ nhớ tạm lúc so khớp hoặc lúc
+      bạn chọn trên màn hình đã đóng băng rồi bị bỏ, không bao giờ được ghi xuống bộ nhớ máy. Phần duy
+      nhất được giữ lại là vùng bạn tự cắt làm ảnh mẫu.</li>
+    <li><strong>Thao tác thay bạn</strong> — chạm, nhấn giữ, vuốt, cuộn, nhập chữ, chạm phím trên bàn
+      phím ảo, bấm Quay lại, Màn hình chính, Ứng dụng gần đây và mở ứng dụng bạn chọn — đúng như các
+      bước trong tập lệnh.</li>
+    <li><strong>Ghi lại các lần chạm của bạn</strong> khi bạn dùng tính năng ghi thao tác, hoặc khi bạn
+      ghi phím cho bước “Gõ ký tự”, để biến chúng thành các bước. Không bước nào được thêm vào tập lệnh
+      cho tới khi bạn xem lại và chấp nhận.</li>
+    <li><strong>Xem thông báo mới có phải cuộc gọi tới hay không</strong>, chỉ trong lúc tập lệnh đang
+      chạy và chỉ khi bật “Dừng khi có cuộc gọi” (mặc định là bật), để dừng tập lệnh và trả máy lại cho
+      bạn. Ứng dụng chỉ xem ứng dụng nào đăng thông báo, loại thông báo (ví dụ “cuộc gọi”) và kiểu hiển
+      thị của nó — không bao giờ đọc người gọi, nội dung hay bất cứ thứ gì khác trong thông báo. Ứng dụng
+      cũng xem máy có đang đổ chuông không. Không có gì về cuộc gọi được lưu lại.</li>
   </ul>
-  <p>Dịch vụ không đọc màn hình, không chụp màn hình và không thao tác khi không có tập lệnh nào đang
-    chạy và bạn không ghi thao tác. Chúng tôi không dùng dịch vụ Trợ năng để thu thập dữ liệu cá nhân hay
-    nhạy cảm, để đọc mật khẩu, để tự ý đổi cài đặt của bạn, hay cho mục đích quảng cáo. Bạn có thể tắt
-    dịch vụ bất cứ lúc nào trong <em>Cài đặt &gt; Hỗ trợ tiếp cận (Trợ năng)</em>.</p>
+
+  <h3>Gõ phím và ô mật khẩu</h3>
+  <p>Khi bạn ghi theo chạm thật và gõ trên bàn phím ảo, ứng dụng lưu từng lần chạm phím: vị trí chạm
+    trên bàn phím, nhịp giữa các lần chạm, kích thước và vị trí bàn phím, và tên gói của ứng dụng bàn
+    phím. Ứng dụng cũng lưu chữ đã nhận ra để bạn kiểm tra.</p>
+  <p>Trong <strong>ô mật khẩu</strong>, ứng dụng không lưu các ký tự, nhưng vẫn lưu mọi lần chạm phím.
+    Chạy lại các lần chạm đó là gõ lại đúng mật khẩu ấy, và ai có tập lệnh cũng suy ra được bạn đã gõ
+    gì. Màn xem lại và thẻ bước sẽ cảnh báo khi việc này xảy ra. Đừng ghi mật khẩu mà bạn không muốn
+    người khác biết, và đừng chia sẻ hay xuất tập lệnh có chứa mật khẩu.</p>
+
+  <p>Ngoài những lúc trên, dịch vụ không đọc màn hình, không chụp màn hình và không thao tác: khi không
+    có tập lệnh nào đang chạy, bạn không ghi thao tác và không chọn trên màn hình. Chúng tôi không dùng
+    dịch vụ Trợ năng để thu thập dữ liệu cá nhân hay nhạy cảm, để tự ý đổi cài đặt của bạn, hay cho mục
+    đích quảng cáo, và chúng tôi không bao giờ nhận được thứ gì dịch vụ đọc. Bạn có thể tắt dịch vụ bất
+    cứ lúc nào trong <em>Cài đặt &gt; Hỗ trợ tiếp cận (Trợ năng)</em>.</p>
 
   <h2>2. Thông tin lưu trên máy của bạn</h2>
   <p>Những dữ liệu dưới đây chỉ nằm trong bộ nhớ riêng của ứng dụng trên điện thoại. Chúng tôi không
@@ -67,15 +93,20 @@
     <thead><tr><th>Dữ liệu</th><th>Gồm những gì</th><th>Để làm gì</th></tr></thead>
     <tbody>
       <tr><td>Tập lệnh</td>
-        <td>Tên tập lệnh, các bước, toạ độ trên màn hình, nội dung bạn muốn nhập, và — khi bạn ghi thao tác
-          hoặc bật “ưu tiên nhận diện theo element” — chữ hoặc mô tả của phần tử bạn đã chạm</td>
-        <td>Để chạy lại tập lệnh, và tìm lại đúng phần tử đó kể cả khi bố cục xê dịch</td></tr>
+        <td>Tên tập lệnh, các bước, toạ độ trên màn hình, nội dung bạn muốn dán hay tìm, các ứng dụng bạn
+          chọn để mở, và chữ bạn gõ trong lúc ghi thao tác</td>
+        <td>Để chạy lại tập lệnh</td></tr>
+      <tr><td>Lần chạm phím đã ghi</td>
+        <td>Với bước “Gõ ký tự”: vị trí trên bàn phím và nhịp của từng lần chạm phím, kích thước và vị trí
+          bàn phím, tên gói của ứng dụng bàn phím, và chữ đã nhận ra (để trống với ô mật khẩu — xem mục 1)</td>
+        <td>Để chạm lại đúng các phím đó và kiểm tra kết quả</td></tr>
       <tr><td>Ảnh mẫu</td>
-        <td>Bản thu nhỏ của ảnh bạn chọn bằng trình chọn ảnh của hệ thống cho các bước theo ảnh</td>
+        <td>Bản thu nhỏ của ảnh bạn chọn bằng trình chọn ảnh của hệ thống, hoặc vùng bạn tự cắt từ màn
+          hình (giữ nguyên độ phân giải)</td>
         <td>Để tìm ảnh đó trên màn hình</td></tr>
       <tr><td>Màu</td>
-        <td>Màu của đúng một điểm ảnh bạn chọn cho bước kiểm tra màu</td>
-        <td>Để chờ màu đó xuất hiện</td></tr>
+        <td>Màu của đúng một điểm ảnh bạn chọn cho bước hay điều kiện theo màu</td>
+        <td>Để chờ màu đó</td></tr>
       <tr><td>Lịch sử chạy</td>
         <td>200 lần chạy gần nhất: tên tập lệnh, giờ bắt đầu và kết thúc, cách lần chạy kết thúc</td>
         <td>Để bạn xem những gì đã chạy và có thành công không</td></tr>
@@ -111,6 +142,10 @@
     <div class="row"><strong>Danh sách ứng dụng mở được</strong>
       <span>Hiện các ứng dụng có biểu tượng trên máy để bạn chọn cho bước “Mở ứng dụng” hoặc làm ứng dụng
         đích khi ghi thao tác. Danh sách này không được lưu và không được gửi đi đâu.</span></div>
+    <div class="row"><strong>Ứng dụng điện thoại</strong>
+      <span>Khi tập lệnh bắt đầu, tìm những ứng dụng trên máy hiện màn hình cuộc gọi tới (ứng dụng Điện
+        thoại mặc định và ứng dụng gọi của hệ thống) để nhận ra thông báo cuộc gọi của chúng (mục 1). Chỉ
+        dùng tên gói của chúng và không lưu lại.</span></div>
     <div class="row"><strong>Bộ nhớ (chỉ Android 9 trở xuống)</strong>
       <span>Lưu tệp tập lệnh xuất ra vào thư mục Download khi bạn yêu cầu. Android mới hơn không cần quyền
         bộ nhớ cho việc này.</span></div>
@@ -122,11 +157,15 @@
   <h2>4. Những gì chúng tôi không thu thập</h2>
   <p>Ứng dụng không thu thập, không truyền đi, không bán và không chia sẻ bất kỳ dữ liệu cá nhân nào.
     Ứng dụng không có quyền Internet, không có tài khoản, không quảng cáo, không có SDK phân tích hay báo
-    lỗi, và không truy cập vị trí, danh bạ, camera, micro, tin nhắn hay nhật ký cuộc gọi.</p>
+    lỗi, và không truy cập vị trí, danh bạ, camera, micro, tin nhắn hay nhật ký cuộc gọi. Ứng dụng không
+    xin quyền đọc trạng thái điện thoại: việc dừng khi có cuộc gọi chỉ dựa vào cách xem thông báo ở mục
+    1, và không bao giờ biết ai đang gọi.</p>
 
   <h2>5. Chia sẻ tập lệnh</h2>
   <p>Tập lệnh chỉ rời khỏi điện thoại khi bạn chủ động xuất hoặc chia sẻ. Tệp <code>.autoscript</code>
-    xuất ra chứa các bước của tập lệnh và những ảnh mẫu nó dùng. Bạn là người chọn nơi nhận (thư mục
+    xuất ra chứa các bước của tập lệnh — kể cả các lần chạm phím đã ghi và chữ bạn gõ trong lúc ghi thao
+    tác — cùng những ảnh mẫu nó dùng. Hãy xem lại tập lệnh trước khi chia sẻ, và đừng bao giờ chia sẻ tập
+    lệnh có chứa mật khẩu hay nội dung riêng tư. Bạn là người chọn nơi nhận (thư mục
     Download, ứng dụng nhắn tin, email…), và chính sách quyền riêng tư của nơi đó sẽ được áp dụng. Nhập
     một tệp người khác gửi cho bạn thì ứng dụng chỉ đọc tệp đó.</p>
 

@@ -18,7 +18,7 @@
   </header>
 
   <h1>Privacy Policy</h1>
-  <p class="muted">Effective date: September 27, 2026</p>
+  <p class="muted">Effective date: October 4, 2026</p>
 
   <p>This policy explains how the Android app <strong>AutoGest</strong> handles your
     information.</p>
@@ -29,8 +29,12 @@
       <li>The app works fully offline. It does not request the Internet permission, so it cannot send
         anything to us or to anyone else.</li>
       <li>We have no servers, no accounts, no advertising and no analytics SDKs.</li>
-      <li>The Accessibility service only reads the screen and acts while a script <em>you</em> started is
-        running. Screen content is processed on your device and is not stored or shared.</li>
+      <li>The Accessibility service only reads the screen and acts while a script <em>you</em> started or
+        scheduled is running, while you record actions, or while you pick a point or crop an image on
+        screen. Screen content is processed on your device; only what you save into a script is kept,
+        and it is never sent to us.</li>
+      <li>When you record typing, every key tap is saved — including in password fields. Anyone who has
+        that script can tell what you typed, so do not share it (see section 1).</li>
       <li>Everything you create (scripts, images, schedules, run history) is kept in the app’s private
         storage on your phone and is removed when you uninstall the app.</li>
       <li><strong>Only install AutoGest from Google Play.</strong> “Mod” or “cracked” copies on other
@@ -46,22 +50,44 @@
     an in-app disclosure that explains what it does. When it is on, the app:</p>
   <ul>
     <li><strong>Reads the content shown on screen</strong> — text, content descriptions and positions of
-      elements in the app in front of you — to find where a step should tap, or to check a “text”
-      condition in your script.</li>
-    <li><strong>Takes screenshots</strong> (Android 11 and newer) only when your script contains an
-      image tap, image wait or color check step, to compare the screen with the image or color you
-      chose. Screenshots are held in memory only for the comparison and discarded immediately; they
-      are never saved to storage.</li>
+      elements in the app in front of you — to find text for a “Click text” step or a “text”
+      condition, and to know where the on-screen keyboard is. While you record typing, it reads the
+      text field you are typing into to recognize what you typed; while a “Type characters” step
+      runs, it reads that field again to check the typing came out right.</li>
+    <li><strong>Takes screenshots</strong> (Android 11 and newer) only when you pick a color on screen,
+      freeze the screen to pick a point or crop a template image, or when a script has an image or
+      color step or condition, to compare the screen with the image or color you chose. Screenshots
+      are held in memory only while matching or while you pick on the frozen screen, then discarded;
+      they are never saved to storage. The only part kept is an area you crop yourself as a template
+      image.</li>
     <li><strong>Performs actions on your behalf</strong> — tap, long press, swipe, scroll, type text,
-      press Back, Home, Recent apps and open the apps you picked — exactly as your script’s steps
-      say.</li>
-    <li><strong>Records your gestures</strong> when you use the recorder, so they can become script
-      steps. Nothing is added to a script until you review and accept it.</li>
+      tap keys on the on-screen keyboard, press Back, Home, Recent apps and open the apps you picked —
+      exactly as your script’s steps say.</li>
+    <li><strong>Records your touches</strong> when you use the recorder, or when you record keys for a
+      “Type characters” step, so they can become script steps. Nothing is added to a script until you
+      review and accept it.</li>
+    <li><strong>Checks whether a new notification is an incoming call</strong>, only while a script is
+      running and only if “Stop on incoming call” is on (it is on by default), so the script can stop
+      and leave the phone to you. It looks only at which app posted the notification, its category
+      (for example “call”) and its layout style — never at the caller, the text or anything else in the
+      notification. It also checks whether the phone is ringing. Nothing about calls is stored.</li>
   </ul>
-  <p>The service does not read the screen, take screenshots or act when no script is running and you
-    are not recording. We do not use the Accessibility service to collect personal or sensitive data,
-    to read passwords, to change your settings behind your back, or for advertising. You can turn it
-    off at any time in <em>Settings &gt; Accessibility</em>.</p>
+
+  <h3>Typing and password fields</h3>
+  <p>When you record real touches and type on the on-screen keyboard, the app saves each key tap: where
+    on the keyboard you tapped, the timing between taps, the size and position of the keyboard and the
+    package name of your keyboard app. It also saves the text it recognized, so you can check it.</p>
+  <p>In a <strong>password field</strong> the app does not save the characters, but it still saves every
+    key tap. Replaying those taps types the same password, and anyone who has the script can work out
+    what you typed from them. The review screen and the step card warn you when this happens. Do not
+    record passwords you would not want someone else to have, and do not share or export a script that
+    contains them.</p>
+
+  <p>The service does not read the screen, take screenshots or act at any other time: not when no
+    script is running, you are not recording and you are not picking on screen. We do not use the
+    Accessibility service to collect personal or sensitive data, to change your settings behind your
+    back, or for advertising, and we never receive anything it reads. You can turn it off at any time
+    in <em>Settings &gt; Accessibility</em>.</p>
 
   <h2>2. Information stored on your device</h2>
   <p>The following is saved only in the app’s private storage on your phone. We never receive a copy.</p>
@@ -70,14 +96,20 @@
     <thead><tr><th>Data</th><th>What it contains</th><th>Why</th></tr></thead>
     <tbody>
       <tr><td>Scripts</td>
-        <td>Script names, steps, screen coordinates, text you want typed, and — when you record or enable
-          “prefer element matching” — the text or content description of the element you tapped</td>
-        <td>To replay your automation, and to find the same element again even if the layout moves</td></tr>
+        <td>Script names, steps, screen coordinates, text you want pasted or searched for, the apps you
+          picked to open, and text you typed while recording</td>
+        <td>To replay your automation</td></tr>
+      <tr><td>Recorded key taps</td>
+        <td>For “Type characters” steps: each key tap’s position on the keyboard and timing, the keyboard’s
+          size and position, your keyboard app’s package name, and the recognized text (left empty for
+          password fields — see section 1)</td>
+        <td>To tap the same keys again, and to check the result</td></tr>
       <tr><td>Template images</td>
-        <td>A downscaled copy of images you pick with the system photo picker for image steps</td>
+        <td>A downscaled copy of images you pick with the system photo picker, or an area you crop from
+          the screen yourself (kept at full resolution)</td>
         <td>To find that image on screen</td></tr>
       <tr><td>Colors</td>
-        <td>The color of the single pixel you pick for a color check step</td>
+        <td>The color of the single pixel you pick for a color step or condition</td>
         <td>To wait for that color</td></tr>
       <tr><td>Run history</td>
         <td>The last 200 runs: script name, start and end time, how the run ended</td>
@@ -115,6 +147,10 @@
     <div class="row"><strong>List of launchable apps</strong>
       <span>Shows the apps installed on your phone that have a launcher icon so you can pick one for an
         “Open app” step or as the recording target. This list is not stored or sent anywhere.</span></div>
+    <div class="row"><strong>Phone apps</strong>
+      <span>When a script starts, finds which apps on your phone show the incoming-call screen (your
+        default Phone app and system call apps), so a call notification from them can be recognized
+        (section 1). Only their package names are used, and they are not stored.</span></div>
     <div class="row"><strong>Storage (Android 9 and older only)</strong>
       <span>Saves an exported script file to the Downloads folder when you ask for it. Newer Android
         versions need no storage permission for this.</span></div>
@@ -126,11 +162,15 @@
   <h2>4. What we do not collect</h2>
   <p>The app does not collect, transmit, sell or share any personal data. It has no Internet
     permission, no user accounts, no advertising, no analytics or crash-reporting SDKs, and does not
-    access your location, contacts, camera, microphone, SMS or call log.</p>
+    access your location, contacts, camera, microphone, SMS or call log. It does not request the phone
+    state permission: stopping on an incoming call works only from the notification check described in
+    section 1, and never learns who is calling.</p>
 
   <h2>5. Sharing a script</h2>
   <p>A script leaves your phone only when you choose to export or share it. The exported
-    <code>.autoscript</code> file contains the script’s steps and any template images it uses. You pick
+    <code>.autoscript</code> file contains the script’s steps — including recorded key taps and text you
+    typed while recording — and any template images it uses. Check a script before you share it, and
+    never share one that contains a password or other private text. You pick
     where it goes (Downloads folder, a messaging app, email…), and that destination’s own privacy
     policy applies. Importing a file someone sent you only reads that file.</p>
 

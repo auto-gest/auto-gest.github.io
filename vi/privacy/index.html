@@ -18,7 +18,7 @@
   </header>
 
   <h1>Chính sách quyền riêng tư</h1>
-  <p class="muted">Có hiệu lực từ ngày 04/10/2026</p>
+  <p class="muted">Có hiệu lực từ ngày 06/10/2026</p>
 
   <p>Chính sách này giải thích cách ứng dụng Android <strong>AutoGest</strong> xử lý thông tin
     của bạn.</p>
@@ -35,10 +35,13 @@
         bao giờ được gửi cho chúng tôi.</li>
       <li>Khi bạn ghi lại thao tác gõ phím, mọi lần chạm phím đều được lưu — kể cả trong ô mật khẩu. Ai có
         tập lệnh đó cũng có thể biết bạn đã gõ gì, nên đừng chia sẻ nó (xem mục 1).</li>
+      <li>Bước “Chờ và nhận diện thông báo” (nếu bạn dùng) đọc thông báo của đúng ứng dụng bạn chọn, chỉ
+        trong lúc tập lệnh có bước đó đang chạy, để đọc to số tiền. Thông báo không được lưu lại hay gửi đi
+        (xem mục 2).</li>
       <li>Mọi thứ bạn tạo (tập lệnh, ảnh mẫu, lịch chạy, lịch sử chạy) nằm trong bộ nhớ riêng của ứng
         dụng trên điện thoại và bị xoá khi bạn gỡ ứng dụng.</li>
       <li><strong>Chỉ cài AutoGest từ Google Play.</strong> Các bản “mod”, “crack” trên trang web khác không
-        do chúng tôi làm và có thể lợi dụng quyền Trợ năng để đánh cắp dữ liệu của bạn (xem mục 8).</li>
+        do chúng tôi làm và có thể lợi dụng quyền Trợ năng để đánh cắp dữ liệu của bạn (xem mục 9).</li>
     </ul>
   </div>
 
@@ -85,7 +88,29 @@
     đích quảng cáo, và chúng tôi không bao giờ nhận được thứ gì dịch vụ đọc. Bạn có thể tắt dịch vụ bất
     cứ lúc nào trong <em>Cài đặt &gt; Hỗ trợ tiếp cận (Trợ năng)</em>.</p>
 
-  <h2>2. Thông tin lưu trên máy của bạn</h2>
+  <h2>2. Quyền Truy cập thông báo (NotificationListenerService)</h2>
+  <p>Quyền này chỉ cần cho bước <strong>“Chờ và nhận diện thông báo”</strong> (gói Pro), dùng để chờ tin
+    biến động số dư của ngân hàng rồi đọc to số tiền — ví dụ làm loa báo tiền về cho cửa hàng. Ứng dụng
+    chỉ xin quyền này khi bạn thêm bước đó, sau một bản công bố riêng trong ứng dụng, và bạn tự bật nó
+    trong <em>Cài đặt &gt; Truy cập thông báo</em>. Không dùng bước này thì không cần bật. Khi được bật:</p>
+  <ul>
+    <li><strong>Đọc thông báo của ứng dụng bạn chọn.</strong> Android chuyển mọi thông báo cho ứng dụng có
+      quyền này, nhưng AutoGest chỉ đọc chữ (tiêu đề và nội dung) trong thông báo của đúng ứng dụng bạn
+      chọn cho bước (như ứng dụng ngân hàng hay Tin nhắn), và chỉ trong lúc tập lệnh có bước đó đang
+      chạy, để tìm số tiền, số dư và nội dung chuyển khoản. Thông báo của ứng dụng khác, hay đến lúc không
+      có tập lệnh nào như vậy chạy, bị bỏ qua ngay.</li>
+    <li><strong>Chọn thông báo mẫu.</strong> Lúc bạn chọn mẫu, các thông báo có số tiền đang có trên máy
+      được hiện ra để bạn chọn một tin rồi chạm vào số tiền. Tập lệnh chỉ lưu tên ứng dụng và các
+      <em>nhãn</em> đứng trước số tiền, số dư, nội dung (như “PS:”, “SD:”, “ND:”) — không lưu số tài
+      khoản, số tiền, số dư, tên người chuyển hay bất kỳ nội dung nào khác của tin.</li>
+    <li><strong>Đọc to.</strong> Số tiền (cùng số dư và nội dung nếu bạn bật) được đọc bằng bộ chuyển văn
+      bản thành giọng nói cài trên máy (của Google, Samsung…), chạy ngay trên thiết bị.</li>
+  </ul>
+  <p>Thông báo chỉ nằm trong bộ nhớ tạm của ứng dụng cho tới khi được đọc rồi bị bỏ: không thông báo nào
+    được ghi xuống bộ nhớ máy, vào lịch sử chạy hay nhật ký, và không gì được gửi đi. Bạn có thể tắt
+    quyền này bất cứ lúc nào trong <em>Cài đặt &gt; Truy cập thông báo</em>.</p>
+
+  <h2>3. Thông tin lưu trên máy của bạn</h2>
   <p>Những dữ liệu dưới đây chỉ nằm trong bộ nhớ riêng của ứng dụng trên điện thoại. Chúng tôi không
     bao giờ nhận được bản sao nào.</p>
   <div class="table-wrap">
@@ -107,6 +132,10 @@
       <tr><td>Màu</td>
         <td>Màu của đúng một điểm ảnh bạn chọn cho bước hay điều kiện theo màu</td>
         <td>Để chờ màu đó</td></tr>
+      <tr><td>Mẫu thông báo</td>
+        <td>Với bước “Chờ và nhận diện thông báo”: tên gói và tên ứng dụng bạn chọn, các nhãn đứng trước số
+          tiền, số dư, nội dung, và các tuỳ chọn đọc (không có nội dung của tin nào — xem mục 2)</td>
+        <td>Để nhận ra và đọc to các tin sau cùng khuôn</td></tr>
       <tr><td>Lịch sử chạy</td>
         <td>200 lần chạy gần nhất: tên tập lệnh, giờ bắt đầu và kết thúc, cách lần chạy kết thúc</td>
         <td>Để bạn xem những gì đã chạy và có thành công không</td></tr>
@@ -114,7 +143,7 @@
         <td>Tập lệnh, giờ trong ngày và các ngày trong tuần bạn chọn</td>
         <td>Để bắt đầu tập lệnh đúng giờ bạn đặt</td></tr>
       <tr><td>Cài đặt và sự đồng ý</td>
-        <td>Các tuỳ chọn của bạn, cùng phiên bản và thời điểm bạn đồng ý bản công bố Trợ năng</td>
+        <td>Các tuỳ chọn của bạn, cùng phiên bản và thời điểm bạn đồng ý bản công bố Trợ năng và bản công bố Truy cập thông báo</td>
         <td>Để nhớ lựa chọn của bạn và hỏi lại nếu bản công bố thay đổi</td></tr>
       <tr><td>Gói AutoGest Pro</td>
         <td>Tài khoản Google Play trên máy có sở hữu gói Pro hay không, và thời điểm Google Play xác nhận
@@ -124,10 +153,12 @@
   </table>
   </div>
 
-  <h2>3. Các quyền và mục đích sử dụng</h2>
+  <h2>4. Các quyền và mục đích sử dụng</h2>
   <div class="card">
     <div class="row"><strong>Dịch vụ Trợ năng</strong>
       <span>Xem mục 1.</span></div>
+    <div class="row"><strong>Truy cập thông báo</strong>
+      <span>Xem mục 2. Chỉ cần khi bạn dùng bước “Chờ và nhận diện thông báo”.</span></div>
     <div class="row"><strong>Hiển thị trên các ứng dụng khác</strong>
       <span>Hiện bong bóng điều khiển nổi, banner tiến độ khi chạy, lớp phủ ghi thao tác và chọn toạ độ
         đè lên ứng dụng khác.</span></div>
@@ -154,39 +185,40 @@
     dụng không bao giờ vượt qua mã PIN, hình vẽ, mật khẩu hay khoá sinh trắc học; khi đó lần chạy bị bỏ
     qua và bạn nhận được thông báo.</p>
 
-  <h2>4. Những gì chúng tôi không thu thập</h2>
+  <h2>5. Những gì chúng tôi không thu thập</h2>
   <p>Ứng dụng không thu thập, không truyền đi, không bán và không chia sẻ bất kỳ dữ liệu cá nhân nào.
     Ứng dụng không có quyền Internet, không có tài khoản, không quảng cáo, không có SDK phân tích hay báo
-    lỗi, và không truy cập vị trí, danh bạ, camera, micro, tin nhắn hay nhật ký cuộc gọi. Ứng dụng không
+    lỗi, và không truy cập vị trí, danh bạ, camera hay micro. Ứng dụng không xin quyền đọc tin nhắn SMS hay nhật ký cuộc gọi; bước “Chờ và nhận diện thông báo” chỉ đọc thông báo của ứng dụng bạn chọn như ở mục 2. Ứng dụng không
     xin quyền đọc trạng thái điện thoại: việc dừng khi có cuộc gọi chỉ dựa vào cách xem thông báo ở mục
     1, và không bao giờ biết ai đang gọi.</p>
 
-  <h2>5. Chia sẻ tập lệnh</h2>
+  <h2>6. Chia sẻ tập lệnh</h2>
   <p>Tập lệnh chỉ rời khỏi điện thoại khi bạn chủ động xuất hoặc chia sẻ. Tệp <code>.autoscript</code>
     xuất ra chứa các bước của tập lệnh — kể cả các lần chạm phím đã ghi và chữ bạn gõ trong lúc ghi thao
     tác — cùng những ảnh mẫu nó dùng. Hãy xem lại tập lệnh trước khi chia sẻ, và đừng bao giờ chia sẻ tập
     lệnh có chứa mật khẩu hay nội dung riêng tư. Bạn là người chọn nơi nhận (thư mục
     Download, ứng dụng nhắn tin, email…), và chính sách quyền riêng tư của nơi đó sẽ được áp dụng. Nhập
-    một tệp người khác gửi cho bạn thì ứng dụng chỉ đọc tệp đó.</p>
+    một tệp người khác gửi cho bạn thì ứng dụng chỉ đọc tệp đó. Bước “Chờ và nhận diện thông báo” chỉ mang
+    theo tên ứng dụng và các nhãn của mẫu, không mang nội dung tin nhắn nào.</p>
 
-  <h2>6. Google Play</h2>
+  <h2>7. Google Play</h2>
   <p>Ứng dụng được phân phối qua Google Play. Tuỳ cài đặt trên máy, Google có thể thu thập báo cáo sự
     cố và hiệu năng (Android vitals) rồi cung cấp số liệu tổng hợp cho chúng tôi qua Play Console.</p>
   <p>Gói AutoGest Pro được bán dưới dạng mua hàng trong ứng dụng qua Google Play Billing. Việc thanh toán
     do Google Play xử lý hoàn toàn; chúng tôi không bao giờ thấy thông tin thanh toán của bạn. Ứng dụng
     chỉ nhận từ Google Play một bản ghi có chữ ký cho biết tài khoản của bạn có sở hữu gói Pro hay không,
-    tự kiểm tra bản ghi đó ngay trên máy và lưu kết quả trên máy (mục 2). Gói gắn với tài khoản Google,
+    tự kiểm tra bản ghi đó ngay trên máy và lưu kết quả trên máy (mục 3). Gói gắn với tài khoản Google,
     nên cài lại ứng dụng từ Google Play hoặc đổi máy cùng tài khoản thì gói được khôi phục miễn phí.</p>
   <p>Việc xử lý của Google tuân theo
     <a href="https://policies.google.com/privacy?hl=vi" rel="noopener">Chính sách quyền riêng tư của Google</a>.</p>
 
-  <h2>7. Lưu giữ và xoá dữ liệu</h2>
+  <h2>8. Lưu giữ và xoá dữ liệu</h2>
   <p>Dữ liệu ở trên máy cho tới khi bạn xoá. Bạn có thể xoá tập lệnh, lịch chạy và lịch sử ngay trong
     ứng dụng, xoá toàn bộ bằng <em>Cài đặt &gt; Ứng dụng &gt; AutoGest &gt; Bộ nhớ &gt; Xoá dữ
     liệu</em>, hoặc gỡ ứng dụng. Vì chúng tôi không giữ bản sao nào nên phía chúng tôi không có gì cần
     xoá.</p>
 
-  <h2>8. Bảo mật</h2>
+  <h2>9. Bảo mật</h2>
   <p>Dữ liệu nằm trong bộ nhớ riêng của ứng dụng, được Android cách ly khỏi các ứng dụng khác. Ứng dụng
     không có quyền truy cập mạng nên không thể làm lộ dữ liệu của bạn qua Internet.</p>
   <p><strong>Chỉ cài AutoGest từ Google Play.</strong> Chúng tôi không phát hành ứng dụng ở bất kỳ nơi
@@ -196,16 +228,16 @@
     chạm, tự nhập chữ thay bạn, và gửi dữ liệu đó ra ngoài. Nếu bạn đã cài AutoGest từ nơi khác Google
     Play, hãy tắt Trợ năng của nó, gỡ ứng dụng rồi cài lại từ Google Play.</p>
 
-  <h2>9. Trẻ em</h2>
+  <h2>10. Trẻ em</h2>
   <p>Ứng dụng không hướng tới trẻ em dưới 13 tuổi và không cố ý thu thập thông tin của bất kỳ ai, kể cả
     trẻ em.</p>
 
-  <h2>10. Thay đổi chính sách</h2>
+  <h2>11. Thay đổi chính sách</h2>
   <p>Chúng tôi có thể cập nhật chính sách này khi ứng dụng thay đổi; ngày hiệu lực ở đầu trang sẽ đổi
-    theo. Nếu dịch vụ Trợ năng bắt đầu đọc thêm loại dữ liệu mới, ứng dụng sẽ hiện lại bản công bố và hỏi
-    lại sự đồng ý của bạn trước khi tiếp tục.</p>
+    theo. Nếu dịch vụ Trợ năng hay bước “Chờ và nhận diện thông báo” bắt đầu đọc thêm loại dữ liệu mới,
+    ứng dụng sẽ hiện lại bản công bố tương ứng và hỏi lại sự đồng ý của bạn trước khi tiếp tục.</p>
 
-  <h2>11. Liên hệ</h2>
+  <h2>12. Liên hệ</h2>
   <p>Câu hỏi hoặc yêu cầu về chính sách này:
     <a href="mailto:dothanh1807@gmail.com">dothanh1807@gmail.com</a></p>
 

@@ -18,7 +18,7 @@
   </header>
 
   <h1>Privacy Policy</h1>
-  <p class="muted">Effective date: October 4, 2026</p>
+  <p class="muted">Effective date: October 6, 2026</p>
 
   <p>This policy explains how the Android app <strong>AutoGest</strong> handles your
     information.</p>
@@ -35,11 +35,14 @@
         and it is never sent to us.</li>
       <li>When you record typing, every key tap is saved — including in password fields. Anyone who has
         that script can tell what you typed, so do not share it (see section 1).</li>
+      <li>The “Wait &amp; detect notification” action (if you use it) reads notifications from the one app
+        you choose, only while a script with that action is running, to read the amount aloud.
+        Notifications are not saved or sent anywhere (see section 2).</li>
       <li>Everything you create (scripts, images, schedules, run history) is kept in the app’s private
         storage on your phone and is removed when you uninstall the app.</li>
       <li><strong>Only install AutoGest from Google Play.</strong> “Mod” or “cracked” copies on other
         websites are not made by us and can misuse Accessibility access to steal your data (see
-        section 8).</li>
+        section 9).</li>
     </ul>
   </div>
 
@@ -89,7 +92,30 @@
     back, or for advertising, and we never receive anything it reads. You can turn it off at any time
     in <em>Settings &gt; Accessibility</em>.</p>
 
-  <h2>2. Information stored on your device</h2>
+  <h2>2. Notification access (NotificationListenerService)</h2>
+  <p>This access is only needed for the <strong>“Wait &amp; detect notification”</strong> action (Pro),
+    which waits for balance alerts from your bank and reads the amount aloud — for example as a payment
+    speaker in your shop. The app only asks for it when you add that action, after a separate in-app
+    disclosure, and you turn it on yourself in <em>Settings &gt; Notification access</em>. If you do not
+    use the action, you do not need it. When it is on:</p>
+  <ul>
+    <li><strong>Reading notifications from the app you choose.</strong> Android passes every notification
+      to an app with this access, but AutoGest only reads the text (title and body) of notifications from
+      the app you picked for the action (such as your bank or Messages app), and only while a script with
+      that action is running, to find the amount, balance and transfer note. Notifications from other
+      apps, or that arrive when no such script is running, are ignored immediately.</li>
+    <li><strong>Picking a sample.</strong> While you pick a sample, the notifications on your phone that
+      contain an amount are shown so you can choose one and tap the amount. The script stores only the
+      app name and the <em>labels</em> in front of the amount, balance and note (such as “PS:”, “SD:”,
+      “ND:”) — never account numbers, amounts, balances, sender names or any other text of the alert.</li>
+    <li><strong>Reading aloud.</strong> The amount (and the balance and note, if you turn them on) is
+      spoken by the text-to-speech engine installed on your phone (Google, Samsung…), on the device.</li>
+  </ul>
+  <p>A notification is kept only in the app’s temporary memory until it has been read, then discarded: no
+    notification is written to storage, the run history or logs, and nothing is sent anywhere. You can
+    turn this access off at any time in <em>Settings &gt; Notification access</em>.</p>
+
+  <h2>3. Information stored on your device</h2>
   <p>The following is saved only in the app’s private storage on your phone. We never receive a copy.</p>
   <div class="table-wrap">
   <table>
@@ -117,8 +143,13 @@
       <tr><td>Schedules</td>
         <td>Script, time of day and days of the week you chose</td>
         <td>To start scripts at the time you set</td></tr>
+      <tr><td>Notification sample</td>
+        <td>For the “Wait &amp; detect notification” action: the package and name of the app you chose, the
+          labels in front of the amount, balance and note, and your reading options (no text of any alert —
+          see section 2)</td>
+        <td>To recognise and read aloud later alerts in the same format</td></tr>
       <tr><td>Settings and consent</td>
-        <td>Your preferences, and the version and time you agreed to the Accessibility disclosure</td>
+        <td>Your preferences, and the version and time you agreed to the Accessibility disclosure and the notification access disclosure</td>
         <td>To remember your choices and show the disclosure again if it changes</td></tr>
       <tr><td>AutoGest Pro</td>
         <td>Whether the Google Play account on the phone owns Pro, and when Google Play last confirmed
@@ -129,10 +160,13 @@
   </table>
   </div>
 
-  <h2>3. Permissions and how they are used</h2>
+  <h2>4. Permissions and how they are used</h2>
   <div class="card">
     <div class="row"><strong>Accessibility service</strong>
       <span>Described in section 1.</span></div>
+    <div class="row"><strong>Notification access</strong>
+      <span>Described in section 2. Only needed if you use the “Wait &amp; detect notification”
+        action.</span></div>
     <div class="row"><strong>Display over other apps</strong>
       <span>Shows the floating control bubble, the run progress banner and the recorder / coordinate
         picker overlays on top of other apps.</span></div>
@@ -159,40 +193,43 @@
     (swipe). It never bypasses a PIN, pattern, password or biometric lock; in that case the run is
     skipped and you get a notification instead.</p>
 
-  <h2>4. What we do not collect</h2>
+  <h2>5. What we do not collect</h2>
   <p>The app does not collect, transmit, sell or share any personal data. It has no Internet
     permission, no user accounts, no advertising, no analytics or crash-reporting SDKs, and does not
-    access your location, contacts, camera, microphone, SMS or call log. It does not request the phone
+    access your location, contacts, camera or microphone. It does not request permission to read SMS or
+    the call log; the “Wait &amp; detect notification” action only reads notifications from the app you
+    choose, as described in section 2. It does not request the phone
     state permission: stopping on an incoming call works only from the notification check described in
     section 1, and never learns who is calling.</p>
 
-  <h2>5. Sharing a script</h2>
+  <h2>6. Sharing a script</h2>
   <p>A script leaves your phone only when you choose to export or share it. The exported
     <code>.autoscript</code> file contains the script’s steps — including recorded key taps and text you
     typed while recording — and any template images it uses. Check a script before you share it, and
     never share one that contains a password or other private text. You pick
     where it goes (Downloads folder, a messaging app, email…), and that destination’s own privacy
-    policy applies. Importing a file someone sent you only reads that file.</p>
+    policy applies. Importing a file someone sent you only reads that file. A “Wait &amp; detect
+    notification” action only carries the app name and the sample’s labels, never the text of an alert.</p>
 
-  <h2>6. Google Play</h2>
+  <h2>7. Google Play</h2>
   <p>The app is distributed through Google Play. Depending on your device settings, Google may collect
     crash and performance reports (Android vitals) and share aggregated statistics with us through the
     Play Console.</p>
   <p>AutoGest Pro is sold as an in-app purchase through Google Play Billing. Payment is handled entirely
     by Google Play; we never see your payment details. The app only receives from Google Play a signed
     record of whether your account owns Pro, checks it on your device and keeps the result there
-    (section 2). Pro belongs to your Google account, so reinstalling from Google Play or moving to a new
+    (section 3). Pro belongs to your Google account, so reinstalling from Google Play or moving to a new
     phone with the same account restores it for free.</p>
   <p>Google’s processing is covered by
     <a href="https://policies.google.com/privacy" rel="noopener">Google’s Privacy Policy</a>.</p>
 
-  <h2>7. Retention and deletion</h2>
+  <h2>8. Retention and deletion</h2>
   <p>Data stays on your phone until you delete it. You can delete scripts, schedules and history inside
     the app, clear everything with <em>Settings &gt; Apps &gt; AutoGest &gt; Storage &gt;
     Clear data</em>, or uninstall the app. Because we hold no copy of your data, there is nothing for us
     to delete on our side.</p>
 
-  <h2>8. Security</h2>
+  <h2>9. Security</h2>
   <p>Your data is kept in the app’s private storage, which Android isolates from other apps. The app
     has no network access, so it cannot leak your data over the Internet.</p>
   <p><strong>Only install AutoGest from Google Play.</strong> We do not publish the app anywhere else.
@@ -203,16 +240,16 @@
     Google Play, turn off its Accessibility service, uninstall it and install it again from Google
     Play.</p>
 
-  <h2>9. Children</h2>
+  <h2>10. Children</h2>
   <p>The app is not directed at children under 13 and does not knowingly collect information from
     anyone, including children.</p>
 
-  <h2>10. Changes to this policy</h2>
+  <h2>11. Changes to this policy</h2>
   <p>We may update this policy when the app changes. The effective date above will change with each
-    update. If the Accessibility service starts reading new kinds of data, the app will show the
-    disclosure again and ask for your consent before continuing.</p>
+    update. If the Accessibility service or the “Wait &amp; detect notification” action starts reading new
+    kinds of data, the app will show the matching disclosure again and ask for your consent before continuing.</p>
 
-  <h2>11. Contact</h2>
+  <h2>12. Contact</h2>
   <p>Questions or requests about this policy:
     <a href="mailto:dothanh1807@gmail.com">dothanh1807@gmail.com</a></p>
 

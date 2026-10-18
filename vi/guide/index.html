@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hướng dẫn sử dụng – AutoGest</title>
+  <meta name="description" content="Hướng dẫn từng hành động trong AutoGest bằng video quay trên máy thật: Click, vuốt, chờ ảnh, khối Nếu… thì và hơn thế nữa.">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="icon" type="image/png" href="../../icon.png">
+  <link rel="apple-touch-icon" href="../../icon.png">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="../"><img class="brand-mark" src="../../icon.png" alt="" width="36" height="36">AutoGest</a>
+    <a class="lang" href="../">Trang chủ</a>
+  </header>
+
+  <h1>Hướng dẫn sử dụng</h1>
+  <p class="muted">Mỗi hành động có một đoạn video quay trên điện thoại thật. Chỗ được chạm sẽ sáng lên
+    để bạn dễ theo dõi.</p>
+
+  <ul class="legend">
+    <li><span class="dot user"></span>Bạn chạm</li>
+    <li><span class="dot auto"></span>AutoGest tự chạm khi chạy tập lệnh</li>
+  </ul>
+
+  <nav class="chips" aria-label="Nhóm hành động">
+    <a href="#cham">Chạm và cử chỉ</a>
+    <a href="#cho">Chờ và nhận diện</a>
+    <a href="#he-thong">Hệ thống</a>
+    <a href="#luong">Luồng tập lệnh</a>
+  </nav>
+
+  <p class="label" id="cham">Chạm và cử chỉ</p>
+  <div class="action-grid">
+    <a class="action" href="#click"><strong>Click</strong><span>Chạm 1 lần tại toạ độ</span><div class="state">▶ Xem video</div></a>
+    <div class="action"><strong>Click liên tục</strong><span>Chạm thật nhanh nhiều lần tại một toạ độ</span><div class="state">Sắp có</div></div>
+    <div class="action"><strong>Long click</strong><span>Giữ tại toạ độ</span><div class="state">Sắp có</div></div>
+    <div class="action"><strong>Vuốt</strong><span>Kéo từ điểm A đến điểm B</span><div class="state">Sắp có</div></div>
+    <div class="action"><strong>Cuộn</strong><span>Cuộn theo hướng, không cần toạ độ</span><div class="state">Sắp có</div></div>
+    <div class="action"><strong>Dán văn bản</strong><span>Dán cả đoạn chữ vào ô nhập</span><div class="state">Sắp có</div></div>
+    <div class="action"><strong>Gõ ký tự <span class="badge">PRO</span></strong><span>Chạm từng phím như người gõ</span><div class="state">Sắp có</div></div>
+  </div>
+
+  <p class="label" id="cho">Chờ và nhận diện</p>
+  <div class="action-grid">
+    <div class="action"><strong>Chờ</strong><span>Tạm dừng trước khi sang bước kế</span><div class="state">Sắp có</div></div>
+    <div class="action"><strong>Chờ ảnh <span class="badge">PRO</span></strong><span>Chờ ảnh hiện ra hoặc biến mất, không chạm</span><div class="state">Sắp có</div></div>
+    <div class="action"><strong>Chờ màu <span class="badge">PRO</span></strong><span>Chờ một điểm đổi sang màu đã chọn</span><div class="state">Sắp có</div></div>
+    <div class="action"><strong>Click ảnh <span class="badge">PRO</span></strong><span>Tìm ảnh mẫu trên màn hình rồi chạm</span><div class="state">Sắp có</div></div>
+    <div class="action"><strong>Click chữ</strong><span>Tìm chữ rồi chạm · không dùng cho game</span><div class="state">Sắp có</div></div>
+    <div class="action"><strong>Click Node <span class="badge">PRO</span></strong><span>Chụp màn hình, chọn node rồi chạm · không dùng cho game</span><div class="state">Sắp có</div></div>
+    <div class="action"><strong>Chờ và nhận diện thông báo <span class="badge">PRO</span></strong><span>Chờ thông báo có chữ bạn chọn hoặc tin biến động số dư, rồi đọc to hay chạy tiếp</span><div class="state">Sắp có</div></div>
+  </div>
+
+  <p class="label" id="he-thong">Hệ thống</p>
+  <div class="action-grid">
+    <div class="action"><strong>Mở ứng dụng</strong><span>Mở ứng dụng rồi chờ nó hiện lên</span><div class="state">Sắp có</div></div>
+    <div class="action"><strong>Quay lại</strong><span>Nhấn phím Quay lại của hệ thống</span><div class="state">Sắp có</div></div>
+    <div class="action"><strong>Màn hình chính</strong><span>Về màn hình chính của máy</span><div class="state">Sắp có</div></div>
+    <div class="action"><strong>Ứng dụng gần đây</strong><span>Mở danh sách ứng dụng gần đây</span><div class="state">Sắp có</div></div>
+  </div>
+
+  <p class="label" id="luong">Luồng tập lệnh</p>
+  <div class="action-grid">
+    <div class="action"><strong>Nếu… thì <span class="badge">PRO</span></strong><span>Kiểm tra màn hình rồi rẽ sang một trong hai nhánh</span><div class="state">Sắp có</div></div>
+    <div class="action"><strong>Lặp tới khi <span class="badge">PRO</span></strong><span>Chạy lại các bước bên trong tới khi điều kiện đúng</span><div class="state">Sắp có</div></div>
+    <div class="action"><strong>Gọi tập lệnh <span class="badge">PRO</span></strong><span>Chạy lại một tập lệnh khác rồi quay về</span><div class="state">Sắp có</div></div>
+  </div>
+
+  <section class="guide" id="click">
+    <h2>Click — chạm 1 lần tại một toạ độ</h2>
+    <p class="muted">Hành động cơ bản nhất: AutoGest chạm đúng một điểm bạn đã chọn trên màn hình.
+      Ví dụ dưới đây dạy AutoGest bấm phím 7 trong ứng dụng Máy tính.</p>
+
+    <div class="guide-body">
+      <figure class="phone">
+        <img src="../../media/guide/click.vi.webp" width="480" height="1058" loading="lazy"
+          alt="Video: tạo tập lệnh mới, thêm hành động Click, chọn toạ độ phím 7 trong Máy tính, rồi chạy thử để AutoGest tự bấm phím 7.">
+        <figcaption>Quay trên Samsung Galaxy A17 · 30 giây</figcaption>
+      </figure>
+
+      <div>
+        <ol class="steps">
+          <li>Ở tab <strong>Tập lệnh</strong>, bấm nút <strong>+</strong> để tạo tập lệnh mới.</li>
+          <li>Bấm <strong>Thêm hành động</strong> rồi chọn <strong>Click</strong>.</li>
+          <li>Trên thẻ Click, bấm <strong>Thêm tọa độ</strong>. Tâm ngắm và bảng điều khiển hiện lên nổi
+            trên màn hình.</li>
+          <li>Mở ứng dụng bạn muốn AutoGest bấm vào — tâm ngắm vẫn nổi ở trên.</li>
+          <li>Kéo tâm ngắm tới đúng điểm cần chạm. Dùng các mũi tên để dời từng chút, hoặc nút bông tuyết
+            để giữ yên màn hình rồi phóng to.</li>
+          <li>Bấm <strong>OK</strong>. Quay lại AutoGest, thẻ Click đã có toạ độ.</li>
+          <li>Bấm <strong>▶ Chạy thử</strong> rồi chuyển sang ứng dụng đích. Sau 3 giây đếm ngược,
+            AutoGest tự chạm vào điểm bạn đã chọn.</li>
+          <li>Bấm <strong>Lưu</strong> để giữ tập lệnh.</li>
+        </ol>
+
+        <div class="callout">
+          <strong>Mẹo</strong>
+          <ul>
+            <li>Toạ độ được quy đổi theo kích thước màn hình, nên tập lệnh vẫn chạm đúng chỗ khi mở trên
+              máy có màn hình khác.</li>
+            <li>Ở thẻ <strong>Cấu hình chung</strong>, bạn đặt khoảng nghỉ giữa các bước và độ lệch chạm để
+              thao tác tự nhiên như người thật.</li>
+            <li>Nút đổi chỗ theo từng lần mở? Dùng <strong>Click ảnh</strong> hoặc <strong>Click chữ</strong>
+              để AutoGest tự tìm nút trước khi chạm.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2026 Nguyễn Đỗ Thanh · <a href="../">Trang chủ</a> ·
+    <a href="../privacy/">Chính sách quyền riêng tư</a></footer>
+</div>
+</body>
+</html>

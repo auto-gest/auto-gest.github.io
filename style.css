@@ -207,7 +207,7 @@ footer {
   text-decoration: none;
 }
 
-a.action { border-color: var(--primary); }
+a.action:hover { border-color: var(--primary); }
 
 .action strong { display: flex; align-items: center; gap: 6px; }
 
@@ -244,7 +244,7 @@ a.action .state { color: var(--primary); }
   align-items: start;
 }
 
-/* Khung điện thoại bao quanh video; video quay ở tỉ lệ 480×1058. */
+/* Khung điện thoại bao quanh video; video xuất ở 480×1100. */
 .phone {
   margin: 0;
   position: sticky;
@@ -255,7 +255,7 @@ a.action .state { color: var(--primary); }
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 480 / 1058;
+  aspect-ratio: 480 / 1100;
   border-radius: 28px;
   border: 6px solid #1A1A1F;
   background: #000;
@@ -324,3 +324,13 @@ a.action .state { color: var(--primary); }
   .guide-body { grid-template-columns: 1fr; }
   .phone { position: static; max-width: 280px; margin: 0 auto; }
 }
+
+.result {
+  font-weight: 600;
+  color: var(--primary);
+  margin: 4px 0 0;
+}
+
+.top-link { font-size: 14px; margin: 8px 0 0; }
+
+.guide h2 { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }

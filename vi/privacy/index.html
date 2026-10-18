@@ -18,7 +18,7 @@
   </header>
 
   <h1>Chính sách quyền riêng tư</h1>
-  <p class="muted">Có hiệu lực từ ngày 06/10/2026</p>
+  <p class="muted">Có hiệu lực từ ngày 18/10/2026</p>
 
   <p>Chính sách này giải thích cách ứng dụng Android <strong>AutoGest</strong> xử lý thông tin
     của bạn.</p>
@@ -29,17 +29,19 @@
       <li>Ứng dụng chạy hoàn toàn offline. Ứng dụng không xin quyền Internet nên không thể gửi bất cứ thứ
         gì cho chúng tôi hay cho ai khác.</li>
       <li>Chúng tôi không có máy chủ, không có tài khoản, không quảng cáo, không dùng SDK phân tích.</li>
-      <li>Dịch vụ Trợ năng chỉ đọc màn hình và thao tác khi một tập lệnh do <em>chính bạn</em> bấm chạy
-        hoặc hẹn giờ đang chạy, khi bạn ghi thao tác, hoặc khi bạn chọn điểm hay cắt ảnh trên màn hình.
+      <li>Dịch vụ Trợ năng chỉ đọc màn hình và thao tác khi một tập lệnh do <em>chính bạn</em> bấm chạy,
+        hẹn giờ hay đặt chạy theo thông báo đang chạy, khi bạn ghi thao tác, hoặc khi bạn chọn điểm, chọn
+        thành phần hay cắt ảnh trên màn hình.
         Nội dung màn hình được xử lý ngay trên máy; chỉ phần bạn lưu vào tập lệnh được giữ lại, và không
         bao giờ được gửi cho chúng tôi.</li>
       <li>Khi bạn ghi lại thao tác gõ phím, mọi lần chạm phím đều được lưu — kể cả trong ô mật khẩu. Ai có
         tập lệnh đó cũng có thể biết bạn đã gõ gì, nên đừng chia sẻ nó (xem mục 1).</li>
-      <li>Bước “Chờ và nhận diện thông báo” (nếu bạn dùng) đọc thông báo của đúng ứng dụng bạn chọn, chỉ
-        trong lúc tập lệnh có bước đó đang chạy, để đọc to số tiền. Thông báo không được lưu lại hay gửi đi
+      <li>Quyền Truy cập thông báo (chỉ khi bạn dùng bước “Chờ và nhận diện thông báo” hay tính năng “Chạy
+        theo thông báo”) đọc thông báo của đúng các ứng dụng bạn chọn, chỉ trong lúc tập lệnh có bước đó
+        đang chạy hoặc có kích hoạt đang bật. Thông báo được đọc ngay trên máy và không bao giờ được gửi đi
         (xem mục 2).</li>
-      <li>Mọi thứ bạn tạo (tập lệnh, ảnh mẫu, lịch chạy, lịch sử chạy) nằm trong bộ nhớ riêng của ứng
-        dụng trên điện thoại và bị xoá khi bạn gỡ ứng dụng.</li>
+      <li>Mọi thứ bạn tạo (tập lệnh, ảnh mẫu, lịch chạy, kích hoạt, lịch sử chạy) nằm trong bộ nhớ riêng
+        của ứng dụng trên điện thoại và bị xoá khi bạn gỡ ứng dụng.</li>
       <li><strong>Chỉ cài AutoGest từ Google Play.</strong> Các bản “mod”, “crack” trên trang web khác không
         do chúng tôi làm và có thể lợi dụng quyền Trợ năng để đánh cắp dữ liệu của bạn (xem mục 9).</li>
     </ul>
@@ -55,8 +57,13 @@
       của ứng dụng đang mở — để tìm chữ cho bước “Click chữ” hay điều kiện “chữ”, và để biết bàn phím ảo
       đang nằm ở đâu. Khi bạn ghi lại thao tác gõ phím, ứng dụng đọc ô chữ bạn đang gõ để nhận ra bạn đã
       gõ gì; khi bước “Gõ ký tự” chạy, ứng dụng đọc lại ô đó để kiểm tra đã gõ đúng chưa.</li>
+    <li><strong>Đọc bố cục màn hình cho bước “Click Node”</strong> (Android 11 trở lên). Khi bạn chụp màn
+      hình để chọn một thành phần, ứng dụng đọc cây thành phần của ứng dụng đang mở để bạn chọn; chữ, mô
+      tả, id, lớp, vị trí trong bố cục màn hình (XPath), khung và tên gói ứng dụng của thành phần được chọn
+      được lưu vào tập lệnh. Khi bước chạy, ứng dụng đọc lại các thành phần của ứng dụng đó để tìm đúng
+      thành phần ấy rồi chạm vào.</li>
     <li><strong>Chụp màn hình</strong> (Android 11 trở lên) chỉ khi bạn chọn màu trên màn hình, đóng băng
-      màn hình để chọn điểm hay cắt ảnh mẫu, hoặc khi tập lệnh có bước hay điều kiện theo ảnh hoặc màu,
+      màn hình để chọn điểm, chọn thành phần hay cắt ảnh mẫu, hoặc khi tập lệnh có bước hay điều kiện theo ảnh hoặc màu,
       để so màn hình với ảnh hay màu bạn đã chọn. Ảnh chụp chỉ nằm trong bộ nhớ tạm lúc so khớp hoặc lúc
       bạn chọn trên màn hình đã đóng băng rồi bị bỏ, không bao giờ được ghi xuống bộ nhớ máy. Phần duy
       nhất được giữ lại là vùng bạn tự cắt làm ảnh mẫu.</li>
@@ -89,26 +96,40 @@
     cứ lúc nào trong <em>Cài đặt &gt; Hỗ trợ tiếp cận (Trợ năng)</em>.</p>
 
   <h2>2. Quyền Truy cập thông báo (NotificationListenerService)</h2>
-  <p>Quyền này chỉ cần cho bước <strong>“Chờ và nhận diện thông báo”</strong> (gói Pro), dùng để chờ tin
-    biến động số dư của ngân hàng rồi đọc to số tiền — ví dụ làm loa báo tiền về cho cửa hàng. Ứng dụng
-    chỉ xin quyền này khi bạn thêm bước đó, sau một bản công bố riêng trong ứng dụng, và bạn tự bật nó
-    trong <em>Cài đặt &gt; Truy cập thông báo</em>. Không dùng bước này thì không cần bật. Khi được bật:</p>
+  <p>Quyền này chỉ cần cho hai tính năng của gói Pro:</p>
+  <ul>
+    <li>bước <strong>“Chờ và nhận diện thông báo”</strong>, dùng để chờ một thông báo có cụm chữ bạn chọn
+      (như “đơn hàng mới”) hay tin biến động số dư của ngân hàng, rồi đọc to phần bạn chọn — ví dụ làm loa
+      báo tiền về cho cửa hàng;</li>
+    <li><strong>“Chạy theo thông báo”</strong>, dùng để bắt đầu một tập lệnh của bạn khi có thông báo bạn
+      đã chọn.</li>
+  </ul>
+  <p>Ứng dụng chỉ xin quyền này khi bạn chọn thông báo cho một trong hai tính năng đó, sau một bản công
+    bố riêng trong ứng dụng, và bạn tự bật nó trong <em>Cài đặt &gt; Truy cập thông báo</em>. Không dùng
+    hai tính năng này thì không cần bật. Khi được bật:</p>
   <ul>
     <li><strong>Đọc thông báo của ứng dụng bạn chọn.</strong> Android chuyển mọi thông báo cho ứng dụng có
-      quyền này, nhưng AutoGest chỉ đọc chữ (tiêu đề và nội dung) trong thông báo của đúng ứng dụng bạn
-      chọn cho bước (như ứng dụng ngân hàng hay Tin nhắn), và chỉ trong lúc tập lệnh có bước đó đang
-      chạy, để tìm số tiền, số dư và nội dung chuyển khoản. Thông báo của ứng dụng khác, hay đến lúc không
-      có tập lệnh nào như vậy chạy, bị bỏ qua ngay.</li>
-    <li><strong>Chọn thông báo mẫu.</strong> Lúc bạn chọn mẫu, các thông báo có số tiền đang có trên máy
-      được hiện ra để bạn chọn một tin rồi chạm vào số tiền. Tập lệnh chỉ lưu tên ứng dụng và các
-      <em>nhãn</em> đứng trước số tiền, số dư, nội dung (như “PS:”, “SD:”, “ND:”) — không lưu số tài
-      khoản, số tiền, số dư, tên người chuyển hay bất kỳ nội dung nào khác của tin.</li>
-    <li><strong>Đọc to.</strong> Số tiền (cùng số dư và nội dung nếu bạn bật) được đọc bằng bộ chuyển văn
-      bản thành giọng nói cài trên máy (của Google, Samsung…), chạy ngay trên thiết bị.</li>
+      quyền này, nhưng AutoGest chỉ đọc chữ (tiêu đề và nội dung) trong thông báo của đúng các ứng dụng bạn
+      chọn (như ứng dụng bán hàng, ứng dụng ngân hàng hay Tin nhắn), và chỉ trong lúc tập lệnh có bước đó
+      đang chạy, lúc có kích hoạt “Chạy theo thông báo” đang bật, hoặc lúc bạn chọn thông báo mẫu. Thông
+      báo của ứng dụng khác, hay đến vào lúc khác, bị bỏ qua ngay. Khi tập lệnh dừng và mọi kích hoạt đều
+      tắt, ứng dụng thôi nghe thông báo.</li>
+    <li><strong>Chọn thông báo mẫu.</strong> Lúc bạn chọn mẫu, các thông báo đang có trên máy được hiện ra
+      để bạn chọn một tin rồi chạm vào cụm chữ cần tìm hay số tiền; bạn cũng có thể tự gõ cụm chữ. Tập
+      lệnh hay kích hoạt chỉ lưu tên ứng dụng, các cụm chữ bạn chọn hay gõ, chữ cần bỏ qua, các
+      <em>nhãn</em> đứng trước phần cần đọc (như “PS:”, “SD:”, “ND:”) và, với tin SMS, tên người gửi (như
+      tên ngân hàng) — không lưu số tài khoản, số tiền, số dư, tên người chuyển tiền hay nội dung của
+      thông báo.</li>
+    <li><strong>Đọc to.</strong> Phần bạn chọn — số tiền (cùng số dư và nội dung nếu bạn bật), hoặc tiêu
+      đề, nội dung hay một đoạn bạn chọn — được đọc bằng bộ chuyển văn bản thành giọng nói cài trên máy
+      (của Google, Samsung…), chạy ngay trên thiết bị.</li>
+    <li><strong>Chạy tập lệnh.</strong> Khi một thông báo khớp với kích hoạt, ứng dụng bắt đầu tập lệnh bạn
+      đã chọn cho kích hoạt đó, tối đa một lần trong khoảng “Không chạy lại trong” và chỉ trong khung giờ
+      bạn đặt. Nếu tập lệnh không bắt đầu được, kích hoạt sẽ cho biết lỡ lúc nào và vì sao.</li>
   </ul>
-  <p>Thông báo chỉ nằm trong bộ nhớ tạm của ứng dụng cho tới khi được đọc rồi bị bỏ: không thông báo nào
-    được ghi xuống bộ nhớ máy, vào lịch sử chạy hay nhật ký, và không gì được gửi đi. Bạn có thể tắt
-    quyền này bất cứ lúc nào trong <em>Cài đặt &gt; Truy cập thông báo</em>.</p>
+  <p>Thông báo được đọc và so khớp ngay trên máy. Chữ của thông báo không bao giờ được ghi vào nhật ký,
+    và không gì được gửi đi. Bạn có thể tắt quyền này bất cứ lúc nào trong <em>Cài đặt &gt; Truy cập
+    thông báo</em>.</p>
 
   <h2>3. Thông tin lưu trên máy của bạn</h2>
   <p>Những dữ liệu dưới đây chỉ nằm trong bộ nhớ riêng của ứng dụng trên điện thoại. Chúng tôi không
@@ -121,6 +142,10 @@
         <td>Tên tập lệnh, các bước, toạ độ trên màn hình, nội dung bạn muốn dán hay tìm, các ứng dụng bạn
           chọn để mở, và chữ bạn gõ trong lúc ghi thao tác</td>
         <td>Để chạy lại tập lệnh</td></tr>
+      <tr><td>Thành phần đã chọn</td>
+        <td>Với bước “Click Node”: chữ, mô tả, id, lớp, vị trí trong bố cục màn hình (XPath), khung và tên
+          gói ứng dụng của thành phần bạn chọn (xem mục 1)</td>
+        <td>Để tìm lại và chạm đúng thành phần đó</td></tr>
       <tr><td>Lần chạm phím đã ghi</td>
         <td>Với bước “Gõ ký tự”: vị trí trên bàn phím và nhịp của từng lần chạm phím, kích thước và vị trí
           bàn phím, tên gói của ứng dụng bàn phím, và chữ đã nhận ra (để trống với ô mật khẩu — xem mục 1)</td>
@@ -133,11 +158,18 @@
         <td>Màu của đúng một điểm ảnh bạn chọn cho bước hay điều kiện theo màu</td>
         <td>Để chờ màu đó</td></tr>
       <tr><td>Mẫu thông báo</td>
-        <td>Với bước “Chờ và nhận diện thông báo”: tên gói và tên ứng dụng bạn chọn, các nhãn đứng trước số
-          tiền, số dư, nội dung, và các tuỳ chọn đọc (không có nội dung của tin nào — xem mục 2)</td>
-        <td>Để nhận ra và đọc to các tin sau cùng khuôn</td></tr>
+        <td>Với bước “Chờ và nhận diện thông báo” và tính năng “Chạy theo thông báo”: tên gói và tên của
+          từng ứng dụng bạn chọn, các cụm chữ bạn chọn hay gõ, chữ cần bỏ qua, các nhãn đứng trước phần cần
+          đọc, với tin SMS là tên người gửi, và các tuỳ chọn đọc (không có nội dung của thông báo nào — xem
+          mục 2)</td>
+        <td>Để nhận ra các thông báo sau cùng khuôn</td></tr>
+      <tr><td>Kích hoạt</td>
+        <td>Với tính năng “Chạy theo thông báo”: tập lệnh cần chạy, các mẫu thông báo, khoảng “Không chạy lại
+          trong”, khung giờ hoạt động, cùng thời điểm và lý do lần gần nhất bị lỡ</td>
+        <td>Để bắt đầu tập lệnh khi có thông báo khớp, và báo cho bạn khi không bắt đầu được</td></tr>
       <tr><td>Lịch sử chạy</td>
-        <td>200 lần chạy gần nhất: tên tập lệnh, giờ bắt đầu và kết thúc, cách lần chạy kết thúc</td>
+        <td>200 lần chạy gần nhất: tên tập lệnh, giờ bắt đầu và kết thúc, cách lần chạy kết thúc (kể cả lần
+          kích hoạt bị lỡ)</td>
         <td>Để bạn xem những gì đã chạy và có thành công không</td></tr>
       <tr><td>Lịch chạy</td>
         <td>Tập lệnh, giờ trong ngày và các ngày trong tuần bạn chọn</td>
@@ -158,13 +190,14 @@
     <div class="row"><strong>Dịch vụ Trợ năng</strong>
       <span>Xem mục 1.</span></div>
     <div class="row"><strong>Truy cập thông báo</strong>
-      <span>Xem mục 2. Chỉ cần khi bạn dùng bước “Chờ và nhận diện thông báo”.</span></div>
+      <span>Xem mục 2. Chỉ cần khi bạn dùng bước “Chờ và nhận diện thông báo” hay tính năng “Chạy theo
+        thông báo”.</span></div>
     <div class="row"><strong>Hiển thị trên các ứng dụng khác</strong>
       <span>Hiện bong bóng điều khiển nổi, banner tiến độ khi chạy, lớp phủ ghi thao tác và chọn toạ độ
         đè lên ứng dụng khác.</span></div>
     <div class="row"><strong>Thông báo</strong>
-      <span>Hiện thông báo có nút Tạm dừng và Dừng khi tập lệnh đang chạy, và báo “lỡ lịch” khi một lần
-        chạy theo lịch không bắt đầu được.</span></div>
+      <span>Hiện thông báo có nút Tạm dừng và Dừng khi tập lệnh đang chạy, và báo “lỡ lịch” hay “lỡ kích
+        hoạt” khi một lần chạy theo lịch hay theo thông báo không bắt đầu được.</span></div>
     <div class="row"><strong>Báo thức và lời nhắc (báo thức chính xác)</strong>
       <span>Bắt đầu tập lệnh đã hẹn giờ cho đúng giờ. Không có quyền này thì ứng dụng dùng báo thức kém
         chính xác hơn.</span></div>
@@ -181,14 +214,14 @@
       <span>Lưu tệp tập lệnh xuất ra vào thư mục Download khi bạn yêu cầu. Android mới hơn không cần quyền
         bộ nhớ cho việc này.</span></div>
   </div>
-  <p>Khi chạy theo lịch, ứng dụng có thể bật màn hình và gạt màn khoá không bảo mật (khoá vuốt). Ứng
+  <p>Khi chạy theo lịch hay theo thông báo, ứng dụng có thể bật màn hình và gạt màn khoá không bảo mật (khoá vuốt). Ứng
     dụng không bao giờ vượt qua mã PIN, hình vẽ, mật khẩu hay khoá sinh trắc học; khi đó lần chạy bị bỏ
     qua và bạn nhận được thông báo.</p>
 
   <h2>5. Những gì chúng tôi không thu thập</h2>
   <p>Ứng dụng không thu thập, không truyền đi, không bán và không chia sẻ bất kỳ dữ liệu cá nhân nào.
     Ứng dụng không có quyền Internet, không có tài khoản, không quảng cáo, không có SDK phân tích hay báo
-    lỗi, và không truy cập vị trí, danh bạ, camera hay micro. Ứng dụng không xin quyền đọc tin nhắn SMS hay nhật ký cuộc gọi; bước “Chờ và nhận diện thông báo” chỉ đọc thông báo của ứng dụng bạn chọn như ở mục 2. Ứng dụng không
+    lỗi, và không truy cập vị trí, danh bạ, camera hay micro. Ứng dụng không xin quyền đọc tin nhắn SMS hay nhật ký cuộc gọi; các tính năng theo thông báo chỉ đọc thông báo của ứng dụng bạn chọn như ở mục 2. Ứng dụng không
     xin quyền đọc trạng thái điện thoại: việc dừng khi có cuộc gọi chỉ dựa vào cách xem thông báo ở mục
     1, và không bao giờ biết ai đang gọi.</p>
 
@@ -199,7 +232,8 @@
     lệnh có chứa mật khẩu hay nội dung riêng tư. Bạn là người chọn nơi nhận (thư mục
     Download, ứng dụng nhắn tin, email…), và chính sách quyền riêng tư của nơi đó sẽ được áp dụng. Nhập
     một tệp người khác gửi cho bạn thì ứng dụng chỉ đọc tệp đó. Bước “Chờ và nhận diện thông báo” chỉ mang
-    theo tên ứng dụng và các nhãn của mẫu, không mang nội dung tin nhắn nào.</p>
+    theo tên ứng dụng, các cụm chữ và nhãn của mẫu và, với tin SMS, tên người gửi — không mang nội dung
+    thông báo nào. Bước “Click Node” mang theo các thuộc tính của thành phần bạn đã chọn (mục 1).</p>
 
   <h2>7. Google Play</h2>
   <p>Ứng dụng được phân phối qua Google Play. Tuỳ cài đặt trên máy, Google có thể thu thập báo cáo sự
@@ -234,7 +268,7 @@
 
   <h2>11. Thay đổi chính sách</h2>
   <p>Chúng tôi có thể cập nhật chính sách này khi ứng dụng thay đổi; ngày hiệu lực ở đầu trang sẽ đổi
-    theo. Nếu dịch vụ Trợ năng hay bước “Chờ và nhận diện thông báo” bắt đầu đọc thêm loại dữ liệu mới,
+    theo. Nếu dịch vụ Trợ năng hay quyền Truy cập thông báo bắt đầu đọc thêm loại dữ liệu mới,
     ứng dụng sẽ hiện lại bản công bố tương ứng và hỏi lại sự đồng ý của bạn trước khi tiếp tục.</p>
 
   <h2>12. Liên hệ</h2>

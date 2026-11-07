@@ -18,7 +18,7 @@
   </header>
 
   <h1>Privacy Policy</h1>
-  <p class="muted">Effective date: October 18, 2026</p>
+  <p class="muted">Effective date: November 1, 2026</p>
 
   <p>This policy explains how the Android app <strong>AutoGest</strong> handles your
     information.</p>
@@ -63,6 +63,14 @@
       front of you so you can choose one; the picked element’s text, description, view ID, class, position
       in the screen layout (XPath), bounds and app package are saved into the script. While the step runs,
       the app reads that app’s elements again to find the same one, then taps it.</li>
+    <li><strong>Reads screen text into a variable</strong> (run-time variables, Pro). A “Read screen text”
+      step reads the text of an element you picked (such as a product price) and keeps it in a variable;
+      “Click text”, “Click node” and “Paste text” steps can also save the tapped element’s text or the
+      pasted text into a variable. Variables live only in memory while the script runs, so later steps can
+      use them — for example to paste into a field or to compare — and are cleared when the script stops.
+      Their values are never saved into the script, never written to logs and never sent anywhere. When you
+      pick the element for this step, its text is only shown to you; the script stores only the element’s
+      position in the layout (XPath) and view ID.</li>
     <li><strong>Takes screenshots</strong> (Android 11 and newer) only when you pick a color on screen,
       freeze the screen to pick a point or an element or crop a template image, or when a script has an image or
       color step or condition, to compare the screen with the image or color you chose. Screenshots
@@ -129,6 +137,11 @@
     <li><strong>Running a script.</strong> When a notification matches a trigger, the app starts the
       script you chose for it, at most once within the “Don’t run again for” time and only within the
       hours you set. If the script cannot start, the trigger shows when and why it was missed.</li>
+    <li><strong>Saving into a variable.</strong> If you turn on “Save result to variable” for this step,
+      one part of the matching notification (such as the amount, the transfer note, the title or the time)
+      is kept in a variable during that run so later steps can use it — for example to paste it into a field
+      of another app — and is cleared when the script stops. It is never saved into the script or written to
+      logs.</li>
   </ul>
   <p>Notifications are read and matched on your device. The text of a notification is never written to
     logs and nothing is sent anywhere. You can turn this access off at any time in <em>Settings &gt;

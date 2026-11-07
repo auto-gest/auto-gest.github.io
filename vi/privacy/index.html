@@ -18,7 +18,7 @@
   </header>
 
   <h1>Chính sách quyền riêng tư</h1>
-  <p class="muted">Có hiệu lực từ ngày 18/10/2026</p>
+  <p class="muted">Có hiệu lực từ ngày 01/11/2026</p>
 
   <p>Chính sách này giải thích cách ứng dụng Android <strong>AutoGest</strong> xử lý thông tin
     của bạn.</p>
@@ -62,6 +62,13 @@
       tả, id, lớp, vị trí trong bố cục màn hình (XPath), khung và tên gói ứng dụng của thành phần được chọn
       được lưu vào tập lệnh. Khi bước chạy, ứng dụng đọc lại các thành phần của ứng dụng đó để tìm đúng
       thành phần ấy rồi chạm vào.</li>
+    <li><strong>Lấy chữ trên màn hình vào biến</strong> (biến lúc chạy, gói Pro). Bước “Lấy chữ trên màn
+      hình” đọc chữ của một thành phần bạn đã chọn (như giá sản phẩm) và giữ nó trong một biến; các bước
+      “Click chữ”, “Click Node” và “Dán văn bản” cũng có thể lưu chữ của thành phần đã chạm hay nội dung đã
+      dán vào biến. Biến chỉ nằm trong bộ nhớ trong lúc tập lệnh chạy để các bước sau dùng — như dán vào ô
+      nhập hay so sánh — rồi bị xoá khi tập lệnh dừng. Giá trị của biến không bao giờ được lưu vào tập lệnh,
+      ghi vào nhật ký hay gửi đi. Lúc bạn chọn thành phần cho bước này, chữ của nó chỉ hiện để bạn xem; tập
+      lệnh chỉ lưu vị trí của thành phần trong bố cục (XPath) và id.</li>
     <li><strong>Chụp màn hình</strong> (Android 11 trở lên) chỉ khi bạn chọn màu trên màn hình, đóng băng
       màn hình để chọn điểm, chọn thành phần hay cắt ảnh mẫu, hoặc khi tập lệnh có bước hay điều kiện theo ảnh hoặc màu,
       để so màn hình với ảnh hay màu bạn đã chọn. Ảnh chụp chỉ nằm trong bộ nhớ tạm lúc so khớp hoặc lúc
@@ -126,6 +133,10 @@
     <li><strong>Chạy tập lệnh.</strong> Khi một thông báo khớp với kích hoạt, ứng dụng bắt đầu tập lệnh bạn
       đã chọn cho kích hoạt đó, tối đa một lần trong khoảng “Không chạy lại trong” và chỉ trong khung giờ
       bạn đặt. Nếu tập lệnh không bắt đầu được, kích hoạt sẽ cho biết lỡ lúc nào và vì sao.</li>
+    <li><strong>Lưu vào biến.</strong> Nếu bạn bật “Lưu kết quả vào biến” cho bước này, một phần của tin
+      khớp (như số tiền, nội dung chuyển khoản, tiêu đề hay giờ nhận) được giữ trong biến của lần chạy đó để
+      các bước sau dùng — ví dụ dán vào ô nhập của ứng dụng khác — rồi bị xoá khi tập lệnh dừng. Phần đó
+      không bao giờ được lưu vào tập lệnh hay ghi vào nhật ký.</li>
   </ul>
   <p>Thông báo được đọc và so khớp ngay trên máy. Chữ của thông báo không bao giờ được ghi vào nhật ký,
     và không gì được gửi đi. Bạn có thể tắt quyền này bất cứ lúc nào trong <em>Cài đặt &gt; Truy cập

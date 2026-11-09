@@ -18,7 +18,7 @@
   </header>
 
   <h1>Privacy Policy</h1>
-  <p class="muted">Effective date: November 1, 2026</p>
+  <p class="muted">Effective date: November 9, 2026</p>
 
   <p>This policy explains how the Android app <strong>AutoGest</strong> handles your
     information.</p>
@@ -77,6 +77,14 @@
       are held in memory only while matching or while you pick on the frozen screen, then discarded;
       they are never saved to storage. The only part kept is an area you crop yourself as a template
       image.</li>
+    <li><strong>Recognizes text in screenshots</strong> (text recognition, OCR, Pro; Android 11 and newer).
+      “Click text (OCR)”, “Wait for text (OCR)” and “Read text (OCR)” steps, and the “Text (OCR)” condition,
+      take screenshots and read the text in them so they work in games too. Recognition runs entirely on
+      your device with Google ML Kit models bundled in the app; nothing is sent anywhere and the app has no
+      internet permission. The recognized text is only used during that run: to find where to tap, or —
+      for “Read text (OCR)” or “Save result to variable” — kept in a variable in memory and cleared when the
+      script stops. It is never saved into the script or written to logs. The script stores only the
+      rectangle of the screen area you choose to scan.</li>
     <li><strong>Performs actions on your behalf</strong> — tap, long press, swipe, scroll, type text,
       tap keys on the on-screen keyboard, press Back, Home, Recent apps and open the apps you picked —
       exactly as your script’s steps say.</li>

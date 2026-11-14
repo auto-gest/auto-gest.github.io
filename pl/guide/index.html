@@ -1,0 +1,914 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Instrukcja – AutoGest</title>
+  <meta name="description" content="Instrukcja każdej akcji AutoGest z filmami nagranymi na prawdziwym telefonie: {a:action_click}, przesuwanie, rozpoznawanie tekstu (OCR), bloki Jeśli… to, zmienne i więcej.">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="icon" type="image/png" href="../../icon.png">
+  <link rel="apple-touch-icon" href="../../icon.png">
+  <link rel="canonical" href="https://auto-gest.github.io/pl/guide/">
+  <link rel="alternate" hreflang="en" href="https://auto-gest.github.io/guide/">
+  <link rel="alternate" hreflang="vi" href="https://auto-gest.github.io/vi/guide/">
+  <link rel="alternate" hreflang="es" href="https://auto-gest.github.io/es/guide/">
+  <link rel="alternate" hreflang="fr" href="https://auto-gest.github.io/fr/guide/">
+  <link rel="alternate" hreflang="it" href="https://auto-gest.github.io/it/guide/">
+  <link rel="alternate" hreflang="pl" href="https://auto-gest.github.io/pl/guide/">
+  <link rel="alternate" hreflang="x-default" href="https://auto-gest.github.io/guide/">
+</head>
+<body>
+<!-- Trang sinh bằng user-guide/tools/gen-site.mjs trong repo mã nguồn AutoGest; sửa ở đó rồi sinh lại. -->
+<div class="wrap" id="top">
+  <header class="top">
+    <a class="brand" href="../../pl/"><img class="brand-mark" src="../../icon.png" alt="" width="36" height="36">AutoGest</a>
+    <details class="lang-menu">
+      <summary aria-label="Język">Polski</summary>
+      <ul>
+        <li><a href="../../guide/" hreflang="en" lang="en">English</a></li>
+        <li><a href="../../vi/guide/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+        <li><a href="../../es/guide/" hreflang="es" lang="es">Español</a></li>
+        <li><a href="../../fr/guide/" hreflang="fr" lang="fr">Français</a></li>
+        <li><a href="../../it/guide/" hreflang="it" lang="it">Italiano</a></li>
+        <li><a href="../../pl/guide/" hreflang="pl" lang="pl" aria-current="true">Polski</a></li>
+      </ul>
+    </details>
+  </header>
+
+  <h1>Instrukcja</h1>
+  <p class="muted">Każda akcja ma krótki film nagrany na prawdziwym telefonie z przykładową aplikacją, żeby było widać efekt. Każde dotknięcie się podświetla, więc łatwo śledzić. Akcje oznaczone <span class="badge">PRO</span> należą do AutoGest Pro.</p>
+
+  <ul class="legend">
+    <li><span class="dot user"></span>Dotykasz ty</li>
+    <li><span class="dot auto"></span>AutoGest dotyka sam podczas działania skryptu</li>
+  </ul>
+
+  <nav class="chips" aria-label="Grupy akcji">
+    <a href="#touch">Dotyk i gesty</a>
+    <a href="#wait">Czekanie i wykrywanie</a>
+    <a href="#system">System</a>
+    <a href="#flow">Przebieg skryptu</a>
+  </nav>
+
+  <p class="label" id="touch">Dotyk i gesty</p>
+  <div class="action-grid">
+    <a class="action" href="#click"><strong>Kliknięcie</strong><span>Dotknij raz w punkcie</span><div class="state">▶ Obejrzyj film</div></a>
+    <a class="action" href="#rapid-click"><strong>Szybkie klikanie</strong><span>Dotyka bardzo szybko, wiele razy, w jednym punkcie</span><div class="state">▶ Obejrzyj film</div></a>
+    <a class="action" href="#long-click"><strong>Długie kliknięcie</strong><span>Naciśnij i przytrzymaj w punkcie</span><div class="state">▶ Obejrzyj film</div></a>
+    <a class="action" href="#swipe"><strong>Przesunięcie</strong><span>Przeciągnij z punktu A do punktu B</span><div class="state">▶ Obejrzyj film</div></a>
+    <a class="action" href="#scroll"><strong>Przewiń</strong><span>Przewija w wybranym kierunku, bez punktu</span><div class="state">▶ Obejrzyj film</div></a>
+    <a class="action" href="#paste-text"><strong>Wklej tekst</strong><span>Wkleja cały tekst do pola</span><div class="state">▶ Obejrzyj film</div></a>
+    <a class="action" href="#type-keys"><strong>Wpisz znaki <span class="badge">PRO</span></strong><span>Dotyka kolejnych klawiszy jak przy pisaniu</span><div class="state">▶ Obejrzyj film</div></a>
+  </div>
+
+  <p class="label" id="wait">Czekanie i wykrywanie</p>
+  <div class="action-grid">
+    <a class="action" href="#delay"><strong>Czekaj</strong><span>Pauza przed następnym krokiem</span><div class="state">▶ Obejrzyj film</div></a>
+    <a class="action" href="#wait-image"><strong>Czekaj na obraz <span class="badge">PRO</span></strong><span>Czeka, aż obraz się pojawi lub zniknie, bez dotykania</span><div class="state">▶ Obejrzyj film</div></a>
+    <a class="action" href="#wait-color"><strong>Czekaj na kolor <span class="badge">PRO</span></strong><span>Czeka, aż punkt zmieni się na wybrany kolor</span><div class="state">▶ Obejrzyj film</div></a>
+    <a class="action" href="#image-click"><strong>Kliknięcie obrazu <span class="badge">PRO</span></strong><span>Znajdź obraz wzorcowy na ekranie i dotknij go</span><div class="state">▶ Obejrzyj film</div></a>
+    <a class="action" href="#ocr-click"><strong>Kliknięcie tekstu (OCR) <span class="badge">PRO</span></strong><span>Odczytuje tekst ze zrzutu ekranu i go dotyka · działa w grach</span><div class="state">▶ Obejrzyj film</div></a>
+    <a class="action" href="#ocr-wait"><strong>Czekaj na tekst (OCR) <span class="badge">PRO</span></strong><span>Czeka, aż tekst się pojawi lub zniknie, bez dotykania · działa w grach</span><div class="state">▶ Obejrzyj film</div></a>
+    <a class="action" href="#ocr-read"><strong>Odczytaj tekst (OCR) <span class="badge">PRO</span></strong><span>Odczytuje tekst z obszaru do zmiennej · działa w grach</span><div class="state">▶ Obejrzyj film</div></a>
+    <a class="action" href="#click-text"><strong>Kliknięcie tekstu</strong><span>Znajdź tekst i dotknij go · nie do gier</span><div class="state">▶ Obejrzyj film</div></a>
+    <a class="action" href="#click-node"><strong>Kliknięcie węzła <span class="badge">PRO</span></strong><span>Wybierz węzeł na zrzucie ekranu i dotknij go · nie do gier</span><div class="state">▶ Obejrzyj film</div></a>
+    <a class="action" href="#read-text"><strong>Odczytaj tekst z ekranu <span class="badge">PRO</span></strong><span>Wybierz węzeł i zapisz jego tekst w zmiennej · nie do gier</span><div class="state">▶ Obejrzyj film</div></a>
+    <a class="action" href="#wait-notification"><strong>Czekaj i wykryj powiadomienie <span class="badge">PRO</span></strong><span>Czeka na powiadomienie z Twoimi słowami lub alert o saldzie, a potem odczytuje je na głos lub przechodzi dalej</span><div class="state">▶ Obejrzyj film</div></a>
+  </div>
+
+  <p class="label" id="system">System</p>
+  <div class="action-grid">
+    <a class="action" href="#open-app"><strong>Otwórz aplikację</strong><span>Otwiera aplikację i czeka, aż się pokaże</span><div class="state">▶ Obejrzyj film</div></a>
+    <a class="action" href="#back"><strong>Wstecz</strong><span>Naciśnij systemowy przycisk Wstecz</span><div class="state">▶ Obejrzyj film</div></a>
+    <a class="action" href="#home"><strong>Ekran główny</strong><span>Przejdź do ekranu głównego telefonu</span><div class="state">▶ Obejrzyj film</div></a>
+    <a class="action" href="#recent"><strong>Ostatnie aplikacje</strong><span>Otwórz listę ostatnich aplikacji</span><div class="state">▶ Obejrzyj film</div></a>
+  </div>
+
+  <p class="label" id="flow">Przebieg skryptu</p>
+  <div class="action-grid">
+    <a class="action" href="#if-then"><strong>Jeśli… to <span class="badge">PRO</span></strong><span>Sprawdza ekran i wybiera jedną z dwóch gałęzi</span><div class="state">▶ Obejrzyj film</div></a>
+    <a class="action" href="#loop-until"><strong>Powtarzaj, aż <span class="badge">PRO</span></strong><span>Wykonuje kroki wewnątrz ponownie, aż warunek będzie prawdziwy</span><div class="state">▶ Obejrzyj film</div></a>
+    <a class="action" href="#stop-script"><strong>Zatrzymaj skrypt <span class="badge">PRO</span></strong><span>Kończy całe uruchomienie, gdy warunek jest spełniony</span><div class="state">▶ Obejrzyj film</div></a>
+    <a class="action" href="#next-round"><strong>Następna pętla <span class="badge">PRO</span></strong><span>Pomija pozostałe kroki i zaczyna następną pętlę</span><div class="state">▶ Obejrzyj film</div></a>
+    <a class="action" href="#call-script"><strong>Wywołaj skrypt <span class="badge">PRO</span></strong><span>Uruchamia inny skrypt, a potem wraca</span><div class="state">▶ Obejrzyj film</div></a>
+    <a class="action" href="#set-variable"><strong>Ustaw zmienną <span class="badge">PRO</span></strong><span>Ustawia zapamiętaną zmienną lub dodaje do niej</span><div class="state">▶ Obejrzyj film</div></a>
+  </div>
+
+  <section class="guide" id="click">
+    <h2>Kliknięcie</h2>
+    <p class="muted">Najprostsza akcja: AutoGest dotyka dokładnie punktu wybranego na ekranie.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/pl/click.mp4" poster="../../media/guide/pl/click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Film o akcji Kliknięcie: Naciśnij „Dodaj akcję”, wybierz Kliknięcie; Naciśnij „Dodaj punkt”; Otwórz aplikację, przeciągnij celownik na miejsce; Naciśnij OK, aby zapisać punkt; W AutoGest punkt jest już wpisany; Naciśnij Testuj, potem otwórz aplikację. AutoGest dotyka dokładnie wybranego miejsca."></video>
+        <figcaption>Nagrane na prawdziwym telefonie · 28 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Naciśnij „Dodaj akcję”, wybierz Kliknięcie</li>
+          <li>Naciśnij „Dodaj punkt”</li>
+          <li>Otwórz aplikację, przeciągnij celownik na miejsce</li>
+          <li>Naciśnij OK, aby zapisać punkt</li>
+          <li>W AutoGest punkt jest już wpisany</li>
+          <li>Naciśnij Testuj, potem otwórz aplikację</li>
+        </ol>
+        <p class="result">▶ AutoGest dotyka dokładnie wybranego miejsca</p>
+        <div class="callout">
+          <strong>Wskazówki</strong>
+          <ul>
+            <li>Punkty są skalowane do rozmiaru ekranu, więc skrypt trafia także na telefonie z innym ekranem.</li>
+            <li>W <strong>Ustawienia ogólne</strong> ustawisz przerwę między krokami i lekkie przesunięcie dotyku, jak u prawdziwej osoby.</li>
+            <li>Przycisk zmienia miejsce? Użyj <strong>Kliknięcie obrazu</strong>, <strong>Kliknięcie tekstu (OCR)</strong> lub <strong>Kliknięcie tekstu</strong>, aby AutoGest najpierw go znalazł.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Wróć do listy akcji</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="rapid-click">
+    <h2>Szybkie klikanie</h2>
+    <p class="muted">Dotykaj jednego punktu raz za razem, od 1 do 20 razy na sekundę — idealne do gier wymagających szybkiego klikania.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/pl/rapid-click.mp4" poster="../../media/guide/pl/rapid-click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Film o akcji Szybkie klikanie: Naciśnij „Dodaj akcję”, wybierz Szybkie klikanie; Naciśnij „Dodaj punkt”; Otwórz aplikację, ustaw celownik na przycisku; Naciśnij OK, aby zapisać punkt; W AutoGest zmniejsz liczbę dotknięć; Naciśnij Testuj, potem otwórz aplikację. AutoGest dotyka 30 razy, 10 razy na sekundę."></video>
+        <figcaption>Nagrane na prawdziwym telefonie · 33 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Naciśnij „Dodaj akcję”, wybierz Szybkie klikanie</li>
+          <li>Naciśnij „Dodaj punkt”</li>
+          <li>Otwórz aplikację, ustaw celownik na przycisku</li>
+          <li>Naciśnij OK, aby zapisać punkt</li>
+          <li>W AutoGest zmniejsz liczbę dotknięć</li>
+          <li>Naciśnij Testuj, potem otwórz aplikację</li>
+        </ol>
+        <p class="result">▶ AutoGest dotyka 30 razy, 10 razy na sekundę</p>
+        <div class="callout">
+          <strong>Wskazówki</strong>
+          <ul>
+            <li>Zatrzymaj po liczbie dotknięć, po czasie albo dopiero po naciśnięciu Stop.</li>
+            <li>Ponad 10 dotknięć na sekundę to szybciej niż ręka; niektóre aplikacje mogą uznać to za nietypowe.</li>
+            <li>Włącz naturalny rytm, aby odstępy lekko się różniły, jak przy prawdziwym palcu.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Wróć do listy akcji</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="long-click">
+    <h2>Długie kliknięcie</h2>
+    <p class="muted">Dotknij i przytrzymaj punkt tak długo, jak chcesz — przyciski do przytrzymania, menu kontekstowe, zaznaczanie przeciąganiem.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/pl/long-click.mp4" poster="../../media/guide/pl/long-click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Film o akcji Długie kliknięcie: Naciśnij „Dodaj akcję”, wybierz Długie kliknięcie; Naciśnij „Dodaj punkt”; Otwórz aplikację, ustaw celownik na przycisku; Naciśnij OK, aby zapisać punkt; W AutoGest wybierz czas przytrzymania; Naciśnij Testuj, potem otwórz aplikację. AutoGest trzyma przycisk 2 s i odblokowuje."></video>
+        <figcaption>Nagrane na prawdziwym telefonie · 30 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Naciśnij „Dodaj akcję”, wybierz Długie kliknięcie</li>
+          <li>Naciśnij „Dodaj punkt”</li>
+          <li>Otwórz aplikację, ustaw celownik na przycisku</li>
+          <li>Naciśnij OK, aby zapisać punkt</li>
+          <li>W AutoGest wybierz czas przytrzymania</li>
+          <li>Naciśnij Testuj, potem otwórz aplikację</li>
+        </ol>
+        <p class="result">▶ AutoGest trzyma przycisk 2 s i odblokowuje</p>
+        <div class="callout">
+          <strong>Wskazówki</strong>
+          <ul>
+            <li>Dla przycisku „przytrzymaj, by potwierdzić” wybierz czas nieco dłuższy niż wymaga aplikacja.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Wróć do listy akcji</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="swipe">
+    <h2>Przesunięcie</h2>
+    <p class="muted">Przeciągnij palcem od punktu początkowego do końcowego — odblokowanie przesunięciem, suwak, przewijanie stron.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/pl/swipe.mp4" poster="../../media/guide/pl/swipe.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Film o akcji Przesunięcie: Naciśnij „Dodaj akcję”, wybierz Przesunięcie; Wybierz punkt początkowy; Wróć, wybierz punkt końcowy; Wróć, wybierz czas przesunięcia; Naciśnij Testuj, potem otwórz aplikację. AutoGest przesuwa od punktu początkowego do końcowego."></video>
+        <figcaption>Nagrane na prawdziwym telefonie · 35 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Naciśnij „Dodaj akcję”, wybierz Przesunięcie</li>
+          <li>Wybierz punkt początkowy</li>
+          <li>Wróć, wybierz punkt końcowy</li>
+          <li>Wróć, wybierz czas przesunięcia</li>
+          <li>Naciśnij Testuj, potem otwórz aplikację</li>
+        </ol>
+        <p class="result">▶ AutoGest przesuwa od punktu początkowego do końcowego</p>
+        <div class="callout">
+          <strong>Wskazówki</strong>
+          <ul>
+            <li>Krótki czas to szybkie przesunięcie, długi — powolne przeciąganie (przeciągnij i upuść, suwaki).</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Wróć do listy akcji</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="scroll">
+    <h2>Przewiń</h2>
+    <p class="muted">Przewiń listę w górę, w dół, w lewo lub w prawo jednym przesunięciem przez środek ekranu — bez wybierania punktu.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/pl/scroll.mp4" poster="../../media/guide/pl/scroll.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Film o akcji Przewiń: Naciśnij „Dodaj akcję”, wybierz Przewiń; Wybierz kierunek i czas; Naciśnij Testuj, potem otwórz aplikację. AutoGest przesuwa przez środek ekranu, by przewinąć."></video>
+        <figcaption>Nagrane na prawdziwym telefonie · 21 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Naciśnij „Dodaj akcję”, wybierz Przewiń</li>
+          <li>Wybierz kierunek i czas</li>
+          <li>Naciśnij Testuj, potem otwórz aplikację</li>
+        </ol>
+        <p class="result">▶ AutoGest przesuwa przez środek ekranu, by przewinąć</p>
+        <div class="callout">
+          <strong>Wskazówki</strong>
+          <ul>
+            <li>Połącz z <strong>Powtarzaj, aż</strong>, aby przewijać, aż pojawi się to, czego szukasz.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Wróć do listy akcji</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="paste-text">
+    <h2>Wklej tekst</h2>
+    <p class="muted">Dotknij pola tekstowego i wypełnij je całym przygotowanym tekstem — szybko i z polskimi znakami.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/pl/paste-text.mp4" poster="../../media/guide/pl/paste-text.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Film o akcji Wklej tekst: Naciśnij „Dodaj akcję”, wybierz Wklej tekst; Naciśnij „Dodaj punkt”, celuj w pole tekstowe; Wróć, wpisz tekst do wklejenia; Naciśnij Testuj, potem otwórz aplikację. AutoGest wkleja cały tekst w pole."></video>
+        <figcaption>Nagrane na prawdziwym telefonie · 31 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Naciśnij „Dodaj akcję”, wybierz Wklej tekst</li>
+          <li>Naciśnij „Dodaj punkt”, celuj w pole tekstowe</li>
+          <li>Wróć, wpisz tekst do wklejenia</li>
+          <li>Naciśnij Testuj, potem otwórz aplikację</li>
+        </ol>
+        <p class="result">▶ AutoGest wkleja cały tekst w pole</p>
+        <div class="callout">
+          <strong>Wskazówki</strong>
+          <ul>
+            <li>Rozdziel kilka tekstów znakami <code>||</code>, a AutoGest przy każdym uruchomieniu wybierze jeden losowo.</li>
+            <li>Wstaw zmienną przyciskiem <strong>Wstaw zmienną</strong>, aby wkleić wartość odczytaną wcześniej.</li>
+            <li>Aplikacja blokuje wklejanie? Użyj <strong>Wpisz znaki</strong>, by naciskać klawisze jak przy pisaniu.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Wróć do listy akcji</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="type-keys">
+    <h2>Wpisz znaki <span class="badge">PRO</span></h2>
+    <p class="muted">Nagraj każdy naciśnięty klawisz; podczas działania AutoGest naciska te same klawisze w twoim rytmie.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/pl/type-keys.mp4" poster="../../media/guide/pl/type-keys.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Film o akcji Wpisz znaki: Naciśnij „Dodaj akcję”, wybierz Wpisz znaki; Dotknij pola nagrywania, pisz na klawiaturze; Naciśnij „Gotowe”, aby zapisać klawisze; Wybierz pole do pisania (opcjonalnie); Wróć, naciśnij Testuj, otwórz aplikację. AutoGest dotyka pola i powtarza każdy klawisz."></video>
+        <figcaption>Nagrane na prawdziwym telefonie · 38 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Naciśnij „Dodaj akcję”, wybierz Wpisz znaki</li>
+          <li>Dotknij pola nagrywania, pisz na klawiaturze</li>
+          <li>Naciśnij „Gotowe”, aby zapisać klawisze</li>
+          <li>Wybierz pole do pisania (opcjonalnie)</li>
+          <li>Wróć, naciśnij Testuj, otwórz aplikację</li>
+        </ol>
+        <p class="result">▶ AutoGest dotyka pola i powtarza każdy klawisz</p>
+        <div class="callout">
+          <strong>Wskazówki</strong>
+          <ul>
+            <li>Używaj tej samej klawiatury (i tego samego rodzaju pola) przy nagrywaniu i uruchamianiu, bo AutoGest naciska według położenia klawiszy.</li>
+            <li>Po pisaniu AutoGest sprawdza pole; jeśli tekst się nie zgadza, krok zgłasza błąd i przestaje pisać.</li>
+            <li>Nie trzeba naciskać każdego klawisza? Przełącz kartę na <strong>Wklej tekst</strong>.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Wróć do listy akcji</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="delay">
+    <h2>Czekaj</h2>
+    <p class="muted">Przerwa przed następnym krokiem — niech ekran się wczyta, animacja skończy lub minie licznik.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/pl/delay.mp4" poster="../../media/guide/pl/delay.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Film o akcji Czekaj: Naciśnij „Dodaj akcję”, wybierz Czekaj; Wpisz czas czekania (ms); Dodaj krok Kliknięcie, aby zobaczyć przerwę; Powtórz skrypt 2 razy w „Ustawienia ogólne”; Naciśnij Testuj, potem otwórz aplikację. Dotknięcia są co 3 s, plus przerwa między krokami."></video>
+        <figcaption>Nagrane na prawdziwym telefonie · 45 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Naciśnij „Dodaj akcję”, wybierz Czekaj</li>
+          <li>Wpisz czas czekania (ms)</li>
+          <li>Dodaj krok Kliknięcie, aby zobaczyć przerwę</li>
+          <li>Powtórz skrypt 2 razy w „Ustawienia ogólne”</li>
+          <li>Naciśnij Testuj, potem otwórz aplikację</li>
+        </ol>
+        <p class="result">▶ Dotknięcia są co 3 s, plus przerwa między krokami</p>
+        <div class="callout">
+          <strong>Wskazówki</strong>
+          <ul>
+            <li>Każdy krok już czeka krótką losową przerwę (ustawiasz ją w <strong>Ustawienia ogólne</strong>); dodaj czekanie tylko, gdy trzeba dłużej.</li>
+            <li>Czekasz, aż coś się pojawi? <strong>Czekaj na obraz</strong>, <strong>Czekaj na tekst (OCR)</strong> lub <strong>Czekaj na kolor</strong> ruszają od razu.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Wróć do listy akcji</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="wait-image">
+    <h2>Czekaj na obraz <span class="badge">PRO</span></h2>
+    <p class="muted">Czekaj, aż obraz pojawi się (lub zniknie) na ekranie, bez dotykania — potem ruszają kolejne kroki.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/pl/wait-image.mp4" poster="../../media/guide/pl/wait-image.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Film o akcji Czekaj na obraz: Naciśnij „Dodaj akcję”, wybierz Czekaj na obraz; Naciśnij „Wybierz obraz”, wybierz „Wytnij z ekranu”; Otwórz ekran, naciśnij Przechwyć, zaznacz obraz; Wróć, dodaj krok Kliknięcie tam, gdzie pojawi się obraz; Wróć, naciśnij Testuj, otwórz aplikację. AutoGest czeka na prezent, potem wykonuje krok Kliknięcie."></video>
+        <figcaption>Nagrane na prawdziwym telefonie · 48 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Naciśnij „Dodaj akcję”, wybierz Czekaj na obraz</li>
+          <li>Naciśnij „Wybierz obraz”, wybierz „Wytnij z ekranu”</li>
+          <li>Otwórz ekran, naciśnij Przechwyć, zaznacz obraz</li>
+          <li>Wróć, dodaj krok Kliknięcie tam, gdzie pojawi się obraz</li>
+          <li>Wróć, naciśnij Testuj, otwórz aplikację</li>
+        </ol>
+        <p class="result">▶ AutoGest czeka na prezent, potem wykonuje krok Kliknięcie</p>
+        <div class="callout">
+          <strong>Wskazówki</strong>
+          <ul>
+            <li>Przytnij obraz ciasno do szukanego elementu, bez zmieniającego się tła.</li>
+            <li>Obniż minimalne dopasowanie, jeśli obraz za każdym razem wygląda trochę inaczej.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Wróć do listy akcji</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="wait-color">
+    <h2>Czekaj na kolor <span class="badge">PRO</span></h2>
+    <p class="muted">Obserwuj punkt, aż przybierze wybrany kolor (lub go zmieni) — światło zmienia się na zielone, przycisk staje się aktywny.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/pl/wait-color.mp4" poster="../../media/guide/pl/wait-color.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Film o akcji Czekaj na kolor: Naciśnij „Dodaj akcję”, wybierz Czekaj na kolor; Naciśnij „Dodaj punkt”, celuj w miejsce z kolorem; Wróć: AutoGest już odczytał tam kolor; Dodaj krok Kliknięcie na „Jedź”; Wróć, naciśnij Testuj, otwórz aplikację. AutoGest czeka na zielone, potem naciska „Jedź”."></video>
+        <figcaption>Nagrane na prawdziwym telefonie · 46 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Naciśnij „Dodaj akcję”, wybierz Czekaj na kolor</li>
+          <li>Naciśnij „Dodaj punkt”, celuj w miejsce z kolorem</li>
+          <li>Wróć: AutoGest już odczytał tam kolor</li>
+          <li>Dodaj krok Kliknięcie na „Jedź”</li>
+          <li>Wróć, naciśnij Testuj, otwórz aplikację</li>
+        </ol>
+        <p class="result">▶ AutoGest czeka na zielone, potem naciska „Jedź”</p>
+        <div class="callout">
+          <strong>Wskazówki</strong>
+          <ul>
+            <li>Wybierz punkt, gdy ekran pokazuje pożądany kolor: AutoGest sam go odczyta.</li>
+            <li>Działa też w grach, bo patrzy tylko na obraz ekranu.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Wróć do listy akcji</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="image-click">
+    <h2>Kliknięcie obrazu <span class="badge">PRO</span></h2>
+    <p class="muted">Znajdź obraz na ekranie i dotknij go, gdziekolwiek jest — idealne dla przycisków, które się przesuwają.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/pl/image-click.mp4" poster="../../media/guide/pl/image-click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Film o akcji Kliknięcie obrazu: Naciśnij „Dodaj akcję”, wybierz Kliknięcie obrazu; Naciśnij „Wybierz obraz”, wybierz „Wytnij z ekranu”; Otwórz ekran z obrazem, naciśnij Przechwyć; Zaciśnij ramkę wokół obrazu, naciśnij OK; Wróć, naciśnij Testuj, otwórz aplikację. AutoGest czeka na prezent i go dotyka."></video>
+        <figcaption>Nagrane na prawdziwym telefonie · 37 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Naciśnij „Dodaj akcję”, wybierz Kliknięcie obrazu</li>
+          <li>Naciśnij „Wybierz obraz”, wybierz „Wytnij z ekranu”</li>
+          <li>Otwórz ekran z obrazem, naciśnij Przechwyć</li>
+          <li>Zaciśnij ramkę wokół obrazu, naciśnij OK</li>
+          <li>Wróć, naciśnij Testuj, otwórz aplikację</li>
+        </ol>
+        <p class="result">▶ AutoGest czeka na prezent i go dotyka</p>
+        <div class="callout">
+          <strong>Wskazówki</strong>
+          <ul>
+            <li>Działa w grach, bo AutoGest patrzy na obraz ekranu, a nie na strukturę aplikacji.</li>
+            <li>Przytnij sam przycisk, bez tła dookoła.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Wróć do listy akcji</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="ocr-click">
+    <h2>Kliknięcie tekstu (OCR) <span class="badge">PRO</span></h2>
+    <p class="muted">Odczytaj tekst ze zrzutu ekranu rozpoznawaniem tekstu (OCR) na telefonie i dotknij go — nawet w grach rysujących własny tekst.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/pl/ocr-click.mp4" poster="../../media/guide/pl/ocr-click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Film o akcji Kliknięcie tekstu (OCR): Naciśnij „Dodaj akcję”, wybierz Kliknięcie tekstu (OCR); Wpisz tekst z przycisku; Naciśnij Testuj, potem otwórz aplikację. AutoGest czyta obraz ekranu — nawet w grach — i dotyka tekstu."></video>
+        <figcaption>Nagrane na prawdziwym telefonie · 28 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Naciśnij „Dodaj akcję”, wybierz Kliknięcie tekstu (OCR)</li>
+          <li>Wpisz tekst z przycisku</li>
+          <li>Naciśnij Testuj, potem otwórz aplikację</li>
+        </ol>
+        <p class="result">▶ AutoGest czyta obraz ekranu — nawet w grach — i dotyka tekstu</p>
+        <div class="callout">
+          <strong>Wskazówki</strong>
+          <ul>
+            <li>Dla chińskiego, japońskiego lub koreańskiego wybierz właściwe pismo; Latin obejmuje polski, angielski, hiszpański i inne.</li>
+            <li>Zawęź obszar wyszukiwania, by czytać szybciej i dokładniej.</li>
+            <li>Rozpoznawanie działa na telefonie; nic nie jest wysyłane.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Wróć do listy akcji</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="ocr-wait">
+    <h2>Czekaj na tekst (OCR) <span class="badge">PRO</span></h2>
+    <p class="muted">Czekaj, aż tekst pojawi się (lub zniknie) na obrazie ekranu, bez dotykania.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/pl/ocr-wait.mp4" poster="../../media/guide/pl/ocr-wait.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Film o akcji Czekaj na tekst (OCR): Naciśnij „Dodaj akcję”, wybierz Czekaj na tekst (OCR); Wpisz tekst, na który czekać; Dodaj krok Kliknięcie na „Biegnij”; Wróć, naciśnij Testuj, otwórz aplikację. AutoGest czeka na „START”, potem naciska „Biegnij”."></video>
+        <figcaption>Nagrane na prawdziwym telefonie · 41 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Naciśnij „Dodaj akcję”, wybierz Czekaj na tekst (OCR)</li>
+          <li>Wpisz tekst, na który czekać</li>
+          <li>Dodaj krok Kliknięcie na „Biegnij”</li>
+          <li>Wróć, naciśnij Testuj, otwórz aplikację</li>
+        </ol>
+        <p class="result">▶ AutoGest czeka na „START”, potem naciska „Biegnij”</p>
+        <div class="callout">
+          <strong>Wskazówki</strong>
+          <ul>
+            <li>Dobre na ekrany gier jak „Gotowi… START!”, „Zwycięstwo” albo koniec odliczania.</li>
+            <li>Wybierz obszar, by czekać szybciej i nie trafić tego samego słowa gdzie indziej.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Wróć do listy akcji</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="ocr-read">
+    <h2>Odczytaj tekst (OCR) <span class="badge">PRO</span></h2>
+    <p class="muted">Odczytaj tekst z obszaru obrazu ekranu i zapisz go w zmiennej na kolejne kroki.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/pl/ocr-read.mp4" poster="../../media/guide/pl/ocr-read.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Film o akcji Odczytaj tekst (OCR): Naciśnij „Dodaj akcję”, wybierz Odczytaj tekst (OCR); Naciśnij „Wybierz obszar”, otwórz ekran, naciśnij Przechwyć; Zaznacz kod, naciśnij OK; Wróć, wybierz „Tylko liczbę” i zmienną do zapisu; Dodaj Wklej tekst w polu, wstaw zmienną; Dodaj krok Kliknięcie na „Potwierdź”; Naciśnij Testuj, potem otwórz aplikację. AutoGest odczytuje kod z obrazu i go wpisuje."></video>
+        <figcaption>Nagrane na prawdziwym telefonie · 76 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Naciśnij „Dodaj akcję”, wybierz Odczytaj tekst (OCR)</li>
+          <li>Naciśnij „Wybierz obszar”, otwórz ekran, naciśnij Przechwyć</li>
+          <li>Zaznacz kod, naciśnij OK</li>
+          <li>Wróć, wybierz „Tylko liczbę” i zmienną do zapisu</li>
+          <li>Dodaj Wklej tekst w polu, wstaw zmienną</li>
+          <li>Dodaj krok Kliknięcie na „Potwierdź”</li>
+          <li>Naciśnij Testuj, potem otwórz aplikację</li>
+        </ol>
+        <p class="result">▶ AutoGest odczytuje kod z obrazu i go wpisuje</p>
+        <div class="callout">
+          <strong>Wskazówki</strong>
+          <ul>
+            <li>Wybierz „Tylko liczbę”, aby zostawić same cyfry — wyniki, ceny lub kody.</li>
+            <li>Użyj zmiennej we Wklej tekst albo porównaj ją w bloku Jeśli… to.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Wróć do listy akcji</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="click-text">
+    <h2>Kliknięcie tekstu</h2>
+    <p class="muted">Wpisz tekst z przycisku; podczas działania AutoGest znajduje ten tekst na ekranie i go dotyka.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/pl/click-text.mp4" poster="../../media/guide/pl/click-text.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Film o akcji Kliknięcie tekstu: Naciśnij „Dodaj akcję”, wybierz Kliknięcie tekstu; Wpisz tekst widoczny na przycisku; Naciśnij Testuj, potem otwórz aplikację. Gdziekolwiek jest przycisk, AutoGest znajduje tekst i go dotyka."></video>
+        <figcaption>Nagrane na prawdziwym telefonie · 29 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Naciśnij „Dodaj akcję”, wybierz Kliknięcie tekstu</li>
+          <li>Wpisz tekst widoczny na przycisku</li>
+          <li>Naciśnij Testuj, potem otwórz aplikację</li>
+        </ol>
+        <p class="result">▶ Gdziekolwiek jest przycisk, AutoGest znajduje tekst i go dotyka</p>
+        <div class="callout">
+          <strong>Wskazówki</strong>
+          <ul>
+            <li>Czyta strukturę aplikacji, więc nie działa w grach rysujących tekst — tam użyj <strong>Kliknięcie tekstu (OCR)</strong>.</li>
+            <li>Wielkość liter nie ma znaczenia, wystarczy, że tekst zawiera wpisany fragment.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Wróć do listy akcji</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="click-node">
+    <h2>Kliknięcie węzła <span class="badge">PRO</span></h2>
+    <p class="muted">Zrób zrzut ekranu, dotknij elementu, a AutoGest zapamięta, jak go znaleźć — nawet przyciski z samą ikoną.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/pl/click-node.mp4" poster="../../media/guide/pl/click-node.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Film o akcji Kliknięcie węzła: Naciśnij „Dodaj akcję”, wybierz Kliknięcie węzła; Naciśnij „Wybierz węzeł”, otwórz aplikację, naciśnij Przechwyć; Dotknij wybranego przycisku, potem „Wybierz węzeł”; Wróć, wybierz sposób szukania węzła; Naciśnij Testuj, potem otwórz aplikację. AutoGest znajduje przycisk serca i go dotyka."></video>
+        <figcaption>Nagrane na prawdziwym telefonie · 37 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Naciśnij „Dodaj akcję”, wybierz Kliknięcie węzła</li>
+          <li>Naciśnij „Wybierz węzeł”, otwórz aplikację, naciśnij Przechwyć</li>
+          <li>Dotknij wybranego przycisku, potem „Wybierz węzeł”</li>
+          <li>Wróć, wybierz sposób szukania węzła</li>
+          <li>Naciśnij Testuj, potem otwórz aplikację</li>
+        </ol>
+        <p class="result">▶ AutoGest znajduje przycisk serca i go dotyka</p>
+        <div class="callout">
+          <strong>Wskazówki</strong>
+          <ul>
+            <li>Szukaj po text lub content-desc, gdy się nie zmieniają; unikaj resource-id, jeśli aplikacja zmienia go między wersjami.</li>
+            <li>Usuń zmienne części (jak liczniki), aby węzeł dało się znaleźć następnym razem.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Wróć do listy akcji</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="read-text">
+    <h2>Odczytaj tekst z ekranu <span class="badge">PRO</span></h2>
+    <p class="muted">Wybierz element na ekranie i skopiuj jego tekst do zmiennej, bez dotykania.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/pl/read-text.mp4" poster="../../media/guide/pl/read-text.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Film o akcji Odczytaj tekst z ekranu: Naciśnij „Dodaj akcję”, wybierz Odczytaj tekst z ekranu; Naciśnij „Wybierz węzeł”, otwórz aplikację, naciśnij Przechwyć; Dotknij kodu, potem „Wybierz węzeł”; Wróć, wybierz zmienną do zapisu; Dodaj Wklej tekst w polu, wstaw zmienną; Dodaj krok Kliknięcie na „Potwierdź”; Naciśnij Testuj, potem otwórz aplikację. AutoGest kopiuje kod i go wpisuje."></video>
+        <figcaption>Nagrane na prawdziwym telefonie · 78 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Naciśnij „Dodaj akcję”, wybierz Odczytaj tekst z ekranu</li>
+          <li>Naciśnij „Wybierz węzeł”, otwórz aplikację, naciśnij Przechwyć</li>
+          <li>Dotknij kodu, potem „Wybierz węzeł”</li>
+          <li>Wróć, wybierz zmienną do zapisu</li>
+          <li>Dodaj Wklej tekst w polu, wstaw zmienną</li>
+          <li>Dodaj krok Kliknięcie na „Potwierdź”</li>
+          <li>Naciśnij Testuj, potem otwórz aplikację</li>
+        </ol>
+        <p class="result">▶ AutoGest kopiuje kod i go wpisuje</p>
+        <div class="callout">
+          <strong>Wskazówki</strong>
+          <ul>
+            <li>Świetne do kodów jednorazowych, numerów zamówień czy sald w aplikacji.</li>
+            <li>Czyta strukturę aplikacji; w grach użyj <strong>Odczytaj tekst (OCR)</strong>.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Wróć do listy akcji</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="wait-notification">
+    <h2>Czekaj i wykryj powiadomienie <span class="badge">PRO</span></h2>
+    <p class="muted">Czekaj na powiadomienie z wybranym tekstem, przeczytaj je na głos i kontynuuj skrypt.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/pl/wait-notification.mp4" poster="../../media/guide/pl/wait-notification.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Film o akcji Czekaj i wykryj powiadomienie: Naciśnij „Dodaj akcję”, wybierz Czekaj i wykryj powiadomienie; Naciśnij „Wybierz przykładowe powiadomienie”, wybierz powiadomienie; Wpisz słowa, które musi zawierać powiadomienie; Naciśnij „Użyj tego przykładu”; Dodaj krok Kliknięcie na „Potwierdź zamówienie”; Wróć, naciśnij Testuj, otwórz aplikację; Gdy klient składa zamówienie…. AutoGest czyta powiadomienie na głos i potwierdza."></video>
+        <figcaption>Nagrane na prawdziwym telefonie · 65 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Naciśnij „Dodaj akcję”, wybierz Czekaj i wykryj powiadomienie</li>
+          <li>Naciśnij „Wybierz przykładowe powiadomienie”, wybierz powiadomienie</li>
+          <li>Wpisz słowa, które musi zawierać powiadomienie</li>
+          <li>Naciśnij „Użyj tego przykładu”</li>
+          <li>Dodaj krok Kliknięcie na „Potwierdź zamówienie”</li>
+          <li>Wróć, naciśnij Testuj, otwórz aplikację</li>
+          <li>Gdy klient składa zamówienie…</li>
+        </ol>
+        <p class="result">▶ AutoGest czyta powiadomienie na głos i potwierdza</p>
+        <div class="callout">
+          <strong>Wskazówki</strong>
+          <ul>
+            <li>Wybierz prawdziwe powiadomienie jako wzór i dotknij słów, na które czekasz; zmienne części (jak numer zamówienia) są porównywane elastycznie.</li>
+            <li>Skrypt, który tylko czeka na powiadomienia, może działać w tle, nawet przy wyłączonym ekranie.</li>
+            <li>Treść powiadomień zostaje na telefonie i nigdy nie trafia do logu.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Wróć do listy akcji</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="open-app">
+    <h2>Otwórz aplikację</h2>
+    <p class="muted">Otwórz aplikację z listy i poczekaj, aż się pokaże — dobry pierwszy krok każdego skryptu.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/pl/open-app.mp4" poster="../../media/guide/pl/open-app.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Film o akcji Otwórz aplikację: Naciśnij „Dodaj akcję”, wybierz Otwórz aplikację; Naciśnij „Wybierz aplikację”, wybierz aplikację do otwarcia; Naciśnij Testuj, nie musisz sam otwierać aplikacji. AutoGest sam otwiera wybraną aplikację."></video>
+        <figcaption>Nagrane na prawdziwym telefonie · 28 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Naciśnij „Dodaj akcję”, wybierz Otwórz aplikację</li>
+          <li>Naciśnij „Wybierz aplikację”, wybierz aplikację do otwarcia</li>
+          <li>Naciśnij Testuj, nie musisz sam otwierać aplikacji</li>
+        </ol>
+        <p class="result">▶ AutoGest sam otwiera wybraną aplikację</p>
+        <div class="callout">
+          <strong>Wskazówki</strong>
+          <ul>
+            <li>Skrypt może startować z AutoGest; ten krok wyciąga właściwą aplikację na wierzch.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Wróć do listy akcji</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="back">
+    <h2>Wstecz</h2>
+    <p class="muted">Naciśnij systemowy przycisk Wstecz.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/pl/back.mp4" poster="../../media/guide/pl/back.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Film o akcji Wstecz: Naciśnij „Dodaj akcję”, wybierz Wstecz; Naciśnij Testuj, potem otwórz aplikację; Podczas odliczania otwórz wiadomość. AutoGest naciska Wstecz, wraca lista."></video>
+        <figcaption>Nagrane na prawdziwym telefonie · 25 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Naciśnij „Dodaj akcję”, wybierz Wstecz</li>
+          <li>Naciśnij Testuj, potem otwórz aplikację</li>
+          <li>Podczas odliczania otwórz wiadomość</li>
+        </ol>
+        <p class="result">▶ AutoGest naciska Wstecz, wraca lista</p>
+        <div class="callout">
+          <strong>Wskazówki</strong>
+          <ul>
+            <li>Zamyka okno dialogowe lub cofa o jeden ekran.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Wróć do listy akcji</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="home">
+    <h2>Ekran główny</h2>
+    <p class="muted">Przejdź do ekranu głównego.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/pl/home.mp4" poster="../../media/guide/pl/home.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Film o akcji Ekran główny: Naciśnij „Dodaj akcję”, wybierz Ekran główny; Naciśnij Testuj, potem otwórz aplikację. AutoGest przechodzi do ekranu głównego (rozmytego dla prywatności)."></video>
+        <figcaption>Nagrane na prawdziwym telefonie · 24 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Naciśnij „Dodaj akcję”, wybierz Ekran główny</li>
+          <li>Naciśnij Testuj, potem otwórz aplikację</li>
+        </ol>
+        <p class="result">▶ AutoGest przechodzi do ekranu głównego (rozmytego dla prywatności)</p>
+        <div class="callout">
+          <strong>Wskazówki</strong>
+          <ul>
+            <li>Przydatne na końcu skryptu lub przed otwarciem innej aplikacji.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Wróć do listy akcji</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="recent">
+    <h2>Ostatnie aplikacje</h2>
+    <p class="muted">Otwórz listę ostatnich aplikacji.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/pl/recent.mp4" poster="../../media/guide/pl/recent.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Film o akcji Ostatnie aplikacje: Naciśnij „Dodaj akcję”, wybierz Ostatnie aplikacje; Naciśnij Testuj, potem otwórz aplikację. AutoGest otwiera ostatnie aplikacje (rozmyte dla prywatności)."></video>
+        <figcaption>Nagrane na prawdziwym telefonie · 24 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Naciśnij „Dodaj akcję”, wybierz Ostatnie aplikacje</li>
+          <li>Naciśnij Testuj, potem otwórz aplikację</li>
+        </ol>
+        <p class="result">▶ AutoGest otwiera ostatnie aplikacje (rozmyte dla prywatności)</p>
+        <div class="callout">
+          <strong>Wskazówki</strong>
+          <ul>
+            <li>Połącz z krokiem Kliknięcie, aby przełączyć się na inną aplikację.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Wróć do listy akcji</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="if-then">
+    <h2>Jeśli… to <span class="badge">PRO</span></h2>
+    <p class="muted">Wykonaj kroki tylko, gdy warunek jest spełniony — obraz, kolor, tekst, numer rundy lub zmienna.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/pl/if-then.mp4" poster="../../media/guide/pl/if-then.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Film o akcji Jeśli… to: Naciśnij „Dodaj akcję”, wybierz Jeśli… to; Wybierz „Tekst”, wpisz szukany tekst; Wyłącz gałąź „W przeciwnym razie”, naciśnij „Gotowe”; Dodaj do gałęzi „To”: krok Kliknięcie na przycisk zamknij (✕); Wróć, naciśnij Testuj, otwórz aplikację. AutoGest widzi „Reklama”, więc naciska zamknij."></video>
+        <figcaption>Nagrane na prawdziwym telefonie · 50 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Naciśnij „Dodaj akcję”, wybierz Jeśli… to</li>
+          <li>Wybierz „Tekst”, wpisz szukany tekst</li>
+          <li>Wyłącz gałąź „W przeciwnym razie”, naciśnij „Gotowe”</li>
+          <li>Dodaj do gałęzi „To”: krok Kliknięcie na przycisk zamknij (✕)</li>
+          <li>Wróć, naciśnij Testuj, otwórz aplikację</li>
+        </ol>
+        <p class="result">▶ AutoGest widzi „Reklama”, więc naciska zamknij</p>
+        <div class="callout">
+          <strong>Wskazówki</strong>
+          <ul>
+            <li>Włącz gałąź W przeciwnym razie, aby wykonać inne kroki, gdy warunek nie jest spełniony.</li>
+            <li>Bloki mają jeden poziom; aby zagnieździć, wydziel osobny skrypt i użyj <strong>Wywołaj skrypt</strong>.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Wróć do listy akcji</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="loop-until">
+    <h2>Powtarzaj, aż <span class="badge">PRO</span></h2>
+    <p class="muted">Powtarzaj kroki w bloku, aż warunek zostanie spełniony, albo przez zadaną liczbę rund.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/pl/loop-until.mp4" poster="../../media/guide/pl/loop-until.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Film o akcji Powtarzaj, aż: Naciśnij „Dodaj akcję”, wybierz Powtarzaj, aż; Stop przy „Tekst”: wpisz tekst widoczny na końcu; Dodaj do pętli: krok Kliknięcie na „Wczytaj więcej”; Wróć, naciśnij Testuj, otwórz aplikację. AutoGest naciska „Wczytaj więcej”, aż pojawi się „Nie ma więcej wiadomości”."></video>
+        <figcaption>Nagrane na prawdziwym telefonie · 50 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Naciśnij „Dodaj akcję”, wybierz Powtarzaj, aż</li>
+          <li>Stop przy „Tekst”: wpisz tekst widoczny na końcu</li>
+          <li>Dodaj do pętli: krok Kliknięcie na „Wczytaj więcej”</li>
+          <li>Wróć, naciśnij Testuj, otwórz aplikację</li>
+        </ol>
+        <p class="result">▶ AutoGest naciska „Wczytaj więcej”, aż pojawi się „Nie ma więcej wiadomości”</p>
+        <div class="callout">
+          <strong>Wskazówki</strong>
+          <ul>
+            <li>Zawsze ustaw maksymalną liczbę rund, aby skrypt przez pomyłkę nie działał w nieskończoność.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Wróć do listy akcji</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="stop-script">
+    <h2>Zatrzymaj skrypt <span class="badge">PRO</span></h2>
+    <p class="muted">Zakończ całe uruchomienie, gdy spełni się warunek — np. gdy skończą się tury lub energia.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/pl/stop-script.mp4" poster="../../media/guide/pl/stop-script.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Film o akcji Zatrzymaj skrypt: Dodaj krok Kliknięcie na „Zakręć”; Wróć, dodaj Zatrzymaj skrypt; Zatrzymaj, gdy pojawi się tekst „Brak obrotów”; Powtarzaj skrypt bez limitu; Naciśnij Testuj, potem otwórz aplikację. Po ostatnim obrocie AutoGest sam się zatrzymuje."></video>
+        <figcaption>Nagrane na prawdziwym telefonie · 56 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Dodaj krok Kliknięcie na „Zakręć”</li>
+          <li>Wróć, dodaj Zatrzymaj skrypt</li>
+          <li>Zatrzymaj, gdy pojawi się tekst „Brak obrotów”</li>
+          <li>Powtarzaj skrypt bez limitu</li>
+          <li>Naciśnij Testuj, potem otwórz aplikację</li>
+        </ol>
+        <p class="result">▶ Po ostatnim obrocie AutoGest sam się zatrzymuje</p>
+        <div class="callout">
+          <strong>Wskazówki</strong>
+          <ul>
+            <li>Przy pętli bez limitu to czysty sposób na zakończenie.</li>
+            <li>W gałęzi bloku Jeśli… to może zatrzymać od razu, bez warunku.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Wróć do listy akcji</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="next-round">
+    <h2>Następna pętla <span class="badge">PRO</span></h2>
+    <p class="muted">Pomiń resztę tej rundy i zacznij następną, gdy spełni się warunek.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/pl/next-round.mp4" poster="../../media/guide/pl/next-round.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Film o akcji Następna pętla: Dodaj krok Kliknięcie na „Następny post”; Dodaj Następna pętla, gdy widać „Sponsorowane”; Dodaj krok Kliknięcie na „Lubię to”; Powtórz skrypt 4 razy; Naciśnij Testuj, potem otwórz aplikację. AutoGest lubi posty 1 i 3, pomija sponsorowane."></video>
+        <figcaption>Nagrane na prawdziwym telefonie · 76 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Dodaj krok Kliknięcie na „Następny post”</li>
+          <li>Dodaj Następna pętla, gdy widać „Sponsorowane”</li>
+          <li>Dodaj krok Kliknięcie na „Lubię to”</li>
+          <li>Powtórz skrypt 4 razy</li>
+          <li>Naciśnij Testuj, potem otwórz aplikację</li>
+        </ol>
+        <p class="result">▶ AutoGest lubi posty 1 i 3, pomija sponsorowane</p>
+        <div class="callout">
+          <strong>Wskazówki</strong>
+          <ul>
+            <li>Przydatne do pomijania reklam lub zbędnych pozycji na liście.</li>
+            <li>Przeskakuje na koniec najbliższej pętli w tym samym skrypcie.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Wróć do listy akcji</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="call-script">
+    <h2>Wywołaj skrypt <span class="badge">PRO</span></h2>
+    <p class="muted">Uruchom inny skrypt i wróć — wykorzystaj kroki, które już masz.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/pl/call-script.mp4" poster="../../media/guide/pl/call-script.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Film o akcji Wywołaj skrypt: Naciśnij „Dodaj akcję”, wybierz Wywołaj skrypt; Naciśnij „Wybierz skrypt”, wybierz skrypt do wywołania; Wybierz, ile razy go wywołać; Naciśnij Testuj, potem otwórz aplikację. AutoGest uruchamia „Naciśnij przycisk” 3 razy."></video>
+        <figcaption>Nagrane na prawdziwym telefonie · 36 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Naciśnij „Dodaj akcję”, wybierz Wywołaj skrypt</li>
+          <li>Naciśnij „Wybierz skrypt”, wybierz skrypt do wywołania</li>
+          <li>Wybierz, ile razy go wywołać</li>
+          <li>Naciśnij Testuj, potem otwórz aplikację</li>
+        </ol>
+        <p class="result">▶ AutoGest uruchamia „Naciśnij przycisk” 3 razy</p>
+        <div class="callout">
+          <strong>Wskazówki</strong>
+          <ul>
+            <li>Wybierz, ile razy z rzędu go wywołać.</li>
+            <li>Wywołany skrypt działa w rytmie tego skryptu.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Wróć do listy akcji</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="set-variable">
+    <h2>Ustaw zmienną <span class="badge">PRO</span></h2>
+    <p class="muted">Nadaj zmiennej wartość lub dodaj do niej liczbę — liczniki, sumy narastające, tekst do zapamiętania.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/pl/set-variable.mp4" poster="../../media/guide/pl/set-variable.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Film o akcji Ustaw zmienną: Naciśnij „Dodaj akcję”, wybierz Ustaw zmienną; Nazwij nową zmienną, naciśnij „Dodaj zmienną”; Niech krok dodaje 1 do zmiennej; Dodaj Wklej tekst w polu czatu: „Wiadomość #” + zmienna; Dodaj krok Kliknięcie na „Wyślij”; Powtórz skrypt 3 razy; Naciśnij Testuj, potem otwórz aplikację. W każdej rundzie liczba rośnie: 1, 2, 3."></video>
+        <figcaption>Nagrane na prawdziwym telefonie · 86 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Naciśnij „Dodaj akcję”, wybierz Ustaw zmienną</li>
+          <li>Nazwij nową zmienną, naciśnij „Dodaj zmienną”</li>
+          <li>Niech krok dodaje 1 do zmiennej</li>
+          <li>Dodaj Wklej tekst w polu czatu: „Wiadomość #” + zmienna</li>
+          <li>Dodaj krok Kliknięcie na „Wyślij”</li>
+          <li>Powtórz skrypt 3 razy</li>
+          <li>Naciśnij Testuj, potem otwórz aplikację</li>
+        </ol>
+        <p class="result">▶ W każdej rundzie liczba rośnie: 1, 2, 3</p>
+        <div class="callout">
+          <strong>Wskazówki</strong>
+          <ul>
+            <li>Wstaw <code>{nazwa}</code> w dowolne pole tekstowe, aby użyć wartości zmiennej.</li>
+            <li>Zmienne żyją tylko przez jedno uruchomienie: Stop je zeruje.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Wróć do listy akcji</a></p>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2026 AutoGest · <a href="../../pl/">Strona główna</a> · <a href="../../pl/guide/">Instrukcja</a> ·
+    <a href="../../privacy/">Polityka prywatności</a> ·
+    <a href="../../terms/">Warunki korzystania</a><br><span>Polityka prywatności i Warunki korzystania są dostępne po angielsku i wietnamsku.</span></footer>
+</div>
+<script>
+  // Video chỉ chạy khi cuộn tới (tiết kiệm dữ liệu), tự lặp, không tiếng; bỏ thanh điều khiển khi có JavaScript.
+  const videos = document.querySelectorAll('.phone video');
+  const seen = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting) e.target.play().catch(() => {});
+      else e.target.pause();
+    }
+  }, { rootMargin: '200px 0px' });
+  videos.forEach((v) => { v.controls = false; v.preload = 'metadata'; seen.observe(v); });
+</script>
+</body>
+</html>

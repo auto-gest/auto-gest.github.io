@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nhận mã AutoGest Pro</title>
+  <meta name="description" content="Nhận miễn phí mã đổi gói AutoGest Pro (mua một lần, dùng mãi) qua Gmail của bạn.">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="icon" type="image/png" href="../../icon.png">
+  <link rel="apple-touch-icon" href="../../icon.png">
+  <link rel="alternate" hreflang="en" href="../../promo/">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="../"><img class="brand-mark" src="../../icon.png" alt="" width="36" height="36">AutoGest</a>
+    <a class="lang" href="../../promo/">English</a>
+  </header>
+
+  <h1>Nhận mã AutoGest Pro miễn phí</h1>
+  <p class="muted">Gói Pro mua một lần, dùng mãi. Nhập Gmail của bạn, xác minh bằng mã 6 số gửi tới hộp
+    thư, rồi mã đổi gói Pro sẽ được gửi về cùng hộp thư đó. Mỗi Gmail nhận một lần, cho tới khi hết mã.</p>
+
+  <form id="step-email" class="panel" novalidate>
+    <label class="field-label" for="email">Gmail</label>
+    <input id="email" class="input" type="email" inputmode="email" autocomplete="email"
+           autocapitalize="off" spellcheck="false" placeholder="ten.ban@gmail.com" required>
+    <p class="hint">Chỉ nhận địa chỉ @gmail.com.</p>
+    <button class="button" type="submit">Gửi mã xác minh</button>
+  </form>
+
+  <form id="step-otp" class="panel" novalidate hidden>
+    <p>Đã gửi mã 6 số tới <strong id="sent-to"></strong>. Mã có hiệu lực 10 phút. Không thấy thư thì
+      xem mục Spam hoặc Quảng cáo.</p>
+    <label class="field-label" for="otp">Mã xác minh</label>
+    <input id="otp" class="input otp" type="text" inputmode="numeric" autocomplete="one-time-code"
+           pattern="[0-9]{6}" maxlength="6" placeholder="••••••" required>
+    <button class="button" type="submit">Xác nhận</button>
+    <div class="text-actions">
+      <button id="resend" class="link-button" type="button">Gửi lại mã</button>
+      <button id="change-email" class="link-button" type="button">Đổi email</button>
+    </div>
+  </form>
+
+  <div id="step-done" class="callout" hidden>
+    <strong>Đã gửi mã Pro tới <span id="done-to"></span>.</strong>
+    Mở thư “Mã AutoGest Pro của bạn” và làm theo hai bước bên dưới.
+  </div>
+
+  <div id="turnstile"></div>
+  <p id="status" class="status" role="status" aria-live="polite"></p>
+
+  <p class="label">Cách đổi mã</p>
+  <div class="card">
+    <div class="row"><strong>1. Mở liên kết trong thư</strong>
+      <span>Trên điện thoại Android, liên kết mở Google Play với mã đã điền sẵn. Hoặc vào Google Play →
+        ảnh đại diện → Thanh toán và gói thuê bao → Đổi mã quà tặng.</span></div>
+    <div class="row"><strong>2. Mở AutoGest</strong>
+      <span>Pro được kích hoạt khi bạn mở ứng dụng. Hãy mở trong vòng 3 ngày sau khi đổi mã, nếu không
+        Google Play sẽ huỷ giao dịch.
+        <a href="https://play.google.com/store/apps/details?id=com.autogest.anan">Tải AutoGest trên Google Play</a></span></div>
+  </div>
+
+  <p class="label">Quyền riêng tư</p>
+  <p class="muted">Email của bạn chỉ dùng để gửi mã xác minh và mã Pro, và để mỗi Gmail chỉ nhận một
+    lần. Địa chỉ được lưu trong danh sách người đã nhận mã và trong thư đã gửi của hộp thư AutoGest, không
+    dùng để gửi quảng cáo và không chia sẻ cho ai. Mã xác minh tự xoá sau 10 phút. Muốn xoá địa chỉ của
+    bạn, hãy gửi thư tới <a href="mailto:automatedgestures@gmail.com">automatedgestures@gmail.com</a>.
+    Trang dùng <a href="https://www.cloudflare.com/turnstile-privacy-policy/">Cloudflare Turnstile</a>
+    để chặn máy tự động. Ứng dụng AutoGest vẫn không có quyền Internet; xem
+    <a href="../privacy/">Chính sách quyền riêng tư</a>.</p>
+
+  <footer>© 2026 AutoGest · <a href="../guide/">Hướng dẫn</a> · <a href="../privacy/">Chính sách quyền riêng tư</a> ·
+    <a href="../../promo/">English</a></footer>
+</div>
+<script src="../../promo/promo.js"></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onTurnstileLoad" async defer></script>
+</body>
+</html>

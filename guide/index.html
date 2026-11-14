@@ -4,26 +4,35 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>User guide – AutoGest</title>
-  <meta name="description" content="A guide to every AutoGest action, with videos recorded on a real phone: Click, Swipe, Wait for image, If… then blocks and more.">
+  <meta name="description" content="A guide to every AutoGest action, with videos recorded on a real phone: {a:action_click}, Swipe, text recognition (OCR), If… then blocks, variables and more.">
   <link rel="stylesheet" href="../style.css">
   <link rel="icon" type="image/png" href="../icon.png">
   <link rel="apple-touch-icon" href="../icon.png">
-  <link rel="alternate" hreflang="vi" href="../vi/guide/">
+  <link rel="canonical" href="https://auto-gest.github.io/guide/">
+  <link rel="alternate" hreflang="en" href="https://auto-gest.github.io/guide/">
+  <link rel="alternate" hreflang="vi" href="https://auto-gest.github.io/vi/guide/">
+  <link rel="alternate" hreflang="es" href="https://auto-gest.github.io/es/guide/">
+  <link rel="alternate" hreflang="fr" href="https://auto-gest.github.io/fr/guide/">
+  <link rel="alternate" hreflang="x-default" href="https://auto-gest.github.io/guide/">
 </head>
 <body>
-<!-- Trang sinh bằng user-guide/tools/gen-guide-page.mjs trong repo mã nguồn; sửa ở đó rồi sinh lại. -->
+<!-- Trang sinh bằng user-guide/tools/gen-site.mjs trong repo mã nguồn AutoGest; sửa ở đó rồi sinh lại. -->
 <div class="wrap" id="top">
   <header class="top">
     <a class="brand" href="../"><img class="brand-mark" src="../icon.png" alt="" width="36" height="36">AutoGest</a>
-    <a class="lang" href="../vi/guide/">Tiếng Việt</a>
+    <details class="lang-menu">
+      <summary aria-label="Language">English</summary>
+      <ul>
+        <li><a href="../guide/" hreflang="en" lang="en" aria-current="true">English</a></li>
+        <li><a href="../vi/guide/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+        <li><a href="../es/guide/" hreflang="es" lang="es">Español</a></li>
+        <li><a href="../fr/guide/" hreflang="fr" lang="fr">Français</a></li>
+      </ul>
+    </details>
   </header>
 
   <h1>User guide</h1>
-  <p class="muted">Each action has a short video recorded on a real phone, using a sample app so you can see the result.
-    Every tap lights up so it is easy to follow. Actions marked <span class="badge">PRO</span> are part of
-    AutoGest Pro.</p>
-  <p class="muted">The videos were recorded with the app in Vietnamese; the captions and the steps below use the English names
-    you will see in the app.</p>
+  <p class="muted">Each action has a short video recorded on a real phone, using a sample app so you can see the result. Every tap lights up so it is easy to follow. Actions marked <span class="badge">PRO</span> are part of AutoGest Pro.</p>
 
   <ul class="legend">
     <li><span class="dot user"></span>You tap</li>
@@ -54,8 +63,12 @@
     <a class="action" href="#wait-image"><strong>Wait for image <span class="badge">PRO</span></strong><span>Wait for an image to appear or disappear, no tap</span><div class="state">▶ Watch video</div></a>
     <a class="action" href="#wait-color"><strong>Wait for color <span class="badge">PRO</span></strong><span>Wait until a point turns the chosen color</span><div class="state">▶ Watch video</div></a>
     <a class="action" href="#image-click"><strong>Click image <span class="badge">PRO</span></strong><span>Find a template image on screen, then tap it</span><div class="state">▶ Watch video</div></a>
+    <a class="action" href="#ocr-click"><strong>Click text (OCR) <span class="badge">PRO</span></strong><span>Read text from a screenshot, then tap it · works in games</span><div class="state">▶ Watch video</div></a>
+    <a class="action" href="#ocr-wait"><strong>Wait for text (OCR) <span class="badge">PRO</span></strong><span>Wait for text to appear or disappear, no tap · works in games</span><div class="state">▶ Watch video</div></a>
+    <a class="action" href="#ocr-read"><strong>Read text (OCR) <span class="badge">PRO</span></strong><span>Read the text in an area into a variable · works in games</span><div class="state">▶ Watch video</div></a>
     <a class="action" href="#click-text"><strong>Click text</strong><span>Find text, then tap it · not for games</span><div class="state">▶ Watch video</div></a>
     <a class="action" href="#click-node"><strong>Click node <span class="badge">PRO</span></strong><span>Pick a node on a screen capture, then tap it · not for games</span><div class="state">▶ Watch video</div></a>
+    <a class="action" href="#read-text"><strong>Read screen text <span class="badge">PRO</span></strong><span>Pick a node and save its text into a variable · not for games</span><div class="state">▶ Watch video</div></a>
     <a class="action" href="#wait-notification"><strong>Wait &amp; detect notification <span class="badge">PRO</span></strong><span>Waits for a notification with your words or a balance alert, then reads it aloud or moves on</span><div class="state">▶ Watch video</div></a>
   </div>
 
@@ -71,7 +84,10 @@
   <div class="action-grid">
     <a class="action" href="#if-then"><strong>If… then <span class="badge">PRO</span></strong><span>Check the screen, then take one of two branches</span><div class="state">▶ Watch video</div></a>
     <a class="action" href="#loop-until"><strong>Repeat until <span class="badge">PRO</span></strong><span>Run the steps inside again until the condition is true</span><div class="state">▶ Watch video</div></a>
+    <a class="action" href="#stop-script"><strong>Stop script <span class="badge">PRO</span></strong><span>End the whole run when a condition is met</span><div class="state">▶ Watch video</div></a>
+    <a class="action" href="#next-round"><strong>Next loop <span class="badge">PRO</span></strong><span>Skip the remaining steps and start the next loop</span><div class="state">▶ Watch video</div></a>
     <a class="action" href="#call-script"><strong>Call script <span class="badge">PRO</span></strong><span>Run another script, then come back</span><div class="state">▶ Watch video</div></a>
+    <a class="action" href="#set-variable"><strong>Set variable <span class="badge">PRO</span></strong><span>Set or add to a Remembered variable</span><div class="state">▶ Watch video</div></a>
   </div>
 
   <section class="guide" id="click">
@@ -79,7 +95,7 @@
     <p class="muted">The most basic action: AutoGest taps exactly the point you picked on the screen.</p>
     <div class="guide-body">
       <figure class="phone">
-        <img src="../media/guide/click.en.webp" width="480" height="1100" loading="lazy" alt="Video guide for the Click action: Tap “Add action”, choose Click; Tap “Add point”; Open the app, drag the crosshair to the spot; Tap OK to save the point; Back in AutoGest, the point is filled in; Tap Test run, then open the app. AutoGest clicks exactly the chosen spot.">
+        <video src="../media/guide/en/click.mp4" poster="../media/guide/en/click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video guide for the Click action: Tap “Add action”, choose Click; Tap “Add point”; Open the app, drag the crosshair to the spot; Tap OK to save the point; Back in AutoGest, the point is filled in; Tap Test run, then open the app. AutoGest taps exactly the chosen spot."></video>
         <figcaption>Recorded on a real phone · 28 seconds</figcaption>
       </figure>
       <div>
@@ -91,13 +107,13 @@
           <li>Back in AutoGest, the point is filled in</li>
           <li>Tap Test run, then open the app</li>
         </ol>
-        <p class="result">▶ AutoGest clicks exactly the chosen spot</p>
+        <p class="result">▶ AutoGest taps exactly the chosen spot</p>
         <div class="callout">
           <strong>Tips</strong>
           <ul>
-            <li>Points are scaled to the screen size, so the script still taps the right spot on a phone with a different screen.</li>
-            <li>In <strong>General settings</strong> you set the pause between steps and the tap offset, so taps feel natural, like a real person.</li>
-            <li>Button moves around each time? Use <strong>Click image</strong> or <strong>Click text</strong> so AutoGest finds the button before tapping.</li>
+            <li>Points are scaled to the screen size, so the script still hits the right spot on a phone with a different screen.</li>
+            <li>In <strong>General settings</strong> you set the pause between steps and a small tap offset, so it feels like a real person.</li>
+            <li>The button moves around? Use <strong>Click image</strong>, <strong>Click text (OCR)</strong> or <strong>Click text</strong> so AutoGest finds it first.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Back to the action list</a></p>
@@ -107,11 +123,11 @@
 
   <section class="guide" id="rapid-click">
     <h2>Rapid click</h2>
-    <p class="muted">Taps one point over and over, from 1 to 20 times a second — made for games that need fast tapping.</p>
+    <p class="muted">Tap one point over and over, from 1 to 20 times per second — great for games that need fast tapping.</p>
     <div class="guide-body">
       <figure class="phone">
-        <img src="../media/guide/rapid-click.en.webp" width="480" height="1100" loading="lazy" alt="Video guide for the Rapid click action: Tap “Add action”, choose Rapid click; Tap “Add point”; Open the app, put the crosshair on the button; Tap OK to save the point; Back in AutoGest, set the speed and tap count; Tap Test run, then open the app. AutoGest taps 30 times, 10 taps per second.">
-        <figcaption>Recorded on a real phone · 32 seconds</figcaption>
+        <video src="../media/guide/en/rapid-click.mp4" poster="../media/guide/en/rapid-click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video guide for the Rapid click action: Tap “Add action”, choose Rapid click; Tap “Add point”; Open the app, put the crosshair on the button; Tap OK to save the point; Back in AutoGest, lower the tap count; Tap Test run, then open the app. AutoGest taps 30 times, 10 taps per second."></video>
+        <figcaption>Recorded on a real phone · 33 seconds</figcaption>
       </figure>
       <div>
         <ol class="steps">
@@ -119,16 +135,16 @@
           <li>Tap “Add point”</li>
           <li>Open the app, put the crosshair on the button</li>
           <li>Tap OK to save the point</li>
-          <li>Back in AutoGest, set the speed and tap count</li>
+          <li>Back in AutoGest, lower the tap count</li>
           <li>Tap Test run, then open the app</li>
         </ol>
         <p class="result">▶ AutoGest taps 30 times, 10 taps per second</p>
         <div class="callout">
           <strong>Tips</strong>
           <ul>
-            <li>Stop after a number of taps, after a length of time, or keep going until you tap Stop.</li>
-            <li>Above 10 taps a second is faster than a human hand; some apps may treat it as unusual.</li>
-            <li>Turn on <strong>Natural rhythm</strong> so the gaps between taps vary slightly, like a real person tapping.</li>
+            <li>Stop after a number of taps, after a time, or keep going until you press Stop.</li>
+            <li>Above 10 taps per second is faster than a human hand; some apps may treat it as unusual.</li>
+            <li>Turn on the natural rhythm so the gaps between taps vary slightly, like a real finger.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Back to the action list</a></p>
@@ -138,10 +154,10 @@
 
   <section class="guide" id="long-click">
     <h2>Long click</h2>
-    <p class="muted">Presses and holds one point for as long as you choose — for hold-to-confirm buttons, context menus and drag selection.</p>
+    <p class="muted">Touch and hold a point for as long as you choose — for hold-to-confirm buttons, context menus and drag-select.</p>
     <div class="guide-body">
       <figure class="phone">
-        <img src="../media/guide/long-click.en.webp" width="480" height="1100" loading="lazy" alt="Video guide for the Long click action: Tap “Add action”, choose Long click; Tap “Add point”; Open the app, put the crosshair on the button; Tap OK to save the point; Back in AutoGest, choose how long to hold; Tap Test run, then open the app. AutoGest holds the button for 2 s, it unlocks.">
+        <video src="../media/guide/en/long-click.mp4" poster="../media/guide/en/long-click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video guide for the Long click action: Tap “Add action”, choose Long click; Tap “Add point”; Open the app, put the crosshair on the button; Tap OK to save the point; Back in AutoGest, choose how long to hold; Tap Test run, then open the app. AutoGest holds the button for 2 s and it unlocks."></video>
         <figcaption>Recorded on a real phone · 30 seconds</figcaption>
       </figure>
       <div>
@@ -153,11 +169,11 @@
           <li>Back in AutoGest, choose how long to hold</li>
           <li>Tap Test run, then open the app</li>
         </ol>
-        <p class="result">▶ AutoGest holds the button for 2 s, it unlocks</p>
+        <p class="result">▶ AutoGest holds the button for 2 s and it unlocks</p>
         <div class="callout">
           <strong>Tips</strong>
           <ul>
-            <li>Pick the hold time on the card; for a “hold to confirm” button, make it a little longer than the app asks for.</li>
+            <li>For a “hold to confirm” button, pick a time a little longer than the app asks for.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Back to the action list</a></p>
@@ -167,11 +183,11 @@
 
   <section class="guide" id="swipe">
     <h2>Swipe</h2>
-    <p class="muted">Drags a finger from a start point to an end point — swipe to unlock, move a slider, flip through pages.</p>
+    <p class="muted">Drag a finger from a start point to an end point — swipe to unlock, move a slider, flick through pages.</p>
     <div class="guide-body">
       <figure class="phone">
-        <img src="../media/guide/swipe.en.webp" width="480" height="1100" loading="lazy" alt="Video guide for the Swipe action: Tap “Add action”, choose Swipe; Pick the start point; Go back, pick the end point; Go back, choose the swipe duration; Tap Test run, then open the app. AutoGest swipes from the start to the end point.">
-        <figcaption>Recorded on a real phone · 34 seconds</figcaption>
+        <video src="../media/guide/en/swipe.mp4" poster="../media/guide/en/swipe.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video guide for the Swipe action: Tap “Add action”, choose Swipe; Pick the start point; Go back, pick the end point; Go back, choose the swipe duration; Tap Test run, then open the app. AutoGest swipes from the start to the end point."></video>
+        <figcaption>Recorded on a real phone · 35 seconds</figcaption>
       </figure>
       <div>
         <ol class="steps">
@@ -185,7 +201,7 @@
         <div class="callout">
           <strong>Tips</strong>
           <ul>
-            <li>A short duration is a fast swipe (a fling); a long duration is a slow drag (drag and drop, sliders).</li>
+            <li>A short duration is a quick flick; a long one is a slow drag (drag and drop, sliders).</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Back to the action list</a></p>
@@ -195,11 +211,11 @@
 
   <section class="guide" id="scroll">
     <h2>Scroll</h2>
-    <p class="muted">Scrolls a list up, down, left or right with one swipe across the middle of the screen — no point to pick.</p>
+    <p class="muted">Scroll a list up, down, left or right with one swipe across the middle of the screen — no point to pick.</p>
     <div class="guide-body">
       <figure class="phone">
-        <img src="../media/guide/scroll.en.webp" width="480" height="1100" loading="lazy" alt="Video guide for the Scroll action: Tap “Add action”, choose Scroll; Choose the direction and duration; Tap Test run, then open the app. AutoGest swipes across the middle to scroll.">
-        <figcaption>Recorded on a real phone · 20 seconds</figcaption>
+        <video src="../media/guide/en/scroll.mp4" poster="../media/guide/en/scroll.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video guide for the Scroll action: Tap “Add action”, choose Scroll; Choose the direction and duration; Tap Test run, then open the app. AutoGest swipes across the middle to scroll."></video>
+        <figcaption>Recorded on a real phone · 21 seconds</figcaption>
       </figure>
       <div>
         <ol class="steps">
@@ -211,7 +227,7 @@
         <div class="callout">
           <strong>Tips</strong>
           <ul>
-            <li>Combine it with <strong>Repeat until</strong> to keep scrolling until what you are looking for shows up.</li>
+            <li>Combine it with <strong>Repeat until</strong> to scroll until what you are looking for shows up.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Back to the action list</a></p>
@@ -221,11 +237,11 @@
 
   <section class="guide" id="paste-text">
     <h2>Paste text</h2>
-    <p class="muted">Taps a text field, then fills in the whole text you wrote — fast, and any language or accent comes through exactly.</p>
+    <p class="muted">Tap a text field and fill in the whole text you prepared — fast, and every accent and character comes out right.</p>
     <div class="guide-body">
       <figure class="phone">
-        <img src="../media/guide/paste-text.en.webp" width="480" height="1100" loading="lazy" alt="Video guide for the Paste text action: Tap “Add action”, choose Paste text; Tap “Add point”, aim at the text field; Go back, enter the text to paste; Tap Test run, then open the app. AutoGest pastes the whole text into the field.">
-        <figcaption>Recorded on a real phone · 29 seconds</figcaption>
+        <video src="../media/guide/en/paste-text.mp4" poster="../media/guide/en/paste-text.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video guide for the Paste text action: Tap “Add action”, choose Paste text; Tap “Add point”, aim at the text field; Go back, enter the text to paste; Tap Test run, then open the app. AutoGest pastes the whole text into the field."></video>
+        <figcaption>Recorded on a real phone · 31 seconds</figcaption>
       </figure>
       <div>
         <ol class="steps">
@@ -238,8 +254,9 @@
         <div class="callout">
           <strong>Tips</strong>
           <ul>
-            <li>Separate several texts with <code>||</code> and AutoGest picks one at random on each run.</li>
-            <li>App blocks pasting? Use <strong>Type characters</strong> to tap each key like a person typing.</li>
+            <li>Separate several texts with <code>||</code> and AutoGest picks one at random each run.</li>
+            <li>Insert a variable with <strong>Insert variable</strong> to paste a value read earlier in the run.</li>
+            <li>The app blocks pasting? Use <strong>Type characters</strong> to tap each key like a person typing.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Back to the action list</a></p>
@@ -249,17 +266,17 @@
 
   <section class="guide" id="type-keys">
     <h2>Type characters <span class="badge">PRO</span></h2>
-    <p class="muted">Records every key you tap on the keyboard; when the script runs, AutoGest taps the same keys again with your typing rhythm.</p>
+    <p class="muted">Record each key you tap on the keyboard; when the script runs, AutoGest taps the same keys with your typing rhythm.</p>
     <div class="guide-body">
       <figure class="phone">
-        <img src="../media/guide/type-keys.en.webp" width="480" height="1100" loading="lazy" alt="Video guide for the Type characters action: Tap “Add action”, choose Type characters; Tap the key recording box, type on the keyboard; Tap Done to save the key taps; Pick the field to type into (optional); Go back, tap Test run, then open the app. AutoGest taps the field, then replays each key.">
-        <figcaption>Recorded on a real phone · 40 seconds</figcaption>
+        <video src="../media/guide/en/type-keys.mp4" poster="../media/guide/en/type-keys.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video guide for the Type characters action: Tap “Add action”, choose Type characters; Tap the key recording box, type on the keyboard; Tap “Done” to save the key taps; Pick the field to type into (optional); Go back, tap Test run, then open the app. AutoGest taps the field, then replays each key."></video>
+        <figcaption>Recorded on a real phone · 39 seconds</figcaption>
       </figure>
       <div>
         <ol class="steps">
           <li>Tap “Add action”, choose Type characters</li>
           <li>Tap the key recording box, type on the keyboard</li>
-          <li>Tap Done to save the key taps</li>
+          <li>Tap “Done” to save the key taps</li>
           <li>Pick the field to type into (optional)</li>
           <li>Go back, tap Test run, then open the app</li>
         </ol>
@@ -267,9 +284,9 @@
         <div class="callout">
           <strong>Tips</strong>
           <ul>
-            <li>Use the same keyboard (and the same kind of field) when recording and when running, because AutoGest taps by key position.</li>
-            <li>After typing, AutoGest reads the field back; if the text does not match, the step fails and the remaining keys are not tapped.</li>
-            <li>Don’t need key-by-key typing? Tap <strong>Switch to Paste text</strong> on the card.</li>
+            <li>Use the same keyboard (and the same kind of field) when recording and running, because AutoGest taps by key position.</li>
+            <li>After typing, AutoGest checks the field; if the text does not match, the step reports an error and stops typing.</li>
+            <li>No need to tap each key? Switch the card to <strong>Paste text</strong>.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Back to the action list</a></p>
@@ -279,26 +296,26 @@
 
   <section class="guide" id="delay">
     <h2>Wait</h2>
-    <p class="muted">Pauses the script for a set time (in milliseconds) before the next step — wait for an app to load or an animation to finish.</p>
+    <p class="muted">Pause before the next step — let a screen load, an animation finish, or a timer run out.</p>
     <div class="guide-body">
       <figure class="phone">
-        <img src="../media/guide/delay.en.webp" width="480" height="1100" loading="lazy" alt="Video guide for the Wait action: Tap “Add action”, choose Wait; Enter the wait time (ms); Add a Click step to see the pause; Go back, set the script to repeat 2 times; Tap Test run, then open the app. Taps come 3 s apart, plus the step pause.">
-        <figcaption>Recorded on a real phone · 44 seconds</figcaption>
+        <video src="../media/guide/en/delay.mp4" poster="../media/guide/en/delay.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video guide for the Wait action: Tap “Add action”, choose Wait; Enter the wait time (ms); Add a Click step to see the pause; Repeat the script 2 times in “General settings”; Tap Test run, then open the app. The taps come 3 s apart, plus the step pause."></video>
+        <figcaption>Recorded on a real phone · 45 seconds</figcaption>
       </figure>
       <div>
         <ol class="steps">
           <li>Tap “Add action”, choose Wait</li>
           <li>Enter the wait time (ms)</li>
           <li>Add a Click step to see the pause</li>
-          <li>Go back, set the script to repeat 2 times</li>
+          <li>Repeat the script 2 times in “General settings”</li>
           <li>Tap Test run, then open the app</li>
         </ol>
-        <p class="result">▶ Taps come 3 s apart, plus the step pause</p>
+        <p class="result">▶ The taps come 3 s apart, plus the step pause</p>
         <div class="callout">
           <strong>Tips</strong>
           <ul>
-            <li>Besides the Wait step, every step also gets a random pause, set in <strong>General settings</strong>.</li>
-            <li>Not sure how long to wait? <strong>Wait for image</strong> and <strong>Wait for color</strong> wait exactly until the screen is ready.</li>
+            <li>Every step already waits a short random pause (set in <strong>General settings</strong>); add a Wait only when you need longer.</li>
+            <li>Waiting for something to appear? <strong>Wait for image</strong>, <strong>Wait for text (OCR)</strong> or <strong>Wait for color</strong> continue as soon as it is there.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Back to the action list</a></p>
@@ -308,16 +325,16 @@
 
   <section class="guide" id="wait-image">
     <h2>Wait for image <span class="badge">PRO</span></h2>
-    <p class="muted">Waits until an image appears (or disappears) on the screen before running the next step. The image is cropped straight from the screen.</p>
+    <p class="muted">Wait until a picture appears (or disappears) on the screen, without tapping — then the next steps run.</p>
     <div class="guide-body">
       <figure class="phone">
-        <img src="../media/guide/wait-image.en.webp" width="480" height="1100" loading="lazy" alt="Video guide for the Wait for image action: Tap “Add action”, choose Wait for image; Tap “Pick image”, choose Crop from the screen; Open the screen, tap Capture, frame the image; Go back, add a Click where the image shows up; Go back, tap Test run, then open the app. AutoGest waits for the gift box, then runs the Click.">
-        <figcaption>Recorded on a real phone · 46 seconds</figcaption>
+        <video src="../media/guide/en/wait-image.mp4" poster="../media/guide/en/wait-image.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video guide for the Wait for image action: Tap “Add action”, choose Wait for image; Tap “Pick image”, choose “Crop from the screen”; Open the screen, tap Capture, frame the image; Go back, add a Click where the image shows up; Go back, tap Test run, then open the app. AutoGest waits for the gift box, then runs the Click."></video>
+        <figcaption>Recorded on a real phone · 47 seconds</figcaption>
       </figure>
       <div>
         <ol class="steps">
           <li>Tap “Add action”, choose Wait for image</li>
-          <li>Tap “Pick image”, choose Crop from the screen</li>
+          <li>Tap “Pick image”, choose “Crop from the screen”</li>
           <li>Open the screen, tap Capture, frame the image</li>
           <li>Go back, add a Click where the image shows up</li>
           <li>Go back, tap Test run, then open the app</li>
@@ -326,9 +343,8 @@
         <div class="callout">
           <strong>Tips</strong>
           <ul>
-            <li>Frame the image tightly and leave out any background that changes.</li>
-            <li>Choose <strong>Disappear</strong> to wait for a loading screen or a dialog to go away.</li>
-            <li>Works in games too, because AutoGest compares images instead of reading the app’s structure.</li>
+            <li>Crop the image tight around the thing you want, leaving out backgrounds that change.</li>
+            <li>Lower the minimum match if the image looks slightly different each time.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Back to the action list</a></p>
@@ -338,26 +354,26 @@
 
   <section class="guide" id="wait-color">
     <h2>Wait for color <span class="badge">PRO</span></h2>
-    <p class="muted">Waits until a point on the screen has exactly the color you picked — a light turning green, a button lighting up, an energy bar filling up.</p>
+    <p class="muted">Watch one point until it turns a chosen color (or changes color) — a light turning green, a button becoming active.</p>
     <div class="guide-body">
       <figure class="phone">
-        <img src="../media/guide/wait-color.en.webp" width="480" height="1100" loading="lazy" alt="Video guide for the Wait for color action: Tap “Add action”, choose Wait for color; Tap “Add point”, aim at the spot with the color; Go back: AutoGest has read the color there; Add a Click step on the “go” button; Go back, tap Test run, then open the app. AutoGest waits for the green light, then taps “go”.">
-        <figcaption>Recorded on a real phone · 43 seconds</figcaption>
+        <video src="../media/guide/en/wait-color.mp4" poster="../media/guide/en/wait-color.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video guide for the Wait for color action: Tap “Add action”, choose Wait for color; Tap “Add point”, aim at the spot with the color; Go back: AutoGest has read the color there; Add a Click step on “Go”; Go back, tap Test run, then open the app. AutoGest waits for the green light, then taps “Go”."></video>
+        <figcaption>Recorded on a real phone · 44 seconds</figcaption>
       </figure>
       <div>
         <ol class="steps">
           <li>Tap “Add action”, choose Wait for color</li>
           <li>Tap “Add point”, aim at the spot with the color</li>
           <li>Go back: AutoGest has read the color there</li>
-          <li>Add a Click step on the “go” button</li>
+          <li>Add a Click step on “Go”</li>
           <li>Go back, tap Test run, then open the app</li>
         </ol>
-        <p class="result">▶ AutoGest waits for the green light, then taps “go”</p>
+        <p class="result">▶ AutoGest waits for the green light, then taps “Go”</p>
         <div class="callout">
           <strong>Tips</strong>
           <ul>
-            <li>Pick the point while the color you want to wait for is showing: AutoGest reads the color at that point right away.</li>
-            <li>Choose <strong>Changes</strong> to wait until the point no longer has its current color.</li>
+            <li>Pick the point while the screen shows the color you want: AutoGest reads it for you.</li>
+            <li>Works in games too, because it only looks at the screen image.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Back to the action list</a></p>
@@ -367,26 +383,113 @@
 
   <section class="guide" id="image-click">
     <h2>Click image <span class="badge">PRO</span></h2>
-    <p class="muted">Finds an image on the screen and taps its center — wherever the button is, AutoGest finds it, even in games.</p>
+    <p class="muted">Find a picture on the screen and tap it, wherever it is — perfect for buttons that move around.</p>
     <div class="guide-body">
       <figure class="phone">
-        <img src="../media/guide/image-click.en.webp" width="480" height="1100" loading="lazy" alt="Video guide for the Click image action: Tap “Add action”, choose Click image; Tap “Pick image”, choose Crop from the screen; Open the screen with the image, tap Capture; Drag the frame tight around the image, tap OK; Go back, tap Test run, then open the app. AutoGest waits for the gift box, then taps it.">
-        <figcaption>Recorded on a real phone · 35 seconds</figcaption>
+        <video src="../media/guide/en/image-click.mp4" poster="../media/guide/en/image-click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video guide for the Click image action: Tap “Add action”, choose Click image; Tap “Pick image”, choose “Crop from the screen”; Open the screen with the image, tap Capture; Drag a frame tight around the image, tap OK; Go back, tap Test run, then open the app. AutoGest waits for the gift box, then taps it."></video>
+        <figcaption>Recorded on a real phone · 37 seconds</figcaption>
       </figure>
       <div>
         <ol class="steps">
           <li>Tap “Add action”, choose Click image</li>
-          <li>Tap “Pick image”, choose Crop from the screen</li>
+          <li>Tap “Pick image”, choose “Crop from the screen”</li>
           <li>Open the screen with the image, tap Capture</li>
-          <li>Drag the frame tight around the image, tap OK</li>
+          <li>Drag a frame tight around the image, tap OK</li>
           <li>Go back, tap Test run, then open the app</li>
         </ol>
         <p class="result">▶ AutoGest waits for the gift box, then taps it</p>
         <div class="callout">
           <strong>Tips</strong>
           <ul>
-            <li>Set <strong>Maximum wait</strong> long enough if the image shows up late.</li>
-            <li>Lower <strong>Minimum match</strong> when the image changes a little between runs (shadows, glowing edges).</li>
+            <li>Works in games, because AutoGest looks at the screen image, not at the app’s layout.</li>
+            <li>Crop just the button, without the background around it.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Back to the action list</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="ocr-click">
+    <h2>Click text (OCR) <span class="badge">PRO</span></h2>
+    <p class="muted">Read the text in a screenshot with on-device text recognition (OCR) and tap it — works even in games that draw their own text.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../media/guide/en/ocr-click.mp4" poster="../media/guide/en/ocr-click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video guide for the Click text (OCR) action: Tap “Add action”, choose Click text (OCR); Enter the text on the button; Tap Test run, then open the app. AutoGest reads the screen image — even in games — and taps the text."></video>
+        <figcaption>Recorded on a real phone · 28 seconds</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Tap “Add action”, choose Click text (OCR)</li>
+          <li>Enter the text on the button</li>
+          <li>Tap Test run, then open the app</li>
+        </ol>
+        <p class="result">▶ AutoGest reads the screen image — even in games — and taps the text</p>
+        <div class="callout">
+          <strong>Tips</strong>
+          <ul>
+            <li>Choose the right script for Chinese, Japanese or Korean text; Latin covers English, Vietnamese, Spanish and more.</li>
+            <li>Narrow the search area to make reading faster and more accurate.</li>
+            <li>Recognition runs on your phone; nothing is sent anywhere.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Back to the action list</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="ocr-wait">
+    <h2>Wait for text (OCR) <span class="badge">PRO</span></h2>
+    <p class="muted">Wait until a piece of text appears (or disappears) on the screen image, without tapping.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../media/guide/en/ocr-wait.mp4" poster="../media/guide/en/ocr-wait.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video guide for the Wait for text (OCR) action: Tap “Add action”, choose Wait for text (OCR); Enter the text to wait for; Add a Click step on “Run”; Go back, tap Test run, then open the app. AutoGest waits for “GO”, then taps “Run”."></video>
+        <figcaption>Recorded on a real phone · 41 seconds</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Tap “Add action”, choose Wait for text (OCR)</li>
+          <li>Enter the text to wait for</li>
+          <li>Add a Click step on “Run”</li>
+          <li>Go back, tap Test run, then open the app</li>
+        </ol>
+        <p class="result">▶ AutoGest waits for “GO”, then taps “Run”</p>
+        <div class="callout">
+          <strong>Tips</strong>
+          <ul>
+            <li>Good for game screens like “Ready… GO!”, “Victory” or a countdown ending.</li>
+            <li>Pick an area to wait faster and avoid matching the same word elsewhere.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Back to the action list</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="ocr-read">
+    <h2>Read text (OCR) <span class="badge">PRO</span></h2>
+    <p class="muted">Read the text in an area of the screen image and save it into a variable for later steps.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../media/guide/en/ocr-read.mp4" poster="../media/guide/en/ocr-read.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video guide for the Read text (OCR) action: Tap “Add action”, choose Read text (OCR); Tap “Pick area”, open the screen, tap Capture; Frame the code, tap OK; Go back, choose “Number only” and a variable to save into; Add Paste text into the field, insert the variable; Add a Click step on “Confirm”; Tap Test run, then open the app. AutoGest reads the code from the image and enters it."></video>
+        <figcaption>Recorded on a real phone · 76 seconds</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Tap “Add action”, choose Read text (OCR)</li>
+          <li>Tap “Pick area”, open the screen, tap Capture</li>
+          <li>Frame the code, tap OK</li>
+          <li>Go back, choose “Number only” and a variable to save into</li>
+          <li>Add Paste text into the field, insert the variable</li>
+          <li>Add a Click step on “Confirm”</li>
+          <li>Tap Test run, then open the app</li>
+        </ol>
+        <p class="result">▶ AutoGest reads the code from the image and enters it</p>
+        <div class="callout">
+          <strong>Tips</strong>
+          <ul>
+            <li>Choose “Number only” to keep just the digits — for scores, prices or codes.</li>
+            <li>Use the variable in Paste text, or compare it in an If… then block.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Back to the action list</a></p>
@@ -396,11 +499,11 @@
 
   <section class="guide" id="click-text">
     <h2>Click text</h2>
-    <p class="muted">Finds a piece of text on the screen and taps it — no need to know where the button is beforehand.</p>
+    <p class="muted">Type the text shown on a button; when the script runs, AutoGest finds that text on the screen and taps it.</p>
     <div class="guide-body">
       <figure class="phone">
-        <img src="../media/guide/click-text.en.webp" width="480" height="1100" loading="lazy" alt="Video guide for the Click text action: Tap “Add action”, choose Click text; Enter the text shown on the button; Tap Test run, then open the app. Wherever the button is, AutoGest finds the text and taps.">
-        <figcaption>Recorded on a real phone · 26 seconds</figcaption>
+        <video src="../media/guide/en/click-text.mp4" poster="../media/guide/en/click-text.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video guide for the Click text action: Tap “Add action”, choose Click text; Enter the text shown on the button; Tap Test run, then open the app. Wherever the button is, AutoGest finds the text and taps."></video>
+        <figcaption>Recorded on a real phone · 30 seconds</figcaption>
       </figure>
       <div>
         <ol class="steps">
@@ -412,8 +515,8 @@
         <div class="callout">
           <strong>Tips</strong>
           <ul>
-            <li>The text only has to contain what you entered; upper and lower case don’t matter.</li>
-            <li>Games draw with graphics and have no text to read: use <strong>Click image</strong>.</li>
+            <li>It reads the app’s layout, so it does not work in games that draw their own text — use <strong>Click text (OCR)</strong> there.</li>
+            <li>Upper and lower case do not matter, and the text only needs to contain what you typed.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Back to the action list</a></p>
@@ -423,11 +526,11 @@
 
   <section class="guide" id="click-node">
     <h2>Click node <span class="badge">PRO</span></h2>
-    <p class="muted">Pick exactly one element in the app’s Accessibility tree (even an icon-only button); when the script runs, AutoGest finds that element again and taps it.</p>
+    <p class="muted">Capture the screen, tap an element, and AutoGest remembers how to find it again — even buttons with only an icon.</p>
     <div class="guide-body">
       <figure class="phone">
-        <img src="../media/guide/click-node.en.webp" width="480" height="1100" loading="lazy" alt="Video guide for the Click node action: Tap “Add action”, choose Click node; Tap “Pick node”, open the app, tap Capture; Tap the button you want, then “Pick node”; Go back, choose how to find the node; Tap Test run, then open the app. AutoGest finds the heart button and taps it.">
-        <figcaption>Recorded on a real phone · 34 seconds</figcaption>
+        <video src="../media/guide/en/click-node.mp4" poster="../media/guide/en/click-node.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video guide for the Click node action: Tap “Add action”, choose Click node; Tap “Pick node”, open the app, tap Capture; Tap the button you want, then “Pick node”; Go back, choose how to find the node; Tap Test run, then open the app. AutoGest finds the heart button and taps it."></video>
+        <figcaption>Recorded on a real phone · 37 seconds</figcaption>
       </figure>
       <div>
         <ol class="steps">
@@ -441,8 +544,39 @@
         <div class="callout">
           <strong>Tips</strong>
           <ul>
-            <li>Find it by <code>xpath</code> (the default), <code>resource-id</code>, <code>text</code> or <code>content-desc</code> — choose whichever is most stable in that app.</li>
-            <li>Games have no node tree: use <strong>Click image</strong>.</li>
+            <li>Find it by text or content-desc when they stay the same; avoid resource-id if the app changes it between versions.</li>
+            <li>Remove parts that change each time (like counts) so the node is still found next time.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Back to the action list</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="read-text">
+    <h2>Read screen text <span class="badge">PRO</span></h2>
+    <p class="muted">Pick an element on the screen and copy its text into a variable, without tapping it.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../media/guide/en/read-text.mp4" poster="../media/guide/en/read-text.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video guide for the Read screen text action: Tap “Add action”, choose Read screen text; Tap “Pick node”, open the app, tap Capture; Tap the code, then “Pick node”; Go back, choose a variable to save into; Add Paste text into the field, insert the variable; Add a Click step on “Confirm”; Tap Test run, then open the app. AutoGest copies the code and enters it."></video>
+        <figcaption>Recorded on a real phone · 78 seconds</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Tap “Add action”, choose Read screen text</li>
+          <li>Tap “Pick node”, open the app, tap Capture</li>
+          <li>Tap the code, then “Pick node”</li>
+          <li>Go back, choose a variable to save into</li>
+          <li>Add Paste text into the field, insert the variable</li>
+          <li>Add a Click step on “Confirm”</li>
+          <li>Tap Test run, then open the app</li>
+        </ol>
+        <p class="result">▶ AutoGest copies the code and enters it</p>
+        <div class="callout">
+          <strong>Tips</strong>
+          <ul>
+            <li>Great for one-time codes, order numbers or balances shown in an app.</li>
+            <li>It reads the app’s layout; for games use <strong>Read text (OCR)</strong> instead.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Back to the action list</a></p>
@@ -452,29 +586,29 @@
 
   <section class="guide" id="wait-notification">
     <h2>Wait &amp; detect notification <span class="badge">PRO</span></h2>
-    <p class="muted">Waits for a notification containing the phrase you picked, reads aloud the part you want, then runs the next step. The <strong>Balance change</strong> mode reads the amount aloud from bank alerts.</p>
+    <p class="muted">Wait for a notification that contains the text you chose, read it aloud, then continue the script.</p>
     <div class="guide-body">
       <figure class="phone">
-        <img src="../media/guide/wait-notification.en.webp" width="480" height="1100" loading="lazy" alt="Video guide for the Wait &amp; detect notification action: Add the action Wait &amp; detect notification; Tap “Pick a sample notification”, choose one; Tap the first, then the last word of the phrase; Choose what to read, tap “Use this sample”; Add a Click step on the confirm order button; Go back, tap Test run, then open the app; When a customer places an order…. AutoGest reads the notification, then confirms.">
-        <figcaption>Recorded on a real phone · 54 seconds</figcaption>
+        <video src="../media/guide/en/wait-notification.mp4" poster="../media/guide/en/wait-notification.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video guide for the Wait &amp; detect notification action: Tap “Add action”, choose Wait &amp; detect notification; Tap “Pick a sample notification”, choose a notification; Enter the words the notification must contain; Tap “Use this sample”; Add a Click step on “Confirm order”; Go back, tap Test run, then open the app; When a customer orders…. AutoGest reads the notification aloud, then confirms."></video>
+        <figcaption>Recorded on a real phone · 64 seconds</figcaption>
       </figure>
       <div>
         <ol class="steps">
-          <li>Add the action Wait &amp; detect notification</li>
-          <li>Tap “Pick a sample notification”, choose one</li>
-          <li>Tap the first, then the last word of the phrase</li>
-          <li>Choose what to read, tap “Use this sample”</li>
-          <li>Add a Click step on the confirm order button</li>
+          <li>Tap “Add action”, choose Wait &amp; detect notification</li>
+          <li>Tap “Pick a sample notification”, choose a notification</li>
+          <li>Enter the words the notification must contain</li>
+          <li>Tap “Use this sample”</li>
+          <li>Add a Click step on “Confirm order”</li>
           <li>Go back, tap Test run, then open the app</li>
-          <li>When a customer places an order…</li>
+          <li>When a customer orders…</li>
         </ol>
-        <p class="result">▶ AutoGest reads the notification, then confirms</p>
+        <p class="result">▶ AutoGest reads the notification aloud, then confirms</p>
         <div class="callout">
           <strong>Tips</strong>
           <ul>
-            <li>Needs Notification access; the app only asks for it when you pick a sample notification.</li>
-            <li>A script with only notification waits runs in the background, even while the phone is locked — an order alert or a payment announcer.</li>
-            <li>A sample only keeps the words that identify it, never the content of the notification.</li>
+            <li>Pick a real notification as the sample and tap the words to wait for; parts that change (like the order number) are matched loosely.</li>
+            <li>A script that only waits for notifications can run in the background, even with the screen off.</li>
+            <li>Notification content stays on your phone and is never written to the log.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Back to the action list</a></p>
@@ -484,11 +618,11 @@
 
   <section class="guide" id="open-app">
     <h2>Open app</h2>
-    <p class="muted">Opens an installed app and waits for it to show on the screen — the script gets to the right place by itself, you don’t open it by hand.</p>
+    <p class="muted">Open an app from the list and wait for it to show up — a good first step for any script.</p>
     <div class="guide-body">
       <figure class="phone">
-        <img src="../media/guide/open-app.en.webp" width="480" height="1100" loading="lazy" alt="Video guide for the Open app action: Tap “Add action”, choose Open app; Tap “Pick app”, choose the app to open; Tap Test run, no need to open the app yourself. AutoGest opens the chosen app by itself.">
-        <figcaption>Recorded on a real phone · 27 seconds</figcaption>
+        <video src="../media/guide/en/open-app.mp4" poster="../media/guide/en/open-app.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video guide for the Open app action: Tap “Add action”, choose Open app; Tap “Pick app”, choose the app to open; Tap Test run, no need to open the app yourself. AutoGest opens the chosen app by itself."></video>
+        <figcaption>Recorded on a real phone · 39 seconds</figcaption>
       </figure>
       <div>
         <ol class="steps">
@@ -500,7 +634,7 @@
         <div class="callout">
           <strong>Tips</strong>
           <ul>
-            <li>An app already running in the background is brought to the front as it was, not restarted.</li>
+            <li>The script can start from AutoGest; this step brings the right app to the front.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Back to the action list</a></p>
@@ -510,23 +644,23 @@
 
   <section class="guide" id="back">
     <h2>Back</h2>
-    <p class="muted">Presses the system Back key, just as you would — close a detail screen, hide the keyboard, go back one step.</p>
+    <p class="muted">Press the system Back button.</p>
     <div class="guide-body">
       <figure class="phone">
-        <img src="../media/guide/back.en.webp" width="480" height="1100" loading="lazy" alt="Video guide for the Back action: Tap “Add action”, choose Back; Tap Test run, then open the app; During the countdown, open a message. AutoGest presses Back, the list is back.">
-        <figcaption>Recorded on a real phone · 22 seconds</figcaption>
+        <video src="../media/guide/en/back.mp4" poster="../media/guide/en/back.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video guide for the Back action: Tap “Add action”, choose Back; Tap Test run, then open the app; During the countdown, open a story. AutoGest presses Back, the list is back."></video>
+        <figcaption>Recorded on a real phone · 25 seconds</figcaption>
       </figure>
       <div>
         <ol class="steps">
           <li>Tap “Add action”, choose Back</li>
           <li>Tap Test run, then open the app</li>
-          <li>During the countdown, open a message</li>
+          <li>During the countdown, open a story</li>
         </ol>
         <p class="result">▶ AutoGest presses Back, the list is back</p>
         <div class="callout">
           <strong>Tips</strong>
           <ul>
-            <li>No point needed, so it works the same on every phone.</li>
+            <li>Use it to close a dialog or step back one screen.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Back to the action list</a></p>
@@ -536,11 +670,11 @@
 
   <section class="guide" id="home">
     <h2>Home screen</h2>
-    <p class="muted">Goes to the phone’s home screen. The home screen is blurred in the video for privacy.</p>
+    <p class="muted">Go to the home screen.</p>
     <div class="guide-body">
       <figure class="phone">
-        <img src="../media/guide/home.en.webp" width="480" height="1100" loading="lazy" alt="Video guide for the Home screen action: Tap “Add action”, choose Home screen; Tap Test run, then open the app. AutoGest goes to the home screen (blurred for privacy).">
-        <figcaption>Recorded on a real phone · 20 seconds</figcaption>
+        <video src="../media/guide/en/home.mp4" poster="../media/guide/en/home.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video guide for the Home screen action: Tap “Add action”, choose Home screen; Tap Test run, then open the app. AutoGest goes to the home screen (blurred for privacy)."></video>
+        <figcaption>Recorded on a real phone · 24 seconds</figcaption>
       </figure>
       <div>
         <ol class="steps">
@@ -551,7 +685,7 @@
         <div class="callout">
           <strong>Tips</strong>
           <ul>
-            <li>Handy at the end of a script, or before an <strong>Open app</strong> step.</li>
+            <li>Handy at the end of a script, or before opening another app.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Back to the action list</a></p>
@@ -561,11 +695,11 @@
 
   <section class="guide" id="recent">
     <h2>Recent apps</h2>
-    <p class="muted">Opens the recent apps list to switch between apps. The list is blurred in the video for privacy.</p>
+    <p class="muted">Open the list of recent apps.</p>
     <div class="guide-body">
       <figure class="phone">
-        <img src="../media/guide/recent.en.webp" width="480" height="1100" loading="lazy" alt="Video guide for the Recent apps action: Tap “Add action”, choose Recent apps; Tap Test run, then open the app. AutoGest opens recent apps (blurred for privacy).">
-        <figcaption>Recorded on a real phone · 20 seconds</figcaption>
+        <video src="../media/guide/en/recent.mp4" poster="../media/guide/en/recent.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video guide for the Recent apps action: Tap “Add action”, choose Recent apps; Tap Test run, then open the app. AutoGest opens recent apps (blurred for privacy)."></video>
+        <figcaption>Recorded on a real phone · 24 seconds</figcaption>
       </figure>
       <div>
         <ol class="steps">
@@ -576,7 +710,7 @@
         <div class="callout">
           <strong>Tips</strong>
           <ul>
-            <li>Combine it with <strong>Click</strong> to pick a card in the list.</li>
+            <li>Combine it with a Click to switch to another app.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Back to the action list</a></p>
@@ -586,27 +720,26 @@
 
   <section class="guide" id="if-then">
     <h2>If… then <span class="badge">PRO</span></h2>
-    <p class="muted">Checks the screen (an image, a color, some text, or which loop round it is), then runs the Then branch or the Else branch.</p>
+    <p class="muted">Run some steps only when a condition is true — an image, a color, some text, the round number or a variable.</p>
     <div class="guide-body">
       <figure class="phone">
-        <img src="../media/guide/if-then.en.webp" width="480" height="1100" loading="lazy" alt="Video guide for the If… then action: Tap “Add action”, choose If… then; Choose Text, enter the text to look for; Turn off the Else branch, tap Done; Add to the Then branch: Click the close (X) button; Go back, tap Test run, then open the app. AutoGest sees the “ad” text, so it taps close.">
-        <figcaption>Recorded on a real phone · 42 seconds</figcaption>
+        <video src="../media/guide/en/if-then.mp4" poster="../media/guide/en/if-then.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video guide for the If… then action: Tap “Add action”, choose If… then; Choose “Text”, enter the text to look for; Turn off the Else branch, tap “Done”; Add to the Then branch: Click the close (✕) button; Go back, tap Test run, then open the app. AutoGest sees “Advertisement”, so it taps close."></video>
+        <figcaption>Recorded on a real phone · 49 seconds</figcaption>
       </figure>
       <div>
         <ol class="steps">
           <li>Tap “Add action”, choose If… then</li>
-          <li>Choose Text, enter the text to look for</li>
-          <li>Turn off the Else branch, tap Done</li>
-          <li>Add to the Then branch: Click the close (X) button</li>
+          <li>Choose “Text”, enter the text to look for</li>
+          <li>Turn off the Else branch, tap “Done”</li>
+          <li>Add to the Then branch: Click the close (✕) button</li>
           <li>Go back, tap Test run, then open the app</li>
         </ol>
-        <p class="result">▶ AutoGest sees the “ad” text, so it taps close</p>
+        <p class="result">▶ AutoGest sees “Advertisement”, so it taps close</p>
         <div class="callout">
           <strong>Tips</strong>
           <ul>
-            <li><strong>Wait up to</strong> is how long to wait for the condition to show up; if time runs out first, it counts as false.</li>
-            <li>Turn on <strong>Invert condition</strong> to run the Then branch when it is <em>not</em> found.</li>
-            <li>Blocks are one level deep. To nest deeper, move the inner part into its own script and use <strong>Call script</strong>.</li>
+            <li>Turn on the Else branch to run other steps when the condition is false.</li>
+            <li>Blocks are one level only; to nest logic, split it into another script and use <strong>Call script</strong>.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Back to the action list</a></p>
@@ -616,25 +749,82 @@
 
   <section class="guide" id="loop-until">
     <h2>Repeat until <span class="badge">PRO</span></h2>
-    <p class="muted">Runs the steps in the loop again and again until the screen shows the image, color or text you picked. The condition is checked before every round.</p>
+    <p class="muted">Repeat the steps inside the block until a condition becomes true, or a set number of rounds.</p>
     <div class="guide-body">
       <figure class="phone">
-        <img src="../media/guide/loop-until.en.webp" width="480" height="1100" loading="lazy" alt="Video guide for the Repeat until action: Tap “Add action”, choose Repeat until; Stop on Text: enter the text shown when done; Add to the loop: Click the “load more” button; Go back, tap Test run, then open the app. AutoGest taps “load more” until all is loaded.">
-        <figcaption>Recorded on a real phone · 42 seconds</figcaption>
+        <video src="../media/guide/en/loop-until.mp4" poster="../media/guide/en/loop-until.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video guide for the Repeat until action: Tap “Add action”, choose Repeat until; Stop on “Text”: enter the text shown when done; Add to the loop: Click “Load more”; Go back, tap Test run, then open the app. AutoGest taps “Load more” until “No more stories” shows."></video>
+        <figcaption>Recorded on a real phone · 50 seconds</figcaption>
       </figure>
       <div>
         <ol class="steps">
           <li>Tap “Add action”, choose Repeat until</li>
-          <li>Stop on Text: enter the text shown when done</li>
-          <li>Add to the loop: Click the “load more” button</li>
+          <li>Stop on “Text”: enter the text shown when done</li>
+          <li>Add to the loop: Click “Load more”</li>
           <li>Go back, tap Test run, then open the app</li>
         </ol>
-        <p class="result">▶ AutoGest taps “load more” until all is loaded</p>
+        <p class="result">▶ AutoGest taps “Load more” until “No more stories” shows</p>
         <div class="callout">
           <strong>Tips</strong>
           <ul>
-            <li>The number of rounds is always capped (20 by default); if the condition is still false at the end, the loop stops and the step counts as failed.</li>
-            <li>If the condition is already true at the start, the loop body doesn’t run at all.</li>
+            <li>Always set a maximum number of rounds so the script cannot run forever by mistake.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Back to the action list</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="stop-script">
+    <h2>Stop script <span class="badge">PRO</span></h2>
+    <p class="muted">End the whole run when a condition is met — for example when you run out of turns or energy.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../media/guide/en/stop-script.mp4" poster="../media/guide/en/stop-script.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video guide for the Stop script action: Add a Click step on “Spin”; Go back, add Stop script; Stop when the text “Out of spins” is on screen; Repeat the script without limit; Tap Test run, then open the app. After the last spin, AutoGest stops by itself."></video>
+        <figcaption>Recorded on a real phone · 55 seconds</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Add a Click step on “Spin”</li>
+          <li>Go back, add Stop script</li>
+          <li>Stop when the text “Out of spins” is on screen</li>
+          <li>Repeat the script without limit</li>
+          <li>Tap Test run, then open the app</li>
+        </ol>
+        <p class="result">▶ After the last spin, AutoGest stops by itself</p>
+        <div class="callout">
+          <strong>Tips</strong>
+          <ul>
+            <li>With an unlimited loop, this is the clean way to finish.</li>
+            <li>Placed inside an If… then branch, it can stop right away without a condition.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Back to the action list</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="next-round">
+    <h2>Next loop <span class="badge">PRO</span></h2>
+    <p class="muted">Skip the rest of this round and start the next one when a condition is met.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../media/guide/en/next-round.mp4" poster="../media/guide/en/next-round.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video guide for the Next loop action: Add a Click step on “Next post”; Add Next loop when “Sponsored” is on screen; Add a Click step on “Like”; Repeat the script 4 times; Tap Test run, then open the app. AutoGest likes posts 1 and 3 and skips the sponsored ones."></video>
+        <figcaption>Recorded on a real phone · 76 seconds</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Add a Click step on “Next post”</li>
+          <li>Add Next loop when “Sponsored” is on screen</li>
+          <li>Add a Click step on “Like”</li>
+          <li>Repeat the script 4 times</li>
+          <li>Tap Test run, then open the app</li>
+        </ol>
+        <p class="result">▶ AutoGest likes posts 1 and 3 and skips the sponsored ones</p>
+        <div class="callout">
+          <strong>Tips</strong>
+          <ul>
+            <li>Handy to skip ads or items you do not want while going through a list.</li>
+            <li>It jumps to the end of the nearest loop in the same script.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Back to the action list</a></p>
@@ -644,11 +834,11 @@
 
   <section class="guide" id="call-script">
     <h2>Call script <span class="badge">PRO</span></h2>
-    <p class="muted">Runs another script right at this step, then comes back — build it once, reuse it in many places.</p>
+    <p class="muted">Run another script, then come back — reuse steps you already built.</p>
     <div class="guide-body">
       <figure class="phone">
-        <img src="../media/guide/call-script.en.webp" width="480" height="1100" loading="lazy" alt="Video guide for the Call script action: Tap “Add action”, choose Call script; Tap “Pick script”, choose the script to call; Choose how many times to call it; Tap Test run, then open the app. AutoGest runs the tapping script 3 times.">
-        <figcaption>Recorded on a real phone · 29 seconds</figcaption>
+        <video src="../media/guide/en/call-script.mp4" poster="../media/guide/en/call-script.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video guide for the Call script action: Tap “Add action”, choose Call script; Tap “Pick script”, choose the script to call; Choose how many times to call it; Tap Test run, then open the app. AutoGest runs “Tap the button” 3 times."></video>
+        <figcaption>Recorded on a real phone · 34 seconds</figcaption>
       </figure>
       <div>
         <ol class="steps">
@@ -657,12 +847,12 @@
           <li>Choose how many times to call it</li>
           <li>Tap Test run, then open the app</li>
         </ol>
-        <p class="result">▶ AutoGest runs the tapping script 3 times</p>
+        <p class="result">▶ AutoGest runs “Tap the button” 3 times</p>
         <div class="callout">
           <strong>Tips</strong>
           <ul>
-            <li>The called script stays the original: edit it once and every place that uses it changes too.</li>
-            <li>Calls nest up to 5 levels deep; endless call loops are blocked.</li>
+            <li>Choose how many times to call it in a row.</li>
+            <li>The called script runs with this script’s rhythm settings.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Back to the action list</a></p>
@@ -670,8 +860,51 @@
     </div>
   </section>
 
-  <footer>© 2026 AutoGest · <a href="../">Home</a> ·
-    <a href="../privacy/">Privacy Policy</a> · <a href="../vi/guide/">Tiếng Việt</a></footer>
+  <section class="guide" id="set-variable">
+    <h2>Set variable <span class="badge">PRO</span></h2>
+    <p class="muted">Set a variable to a value, or add a number to it — counters, running totals, remembered text.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../media/guide/en/set-variable.mp4" poster="../media/guide/en/set-variable.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video guide for the Set variable action: Tap “Add action”, choose Set variable; Name the new variable, tap “Add variable”; Make the step add 1 to the variable; Add Paste text into the chat field: “Message #” + the variable; Add a Click step on “Send”; Repeat the script 3 times; Tap Test run, then open the app. Each round the number goes up: 1, 2, 3."></video>
+        <figcaption>Recorded on a real phone · 85 seconds</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Tap “Add action”, choose Set variable</li>
+          <li>Name the new variable, tap “Add variable”</li>
+          <li>Make the step add 1 to the variable</li>
+          <li>Add Paste text into the chat field: “Message #” + the variable</li>
+          <li>Add a Click step on “Send”</li>
+          <li>Repeat the script 3 times</li>
+          <li>Tap Test run, then open the app</li>
+        </ol>
+        <p class="result">▶ Each round the number goes up: 1, 2, 3</p>
+        <div class="callout">
+          <strong>Tips</strong>
+          <ul>
+            <li>Insert <code>{name}</code> in any text field to use the variable’s value.</li>
+            <li>Variables only live during one run: press Stop and they reset.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Back to the action list</a></p>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2026 AutoGest · <a href="../">Home</a> · <a href="../guide/">User guide</a> ·
+    <a href="../privacy/">Privacy Policy</a> ·
+    <a href="../terms/">Terms of Service</a></footer>
 </div>
+<script>
+  // Video chỉ chạy khi cuộn tới (tiết kiệm dữ liệu), tự lặp, không tiếng; bỏ thanh điều khiển khi có JavaScript.
+  const videos = document.querySelectorAll('.phone video');
+  const seen = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting) e.target.play().catch(() => {});
+      else e.target.pause();
+    }
+  }, { rootMargin: '200px 0px' });
+  videos.forEach((v) => { v.controls = false; v.preload = 'metadata'; seen.observe(v); });
+</script>
 </body>
 </html>

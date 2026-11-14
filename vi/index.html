@@ -4,57 +4,69 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AutoGest</title>
-  <meta name="description" content="AutoGest là ứng dụng Android chạy các tập lệnh chạm, vuốt, nhập chữ do chính bạn dựng hoặc ghi lại — hoàn toàn offline.">
+  <meta name="description" content="AutoGest là ứng dụng Android chạy các tập lệnh chạm, vuốt, gõ chữ do bạn tự dựng hoặc ghi lại — hoàn toàn ngoại tuyến.">
   <link rel="stylesheet" href="../style.css">
   <link rel="icon" type="image/png" href="../icon.png">
   <link rel="apple-touch-icon" href="../icon.png">
-  <link rel="alternate" hreflang="en" href="../">
+  <link rel="canonical" href="https://auto-gest.github.io/vi/">
+  <link rel="alternate" hreflang="en" href="https://auto-gest.github.io/">
+  <link rel="alternate" hreflang="vi" href="https://auto-gest.github.io/vi/">
+  <link rel="alternate" hreflang="es" href="https://auto-gest.github.io/es/">
+  <link rel="alternate" hreflang="fr" href="https://auto-gest.github.io/fr/">
+  <link rel="alternate" hreflang="x-default" href="https://auto-gest.github.io/">
 </head>
 <body>
+<!-- Trang sinh bằng user-guide/tools/gen-site.mjs trong repo mã nguồn AutoGest; sửa ở đó rồi sinh lại. -->
 <div class="wrap">
   <header class="top">
-    <a class="brand" href="./"><img class="brand-mark" src="../icon.png" alt="" width="36" height="36">AutoGest</a>
-    <a class="lang" href="../">English</a>
+    <a class="brand" href="../vi/"><img class="brand-mark" src="../icon.png" alt="" width="36" height="36">AutoGest</a>
+    <details class="lang-menu">
+      <summary aria-label="Ngôn ngữ">Tiếng Việt</summary>
+      <ul>
+        <li><a href="../" hreflang="en" lang="en">English</a></li>
+        <li><a href="../vi/" hreflang="vi" lang="vi" aria-current="true">Tiếng Việt</a></li>
+        <li><a href="../es/" hreflang="es" lang="es">Español</a></li>
+        <li><a href="../fr/" hreflang="fr" lang="fr">Français</a></li>
+      </ul>
+    </details>
   </header>
 
-  <h1>Để điện thoại tự làm những thao tác lặp lại</h1>
-  <p class="muted">AutoGest là ứng dụng Android chạy các tập lệnh tự động do chính bạn dựng hoặc
-    ghi lại: chạm, vuốt, nhập chữ, mở ứng dụng — với nhịp tự nhiên như người thật.</p>
+  <h1>Để điện thoại làm thay những cú chạm nhàm chán</h1>
+  <p class="muted">AutoGest là ứng dụng Android chạy tập lệnh tự động do bạn tự dựng hoặc ghi lại: chạm, vuốt, gõ chữ, mở ứng dụng — với nhịp tự nhiên như người thật.</p>
 
-  <p class="label">Bạn có thể làm gì</p>
+  <p class="label">Bạn làm được gì</p>
   <div class="card">
     <div class="row"><strong>Dựng tập lệnh từng bước</strong>
-      <span>Chạm, nhấn giữ, vuốt, cuộn, nhập chữ, chờ, bấm Quay lại / Màn hình chính / Ứng dụng gần đây,
-        hoặc mở một ứng dụng. Chọn từng điểm ngay trên màn hình.</span></div>
-    <div class="row"><strong>Ghi lại thay vì dựng tay</strong>
-      <span>Làm thao tác một lần trong lúc ghi, xem lại các bước bắt được và giữ những bước bạn cần.</span></div>
+      <span>Chạm, nhấn giữ, vuốt, cuộn, dán hay gõ chữ, chờ, bấm Quay lại / Màn hình chính / Gần đây, hoặc mở ứng dụng. Chọn từng điểm ngay trên màn hình.</span></div>
+    <div class="row"><strong>Ghi lại thay vì tự dựng</strong>
+      <span>Làm một lần trong lúc ghi, xem lại các bước đã bắt được, giữ những bước bạn muốn.</span></div>
     <div class="row"><strong>Phản ứng theo màn hình</strong>
-      <span>Chạm vào ảnh khi nó xuất hiện, chờ một màu, hoặc dùng khối “Nếu … thì” và “Lặp tới khi”.</span></div>
+      <span>Chạm vào hình hay chữ khi nó hiện ra — cả trong game, nhờ nhận diện chữ ngay trên máy — chờ một màu, dùng Nếu… thì, Lặp tới khi, Dừng tập lệnh và Sang vòng mới.</span></div>
+    <div class="row"><strong>Ghi nhớ giá trị</strong>
+      <span>Đọc chữ hay số trên màn hình hoặc trong thông báo vào biến, đếm vòng, rồi dán lại các giá trị đó.</span></div>
     <div class="row"><strong>Chạy theo cách của bạn</strong>
-      <span>Bắt đầu từ ứng dụng, từ lối tắt ngoài màn hình chính hoặc theo lịch hẹn giờ; tạm dừng và dừng
-        từ bong bóng nổi hoặc thông báo.</span></div>
+      <span>Bắt đầu từ ứng dụng, lối tắt ngoài màn hình chính, lịch hẹn giờ hay khi có thông báo; tạm dừng và dừng bằng bong bóng nổi hoặc thông báo.</span></div>
     <div class="row"><strong>Chia sẻ tập lệnh</strong>
       <span>Xuất tập lệnh thành tệp <code>.autoscript</code> và nhập tập lệnh người khác gửi cho bạn.</span></div>
   </div>
 
-  <p class="label">Hướng dẫn</p>
-  <p>Xem từng hành động qua video quay trên điện thoại thật, kèm các bước làm theo.</p>
-  <a class="button" href="guide/">Xem hướng dẫn sử dụng</a>
+  <p class="label">Hướng dẫn sử dụng</p>
+  <p>Xem từng hành động qua video quay trên máy thật, kèm các bước làm theo.</p>
+  <a class="button" href="../vi/guide/">Mở hướng dẫn sử dụng</a>
 
   <p class="label">Quyền riêng tư</p>
   <div class="callout">
-    Ứng dụng không có quyền Internet, không tài khoản, không quảng cáo, không SDK phân tích. Dịch vụ Trợ
-    năng chỉ dùng để ghi và chạy tập lệnh bạn tạo, và mọi thứ bạn tạo đều nằm lại trên điện thoại của
-    bạn.
-    <br><a class="button" href="privacy/">Đọc Chính sách quyền riêng tư</a>
+    Ứng dụng không có quyền Internet, không tài khoản, không quảng cáo, không thu thập số liệu. Dịch vụ Trợ năng chỉ dùng để ghi và chạy tập lệnh bạn tạo, mọi thứ bạn tạo đều ở lại trên điện thoại.
+    <br><a class="button" href="../vi/privacy/">Đọc Chính sách quyền riêng tư</a>
   </div>
 
   <p class="label">Liên hệ</p>
   <p>Nhà phát triển: AutoGest ·
     <a href="mailto:automatedgestures@gmail.com">automatedgestures@gmail.com</a></p>
 
-  <footer>© 2026 AutoGest · <a href="guide/">Hướng dẫn</a> · <a href="privacy/">Chính sách quyền riêng tư</a> ·
-    <a href="terms/">Điều khoản dịch vụ</a> · <a href="../">English</a></footer>
+  <footer>© 2026 AutoGest · <a href="../vi/">Trang chủ</a> · <a href="../vi/guide/">Hướng dẫn sử dụng</a> ·
+    <a href="../vi/privacy/">Chính sách quyền riêng tư</a> ·
+    <a href="../vi/terms/">Điều khoản dịch vụ</a></footer>
 </div>
 </body>
 </html>

@@ -1,0 +1,910 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guía de uso – AutoGest</title>
+  <meta name="description" content="Una guía de cada acción de AutoGest con vídeos grabados en un móvil real: {a:action_click}, deslizar, reconocimiento de texto (OCR), bloques Si… entonces, variables y más.">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="icon" type="image/png" href="../../icon.png">
+  <link rel="apple-touch-icon" href="../../icon.png">
+  <link rel="canonical" href="https://auto-gest.github.io/es/guide/">
+  <link rel="alternate" hreflang="en" href="https://auto-gest.github.io/guide/">
+  <link rel="alternate" hreflang="vi" href="https://auto-gest.github.io/vi/guide/">
+  <link rel="alternate" hreflang="es" href="https://auto-gest.github.io/es/guide/">
+  <link rel="alternate" hreflang="fr" href="https://auto-gest.github.io/fr/guide/">
+  <link rel="alternate" hreflang="x-default" href="https://auto-gest.github.io/guide/">
+</head>
+<body>
+<!-- Trang sinh bằng user-guide/tools/gen-site.mjs trong repo mã nguồn AutoGest; sửa ở đó rồi sinh lại. -->
+<div class="wrap" id="top">
+  <header class="top">
+    <a class="brand" href="../../es/"><img class="brand-mark" src="../../icon.png" alt="" width="36" height="36">AutoGest</a>
+    <details class="lang-menu">
+      <summary aria-label="Idioma">Español</summary>
+      <ul>
+        <li><a href="../../guide/" hreflang="en" lang="en">English</a></li>
+        <li><a href="../../vi/guide/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+        <li><a href="../../es/guide/" hreflang="es" lang="es" aria-current="true">Español</a></li>
+        <li><a href="../../fr/guide/" hreflang="fr" lang="fr">Français</a></li>
+      </ul>
+    </details>
+  </header>
+
+  <h1>Guía de uso</h1>
+  <p class="muted">Cada acción tiene un vídeo corto grabado en un móvil real, con una app de ejemplo para que veas el resultado. Cada toque se ilumina para que sea fácil de seguir. Las acciones con la etiqueta <span class="badge">PRO</span> forman parte de AutoGest Pro.</p>
+
+  <ul class="legend">
+    <li><span class="dot user"></span>Tocas tú</li>
+    <li><span class="dot auto"></span>AutoGest toca solo mientras se ejecuta el script</li>
+  </ul>
+
+  <nav class="chips" aria-label="Grupos de acciones">
+    <a href="#touch">Toques y gestos</a>
+    <a href="#wait">Esperar y detectar</a>
+    <a href="#system">Sistema</a>
+    <a href="#flow">Flujo del script</a>
+  </nav>
+
+  <p class="label" id="touch">Toques y gestos</p>
+  <div class="action-grid">
+    <a class="action" href="#click"><strong>Tocar</strong><span>Toca una vez en un punto</span><div class="state">▶ Ver vídeo</div></a>
+    <a class="action" href="#rapid-click"><strong>Toques rápidos</strong><span>Toca muy rápido muchas veces en un punto</span><div class="state">▶ Ver vídeo</div></a>
+    <a class="action" href="#long-click"><strong>Mantener pulsado</strong><span>Mantiene pulsado un punto</span><div class="state">▶ Ver vídeo</div></a>
+    <a class="action" href="#swipe"><strong>Deslizar</strong><span>Arrastra del punto A al punto B</span><div class="state">▶ Ver vídeo</div></a>
+    <a class="action" href="#scroll"><strong>Desplazar</strong><span>Desplaza en una dirección, sin elegir punto</span><div class="state">▶ Ver vídeo</div></a>
+    <a class="action" href="#paste-text"><strong>Pegar texto</strong><span>Pega todo el texto en un campo</span><div class="state">▶ Ver vídeo</div></a>
+    <a class="action" href="#type-keys"><strong>Escribir caracteres <span class="badge">PRO</span></strong><span>Toca cada tecla, como al escribir</span><div class="state">▶ Ver vídeo</div></a>
+  </div>
+
+  <p class="label" id="wait">Esperar y detectar</p>
+  <div class="action-grid">
+    <a class="action" href="#delay"><strong>Esperar</strong><span>Pausa antes del siguiente paso</span><div class="state">▶ Ver vídeo</div></a>
+    <a class="action" href="#wait-image"><strong>Esperar imagen <span class="badge">PRO</span></strong><span>Espera a que una imagen aparezca o desaparezca, sin tocar</span><div class="state">▶ Ver vídeo</div></a>
+    <a class="action" href="#wait-color"><strong>Esperar color <span class="badge">PRO</span></strong><span>Espera a que un punto tome el color elegido</span><div class="state">▶ Ver vídeo</div></a>
+    <a class="action" href="#image-click"><strong>Tocar imagen <span class="badge">PRO</span></strong><span>Busca una imagen de referencia en pantalla y la toca</span><div class="state">▶ Ver vídeo</div></a>
+    <a class="action" href="#ocr-click"><strong>Tocar texto (OCR) <span class="badge">PRO</span></strong><span>Lee el texto de una captura y lo toca · sirve en juegos</span><div class="state">▶ Ver vídeo</div></a>
+    <a class="action" href="#ocr-wait"><strong>Esperar texto (OCR) <span class="badge">PRO</span></strong><span>Espera a que un texto aparezca o desaparezca, sin tocar · sirve en juegos</span><div class="state">▶ Ver vídeo</div></a>
+    <a class="action" href="#ocr-read"><strong>Leer texto (OCR) <span class="badge">PRO</span></strong><span>Lee el texto de una zona y lo guarda en una variable · sirve en juegos</span><div class="state">▶ Ver vídeo</div></a>
+    <a class="action" href="#click-text"><strong>Tocar texto</strong><span>Busca un texto y lo toca · no sirve en juegos</span><div class="state">▶ Ver vídeo</div></a>
+    <a class="action" href="#click-node"><strong>Tocar nodo <span class="badge">PRO</span></strong><span>Elige un nodo en una captura de pantalla y lo toca · no sirve en juegos</span><div class="state">▶ Ver vídeo</div></a>
+    <a class="action" href="#read-text"><strong>Leer texto en pantalla <span class="badge">PRO</span></strong><span>Elige un nodo y guarda su texto en una variable · no sirve para juegos</span><div class="state">▶ Ver vídeo</div></a>
+    <a class="action" href="#wait-notification"><strong>Esperar y detectar notificación <span class="badge">PRO</span></strong><span>Espera una notificación con tus palabras o un aviso de movimiento, y la lee en voz alta o continúa</span><div class="state">▶ Ver vídeo</div></a>
+  </div>
+
+  <p class="label" id="system">Sistema</p>
+  <div class="action-grid">
+    <a class="action" href="#open-app"><strong>Abrir app</strong><span>Abre una app y espera a que aparezca</span><div class="state">▶ Ver vídeo</div></a>
+    <a class="action" href="#back"><strong>Atrás</strong><span>Pulsa la tecla Atrás del sistema</span><div class="state">▶ Ver vídeo</div></a>
+    <a class="action" href="#home"><strong>Pantalla de inicio</strong><span>Va a la pantalla de inicio del teléfono</span><div class="state">▶ Ver vídeo</div></a>
+    <a class="action" href="#recent"><strong>Apps recientes</strong><span>Abre la lista de apps recientes</span><div class="state">▶ Ver vídeo</div></a>
+  </div>
+
+  <p class="label" id="flow">Flujo del script</p>
+  <div class="action-grid">
+    <a class="action" href="#if-then"><strong>Si… entonces <span class="badge">PRO</span></strong><span>Comprueba la pantalla y sigue una de dos ramas</span><div class="state">▶ Ver vídeo</div></a>
+    <a class="action" href="#loop-until"><strong>Repetir hasta <span class="badge">PRO</span></strong><span>Vuelve a ejecutar los pasos internos hasta que la condición sea verdadera</span><div class="state">▶ Ver vídeo</div></a>
+    <a class="action" href="#stop-script"><strong>Detener script <span class="badge">PRO</span></strong><span>Termina toda la ejecución cuando se cumple una condición</span><div class="state">▶ Ver vídeo</div></a>
+    <a class="action" href="#next-round"><strong>Siguiente vuelta <span class="badge">PRO</span></strong><span>Omite los pasos restantes y empieza la siguiente vuelta</span><div class="state">▶ Ver vídeo</div></a>
+    <a class="action" href="#call-script"><strong>Llamar script <span class="badge">PRO</span></strong><span>Ejecuta otro script y luego vuelve</span><div class="state">▶ Ver vídeo</div></a>
+    <a class="action" href="#set-variable"><strong>Guardar en variable <span class="badge">PRO</span></strong><span>Fija o suma un valor a una variable Recordada</span><div class="state">▶ Ver vídeo</div></a>
+  </div>
+
+  <section class="guide" id="click">
+    <h2>Tocar</h2>
+    <p class="muted">La acción más básica: AutoGest toca exactamente el punto que elegiste en la pantalla.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/es/click.mp4" poster="../../media/guide/es/click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Vídeo guía de la acción Tocar: Toca «Añadir acción» y elige Tocar; Toca «Añadir punto»; Abre la app y arrastra la mira hasta el punto; Toca OK para guardar el punto; De vuelta en AutoGest, el punto ya está puesto; Toca Probar y abre la app. AutoGest toca justo el punto elegido."></video>
+        <figcaption>Grabado en un móvil real · 28 segundos</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Toca «Añadir acción» y elige Tocar</li>
+          <li>Toca «Añadir punto»</li>
+          <li>Abre la app y arrastra la mira hasta el punto</li>
+          <li>Toca OK para guardar el punto</li>
+          <li>De vuelta en AutoGest, el punto ya está puesto</li>
+          <li>Toca Probar y abre la app</li>
+        </ol>
+        <p class="result">▶ AutoGest toca justo el punto elegido</p>
+        <div class="callout">
+          <strong>Consejos</strong>
+          <ul>
+            <li>Los puntos se adaptan al tamaño de la pantalla, así que el script acierta también en un móvil con otra pantalla.</li>
+            <li>En <strong>Configuración general</strong> ajustas la pausa entre pasos y un pequeño desvío del toque, para que parezca una persona real.</li>
+            <li>¿El botón cambia de sitio? Usa <strong>Tocar imagen</strong>, <strong>Tocar texto (OCR)</strong> o <strong>Tocar texto</strong> para que AutoGest lo busque primero.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Volver a la lista de acciones</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="rapid-click">
+    <h2>Toques rápidos</h2>
+    <p class="muted">Toca un punto una y otra vez, de 1 a 20 veces por segundo; ideal para juegos que piden tocar rápido.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/es/rapid-click.mp4" poster="../../media/guide/es/rapid-click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Vídeo guía de la acción Toques rápidos: Toca «Añadir acción» y elige Toques rápidos; Toca «Añadir punto»; Abre la app y pon la mira sobre el botón; Toca OK para guardar el punto; De vuelta en AutoGest, baja el número de toques; Toca Probar y abre la app. AutoGest toca 30 veces, 10 toques por segundo."></video>
+        <figcaption>Grabado en un móvil real · 33 segundos</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Toca «Añadir acción» y elige Toques rápidos</li>
+          <li>Toca «Añadir punto»</li>
+          <li>Abre la app y pon la mira sobre el botón</li>
+          <li>Toca OK para guardar el punto</li>
+          <li>De vuelta en AutoGest, baja el número de toques</li>
+          <li>Toca Probar y abre la app</li>
+        </ol>
+        <p class="result">▶ AutoGest toca 30 veces, 10 toques por segundo</p>
+        <div class="callout">
+          <strong>Consejos</strong>
+          <ul>
+            <li>Para tras un número de toques, tras un tiempo, o sigue hasta que pulses Detener.</li>
+            <li>Más de 10 toques por segundo supera a una mano humana; algunas apps pueden considerarlo inusual.</li>
+            <li>Activa el ritmo natural para que el intervalo entre toques varíe un poco, como un dedo real.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Volver a la lista de acciones</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="long-click">
+    <h2>Mantener pulsado</h2>
+    <p class="muted">Toca y mantén un punto el tiempo que elijas: botones de mantener para confirmar, menús contextuales, seleccionar arrastrando.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/es/long-click.mp4" poster="../../media/guide/es/long-click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Vídeo guía de la acción Mantener pulsado: Toca «Añadir acción» y elige Mantener pulsado; Toca «Añadir punto»; Abre la app y pon la mira sobre el botón; Toca OK para guardar el punto; De vuelta en AutoGest, elige cuánto mantener; Toca Probar y abre la app. AutoGest mantiene el botón 2 s y se desbloquea."></video>
+        <figcaption>Grabado en un móvil real · 30 segundos</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Toca «Añadir acción» y elige Mantener pulsado</li>
+          <li>Toca «Añadir punto»</li>
+          <li>Abre la app y pon la mira sobre el botón</li>
+          <li>Toca OK para guardar el punto</li>
+          <li>De vuelta en AutoGest, elige cuánto mantener</li>
+          <li>Toca Probar y abre la app</li>
+        </ol>
+        <p class="result">▶ AutoGest mantiene el botón 2 s y se desbloquea</p>
+        <div class="callout">
+          <strong>Consejos</strong>
+          <ul>
+            <li>Para un botón de «mantener para confirmar», elige un tiempo algo mayor que el que pide la app.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Volver a la lista de acciones</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="swipe">
+    <h2>Deslizar</h2>
+    <p class="muted">Arrastra el dedo de un punto de inicio a un punto final: deslizar para desbloquear, mover un control, pasar páginas.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/es/swipe.mp4" poster="../../media/guide/es/swipe.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Vídeo guía de la acción Deslizar: Toca «Añadir acción» y elige Deslizar; Elige el punto de inicio; Vuelve y elige el punto final; Vuelve y elige la duración del deslizamiento; Toca Probar y abre la app. AutoGest desliza del punto de inicio al final."></video>
+        <figcaption>Grabado en un móvil real · 34 segundos</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Toca «Añadir acción» y elige Deslizar</li>
+          <li>Elige el punto de inicio</li>
+          <li>Vuelve y elige el punto final</li>
+          <li>Vuelve y elige la duración del deslizamiento</li>
+          <li>Toca Probar y abre la app</li>
+        </ol>
+        <p class="result">▶ AutoGest desliza del punto de inicio al final</p>
+        <div class="callout">
+          <strong>Consejos</strong>
+          <ul>
+            <li>Una duración corta es un deslizamiento rápido; una larga, un arrastre lento (arrastrar y soltar, controles deslizantes).</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Volver a la lista de acciones</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="scroll">
+    <h2>Desplazar</h2>
+    <p class="muted">Desplaza una lista hacia arriba, abajo, izquierda o derecha con un deslizamiento por el centro, sin elegir ningún punto.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/es/scroll.mp4" poster="../../media/guide/es/scroll.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Vídeo guía de la acción Desplazar: Toca «Añadir acción» y elige Desplazar; Elige la dirección y la duración; Toca Probar y abre la app. AutoGest desliza por el centro para desplazarse."></video>
+        <figcaption>Grabado en un móvil real · 20 segundos</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Toca «Añadir acción» y elige Desplazar</li>
+          <li>Elige la dirección y la duración</li>
+          <li>Toca Probar y abre la app</li>
+        </ol>
+        <p class="result">▶ AutoGest desliza por el centro para desplazarse</p>
+        <div class="callout">
+          <strong>Consejos</strong>
+          <ul>
+            <li>Combínalo con <strong>Repetir hasta</strong> para desplazarte hasta que aparezca lo que buscas.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Volver a la lista de acciones</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="paste-text">
+    <h2>Pegar texto</h2>
+    <p class="muted">Toca un campo de texto y rellénalo con todo el texto que preparaste: rápido y con cada tilde en su sitio.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/es/paste-text.mp4" poster="../../media/guide/es/paste-text.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Vídeo guía de la acción Pegar texto: Toca «Añadir acción» y elige Pegar texto; Toca «Añadir punto» y apunta al campo de texto; Vuelve y escribe el texto que se pegará; Toca Probar y abre la app. AutoGest pega todo el texto en el campo."></video>
+        <figcaption>Grabado en un móvil real · 31 segundos</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Toca «Añadir acción» y elige Pegar texto</li>
+          <li>Toca «Añadir punto» y apunta al campo de texto</li>
+          <li>Vuelve y escribe el texto que se pegará</li>
+          <li>Toca Probar y abre la app</li>
+        </ol>
+        <p class="result">▶ AutoGest pega todo el texto en el campo</p>
+        <div class="callout">
+          <strong>Consejos</strong>
+          <ul>
+            <li>Separa varios textos con <code>||</code> y AutoGest elige uno al azar en cada ejecución.</li>
+            <li>Inserta una variable con <strong>Insertar variable</strong> para pegar un valor leído antes en la ejecución.</li>
+            <li>¿La app no deja pegar? Usa <strong>Escribir caracteres</strong> para pulsar cada tecla como al escribir.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Volver a la lista de acciones</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="type-keys">
+    <h2>Escribir caracteres <span class="badge">PRO</span></h2>
+    <p class="muted">Graba cada tecla que pulsas en el teclado; al ejecutar, AutoGest pulsa las mismas teclas con tu ritmo.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/es/type-keys.mp4" poster="../../media/guide/es/type-keys.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Vídeo guía de la acción Escribir caracteres: Toca «Añadir acción» y elige Escribir caracteres; Toca el cuadro de grabación y escribe en el teclado; Toca «Listo» para guardar las teclas; Elige el campo donde escribir (opcional); Vuelve, toca Probar y abre la app. AutoGest toca el campo y repite cada tecla."></video>
+        <figcaption>Grabado en un móvil real · 38 segundos</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Toca «Añadir acción» y elige Escribir caracteres</li>
+          <li>Toca el cuadro de grabación y escribe en el teclado</li>
+          <li>Toca «Listo» para guardar las teclas</li>
+          <li>Elige el campo donde escribir (opcional)</li>
+          <li>Vuelve, toca Probar y abre la app</li>
+        </ol>
+        <p class="result">▶ AutoGest toca el campo y repite cada tecla</p>
+        <div class="callout">
+          <strong>Consejos</strong>
+          <ul>
+            <li>Usa el mismo teclado (y el mismo tipo de campo) al grabar y al ejecutar, porque AutoGest pulsa según la posición de las teclas.</li>
+            <li>Después de escribir, AutoGest revisa el campo; si el texto no coincide, el paso da error y deja de escribir.</li>
+            <li>¿No hace falta pulsar cada tecla? Cambia la tarjeta a <strong>Pegar texto</strong>.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Volver a la lista de acciones</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="delay">
+    <h2>Esperar</h2>
+    <p class="muted">Pausa antes del siguiente paso: deja que cargue una pantalla, termine una animación o acabe un temporizador.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/es/delay.mp4" poster="../../media/guide/es/delay.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Vídeo guía de la acción Esperar: Toca «Añadir acción» y elige Esperar; Escribe el tiempo de espera (ms); Añade un paso Tocar para ver la pausa; Repite el script 2 veces en «Configuración general»; Toca Probar y abre la app. Los toques llegan con 3 s de diferencia, más la pausa entre pasos."></video>
+        <figcaption>Grabado en un móvil real · 45 segundos</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Toca «Añadir acción» y elige Esperar</li>
+          <li>Escribe el tiempo de espera (ms)</li>
+          <li>Añade un paso Tocar para ver la pausa</li>
+          <li>Repite el script 2 veces en «Configuración general»</li>
+          <li>Toca Probar y abre la app</li>
+        </ol>
+        <p class="result">▶ Los toques llegan con 3 s de diferencia, más la pausa entre pasos</p>
+        <div class="callout">
+          <strong>Consejos</strong>
+          <ul>
+            <li>Cada paso ya espera una pausa corta al azar (ajústala en <strong>Configuración general</strong>); añade una espera solo si necesitas más.</li>
+            <li>¿Esperas a que algo aparezca? <strong>Esperar imagen</strong>, <strong>Esperar texto (OCR)</strong> o <strong>Esperar color</strong> siguen en cuanto aparece.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Volver a la lista de acciones</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="wait-image">
+    <h2>Esperar imagen <span class="badge">PRO</span></h2>
+    <p class="muted">Espera hasta que una imagen aparezca (o desaparezca) en la pantalla, sin tocar; después siguen los demás pasos.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/es/wait-image.mp4" poster="../../media/guide/es/wait-image.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Vídeo guía de la acción Esperar imagen: Toca «Añadir acción» y elige Esperar imagen; Toca «Elegir imagen» y elige «Recortar de la pantalla»; Abre la pantalla, toca Capturar y enmarca la imagen; Vuelve y añade un paso Tocar donde aparece la imagen; Vuelve, toca Probar y abre la app. AutoGest espera la caja de regalo y luego ejecuta el paso Tocar."></video>
+        <figcaption>Grabado en un móvil real · 47 segundos</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Toca «Añadir acción» y elige Esperar imagen</li>
+          <li>Toca «Elegir imagen» y elige «Recortar de la pantalla»</li>
+          <li>Abre la pantalla, toca Capturar y enmarca la imagen</li>
+          <li>Vuelve y añade un paso Tocar donde aparece la imagen</li>
+          <li>Vuelve, toca Probar y abre la app</li>
+        </ol>
+        <p class="result">▶ AutoGest espera la caja de regalo y luego ejecuta el paso Tocar</p>
+        <div class="callout">
+          <strong>Consejos</strong>
+          <ul>
+            <li>Recorta la imagen ajustada a lo que buscas, sin fondos que cambien.</li>
+            <li>Baja la coincidencia mínima si la imagen se ve un poco distinta cada vez.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Volver a la lista de acciones</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="wait-color">
+    <h2>Esperar color <span class="badge">PRO</span></h2>
+    <p class="muted">Vigila un punto hasta que tenga un color elegido (o cambie de color): una luz que se pone verde, un botón que se activa.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/es/wait-color.mp4" poster="../../media/guide/es/wait-color.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Vídeo guía de la acción Esperar color: Toca «Añadir acción» y elige Esperar color; Toca «Añadir punto» y apunta al punto con el color; Vuelve: AutoGest ya leyó el color de ese punto; Añade un paso Tocar en «Avanzar»; Vuelve, toca Probar y abre la app. AutoGest espera la luz verde y luego toca «Avanzar»."></video>
+        <figcaption>Grabado en un móvil real · 44 segundos</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Toca «Añadir acción» y elige Esperar color</li>
+          <li>Toca «Añadir punto» y apunta al punto con el color</li>
+          <li>Vuelve: AutoGest ya leyó el color de ese punto</li>
+          <li>Añade un paso Tocar en «Avanzar»</li>
+          <li>Vuelve, toca Probar y abre la app</li>
+        </ol>
+        <p class="result">▶ AutoGest espera la luz verde y luego toca «Avanzar»</p>
+        <div class="callout">
+          <strong>Consejos</strong>
+          <ul>
+            <li>Elige el punto cuando la pantalla muestre el color que quieres: AutoGest lo lee por ti.</li>
+            <li>Funciona también en juegos, porque solo mira la imagen de la pantalla.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Volver a la lista de acciones</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="image-click">
+    <h2>Tocar imagen <span class="badge">PRO</span></h2>
+    <p class="muted">Busca una imagen en la pantalla y tócala, esté donde esté; perfecto para botones que cambian de sitio.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/es/image-click.mp4" poster="../../media/guide/es/image-click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Vídeo guía de la acción Tocar imagen: Toca «Añadir acción» y elige Tocar imagen; Toca «Elegir imagen» y elige «Recortar de la pantalla»; Abre la pantalla con la imagen y toca Capturar; Ajusta el marco a la imagen y toca OK; Vuelve, toca Probar y abre la app. AutoGest espera la caja de regalo y la toca."></video>
+        <figcaption>Grabado en un móvil real · 36 segundos</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Toca «Añadir acción» y elige Tocar imagen</li>
+          <li>Toca «Elegir imagen» y elige «Recortar de la pantalla»</li>
+          <li>Abre la pantalla con la imagen y toca Capturar</li>
+          <li>Ajusta el marco a la imagen y toca OK</li>
+          <li>Vuelve, toca Probar y abre la app</li>
+        </ol>
+        <p class="result">▶ AutoGest espera la caja de regalo y la toca</p>
+        <div class="callout">
+          <strong>Consejos</strong>
+          <ul>
+            <li>Funciona en juegos, porque AutoGest mira la imagen de la pantalla, no la estructura de la app.</li>
+            <li>Recorta solo el botón, sin el fondo que lo rodea.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Volver a la lista de acciones</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="ocr-click">
+    <h2>Tocar texto (OCR) <span class="badge">PRO</span></h2>
+    <p class="muted">Lee el texto de una captura con reconocimiento de texto (OCR) en el propio móvil y tócalo; funciona incluso en juegos que dibujan su propio texto.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/es/ocr-click.mp4" poster="../../media/guide/es/ocr-click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Vídeo guía de la acción Tocar texto (OCR): Toca «Añadir acción» y elige Tocar texto (OCR); Escribe el texto del botón; Toca Probar y abre la app. AutoGest lee la imagen de la pantalla —también en juegos— y toca el texto."></video>
+        <figcaption>Grabado en un móvil real · 28 segundos</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Toca «Añadir acción» y elige Tocar texto (OCR)</li>
+          <li>Escribe el texto del botón</li>
+          <li>Toca Probar y abre la app</li>
+        </ol>
+        <p class="result">▶ AutoGest lee la imagen de la pantalla —también en juegos— y toca el texto</p>
+        <div class="callout">
+          <strong>Consejos</strong>
+          <ul>
+            <li>Elige el alfabeto correcto para chino, japonés o coreano; Latin sirve para español, inglés, vietnamita y más.</li>
+            <li>Reduce el área de búsqueda para leer más rápido y con más precisión.</li>
+            <li>El reconocimiento se hace en tu móvil; no se envía nada a ningún sitio.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Volver a la lista de acciones</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="ocr-wait">
+    <h2>Esperar texto (OCR) <span class="badge">PRO</span></h2>
+    <p class="muted">Espera hasta que un texto aparezca (o desaparezca) en la imagen de la pantalla, sin tocar.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/es/ocr-wait.mp4" poster="../../media/guide/es/ocr-wait.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Vídeo guía de la acción Esperar texto (OCR): Toca «Añadir acción» y elige Esperar texto (OCR); Escribe el texto que hay que esperar; Añade un paso Tocar en «Correr»; Vuelve, toca Probar y abre la app. AutoGest espera «YA» y luego toca «Correr»."></video>
+        <figcaption>Grabado en un móvil real · 41 segundos</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Toca «Añadir acción» y elige Esperar texto (OCR)</li>
+          <li>Escribe el texto que hay que esperar</li>
+          <li>Añade un paso Tocar en «Correr»</li>
+          <li>Vuelve, toca Probar y abre la app</li>
+        </ol>
+        <p class="result">▶ AutoGest espera «YA» y luego toca «Correr»</p>
+        <div class="callout">
+          <strong>Consejos</strong>
+          <ul>
+            <li>Útil en pantallas de juego como «¿Listos?… ¡Ya!», «Victoria» o el final de una cuenta atrás.</li>
+            <li>Elige un área para esperar más rápido y no confundir la misma palabra en otro sitio.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Volver a la lista de acciones</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="ocr-read">
+    <h2>Leer texto (OCR) <span class="badge">PRO</span></h2>
+    <p class="muted">Lee el texto de una zona de la imagen de la pantalla y guárdalo en una variable para los pasos siguientes.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/es/ocr-read.mp4" poster="../../media/guide/es/ocr-read.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Vídeo guía de la acción Leer texto (OCR): Toca «Añadir acción» y elige Leer texto (OCR); Toca «Elegir zona», abre la pantalla y toca Capturar; Enmarca el código y toca OK; Vuelve, elige «Solo el número» y una variable donde guardarlo; Añade Pegar texto en el campo e inserta la variable; Añade un paso Tocar en «Confirmar»; Toca Probar y abre la app. AutoGest lee el código de la imagen y lo escribe."></video>
+        <figcaption>Grabado en un móvil real · 75 segundos</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Toca «Añadir acción» y elige Leer texto (OCR)</li>
+          <li>Toca «Elegir zona», abre la pantalla y toca Capturar</li>
+          <li>Enmarca el código y toca OK</li>
+          <li>Vuelve, elige «Solo el número» y una variable donde guardarlo</li>
+          <li>Añade Pegar texto en el campo e inserta la variable</li>
+          <li>Añade un paso Tocar en «Confirmar»</li>
+          <li>Toca Probar y abre la app</li>
+        </ol>
+        <p class="result">▶ AutoGest lee el código de la imagen y lo escribe</p>
+        <div class="callout">
+          <strong>Consejos</strong>
+          <ul>
+            <li>Elige «Solo el número» para quedarte solo con los dígitos: puntuaciones, precios o códigos.</li>
+            <li>Usa la variable en Pegar texto o compárala en un bloque Si… entonces.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Volver a la lista de acciones</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="click-text">
+    <h2>Tocar texto</h2>
+    <p class="muted">Escribe el texto que muestra un botón; al ejecutar, AutoGest encuentra ese texto en la pantalla y lo toca.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/es/click-text.mp4" poster="../../media/guide/es/click-text.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Vídeo guía de la acción Tocar texto: Toca «Añadir acción» y elige Tocar texto; Escribe el texto que muestra el botón; Toca Probar y abre la app. Esté donde esté el botón, AutoGest encuentra el texto y lo toca."></video>
+        <figcaption>Grabado en un móvil real · 29 segundos</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Toca «Añadir acción» y elige Tocar texto</li>
+          <li>Escribe el texto que muestra el botón</li>
+          <li>Toca Probar y abre la app</li>
+        </ol>
+        <p class="result">▶ Esté donde esté el botón, AutoGest encuentra el texto y lo toca</p>
+        <div class="callout">
+          <strong>Consejos</strong>
+          <ul>
+            <li>Lee la estructura de la app, así que no funciona en juegos que dibujan su propio texto; ahí usa <strong>Tocar texto (OCR)</strong>.</li>
+            <li>No importan mayúsculas ni minúsculas, y basta con que el texto contenga lo que escribiste.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Volver a la lista de acciones</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="click-node">
+    <h2>Tocar nodo <span class="badge">PRO</span></h2>
+    <p class="muted">Captura la pantalla, toca un elemento y AutoGest recuerda cómo volver a encontrarlo, incluso botones que solo tienen un icono.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/es/click-node.mp4" poster="../../media/guide/es/click-node.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Vídeo guía de la acción Tocar nodo: Toca «Añadir acción» y elige Tocar nodo; Toca «Elegir nodo», abre la app y toca Capturar; Toca el botón que quieres y luego «Elegir nodo»; Vuelve y elige cómo encontrar el nodo; Toca Probar y abre la app. AutoGest encuentra el botón del corazón y lo toca."></video>
+        <figcaption>Grabado en un móvil real · 37 segundos</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Toca «Añadir acción» y elige Tocar nodo</li>
+          <li>Toca «Elegir nodo», abre la app y toca Capturar</li>
+          <li>Toca el botón que quieres y luego «Elegir nodo»</li>
+          <li>Vuelve y elige cómo encontrar el nodo</li>
+          <li>Toca Probar y abre la app</li>
+        </ol>
+        <p class="result">▶ AutoGest encuentra el botón del corazón y lo toca</p>
+        <div class="callout">
+          <strong>Consejos</strong>
+          <ul>
+            <li>Búscalo por text o content-desc cuando no cambian; evita resource-id si la app lo cambia entre versiones.</li>
+            <li>Quita las partes que cambian cada vez (como contadores) para que se siga encontrando.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Volver a la lista de acciones</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="read-text">
+    <h2>Leer texto en pantalla <span class="badge">PRO</span></h2>
+    <p class="muted">Elige un elemento de la pantalla y copia su texto en una variable, sin tocarlo.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/es/read-text.mp4" poster="../../media/guide/es/read-text.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Vídeo guía de la acción Leer texto en pantalla: Toca «Añadir acción» y elige Leer texto en pantalla; Toca «Elegir nodo», abre la app y toca Capturar; Toca el código y luego «Elegir nodo»; Vuelve y elige una variable donde guardarlo; Añade Pegar texto en el campo e inserta la variable; Añade un paso Tocar en «Confirmar»; Toca Probar y abre la app. AutoGest copia el código y lo escribe."></video>
+        <figcaption>Grabado en un móvil real · 78 segundos</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Toca «Añadir acción» y elige Leer texto en pantalla</li>
+          <li>Toca «Elegir nodo», abre la app y toca Capturar</li>
+          <li>Toca el código y luego «Elegir nodo»</li>
+          <li>Vuelve y elige una variable donde guardarlo</li>
+          <li>Añade Pegar texto en el campo e inserta la variable</li>
+          <li>Añade un paso Tocar en «Confirmar»</li>
+          <li>Toca Probar y abre la app</li>
+        </ol>
+        <p class="result">▶ AutoGest copia el código y lo escribe</p>
+        <div class="callout">
+          <strong>Consejos</strong>
+          <ul>
+            <li>Ideal para códigos de un solo uso, números de pedido o saldos que muestra una app.</li>
+            <li>Lee la estructura de la app; para juegos usa <strong>Leer texto (OCR)</strong>.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Volver a la lista de acciones</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="wait-notification">
+    <h2>Esperar y detectar notificación <span class="badge">PRO</span></h2>
+    <p class="muted">Espera una notificación que contenga el texto que elegiste, léela en voz alta y continúa el script.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/es/wait-notification.mp4" poster="../../media/guide/es/wait-notification.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Vídeo guía de la acción Esperar y detectar notificación: Toca «Añadir acción» y elige Esperar y detectar notificación; Toca «Elegir notificación de muestra» y elige una notificación; Escribe las palabras que debe contener la notificación; Toca «Usar esta muestra»; Añade un paso Tocar en «Confirmar pedido»; Vuelve, toca Probar y abre la app; Cuando un cliente hace un pedido…. AutoGest lee la notificación en voz alta y confirma."></video>
+        <figcaption>Grabado en un móvil real · 65 segundos</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Toca «Añadir acción» y elige Esperar y detectar notificación</li>
+          <li>Toca «Elegir notificación de muestra» y elige una notificación</li>
+          <li>Escribe las palabras que debe contener la notificación</li>
+          <li>Toca «Usar esta muestra»</li>
+          <li>Añade un paso Tocar en «Confirmar pedido»</li>
+          <li>Vuelve, toca Probar y abre la app</li>
+          <li>Cuando un cliente hace un pedido…</li>
+        </ol>
+        <p class="result">▶ AutoGest lee la notificación en voz alta y confirma</p>
+        <div class="callout">
+          <strong>Consejos</strong>
+          <ul>
+            <li>Elige una notificación real como muestra y toca las palabras que hay que esperar; las partes que cambian (como el número de pedido) se comparan con flexibilidad.</li>
+            <li>Un script que solo espera notificaciones puede ejecutarse en segundo plano, incluso con la pantalla apagada.</li>
+            <li>El contenido de las notificaciones se queda en tu móvil y nunca se escribe en el registro.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Volver a la lista de acciones</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="open-app">
+    <h2>Abrir app</h2>
+    <p class="muted">Abre una app de la lista y espera a que aparezca; un buen primer paso para cualquier script.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/es/open-app.mp4" poster="../../media/guide/es/open-app.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Vídeo guía de la acción Abrir app: Toca «Añadir acción» y elige Abrir app; Toca «Elegir app» y elige la app que se abrirá; Toca Probar; no hace falta abrir la app. AutoGest abre por sí solo la app elegida."></video>
+        <figcaption>Grabado en un móvil real · 28 segundos</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Toca «Añadir acción» y elige Abrir app</li>
+          <li>Toca «Elegir app» y elige la app que se abrirá</li>
+          <li>Toca Probar; no hace falta abrir la app</li>
+        </ol>
+        <p class="result">▶ AutoGest abre por sí solo la app elegida</p>
+        <div class="callout">
+          <strong>Consejos</strong>
+          <ul>
+            <li>El script puede empezar desde AutoGest; este paso trae al frente la app correcta.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Volver a la lista de acciones</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="back">
+    <h2>Atrás</h2>
+    <p class="muted">Pulsa el botón Atrás del sistema.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/es/back.mp4" poster="../../media/guide/es/back.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Vídeo guía de la acción Atrás: Toca «Añadir acción» y elige Atrás; Toca Probar y abre la app; Durante la cuenta atrás, abre una noticia. AutoGest pulsa Atrás y vuelve la lista."></video>
+        <figcaption>Grabado en un móvil real · 25 segundos</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Toca «Añadir acción» y elige Atrás</li>
+          <li>Toca Probar y abre la app</li>
+          <li>Durante la cuenta atrás, abre una noticia</li>
+        </ol>
+        <p class="result">▶ AutoGest pulsa Atrás y vuelve la lista</p>
+        <div class="callout">
+          <strong>Consejos</strong>
+          <ul>
+            <li>Úsalo para cerrar un diálogo o volver una pantalla atrás.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Volver a la lista de acciones</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="home">
+    <h2>Pantalla de inicio</h2>
+    <p class="muted">Ve a la pantalla de inicio.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/es/home.mp4" poster="../../media/guide/es/home.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Vídeo guía de la acción Pantalla de inicio: Toca «Añadir acción» y elige Pantalla de inicio; Toca Probar y abre la app. AutoGest va a la pantalla de inicio (difuminada por privacidad)."></video>
+        <figcaption>Grabado en un móvil real · 24 segundos</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Toca «Añadir acción» y elige Pantalla de inicio</li>
+          <li>Toca Probar y abre la app</li>
+        </ol>
+        <p class="result">▶ AutoGest va a la pantalla de inicio (difuminada por privacidad)</p>
+        <div class="callout">
+          <strong>Consejos</strong>
+          <ul>
+            <li>Práctico al final de un script o antes de abrir otra app.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Volver a la lista de acciones</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="recent">
+    <h2>Apps recientes</h2>
+    <p class="muted">Abre la lista de apps recientes.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/es/recent.mp4" poster="../../media/guide/es/recent.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Vídeo guía de la acción Apps recientes: Toca «Añadir acción» y elige Apps recientes; Toca Probar y abre la app. AutoGest abre las apps recientes (difuminadas por privacidad)."></video>
+        <figcaption>Grabado en un móvil real · 24 segundos</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Toca «Añadir acción» y elige Apps recientes</li>
+          <li>Toca Probar y abre la app</li>
+        </ol>
+        <p class="result">▶ AutoGest abre las apps recientes (difuminadas por privacidad)</p>
+        <div class="callout">
+          <strong>Consejos</strong>
+          <ul>
+            <li>Combínalo con un paso Tocar para cambiar a otra app.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Volver a la lista de acciones</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="if-then">
+    <h2>Si… entonces <span class="badge">PRO</span></h2>
+    <p class="muted">Ejecuta algunos pasos solo cuando se cumple una condición: una imagen, un color, un texto, el número de ronda o una variable.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/es/if-then.mp4" poster="../../media/guide/es/if-then.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Vídeo guía de la acción Si… entonces: Toca «Añadir acción» y elige Si… entonces; Elige «Texto» y escribe el texto que hay que ver; Desactiva la rama «Si no» y toca «Listo»; Añade a la rama «Entonces»: paso Tocar en el botón de cerrar (✕); Vuelve, toca Probar y abre la app. AutoGest ve «Publicidad» y toca cerrar."></video>
+        <figcaption>Grabado en un móvil real · 50 segundos</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Toca «Añadir acción» y elige Si… entonces</li>
+          <li>Elige «Texto» y escribe el texto que hay que ver</li>
+          <li>Desactiva la rama «Si no» y toca «Listo»</li>
+          <li>Añade a la rama «Entonces»: paso Tocar en el botón de cerrar (✕)</li>
+          <li>Vuelve, toca Probar y abre la app</li>
+        </ol>
+        <p class="result">▶ AutoGest ve «Publicidad» y toca cerrar</p>
+        <div class="callout">
+          <strong>Consejos</strong>
+          <ul>
+            <li>Activa la rama «Si no» para ejecutar otros pasos cuando la condición es falsa.</li>
+            <li>Los bloques tienen un solo nivel; para anidar, separa la lógica en otro script y usa <strong>Llamar script</strong>.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Volver a la lista de acciones</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="loop-until">
+    <h2>Repetir hasta <span class="badge">PRO</span></h2>
+    <p class="muted">Repite los pasos del bloque hasta que se cumpla una condición, o durante un número de rondas.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/es/loop-until.mp4" poster="../../media/guide/es/loop-until.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Vídeo guía de la acción Repetir hasta: Toca «Añadir acción» y elige Repetir hasta; Parar con «Texto»: escribe el texto que aparece al terminar; Añade al bucle: paso Tocar en «Cargar más»; Vuelve, toca Probar y abre la app. AutoGest toca «Cargar más» hasta que aparece «No hay más noticias»."></video>
+        <figcaption>Grabado en un móvil real · 50 segundos</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Toca «Añadir acción» y elige Repetir hasta</li>
+          <li>Parar con «Texto»: escribe el texto que aparece al terminar</li>
+          <li>Añade al bucle: paso Tocar en «Cargar más»</li>
+          <li>Vuelve, toca Probar y abre la app</li>
+        </ol>
+        <p class="result">▶ AutoGest toca «Cargar más» hasta que aparece «No hay más noticias»</p>
+        <div class="callout">
+          <strong>Consejos</strong>
+          <ul>
+            <li>Pon siempre un máximo de rondas para que el script no se ejecute para siempre por error.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Volver a la lista de acciones</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="stop-script">
+    <h2>Detener script <span class="badge">PRO</span></h2>
+    <p class="muted">Termina toda la ejecución cuando se cumple una condición; por ejemplo, cuando te quedas sin turnos o energía.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/es/stop-script.mp4" poster="../../media/guide/es/stop-script.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Vídeo guía de la acción Detener script: Añade un paso Tocar en «Girar»; Vuelve y añade Detener script; Parar cuando aparezca el texto «Sin tiradas»; Repite el script sin límite; Toca Probar y abre la app. Tras la última tirada, AutoGest se detiene solo."></video>
+        <figcaption>Grabado en un móvil real · 55 segundos</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Añade un paso Tocar en «Girar»</li>
+          <li>Vuelve y añade Detener script</li>
+          <li>Parar cuando aparezca el texto «Sin tiradas»</li>
+          <li>Repite el script sin límite</li>
+          <li>Toca Probar y abre la app</li>
+        </ol>
+        <p class="result">▶ Tras la última tirada, AutoGest se detiene solo</p>
+        <div class="callout">
+          <strong>Consejos</strong>
+          <ul>
+            <li>Con un bucle sin límite, es la forma limpia de terminar.</li>
+            <li>Dentro de una rama de Si… entonces puede detenerse al momento, sin condición.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Volver a la lista de acciones</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="next-round">
+    <h2>Siguiente vuelta <span class="badge">PRO</span></h2>
+    <p class="muted">Salta el resto de esta ronda y empieza la siguiente cuando se cumple una condición.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/es/next-round.mp4" poster="../../media/guide/es/next-round.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Vídeo guía de la acción Siguiente vuelta: Añade un paso Tocar en «Siguiente»; Añade Siguiente vuelta cuando aparezca «Patrocinado»; Añade un paso Tocar en «Me gusta»; Repite el script 4 veces; Toca Probar y abre la app. AutoGest da me gusta a las publicaciones 1 y 3 y salta las patrocinadas."></video>
+        <figcaption>Grabado en un móvil real · 76 segundos</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Añade un paso Tocar en «Siguiente»</li>
+          <li>Añade Siguiente vuelta cuando aparezca «Patrocinado»</li>
+          <li>Añade un paso Tocar en «Me gusta»</li>
+          <li>Repite el script 4 veces</li>
+          <li>Toca Probar y abre la app</li>
+        </ol>
+        <p class="result">▶ AutoGest da me gusta a las publicaciones 1 y 3 y salta las patrocinadas</p>
+        <div class="callout">
+          <strong>Consejos</strong>
+          <ul>
+            <li>Útil para saltar anuncios o elementos que no quieres al recorrer una lista.</li>
+            <li>Salta al final del bucle más cercano del mismo script.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Volver a la lista de acciones</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="call-script">
+    <h2>Llamar script <span class="badge">PRO</span></h2>
+    <p class="muted">Ejecuta otro script y vuelve: reutiliza pasos que ya creaste.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/es/call-script.mp4" poster="../../media/guide/es/call-script.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Vídeo guía de la acción Llamar script: Toca «Añadir acción» y elige Llamar script; Toca «Elegir script» y elige el script que se llamará; Elige cuántas veces llamarlo; Toca Probar y abre la app. AutoGest ejecuta «Pulsar el botón» 3 veces."></video>
+        <figcaption>Grabado en un móvil real · 34 segundos</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Toca «Añadir acción» y elige Llamar script</li>
+          <li>Toca «Elegir script» y elige el script que se llamará</li>
+          <li>Elige cuántas veces llamarlo</li>
+          <li>Toca Probar y abre la app</li>
+        </ol>
+        <p class="result">▶ AutoGest ejecuta «Pulsar el botón» 3 veces</p>
+        <div class="callout">
+          <strong>Consejos</strong>
+          <ul>
+            <li>Elige cuántas veces seguidas llamarlo.</li>
+            <li>El script llamado usa el ritmo de este script.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Volver a la lista de acciones</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="set-variable">
+    <h2>Guardar en variable <span class="badge">PRO</span></h2>
+    <p class="muted">Da un valor a una variable o súmale un número: contadores, totales acumulados, texto que recordar.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/es/set-variable.mp4" poster="../../media/guide/es/set-variable.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Vídeo guía de la acción Guardar en variable: Toca «Añadir acción» y elige Guardar en variable; Pon nombre a la nueva variable y toca «Añadir variable»; Haz que el paso sume 1 a la variable; Añade Pegar texto en el chat: «Mensaje #» + la variable; Añade un paso Tocar en «Enviar»; Repite el script 3 veces; Toca Probar y abre la app. En cada ronda el número sube: 1, 2, 3."></video>
+        <figcaption>Grabado en un móvil real · 86 segundos</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Toca «Añadir acción» y elige Guardar en variable</li>
+          <li>Pon nombre a la nueva variable y toca «Añadir variable»</li>
+          <li>Haz que el paso sume 1 a la variable</li>
+          <li>Añade Pegar texto en el chat: «Mensaje #» + la variable</li>
+          <li>Añade un paso Tocar en «Enviar»</li>
+          <li>Repite el script 3 veces</li>
+          <li>Toca Probar y abre la app</li>
+        </ol>
+        <p class="result">▶ En cada ronda el número sube: 1, 2, 3</p>
+        <div class="callout">
+          <strong>Consejos</strong>
+          <ul>
+            <li>Inserta <code>{nombre}</code> en cualquier campo de texto para usar el valor de la variable.</li>
+            <li>Las variables solo duran una ejecución: pulsa Detener y se reinician.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Volver a la lista de acciones</a></p>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2026 AutoGest · <a href="../../es/">Inicio</a> · <a href="../../es/guide/">Guía de uso</a> ·
+    <a href="../../privacy/">Política de privacidad</a> ·
+    <a href="../../terms/">Términos del servicio</a><br><span>La Política de privacidad y los Términos del servicio están disponibles en inglés y vietnamita.</span></footer>
+</div>
+<script>
+  // Video chỉ chạy khi cuộn tới (tiết kiệm dữ liệu), tự lặp, không tiếng; bỏ thanh điều khiển khi có JavaScript.
+  const videos = document.querySelectorAll('.phone video');
+  const seen = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting) e.target.play().catch(() => {});
+      else e.target.pause();
+    }
+  }, { rootMargin: '200px 0px' });
+  videos.forEach((v) => { v.controls = false; v.preload = 'metadata'; seen.observe(v); });
+</script>
+</body>
+</html>

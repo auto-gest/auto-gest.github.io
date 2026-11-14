@@ -8,32 +8,44 @@
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" href="icon.png">
   <link rel="apple-touch-icon" href="icon.png">
-  <link rel="alternate" hreflang="vi" href="vi/">
+  <link rel="canonical" href="https://auto-gest.github.io/">
+  <link rel="alternate" hreflang="en" href="https://auto-gest.github.io/">
+  <link rel="alternate" hreflang="vi" href="https://auto-gest.github.io/vi/">
+  <link rel="alternate" hreflang="es" href="https://auto-gest.github.io/es/">
+  <link rel="alternate" hreflang="fr" href="https://auto-gest.github.io/fr/">
+  <link rel="alternate" hreflang="x-default" href="https://auto-gest.github.io/">
 </head>
 <body>
+<!-- Trang sinh bằng user-guide/tools/gen-site.mjs trong repo mã nguồn AutoGest; sửa ở đó rồi sinh lại. -->
 <div class="wrap">
   <header class="top">
-    <a class="brand" href="./"><img class="brand-mark" src="icon.png" alt="" width="36" height="36">AutoGest</a>
-    <a class="lang" href="vi/">Tiếng Việt</a>
+    <a class="brand" href=""><img class="brand-mark" src="icon.png" alt="" width="36" height="36">AutoGest</a>
+    <details class="lang-menu">
+      <summary aria-label="Language">English</summary>
+      <ul>
+        <li><a href="" hreflang="en" lang="en" aria-current="true">English</a></li>
+        <li><a href="vi/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+        <li><a href="es/" hreflang="es" lang="es">Español</a></li>
+        <li><a href="fr/" hreflang="fr" lang="fr">Français</a></li>
+      </ul>
+    </details>
   </header>
 
   <h1>Let your phone repeat the boring taps</h1>
-  <p class="muted">AutoGest is an Android app that runs automation scripts you build or record
-    yourself: taps, swipes, typing, opening apps — replayed with a natural, human-like rhythm.</p>
+  <p class="muted">AutoGest is an Android app that runs automation scripts you build or record yourself: taps, swipes, typing, opening apps — replayed with a natural, human-like rhythm.</p>
 
   <p class="label">What you can do</p>
   <div class="card">
     <div class="row"><strong>Build scripts step by step</strong>
-      <span>Tap, long press, swipe, scroll, type text, wait, press Back / Home / Recent apps, or open an
-        app. Pick each point right on the screen.</span></div>
-    <div class="row"><strong>Record instead of typing</strong>
+      <span>Tap, long press, swipe, scroll, paste or type text, wait, press Back / Home / Recent apps, or open an app. Pick each point right on the screen.</span></div>
+    <div class="row"><strong>Record instead of building</strong>
       <span>Do the task once while recording, review the captured steps, keep the ones you want.</span></div>
     <div class="row"><strong>React to what is on screen</strong>
-      <span>Tap an image when it appears, wait for a color, or run “If … then” and “Repeat until”
-        blocks.</span></div>
+      <span>Tap an image or a piece of text when it appears — even in games, with on-device text recognition — wait for a color, and use If… then, Repeat until, Stop script and Next loop.</span></div>
+    <div class="row"><strong>Remember values</strong>
+      <span>Read text or numbers from the screen or a notification into variables, count rounds, and paste the values back.</span></div>
     <div class="row"><strong>Run on your terms</strong>
-      <span>Start from the app, a home-screen shortcut or a schedule; pause and stop from the floating
-        bubble or the notification.</span></div>
+      <span>Start from the app, a home-screen shortcut, a schedule or an incoming notification; pause and stop from the floating bubble or the notification.</span></div>
     <div class="row"><strong>Share scripts</strong>
       <span>Export a script as an <code>.autoscript</code> file and import scripts others send you.</span></div>
   </div>
@@ -44,9 +56,7 @@
 
   <p class="label">Privacy</p>
   <div class="callout">
-    The app has no Internet permission, no accounts, no ads and no analytics. The Accessibility service
-    is used only to record and run the scripts you create, and everything you create stays on your
-    phone.
+    The app has no Internet permission, no accounts, no ads and no analytics. The Accessibility service is used only to record and run the scripts you create, and everything you create stays on your phone.
     <br><a class="button" href="privacy/">Read the Privacy Policy</a>
   </div>
 
@@ -54,8 +64,9 @@
   <p>Developer: AutoGest ·
     <a href="mailto:automatedgestures@gmail.com">automatedgestures@gmail.com</a></p>
 
-  <footer>© 2026 AutoGest · <a href="guide/">User guide</a> · <a href="privacy/">Privacy Policy</a> ·
-    <a href="terms/">Terms of Service</a> · <a href="vi/">Tiếng Việt</a></footer>
+  <footer>© 2026 AutoGest · <a href="">Home</a> · <a href="guide/">User guide</a> ·
+    <a href="privacy/">Privacy Policy</a> ·
+    <a href="terms/">Terms of Service</a></footer>
 </div>
 </body>
 </html>

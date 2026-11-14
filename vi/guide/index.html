@@ -4,24 +4,35 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hướng dẫn sử dụng – AutoGest</title>
-  <meta name="description" content="Hướng dẫn từng hành động trong AutoGest bằng video quay trên máy thật: Click, vuốt, chờ ảnh, khối Nếu… thì và hơn thế nữa.">
+  <meta name="description" content="Hướng dẫn từng hành động trong AutoGest bằng video quay trên máy thật: {a:action_click}, vuốt, nhận diện chữ (OCR), khối Nếu… thì, biến và hơn thế nữa.">
   <link rel="stylesheet" href="../../style.css">
   <link rel="icon" type="image/png" href="../../icon.png">
   <link rel="apple-touch-icon" href="../../icon.png">
-  <link rel="alternate" hreflang="en" href="../../guide/">
+  <link rel="canonical" href="https://auto-gest.github.io/vi/guide/">
+  <link rel="alternate" hreflang="en" href="https://auto-gest.github.io/guide/">
+  <link rel="alternate" hreflang="vi" href="https://auto-gest.github.io/vi/guide/">
+  <link rel="alternate" hreflang="es" href="https://auto-gest.github.io/es/guide/">
+  <link rel="alternate" hreflang="fr" href="https://auto-gest.github.io/fr/guide/">
+  <link rel="alternate" hreflang="x-default" href="https://auto-gest.github.io/guide/">
 </head>
 <body>
-<!-- Trang sinh bằng user-guide/tools/gen-guide-page.mjs trong repo mã nguồn; sửa ở đó rồi sinh lại. -->
+<!-- Trang sinh bằng user-guide/tools/gen-site.mjs trong repo mã nguồn AutoGest; sửa ở đó rồi sinh lại. -->
 <div class="wrap" id="top">
   <header class="top">
-    <a class="brand" href="../"><img class="brand-mark" src="../../icon.png" alt="" width="36" height="36">AutoGest</a>
-    <a class="lang" href="../../guide/">English</a>
+    <a class="brand" href="../../vi/"><img class="brand-mark" src="../../icon.png" alt="" width="36" height="36">AutoGest</a>
+    <details class="lang-menu">
+      <summary aria-label="Ngôn ngữ">Tiếng Việt</summary>
+      <ul>
+        <li><a href="../../guide/" hreflang="en" lang="en">English</a></li>
+        <li><a href="../../vi/guide/" hreflang="vi" lang="vi" aria-current="true">Tiếng Việt</a></li>
+        <li><a href="../../es/guide/" hreflang="es" lang="es">Español</a></li>
+        <li><a href="../../fr/guide/" hreflang="fr" lang="fr">Français</a></li>
+      </ul>
+    </details>
   </header>
 
   <h1>Hướng dẫn sử dụng</h1>
-  <p class="muted">Mỗi hành động có một đoạn video quay trên điện thoại thật, dùng một ứng dụng mẫu để thấy rõ kết
-    quả. Chỗ được chạm sẽ sáng lên để bạn dễ theo dõi. Hành động có nhãn <span class="badge">PRO</span> thuộc gói
-    AutoGest Pro.</p>
+  <p class="muted">Mỗi hành động có một đoạn video quay trên điện thoại thật, dùng một ứng dụng mẫu để thấy rõ kết quả. Chỗ được chạm sẽ sáng lên để bạn dễ theo dõi. Hành động có nhãn <span class="badge">PRO</span> thuộc gói AutoGest Pro.</p>
 
   <ul class="legend">
     <li><span class="dot user"></span>Bạn chạm</li>
@@ -29,13 +40,13 @@
   </ul>
 
   <nav class="chips" aria-label="Nhóm hành động">
-    <a href="#cham">Chạm và cử chỉ</a>
-    <a href="#cho">Chờ và nhận diện</a>
-    <a href="#he-thong">Hệ thống</a>
-    <a href="#luong">Luồng tập lệnh</a>
+    <a href="#touch">Chạm và cử chỉ</a>
+    <a href="#wait">Chờ và nhận diện</a>
+    <a href="#system">Hệ thống</a>
+    <a href="#flow">Luồng tập lệnh</a>
   </nav>
 
-  <p class="label" id="cham">Chạm và cử chỉ</p>
+  <p class="label" id="touch">Chạm và cử chỉ</p>
   <div class="action-grid">
     <a class="action" href="#click"><strong>Click</strong><span>Chạm 1 lần tại toạ độ</span><div class="state">▶ Xem video</div></a>
     <a class="action" href="#rapid-click"><strong>Click liên tục</strong><span>Chạm thật nhanh nhiều lần tại một toạ độ</span><div class="state">▶ Xem video</div></a>
@@ -46,18 +57,22 @@
     <a class="action" href="#type-keys"><strong>Gõ ký tự <span class="badge">PRO</span></strong><span>Chạm từng phím như người gõ</span><div class="state">▶ Xem video</div></a>
   </div>
 
-  <p class="label" id="cho">Chờ và nhận diện</p>
+  <p class="label" id="wait">Chờ và nhận diện</p>
   <div class="action-grid">
     <a class="action" href="#delay"><strong>Chờ</strong><span>Tạm dừng trước khi sang bước kế</span><div class="state">▶ Xem video</div></a>
     <a class="action" href="#wait-image"><strong>Chờ ảnh <span class="badge">PRO</span></strong><span>Chờ ảnh hiện ra hoặc biến mất, không chạm</span><div class="state">▶ Xem video</div></a>
     <a class="action" href="#wait-color"><strong>Chờ màu <span class="badge">PRO</span></strong><span>Chờ một điểm đổi sang màu đã chọn</span><div class="state">▶ Xem video</div></a>
     <a class="action" href="#image-click"><strong>Click ảnh <span class="badge">PRO</span></strong><span>Tìm ảnh mẫu trên màn hình rồi chạm</span><div class="state">▶ Xem video</div></a>
+    <a class="action" href="#ocr-click"><strong>Click chữ OCR <span class="badge">PRO</span></strong><span>Đọc chữ trên ảnh chụp màn hình rồi chạm · dùng được cho game</span><div class="state">▶ Xem video</div></a>
+    <a class="action" href="#ocr-wait"><strong>Chờ chữ OCR <span class="badge">PRO</span></strong><span>Chờ chữ hiện ra hoặc biến mất, không chạm · dùng được cho game</span><div class="state">▶ Xem video</div></a>
+    <a class="action" href="#ocr-read"><strong>Đọc chữ OCR <span class="badge">PRO</span></strong><span>Đọc chữ trong một vùng rồi lưu vào biến · dùng được cho game</span><div class="state">▶ Xem video</div></a>
     <a class="action" href="#click-text"><strong>Click chữ</strong><span>Tìm chữ rồi chạm · không dùng cho game</span><div class="state">▶ Xem video</div></a>
     <a class="action" href="#click-node"><strong>Click Node <span class="badge">PRO</span></strong><span>Chụp màn hình, chọn node rồi chạm · không dùng cho game</span><div class="state">▶ Xem video</div></a>
+    <a class="action" href="#read-text"><strong>Lấy chữ trên màn hình <span class="badge">PRO</span></strong><span>Chọn node rồi lưu chữ của nó vào biến · không dùng cho game</span><div class="state">▶ Xem video</div></a>
     <a class="action" href="#wait-notification"><strong>Chờ và nhận diện thông báo <span class="badge">PRO</span></strong><span>Chờ thông báo có chữ bạn chọn hoặc tin biến động số dư, rồi đọc to hay chạy tiếp</span><div class="state">▶ Xem video</div></a>
   </div>
 
-  <p class="label" id="he-thong">Hệ thống</p>
+  <p class="label" id="system">Hệ thống</p>
   <div class="action-grid">
     <a class="action" href="#open-app"><strong>Mở ứng dụng</strong><span>Mở ứng dụng rồi chờ nó hiện lên</span><div class="state">▶ Xem video</div></a>
     <a class="action" href="#back"><strong>Quay lại</strong><span>Nhấn phím Quay lại của hệ thống</span><div class="state">▶ Xem video</div></a>
@@ -65,11 +80,14 @@
     <a class="action" href="#recent"><strong>Ứng dụng gần đây</strong><span>Mở danh sách ứng dụng gần đây</span><div class="state">▶ Xem video</div></a>
   </div>
 
-  <p class="label" id="luong">Luồng tập lệnh</p>
+  <p class="label" id="flow">Luồng tập lệnh</p>
   <div class="action-grid">
     <a class="action" href="#if-then"><strong>Nếu… thì <span class="badge">PRO</span></strong><span>Kiểm tra màn hình rồi rẽ sang một trong hai nhánh</span><div class="state">▶ Xem video</div></a>
     <a class="action" href="#loop-until"><strong>Lặp tới khi <span class="badge">PRO</span></strong><span>Chạy lại các bước bên trong tới khi điều kiện đúng</span><div class="state">▶ Xem video</div></a>
+    <a class="action" href="#stop-script"><strong>Dừng tập lệnh <span class="badge">PRO</span></strong><span>Kết thúc cả lượt chạy khi điều kiện đúng</span><div class="state">▶ Xem video</div></a>
+    <a class="action" href="#next-round"><strong>Sang vòng mới <span class="badge">PRO</span></strong><span>Bỏ các bước còn lại, chạy vòng kế tiếp</span><div class="state">▶ Xem video</div></a>
     <a class="action" href="#call-script"><strong>Gọi tập lệnh <span class="badge">PRO</span></strong><span>Chạy lại một tập lệnh khác rồi quay về</span><div class="state">▶ Xem video</div></a>
+    <a class="action" href="#set-variable"><strong>Ghi vào biến <span class="badge">PRO</span></strong><span>Đặt hay cộng giá trị cho biến Ghi nhớ</span><div class="state">▶ Xem video</div></a>
   </div>
 
   <section class="guide" id="click">
@@ -77,7 +95,7 @@
     <p class="muted">Hành động cơ bản nhất: AutoGest chạm đúng một điểm bạn đã chọn trên màn hình.</p>
     <div class="guide-body">
       <figure class="phone">
-        <img src="../../media/guide/click.vi.webp" width="480" height="1100" loading="lazy" alt="Video hướng dẫn hành động Click: Bấm “Thêm hành động”, chọn Click; Bấm “Thêm tọa độ”; Mở ứng dụng, kéo tâm ngắm tới điểm cần click; Bấm OK để lưu tọa độ; Quay lại AutoGest, tọa độ đã được điền; Bấm Chạy thử rồi mở ứng dụng. AutoGest tự click đúng điểm đã chọn.">
+        <video src="../../media/guide/vi/click.mp4" poster="../../media/guide/vi/click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video hướng dẫn hành động Click: Bấm “Thêm hành động”, chọn Click; Bấm “Thêm tọa độ”; Mở ứng dụng, kéo tâm ngắm tới điểm cần click; Bấm OK để lưu tọa độ; Quay lại AutoGest, tọa độ đã được điền; Bấm Chạy thử rồi mở ứng dụng. AutoGest tự click đúng điểm đã chọn."></video>
         <figcaption>Quay trên máy thật · 28 giây</figcaption>
       </figure>
       <div>
@@ -95,7 +113,7 @@
           <ul>
             <li>Toạ độ được quy đổi theo kích thước màn hình, nên tập lệnh vẫn chạm đúng chỗ khi mở trên máy có màn hình khác.</li>
             <li>Ở thẻ <strong>Cấu hình chung</strong>, bạn đặt khoảng nghỉ giữa các bước và độ lệch chạm để thao tác tự nhiên như người thật.</li>
-            <li>Nút đổi chỗ theo từng lần mở? Dùng <strong>Click ảnh</strong> hoặc <strong>Click chữ</strong> để AutoGest tự tìm nút trước khi chạm.</li>
+            <li>Nút đổi chỗ theo từng lần mở? Dùng <strong>Click ảnh</strong>, <strong>Click chữ OCR</strong> hoặc <strong>Click chữ</strong> để AutoGest tự tìm nút trước khi chạm.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Về danh sách hành động</a></p>
@@ -108,8 +126,8 @@
     <p class="muted">Chạm liên tục vào một điểm với tốc độ từ 1 đến 20 lần mỗi giây — hợp với game cần bấm nhanh.</p>
     <div class="guide-body">
       <figure class="phone">
-        <img src="../../media/guide/rapid-click.vi.webp" width="480" height="1100" loading="lazy" alt="Video hướng dẫn hành động Click liên tục: Bấm “Thêm hành động”, chọn Click liên tục; Bấm “Thêm tọa độ”; Mở ứng dụng, đặt tâm ngắm lên nút cần bấm; Bấm OK để lưu tọa độ; Quay lại AutoGest, chọn tốc độ và số lần; Bấm Chạy thử rồi mở ứng dụng. AutoGest bấm 30 lần, 10 lần mỗi giây.">
-        <figcaption>Quay trên máy thật · 32 giây</figcaption>
+        <video src="../../media/guide/vi/rapid-click.mp4" poster="../../media/guide/vi/rapid-click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video hướng dẫn hành động Click liên tục: Bấm “Thêm hành động”, chọn Click liên tục; Bấm “Thêm tọa độ”; Mở ứng dụng, đặt tâm ngắm lên nút cần bấm; Bấm OK để lưu tọa độ; Quay lại AutoGest, giảm số lần bấm; Bấm Chạy thử rồi mở ứng dụng. AutoGest bấm 30 lần, 10 lần mỗi giây."></video>
+        <figcaption>Quay trên máy thật · 33 giây</figcaption>
       </figure>
       <div>
         <ol class="steps">
@@ -117,7 +135,7 @@
           <li>Bấm “Thêm tọa độ”</li>
           <li>Mở ứng dụng, đặt tâm ngắm lên nút cần bấm</li>
           <li>Bấm OK để lưu tọa độ</li>
-          <li>Quay lại AutoGest, chọn tốc độ và số lần</li>
+          <li>Quay lại AutoGest, giảm số lần bấm</li>
           <li>Bấm Chạy thử rồi mở ứng dụng</li>
         </ol>
         <p class="result">▶ AutoGest bấm 30 lần, 10 lần mỗi giây</p>
@@ -126,7 +144,7 @@
           <ul>
             <li>Dừng theo số lần, theo thời gian, hoặc chạy tới khi bạn bấm Dừng.</li>
             <li>Trên 10 lần/giây là nhanh hơn tay người; ứng dụng có thể coi là bất thường.</li>
-            <li>Bật <strong>Nhịp tự nhiên</strong> để khoảng cách giữa các lần chạm lệch nhẹ như người bấm thật.</li>
+            <li>Bật nhịp tự nhiên để khoảng cách giữa các lần chạm lệch nhẹ như người bấm thật.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Về danh sách hành động</a></p>
@@ -139,7 +157,7 @@
     <p class="muted">Chạm và giữ một điểm trong khoảng thời gian bạn chọn — dùng cho nút cần nhấn giữ, menu ngữ cảnh, kéo chọn.</p>
     <div class="guide-body">
       <figure class="phone">
-        <img src="../../media/guide/long-click.vi.webp" width="480" height="1100" loading="lazy" alt="Video hướng dẫn hành động Long click: Bấm “Thêm hành động”, chọn Long click; Bấm “Thêm tọa độ”; Mở ứng dụng, đặt tâm ngắm lên nút cần giữ; Bấm OK để lưu tọa độ; Quay lại AutoGest, chọn thời gian giữ; Bấm Chạy thử rồi mở ứng dụng. AutoGest giữ nút 2 giây, khoá mở.">
+        <video src="../../media/guide/vi/long-click.mp4" poster="../../media/guide/vi/long-click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video hướng dẫn hành động Long click: Bấm “Thêm hành động”, chọn Long click; Bấm “Thêm tọa độ”; Mở ứng dụng, đặt tâm ngắm lên nút cần giữ; Bấm OK để lưu tọa độ; Quay lại AutoGest, chọn thời gian giữ; Bấm Chạy thử rồi mở ứng dụng. AutoGest giữ nút 2 giây, khoá mở."></video>
         <figcaption>Quay trên máy thật · 30 giây</figcaption>
       </figure>
       <div>
@@ -155,7 +173,7 @@
         <div class="callout">
           <strong>Mẹo</strong>
           <ul>
-            <li>Chọn thời gian giữ trên thẻ; với nút “giữ để xác nhận”, đặt dài hơn thời gian ứng dụng yêu cầu một chút.</li>
+            <li>Với nút “giữ để xác nhận”, đặt dài hơn thời gian ứng dụng yêu cầu một chút.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Về danh sách hành động</a></p>
@@ -168,7 +186,7 @@
     <p class="muted">Kéo ngón tay từ điểm bắt đầu tới điểm kết thúc — vuốt mở khoá, kéo thanh trượt, lướt trang.</p>
     <div class="guide-body">
       <figure class="phone">
-        <img src="../../media/guide/swipe.vi.webp" width="480" height="1100" loading="lazy" alt="Video hướng dẫn hành động Vuốt: Bấm “Thêm hành động”, chọn Vuốt; Chọn điểm bắt đầu; Quay lại, chọn điểm kết thúc; Quay lại, chọn thời gian vuốt; Bấm Chạy thử rồi mở ứng dụng. AutoGest vuốt từ điểm đầu tới điểm cuối.">
+        <video src="../../media/guide/vi/swipe.mp4" poster="../../media/guide/vi/swipe.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video hướng dẫn hành động Vuốt: Bấm “Thêm hành động”, chọn Vuốt; Chọn điểm bắt đầu; Quay lại, chọn điểm kết thúc; Quay lại, chọn thời gian vuốt; Bấm Chạy thử rồi mở ứng dụng. AutoGest vuốt từ điểm đầu tới điểm cuối."></video>
         <figcaption>Quay trên máy thật · 34 giây</figcaption>
       </figure>
       <div>
@@ -196,7 +214,7 @@
     <p class="muted">Cuộn danh sách lên, xuống, sang trái hoặc phải bằng một cú vuốt qua giữa màn hình — không phải chọn toạ độ.</p>
     <div class="guide-body">
       <figure class="phone">
-        <img src="../../media/guide/scroll.vi.webp" width="480" height="1100" loading="lazy" alt="Video hướng dẫn hành động Cuộn: Bấm “Thêm hành động”, chọn Cuộn; Chọn hướng cuộn và thời gian; Bấm Chạy thử rồi mở ứng dụng. AutoGest vuốt qua giữa màn hình để cuộn.">
+        <video src="../../media/guide/vi/scroll.mp4" poster="../../media/guide/vi/scroll.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video hướng dẫn hành động Cuộn: Bấm “Thêm hành động”, chọn Cuộn; Chọn hướng cuộn và thời gian; Bấm Chạy thử rồi mở ứng dụng. AutoGest vuốt qua giữa màn hình để cuộn."></video>
         <figcaption>Quay trên máy thật · 20 giây</figcaption>
       </figure>
       <div>
@@ -222,8 +240,8 @@
     <p class="muted">Chạm vào ô nhập rồi điền nguyên đoạn chữ bạn đã soạn — nhanh, đúng dấu tiếng Việt.</p>
     <div class="guide-body">
       <figure class="phone">
-        <img src="../../media/guide/paste-text.vi.webp" width="480" height="1100" loading="lazy" alt="Video hướng dẫn hành động Dán văn bản: Bấm “Thêm hành động”, chọn Dán văn bản; Bấm “Thêm tọa độ”, đặt tâm ngắm vào ô nhập; Quay lại, nhập nội dung cần dán; Bấm Chạy thử rồi mở ứng dụng. AutoGest dán cả đoạn chữ vào ô nhập.">
-        <figcaption>Quay trên máy thật · 29 giây</figcaption>
+        <video src="../../media/guide/vi/paste-text.mp4" poster="../../media/guide/vi/paste-text.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video hướng dẫn hành động Dán văn bản: Bấm “Thêm hành động”, chọn Dán văn bản; Bấm “Thêm tọa độ”, đặt tâm ngắm vào ô nhập; Quay lại, nhập nội dung cần dán; Bấm Chạy thử rồi mở ứng dụng. AutoGest dán cả đoạn chữ vào ô nhập."></video>
+        <figcaption>Quay trên máy thật · 31 giây</figcaption>
       </figure>
       <div>
         <ol class="steps">
@@ -237,6 +255,7 @@
           <strong>Mẹo</strong>
           <ul>
             <li>Ngăn nhiều nội dung bằng <code>||</code> để mỗi lần chạy AutoGest chọn ngẫu nhiên một nội dung.</li>
+            <li>Bấm <strong>Chèn biến</strong> để dán giá trị đã đọc được trước đó trong lượt chạy.</li>
             <li>Ứng dụng chặn dán? Dùng <strong>Gõ ký tự</strong> để chạm từng phím như người gõ.</li>
           </ul>
         </div>
@@ -250,14 +269,14 @@
     <p class="muted">Ghi lại từng lần chạm phím trên bàn phím, khi chạy AutoGest chạm lại đúng các phím đó với nhịp gõ của bạn.</p>
     <div class="guide-body">
       <figure class="phone">
-        <img src="../../media/guide/type-keys.vi.webp" width="480" height="1100" loading="lazy" alt="Video hướng dẫn hành động Gõ ký tự: Bấm “Thêm hành động”, chọn Gõ ký tự; Chạm vào ô ghi phím rồi gõ trên bàn phím; Bấm Xong để lưu các lần chạm phím; Chọn ô cần gõ trong ứng dụng (tuỳ chọn); Quay lại, bấm Chạy thử rồi mở ứng dụng. AutoGest chạm vào ô rồi gõ lại từng phím.">
+        <video src="../../media/guide/vi/type-keys.mp4" poster="../../media/guide/vi/type-keys.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video hướng dẫn hành động Gõ ký tự: Bấm “Thêm hành động”, chọn Gõ ký tự; Chạm vào ô ghi phím rồi gõ trên bàn phím; Bấm “Xong” để lưu các lần chạm phím; Chọn ô cần gõ trong ứng dụng (tuỳ chọn); Quay lại, bấm Chạy thử rồi mở ứng dụng. AutoGest chạm vào ô rồi gõ lại từng phím."></video>
         <figcaption>Quay trên máy thật · 40 giây</figcaption>
       </figure>
       <div>
         <ol class="steps">
           <li>Bấm “Thêm hành động”, chọn Gõ ký tự</li>
           <li>Chạm vào ô ghi phím rồi gõ trên bàn phím</li>
-          <li>Bấm Xong để lưu các lần chạm phím</li>
+          <li>Bấm “Xong” để lưu các lần chạm phím</li>
           <li>Chọn ô cần gõ trong ứng dụng (tuỳ chọn)</li>
           <li>Quay lại, bấm Chạy thử rồi mở ứng dụng</li>
         </ol>
@@ -267,7 +286,7 @@
           <ul>
             <li>Dùng cùng một bàn phím (và cùng kiểu ô nhập) lúc ghi và lúc chạy, vì AutoGest chạm theo vị trí phím.</li>
             <li>Sau khi gõ, AutoGest đọc lại ô nhập; chữ không khớp thì bước báo lỗi và không chạm các phím còn lại.</li>
-            <li>Không cần chạm từng phím? Bấm <strong>Chuyển sang Dán văn bản</strong> trên thẻ.</li>
+            <li>Không cần chạm từng phím? Chuyển thẻ sang <strong>Dán văn bản</strong>.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Về danh sách hành động</a></p>
@@ -277,26 +296,26 @@
 
   <section class="guide" id="delay">
     <h2>Chờ</h2>
-    <p class="muted">Dừng tập lệnh một khoảng thời gian (mili giây) trước khi sang bước sau — đợi ứng dụng tải xong, đợi hiệu ứng chạy hết.</p>
+    <p class="muted">Tạm dừng trước bước kế — chờ màn hình tải xong, hiệu ứng chạy hết hay đồng hồ đếm xong.</p>
     <div class="guide-body">
       <figure class="phone">
-        <img src="../../media/guide/delay.vi.webp" width="480" height="1100" loading="lazy" alt="Video hướng dẫn hành động Chờ: Bấm “Thêm hành động”, chọn Chờ; Nhập thời gian chờ (ms); Thêm một bước Click để thấy khoảng chờ; Quay lại, đặt lặp tập lệnh 2 vòng; Bấm Chạy thử rồi mở ứng dụng. Hai lần bấm cách nhau 3 giây chờ + nhịp nghỉ.">
-        <figcaption>Quay trên máy thật · 44 giây</figcaption>
+        <video src="../../media/guide/vi/delay.mp4" poster="../../media/guide/vi/delay.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video hướng dẫn hành động Chờ: Bấm “Thêm hành động”, chọn Chờ; Nhập thời gian chờ (ms); Thêm một bước Click để thấy khoảng chờ; Đặt lặp tập lệnh 2 vòng ở “Cấu hình chung”; Bấm Chạy thử rồi mở ứng dụng. Hai lần bấm cách nhau 3 giây chờ + nhịp nghỉ."></video>
+        <figcaption>Quay trên máy thật · 45 giây</figcaption>
       </figure>
       <div>
         <ol class="steps">
           <li>Bấm “Thêm hành động”, chọn Chờ</li>
           <li>Nhập thời gian chờ (ms)</li>
           <li>Thêm một bước Click để thấy khoảng chờ</li>
-          <li>Quay lại, đặt lặp tập lệnh 2 vòng</li>
+          <li>Đặt lặp tập lệnh 2 vòng ở “Cấu hình chung”</li>
           <li>Bấm Chạy thử rồi mở ứng dụng</li>
         </ol>
         <p class="result">▶ Hai lần bấm cách nhau 3 giây chờ + nhịp nghỉ</p>
         <div class="callout">
           <strong>Mẹo</strong>
           <ul>
-            <li>Ngoài bước Chờ, mỗi bước còn có nhịp nghỉ ngẫu nhiên đặt ở <strong>Cấu hình chung</strong>.</li>
-            <li>Không biết phải chờ bao lâu? <strong>Chờ ảnh</strong>, <strong>Chờ màu</strong> chờ đúng tới lúc màn hình sẵn sàng.</li>
+            <li>Mỗi bước vốn đã nghỉ một khoảng ngẫu nhiên ngắn (đặt ở <strong>Cấu hình chung</strong>); chỉ thêm Chờ khi cần lâu hơn.</li>
+            <li>Đang chờ thứ gì đó hiện ra? <strong>Chờ ảnh</strong>, <strong>Chờ chữ OCR</strong> hay <strong>Chờ màu</strong> đi tiếp ngay khi thấy.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Về danh sách hành động</a></p>
@@ -306,16 +325,16 @@
 
   <section class="guide" id="wait-image">
     <h2>Chờ ảnh <span class="badge">PRO</span></h2>
-    <p class="muted">Đợi tới khi một hình xuất hiện (hoặc biến mất) trên màn hình rồi mới chạy bước sau. Hình được cắt ngay từ màn hình.</p>
+    <p class="muted">Chờ tới khi một hình hiện ra (hoặc biến mất) trên màn hình, không chạm — rồi các bước sau mới chạy.</p>
     <div class="guide-body">
       <figure class="phone">
-        <img src="../../media/guide/wait-image.vi.webp" width="480" height="1100" loading="lazy" alt="Video hướng dẫn hành động Chờ ảnh: Bấm “Thêm hành động”, chọn Chờ ảnh; Bấm “Chọn ảnh”, chọn Cắt từ màn hình; Mở màn hình có hình, bấm Chụp, khoanh vùng; Quay lại, thêm bước Click vào chỗ hình hiện ra; Quay lại, bấm Chạy thử rồi mở ứng dụng. AutoGest đợi thấy hộp quà rồi mới chạy bước Click.">
-        <figcaption>Quay trên máy thật · 46 giây</figcaption>
+        <video src="../../media/guide/vi/wait-image.mp4" poster="../../media/guide/vi/wait-image.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video hướng dẫn hành động Chờ ảnh: Bấm “Thêm hành động”, chọn Chờ ảnh; Bấm “Chọn ảnh”, chọn “Cắt từ màn hình”; Mở màn hình có hình, bấm Chụp, khoanh vùng; Quay lại, thêm bước Click vào chỗ hình hiện ra; Quay lại, bấm Chạy thử rồi mở ứng dụng. AutoGest đợi thấy hộp quà rồi mới chạy bước Click."></video>
+        <figcaption>Quay trên máy thật · 48 giây</figcaption>
       </figure>
       <div>
         <ol class="steps">
           <li>Bấm “Thêm hành động”, chọn Chờ ảnh</li>
-          <li>Bấm “Chọn ảnh”, chọn Cắt từ màn hình</li>
+          <li>Bấm “Chọn ảnh”, chọn “Cắt từ màn hình”</li>
           <li>Mở màn hình có hình, bấm Chụp, khoanh vùng</li>
           <li>Quay lại, thêm bước Click vào chỗ hình hiện ra</li>
           <li>Quay lại, bấm Chạy thử rồi mở ứng dụng</li>
@@ -324,9 +343,8 @@
         <div class="callout">
           <strong>Mẹo</strong>
           <ul>
-            <li>Khoanh vùng ôm sát hình, tránh phần nền hay đổi.</li>
-            <li>Chọn <strong>Biến mất</strong> để chờ màn hình tải, hộp thoại đóng xong.</li>
-            <li>Dùng được cả trong game, vì AutoGest so ảnh chứ không đọc cấu trúc ứng dụng.</li>
+            <li>Cắt ảnh ôm sát thứ cần tìm, bỏ phần nền hay thay đổi.</li>
+            <li>Giảm độ khớp tối thiểu nếu hình mỗi lần hơi khác nhau.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Về danh sách hành động</a></p>
@@ -336,11 +354,11 @@
 
   <section class="guide" id="wait-color">
     <h2>Chờ màu <span class="badge">PRO</span></h2>
-    <p class="muted">Đợi một điểm trên màn hình có đúng màu bạn chọn — đèn chuyển xanh, nút sáng lên, thanh năng lượng đầy.</p>
+    <p class="muted">Theo dõi một điểm tới khi nó thành màu đã chọn (hoặc đổi màu) — đèn chuyển xanh, nút sáng lên.</p>
     <div class="guide-body">
       <figure class="phone">
-        <img src="../../media/guide/wait-color.vi.webp" width="480" height="1100" loading="lazy" alt="Video hướng dẫn hành động Chờ màu: Bấm “Thêm hành động”, chọn Chờ màu; Bấm “Thêm tọa độ”, đặt tâm ngắm lên điểm có màu cần chờ; Quay lại: AutoGest đã đọc sẵn màu tại điểm đó; Thêm bước Click vào nút “Đi thôi”; Quay lại, bấm Chạy thử rồi mở ứng dụng. AutoGest đợi đèn chuyển xanh rồi mới bấm “Đi thôi”.">
-        <figcaption>Quay trên máy thật · 43 giây</figcaption>
+        <video src="../../media/guide/vi/wait-color.mp4" poster="../../media/guide/vi/wait-color.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video hướng dẫn hành động Chờ màu: Bấm “Thêm hành động”, chọn Chờ màu; Bấm “Thêm tọa độ”, đặt tâm ngắm lên điểm có màu cần chờ; Quay lại: AutoGest đã đọc sẵn màu tại điểm đó; Thêm bước Click vào nút “Đi thôi”; Quay lại, bấm Chạy thử rồi mở ứng dụng. AutoGest đợi đèn chuyển xanh rồi mới bấm “Đi thôi”."></video>
+        <figcaption>Quay trên máy thật · 44 giây</figcaption>
       </figure>
       <div>
         <ol class="steps">
@@ -354,8 +372,8 @@
         <div class="callout">
           <strong>Mẹo</strong>
           <ul>
-            <li>Chọn điểm lúc màu cần chờ đang hiện: AutoGest đọc sẵn màu tại điểm đó.</li>
-            <li>Chọn <strong>Đổi màu</strong> để chờ điểm đó thôi mang màu hiện tại.</li>
+            <li>Chọn điểm lúc màn hình đang có màu cần chờ: AutoGest tự đọc màu giúp bạn.</li>
+            <li>Chạy được cả trong game, vì chỉ nhìn ảnh màn hình.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Về danh sách hành động</a></p>
@@ -365,16 +383,16 @@
 
   <section class="guide" id="image-click">
     <h2>Click ảnh <span class="badge">PRO</span></h2>
-    <p class="muted">Tìm một hình trên màn hình rồi chạm vào giữa hình — nút ở đâu AutoGest cũng tìm được, kể cả trong game.</p>
+    <p class="muted">Tìm một hình trên màn hình rồi chạm vào, dù nó nằm ở đâu — hợp với nút hay đổi chỗ.</p>
     <div class="guide-body">
       <figure class="phone">
-        <img src="../../media/guide/image-click.vi.webp" width="480" height="1100" loading="lazy" alt="Video hướng dẫn hành động Click ảnh: Bấm “Thêm hành động”, chọn Click ảnh; Bấm “Chọn ảnh”, chọn Cắt từ màn hình; Mở màn hình có hình cần tìm, bấm Chụp; Kéo khung ôm sát hình rồi bấm OK; Quay lại, bấm Chạy thử rồi mở ứng dụng. AutoGest chờ hộp quà hiện ra rồi chạm vào.">
-        <figcaption>Quay trên máy thật · 35 giây</figcaption>
+        <video src="../../media/guide/vi/image-click.mp4" poster="../../media/guide/vi/image-click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video hướng dẫn hành động Click ảnh: Bấm “Thêm hành động”, chọn Click ảnh; Bấm “Chọn ảnh”, chọn “Cắt từ màn hình”; Mở màn hình có hình cần tìm, bấm Chụp; Kéo khung ôm sát hình rồi bấm OK; Quay lại, bấm Chạy thử rồi mở ứng dụng. AutoGest chờ hộp quà hiện ra rồi chạm vào."></video>
+        <figcaption>Quay trên máy thật · 36 giây</figcaption>
       </figure>
       <div>
         <ol class="steps">
           <li>Bấm “Thêm hành động”, chọn Click ảnh</li>
-          <li>Bấm “Chọn ảnh”, chọn Cắt từ màn hình</li>
+          <li>Bấm “Chọn ảnh”, chọn “Cắt từ màn hình”</li>
           <li>Mở màn hình có hình cần tìm, bấm Chụp</li>
           <li>Kéo khung ôm sát hình rồi bấm OK</li>
           <li>Quay lại, bấm Chạy thử rồi mở ứng dụng</li>
@@ -383,8 +401,95 @@
         <div class="callout">
           <strong>Mẹo</strong>
           <ul>
-            <li>Đặt <strong>Thời gian chờ tối đa</strong> đủ lâu nếu hình xuất hiện muộn.</li>
-            <li>Hạ <strong>Độ khớp tối thiểu</strong> khi hình hơi thay đổi giữa các lần (bóng, viền sáng).</li>
+            <li>Chạy được trong game, vì AutoGest nhìn ảnh màn hình chứ không đọc bố cục của ứng dụng.</li>
+            <li>Chỉ cắt đúng cái nút, không lấy phần nền xung quanh.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Về danh sách hành động</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="ocr-click">
+    <h2>Click chữ OCR <span class="badge">PRO</span></h2>
+    <p class="muted">Đọc chữ trên ảnh chụp màn hình bằng nhận diện chữ (OCR) chạy ngay trên máy rồi chạm — dùng được cả trong game tự vẽ chữ.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/vi/ocr-click.mp4" poster="../../media/guide/vi/ocr-click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video hướng dẫn hành động Click chữ OCR: Bấm “Thêm hành động”, chọn Click chữ OCR; Nhập chữ trên nút cần bấm; Bấm Chạy thử rồi mở ứng dụng. AutoGest đọc chữ trên ảnh màn hình — cả trong game — rồi chạm."></video>
+        <figcaption>Quay trên máy thật · 28 giây</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Bấm “Thêm hành động”, chọn Click chữ OCR</li>
+          <li>Nhập chữ trên nút cần bấm</li>
+          <li>Bấm Chạy thử rồi mở ứng dụng</li>
+        </ol>
+        <p class="result">▶ AutoGest đọc chữ trên ảnh màn hình — cả trong game — rồi chạm</p>
+        <div class="callout">
+          <strong>Mẹo</strong>
+          <ul>
+            <li>Chữ Trung, Nhật, Hàn thì chọn đúng bộ chữ; Latin dùng cho tiếng Việt, Anh, Tây Ban Nha…</li>
+            <li>Thu hẹp vùng tìm để đọc nhanh và chính xác hơn.</li>
+            <li>Nhận diện chạy trên máy của bạn, không gửi gì đi đâu.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Về danh sách hành động</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="ocr-wait">
+    <h2>Chờ chữ OCR <span class="badge">PRO</span></h2>
+    <p class="muted">Chờ tới khi một đoạn chữ hiện ra (hoặc biến mất) trên ảnh màn hình, không chạm.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/vi/ocr-wait.mp4" poster="../../media/guide/vi/ocr-wait.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video hướng dẫn hành động Chờ chữ OCR: Bấm “Thêm hành động”, chọn Chờ chữ OCR; Nhập chữ cần chờ; Thêm bước Click vào nút “Chạy”; Quay lại, bấm Chạy thử rồi mở ứng dụng. AutoGest chờ thấy “XUẤT PHÁT” rồi mới bấm “Chạy”."></video>
+        <figcaption>Quay trên máy thật · 41 giây</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Bấm “Thêm hành động”, chọn Chờ chữ OCR</li>
+          <li>Nhập chữ cần chờ</li>
+          <li>Thêm bước Click vào nút “Chạy”</li>
+          <li>Quay lại, bấm Chạy thử rồi mở ứng dụng</li>
+        </ol>
+        <p class="result">▶ AutoGest chờ thấy “XUẤT PHÁT” rồi mới bấm “Chạy”</p>
+        <div class="callout">
+          <strong>Mẹo</strong>
+          <ul>
+            <li>Hợp với màn game như “Sẵn sàng… Bắt đầu!”, “Chiến thắng” hay đồng hồ đếm ngược.</li>
+            <li>Chọn vùng để chờ nhanh hơn và không khớp nhầm cùng chữ ở chỗ khác.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Về danh sách hành động</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="ocr-read">
+    <h2>Đọc chữ OCR <span class="badge">PRO</span></h2>
+    <p class="muted">Đọc chữ trong một vùng của ảnh màn hình rồi lưu vào biến cho các bước sau dùng.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/vi/ocr-read.mp4" poster="../../media/guide/vi/ocr-read.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video hướng dẫn hành động Đọc chữ OCR: Bấm “Thêm hành động”, chọn Đọc chữ OCR; Bấm “Chọn vùng”, mở màn hình rồi bấm Chụp; Khoanh vùng có mã rồi bấm OK; Quay lại, chọn “Chỉ phần số” và biến để lưu; Thêm Dán văn bản vào ô nhập, chèn biến; Thêm bước Click vào nút “Xác nhận”; Bấm Chạy thử rồi mở ứng dụng. AutoGest đọc mã trên ảnh rồi tự nhập vào."></video>
+        <figcaption>Quay trên máy thật · 75 giây</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Bấm “Thêm hành động”, chọn Đọc chữ OCR</li>
+          <li>Bấm “Chọn vùng”, mở màn hình rồi bấm Chụp</li>
+          <li>Khoanh vùng có mã rồi bấm OK</li>
+          <li>Quay lại, chọn “Chỉ phần số” và biến để lưu</li>
+          <li>Thêm Dán văn bản vào ô nhập, chèn biến</li>
+          <li>Thêm bước Click vào nút “Xác nhận”</li>
+          <li>Bấm Chạy thử rồi mở ứng dụng</li>
+        </ol>
+        <p class="result">▶ AutoGest đọc mã trên ảnh rồi tự nhập vào</p>
+        <div class="callout">
+          <strong>Mẹo</strong>
+          <ul>
+            <li>Chọn “Chỉ phần số” để chỉ giữ chữ số — điểm, giá tiền hay mã.</li>
+            <li>Dùng biến trong Dán văn bản, hay so sánh trong khối Nếu… thì.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Về danh sách hành động</a></p>
@@ -394,11 +499,11 @@
 
   <section class="guide" id="click-text">
     <h2>Click chữ</h2>
-    <p class="muted">Tìm một đoạn chữ trên màn hình rồi chạm vào — không cần biết trước nút nằm ở đâu.</p>
+    <p class="muted">Gõ chữ hiện trên nút; lúc chạy, AutoGest tìm đúng chữ đó trên màn hình rồi chạm.</p>
     <div class="guide-body">
       <figure class="phone">
-        <img src="../../media/guide/click-text.vi.webp" width="480" height="1100" loading="lazy" alt="Video hướng dẫn hành động Click chữ: Bấm “Thêm hành động”, chọn Click chữ; Nhập chữ hiện trên nút cần bấm; Bấm Chạy thử rồi mở ứng dụng. Nút hiện ở đâu, AutoGest cũng tìm chữ rồi chạm.">
-        <figcaption>Quay trên máy thật · 26 giây</figcaption>
+        <video src="../../media/guide/vi/click-text.mp4" poster="../../media/guide/vi/click-text.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video hướng dẫn hành động Click chữ: Bấm “Thêm hành động”, chọn Click chữ; Nhập chữ hiện trên nút cần bấm; Bấm Chạy thử rồi mở ứng dụng. Nút hiện ở đâu, AutoGest cũng tìm chữ rồi chạm."></video>
+        <figcaption>Quay trên máy thật · 29 giây</figcaption>
       </figure>
       <div>
         <ol class="steps">
@@ -410,8 +515,8 @@
         <div class="callout">
           <strong>Mẹo</strong>
           <ul>
-            <li>Chỉ cần chứa đoạn chữ, không phân biệt hoa thường.</li>
-            <li>Game vẽ bằng đồ hoạ không có chữ để đọc: dùng <strong>Click ảnh</strong>.</li>
+            <li>Bước này đọc bố cục của ứng dụng nên không dùng được trong game tự vẽ chữ — khi đó dùng <strong>Click chữ OCR</strong>.</li>
+            <li>Không phân biệt hoa thường, chỉ cần chứa đoạn bạn gõ.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Về danh sách hành động</a></p>
@@ -421,11 +526,11 @@
 
   <section class="guide" id="click-node">
     <h2>Click Node <span class="badge">PRO</span></h2>
-    <p class="muted">Chọn đúng một phần tử trên cây Accessibility của ứng dụng (kể cả nút chỉ có hình), khi chạy AutoGest tìm lại phần tử đó rồi chạm.</p>
+    <p class="muted">Chụp màn hình, chạm vào một thành phần, AutoGest nhớ cách tìm lại nó — kể cả nút chỉ có biểu tượng.</p>
     <div class="guide-body">
       <figure class="phone">
-        <img src="../../media/guide/click-node.vi.webp" width="480" height="1100" loading="lazy" alt="Video hướng dẫn hành động Click Node: Bấm “Thêm hành động”, chọn Click Node; Bấm “Chọn node”, mở ứng dụng rồi bấm Chụp; Chạm vào nút cần bấm rồi bấm “Chọn node”; Quay lại, chọn cách tìm node; Bấm Chạy thử rồi mở ứng dụng. AutoGest tìm đúng nút tim rồi chạm.">
-        <figcaption>Quay trên máy thật · 34 giây</figcaption>
+        <video src="../../media/guide/vi/click-node.mp4" poster="../../media/guide/vi/click-node.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video hướng dẫn hành động Click Node: Bấm “Thêm hành động”, chọn Click Node; Bấm “Chọn node”, mở ứng dụng rồi bấm Chụp; Chạm vào nút cần bấm rồi bấm “Chọn node”; Quay lại, chọn cách tìm node; Bấm Chạy thử rồi mở ứng dụng. AutoGest tìm đúng nút tim rồi chạm."></video>
+        <figcaption>Quay trên máy thật · 37 giây</figcaption>
       </figure>
       <div>
         <ol class="steps">
@@ -439,8 +544,39 @@
         <div class="callout">
           <strong>Mẹo</strong>
           <ul>
-            <li>Tìm theo <code>xpath</code> (mặc định), <code>resource-id</code>, <code>text</code> hoặc <code>content-desc</code> — chọn thứ ổn định nhất với ứng dụng.</li>
-            <li>Game không có cây node: dùng <strong>Click ảnh</strong>.</li>
+            <li>Tìm theo text hay content-desc khi chúng cố định; tránh resource-id nếu ứng dụng đổi nó giữa các phiên bản.</li>
+            <li>Xoá phần đổi theo từng lần (như số lượt thích) để lần sau vẫn tìm thấy.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Về danh sách hành động</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="read-text">
+    <h2>Lấy chữ trên màn hình <span class="badge">PRO</span></h2>
+    <p class="muted">Chọn một thành phần trên màn hình rồi chép chữ của nó vào biến, không chạm.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/vi/read-text.mp4" poster="../../media/guide/vi/read-text.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video hướng dẫn hành động Lấy chữ trên màn hình: Bấm “Thêm hành động”, chọn Lấy chữ trên màn hình; Bấm “Chọn node”, mở ứng dụng rồi bấm Chụp; Chạm vào mã rồi bấm “Chọn node”; Quay lại, chọn biến để lưu; Thêm Dán văn bản vào ô nhập, chèn biến; Thêm bước Click vào nút “Xác nhận”; Bấm Chạy thử rồi mở ứng dụng. AutoGest chép mã rồi tự nhập vào."></video>
+        <figcaption>Quay trên máy thật · 78 giây</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Bấm “Thêm hành động”, chọn Lấy chữ trên màn hình</li>
+          <li>Bấm “Chọn node”, mở ứng dụng rồi bấm Chụp</li>
+          <li>Chạm vào mã rồi bấm “Chọn node”</li>
+          <li>Quay lại, chọn biến để lưu</li>
+          <li>Thêm Dán văn bản vào ô nhập, chèn biến</li>
+          <li>Thêm bước Click vào nút “Xác nhận”</li>
+          <li>Bấm Chạy thử rồi mở ứng dụng</li>
+        </ol>
+        <p class="result">▶ AutoGest chép mã rồi tự nhập vào</p>
+        <div class="callout">
+          <strong>Mẹo</strong>
+          <ul>
+            <li>Hợp để lấy mã một lần, số đơn hàng hay số dư hiện trong ứng dụng.</li>
+            <li>Bước này đọc bố cục của ứng dụng; với game hãy dùng <strong>Đọc chữ OCR</strong>.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Về danh sách hành động</a></p>
@@ -450,29 +586,29 @@
 
   <section class="guide" id="wait-notification">
     <h2>Chờ và nhận diện thông báo <span class="badge">PRO</span></h2>
-    <p class="muted">Chờ một thông báo có cụm chữ bạn chọn, đọc to phần bạn muốn rồi chạy bước sau. Cách <strong>Biến động số dư</strong> đọc to số tiền từ tin ngân hàng.</p>
+    <p class="muted">Chờ thông báo có chữ bạn chọn, đọc to rồi chạy tiếp tập lệnh.</p>
     <div class="guide-body">
       <figure class="phone">
-        <img src="../../media/guide/wait-notification.vi.webp" width="480" height="1100" loading="lazy" alt="Video hướng dẫn hành động Chờ và nhận diện thông báo: Thêm hành động Chờ và nhận diện thông báo; Bấm “Chọn thông báo mẫu”, chọn một tin; Chạm chữ đầu rồi chữ cuối của cụm cần chờ; Chọn cách đọc to, bấm “Dùng mẫu này”; Thêm bước Click vào nút “Xác nhận đơn”; Quay lại, bấm Chạy thử rồi mở ứng dụng; Khi có khách đặt hàng…. AutoGest đọc to tin rồi bấm “Xác nhận đơn”.">
-        <figcaption>Quay trên máy thật · 54 giây</figcaption>
+        <video src="../../media/guide/vi/wait-notification.mp4" poster="../../media/guide/vi/wait-notification.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video hướng dẫn hành động Chờ và nhận diện thông báo: Bấm “Thêm hành động”, chọn Chờ và nhận diện thông báo; Bấm “Chọn thông báo mẫu”, chọn một tin; Nhập cụm chữ mà tin cần có; Bấm “Dùng mẫu này”; Thêm bước Click vào nút “Xác nhận đơn”; Quay lại, bấm Chạy thử rồi mở ứng dụng; Khi có khách đặt hàng…. AutoGest đọc to tin rồi bấm xác nhận."></video>
+        <figcaption>Quay trên máy thật · 64 giây</figcaption>
       </figure>
       <div>
         <ol class="steps">
-          <li>Thêm hành động Chờ và nhận diện thông báo</li>
+          <li>Bấm “Thêm hành động”, chọn Chờ và nhận diện thông báo</li>
           <li>Bấm “Chọn thông báo mẫu”, chọn một tin</li>
-          <li>Chạm chữ đầu rồi chữ cuối của cụm cần chờ</li>
-          <li>Chọn cách đọc to, bấm “Dùng mẫu này”</li>
+          <li>Nhập cụm chữ mà tin cần có</li>
+          <li>Bấm “Dùng mẫu này”</li>
           <li>Thêm bước Click vào nút “Xác nhận đơn”</li>
           <li>Quay lại, bấm Chạy thử rồi mở ứng dụng</li>
           <li>Khi có khách đặt hàng…</li>
         </ol>
-        <p class="result">▶ AutoGest đọc to tin rồi bấm “Xác nhận đơn”</p>
+        <p class="result">▶ AutoGest đọc to tin rồi bấm xác nhận</p>
         <div class="callout">
           <strong>Mẹo</strong>
           <ul>
-            <li>Cần quyền Truy cập thông báo; ứng dụng chỉ xin khi bạn chọn thông báo mẫu.</li>
-            <li>Tập lệnh chỉ có bước chờ thông báo chạy nền được, kể cả lúc máy khoá — thành loa báo đơn, báo tiền về.</li>
-            <li>Mẫu chỉ lưu cụm chữ nhận biết, không lưu nội dung tin.</li>
+            <li>Chọn một tin thật làm mẫu rồi chạm các chữ cần chờ; phần đổi theo từng tin (như số đơn) được khớp linh hoạt.</li>
+            <li>Tập lệnh chỉ chờ thông báo có thể chạy nền, kể cả khi tắt màn hình.</li>
+            <li>Nội dung thông báo chỉ nằm trên máy và không bao giờ được ghi vào log.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Về danh sách hành động</a></p>
@@ -482,11 +618,11 @@
 
   <section class="guide" id="open-app">
     <h2>Mở ứng dụng</h2>
-    <p class="muted">Mở một ứng dụng đã cài và chờ nó lên màn hình — tập lệnh tự đi tới đúng chỗ, bạn không phải mở tay.</p>
+    <p class="muted">Mở một ứng dụng trong danh sách rồi chờ nó hiện lên — bước đầu tiên hợp cho mọi tập lệnh.</p>
     <div class="guide-body">
       <figure class="phone">
-        <img src="../../media/guide/open-app.vi.webp" width="480" height="1100" loading="lazy" alt="Video hướng dẫn hành động Mở ứng dụng: Bấm “Thêm hành động”, chọn Mở ứng dụng; Bấm “Chọn app”, chọn ứng dụng cần mở; Bấm Chạy thử, không cần tự mở ứng dụng. AutoGest tự mở ứng dụng đã chọn.">
-        <figcaption>Quay trên máy thật · 27 giây</figcaption>
+        <video src="../../media/guide/vi/open-app.mp4" poster="../../media/guide/vi/open-app.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video hướng dẫn hành động Mở ứng dụng: Bấm “Thêm hành động”, chọn Mở ứng dụng; Bấm “Chọn app”, chọn ứng dụng cần mở; Bấm Chạy thử, không cần tự mở ứng dụng. AutoGest tự mở ứng dụng đã chọn."></video>
+        <figcaption>Quay trên máy thật · 41 giây</figcaption>
       </figure>
       <div>
         <ol class="steps">
@@ -498,7 +634,7 @@
         <div class="callout">
           <strong>Mẹo</strong>
           <ul>
-            <li>Ứng dụng đang chạy nền được đưa lên nguyên trạng, không khởi động lại.</li>
+            <li>Tập lệnh có thể bắt đầu từ AutoGest; bước này đưa đúng ứng dụng lên trước.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Về danh sách hành động</a></p>
@@ -508,11 +644,11 @@
 
   <section class="guide" id="back">
     <h2>Quay lại</h2>
-    <p class="muted">Bấm phím Quay lại của hệ thống, như bạn tự bấm — đóng màn chi tiết, đóng bàn phím, lùi một bước.</p>
+    <p class="muted">Bấm phím Quay lại của hệ thống.</p>
     <div class="guide-body">
       <figure class="phone">
-        <img src="../../media/guide/back.vi.webp" width="480" height="1100" loading="lazy" alt="Video hướng dẫn hành động Quay lại: Bấm “Thêm hành động”, chọn Quay lại; Bấm Chạy thử rồi mở ứng dụng; Trong lúc đếm ngược, mở một tin. AutoGest bấm Quay lại, về danh sách tin.">
-        <figcaption>Quay trên máy thật · 22 giây</figcaption>
+        <video src="../../media/guide/vi/back.mp4" poster="../../media/guide/vi/back.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video hướng dẫn hành động Quay lại: Bấm “Thêm hành động”, chọn Quay lại; Bấm Chạy thử rồi mở ứng dụng; Trong lúc đếm ngược, mở một tin. AutoGest bấm Quay lại, về danh sách tin."></video>
+        <figcaption>Quay trên máy thật · 25 giây</figcaption>
       </figure>
       <div>
         <ol class="steps">
@@ -524,7 +660,7 @@
         <div class="callout">
           <strong>Mẹo</strong>
           <ul>
-            <li>Không cần toạ độ, chạy đúng trên mọi máy.</li>
+            <li>Dùng để đóng hộp thoại hay lùi lại một màn.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Về danh sách hành động</a></p>
@@ -534,11 +670,11 @@
 
   <section class="guide" id="home">
     <h2>Màn hình chính</h2>
-    <p class="muted">Về màn hình chính của máy. Đoạn màn hình chính trong video được làm mờ để giữ riêng tư.</p>
+    <p class="muted">Về màn hình chính.</p>
     <div class="guide-body">
       <figure class="phone">
-        <img src="../../media/guide/home.vi.webp" width="480" height="1100" loading="lazy" alt="Video hướng dẫn hành động Màn hình chính: Bấm “Thêm hành động”, chọn Màn hình chính; Bấm Chạy thử rồi mở ứng dụng. AutoGest về màn hình chính (làm mờ cho riêng tư).">
-        <figcaption>Quay trên máy thật · 20 giây</figcaption>
+        <video src="../../media/guide/vi/home.mp4" poster="../../media/guide/vi/home.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video hướng dẫn hành động Màn hình chính: Bấm “Thêm hành động”, chọn Màn hình chính; Bấm Chạy thử rồi mở ứng dụng. AutoGest về màn hình chính (làm mờ cho riêng tư)."></video>
+        <figcaption>Quay trên máy thật · 24 giây</figcaption>
       </figure>
       <div>
         <ol class="steps">
@@ -549,7 +685,7 @@
         <div class="callout">
           <strong>Mẹo</strong>
           <ul>
-            <li>Hay dùng ở cuối tập lệnh, hoặc trước bước <strong>Mở ứng dụng</strong>.</li>
+            <li>Tiện ở cuối tập lệnh, hoặc trước khi mở ứng dụng khác.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Về danh sách hành động</a></p>
@@ -559,11 +695,11 @@
 
   <section class="guide" id="recent">
     <h2>Ứng dụng gần đây</h2>
-    <p class="muted">Mở danh sách ứng dụng gần đây để chuyển qua lại giữa các ứng dụng. Đoạn danh sách trong video được làm mờ để giữ riêng tư.</p>
+    <p class="muted">Mở danh sách ứng dụng gần đây.</p>
     <div class="guide-body">
       <figure class="phone">
-        <img src="../../media/guide/recent.vi.webp" width="480" height="1100" loading="lazy" alt="Video hướng dẫn hành động Ứng dụng gần đây: Bấm “Thêm hành động”, chọn Ứng dụng gần đây; Bấm Chạy thử rồi mở ứng dụng. AutoGest mở danh sách gần đây (làm mờ cho riêng tư).">
-        <figcaption>Quay trên máy thật · 20 giây</figcaption>
+        <video src="../../media/guide/vi/recent.mp4" poster="../../media/guide/vi/recent.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video hướng dẫn hành động Ứng dụng gần đây: Bấm “Thêm hành động”, chọn Ứng dụng gần đây; Bấm Chạy thử rồi mở ứng dụng. AutoGest mở danh sách gần đây (làm mờ cho riêng tư)."></video>
+        <figcaption>Quay trên máy thật · 24 giây</figcaption>
       </figure>
       <div>
         <ol class="steps">
@@ -574,7 +710,7 @@
         <div class="callout">
           <strong>Mẹo</strong>
           <ul>
-            <li>Kết hợp với <strong>Click</strong> để chọn một thẻ trong danh sách.</li>
+            <li>Kết hợp với Click để chuyển sang ứng dụng khác.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Về danh sách hành động</a></p>
@@ -584,27 +720,26 @@
 
   <section class="guide" id="if-then">
     <h2>Nếu… thì <span class="badge">PRO</span></h2>
-    <p class="muted">Kiểm tra màn hình (có ảnh, có màu, có chữ, hay lượt lặp thứ mấy) rồi chạy nhánh Thì hoặc nhánh Không thì.</p>
+    <p class="muted">Chỉ chạy một số bước khi điều kiện đúng — ảnh, màu, chữ, lượt lặp hay biến.</p>
     <div class="guide-body">
       <figure class="phone">
-        <img src="../../media/guide/if-then.vi.webp" width="480" height="1100" loading="lazy" alt="Video hướng dẫn hành động Nếu… thì: Bấm “Thêm hành động”, chọn Nếu… thì; Chọn kiểm tra Chữ, nhập chữ cần thấy; Tắt nhánh “Không thì”, bấm Xong; Thêm vào nhánh Thì: Click nút đóng (X); Quay lại, bấm Chạy thử rồi mở ứng dụng. Thấy chữ “Quảng cáo” nên AutoGest bấm nút đóng.">
-        <figcaption>Quay trên máy thật · 42 giây</figcaption>
+        <video src="../../media/guide/vi/if-then.mp4" poster="../../media/guide/vi/if-then.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video hướng dẫn hành động Nếu… thì: Bấm “Thêm hành động”, chọn Nếu… thì; Chọn kiểm tra “Chữ”, nhập chữ cần thấy; Tắt nhánh “Không thì”, bấm “Xong”; Thêm vào nhánh Thì: Click nút đóng (✕); Quay lại, bấm Chạy thử rồi mở ứng dụng. Thấy chữ “Quảng cáo” nên AutoGest bấm nút đóng."></video>
+        <figcaption>Quay trên máy thật · 48 giây</figcaption>
       </figure>
       <div>
         <ol class="steps">
           <li>Bấm “Thêm hành động”, chọn Nếu… thì</li>
-          <li>Chọn kiểm tra Chữ, nhập chữ cần thấy</li>
-          <li>Tắt nhánh “Không thì”, bấm Xong</li>
-          <li>Thêm vào nhánh Thì: Click nút đóng (X)</li>
+          <li>Chọn kiểm tra “Chữ”, nhập chữ cần thấy</li>
+          <li>Tắt nhánh “Không thì”, bấm “Xong”</li>
+          <li>Thêm vào nhánh Thì: Click nút đóng (✕)</li>
           <li>Quay lại, bấm Chạy thử rồi mở ứng dụng</li>
         </ol>
         <p class="result">▶ Thấy chữ “Quảng cáo” nên AutoGest bấm nút đóng</p>
         <div class="callout">
           <strong>Mẹo</strong>
           <ul>
-            <li><strong>Chờ tối đa</strong> là thời gian chờ điều kiện xuất hiện; hết giờ mà chưa thấy thì coi là Sai.</li>
-            <li>Bật <strong>Đảo điều kiện</strong> để chạy nhánh Thì khi <em>không</em> thấy.</li>
-            <li>Khối chỉ có một cấp. Cần lồng sâu hơn thì tách phần bên trong thành tập lệnh riêng rồi dùng <strong>Gọi tập lệnh</strong>.</li>
+            <li>Bật nhánh Không thì để chạy bước khác khi điều kiện sai.</li>
+            <li>Khối chỉ một cấp; muốn lồng thì tách sang tập lệnh khác và dùng <strong>Gọi tập lệnh</strong>.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Về danh sách hành động</a></p>
@@ -614,16 +749,16 @@
 
   <section class="guide" id="loop-until">
     <h2>Lặp tới khi <span class="badge">PRO</span></h2>
-    <p class="muted">Chạy lại các bước trong vòng cho tới khi màn hình có ảnh, màu hoặc chữ bạn chọn. Điều kiện được kiểm trước mỗi lượt.</p>
+    <p class="muted">Lặp các bước trong khối cho tới khi điều kiện đúng, hoặc đủ số lượt đã đặt.</p>
     <div class="guide-body">
       <figure class="phone">
-        <img src="../../media/guide/loop-until.vi.webp" width="480" height="1100" loading="lazy" alt="Video hướng dẫn hành động Lặp tới khi: Bấm “Thêm hành động”, chọn Lặp tới khi; Dừng khi thấy Chữ: nhập chữ báo đã xong; Thêm vào vòng lặp: Click nút “Tải thêm”; Quay lại, bấm Chạy thử rồi mở ứng dụng. AutoGest bấm “Tải thêm” tới khi thấy “Đã hết tin”.">
-        <figcaption>Quay trên máy thật · 42 giây</figcaption>
+        <video src="../../media/guide/vi/loop-until.mp4" poster="../../media/guide/vi/loop-until.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video hướng dẫn hành động Lặp tới khi: Bấm “Thêm hành động”, chọn Lặp tới khi; Dừng khi thấy “Chữ”: nhập chữ báo đã xong; Thêm vào vòng lặp: Click nút “Tải thêm”; Quay lại, bấm Chạy thử rồi mở ứng dụng. AutoGest bấm “Tải thêm” tới khi thấy “Đã hết tin”."></video>
+        <figcaption>Quay trên máy thật · 50 giây</figcaption>
       </figure>
       <div>
         <ol class="steps">
           <li>Bấm “Thêm hành động”, chọn Lặp tới khi</li>
-          <li>Dừng khi thấy Chữ: nhập chữ báo đã xong</li>
+          <li>Dừng khi thấy “Chữ”: nhập chữ báo đã xong</li>
           <li>Thêm vào vòng lặp: Click nút “Tải thêm”</li>
           <li>Quay lại, bấm Chạy thử rồi mở ứng dụng</li>
         </ol>
@@ -631,8 +766,65 @@
         <div class="callout">
           <strong>Mẹo</strong>
           <ul>
-            <li>Số lượt luôn có giới hạn (mặc định 20); hết lượt mà điều kiện vẫn sai thì bỏ vòng và báo bước lỗi.</li>
-            <li>Thấy điều kiện ngay từ đầu thì thân vòng không chạy lần nào.</li>
+            <li>Luôn đặt số lượt tối đa để tập lệnh không chạy mãi khi lỡ sai.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Về danh sách hành động</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="stop-script">
+    <h2>Dừng tập lệnh <span class="badge">PRO</span></h2>
+    <p class="muted">Kết thúc cả lượt chạy khi điều kiện xảy ra — ví dụ hết lượt chơi hay hết năng lượng.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/vi/stop-script.mp4" poster="../../media/guide/vi/stop-script.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video hướng dẫn hành động Dừng tập lệnh: Thêm bước Click vào nút “Quay”; Quay lại, thêm Dừng tập lệnh; Dừng khi màn hình có chữ “Hết lượt quay”; Đặt lặp tập lệnh không giới hạn; Bấm Chạy thử rồi mở ứng dụng. Hết lượt quay, AutoGest tự dừng."></video>
+        <figcaption>Quay trên máy thật · 55 giây</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Thêm bước Click vào nút “Quay”</li>
+          <li>Quay lại, thêm Dừng tập lệnh</li>
+          <li>Dừng khi màn hình có chữ “Hết lượt quay”</li>
+          <li>Đặt lặp tập lệnh không giới hạn</li>
+          <li>Bấm Chạy thử rồi mở ứng dụng</li>
+        </ol>
+        <p class="result">▶ Hết lượt quay, AutoGest tự dừng</p>
+        <div class="callout">
+          <strong>Mẹo</strong>
+          <ul>
+            <li>Với vòng lặp không giới hạn, đây là cách dừng gọn gàng.</li>
+            <li>Đặt trong nhánh của khối Nếu… thì, bước có thể dừng ngay mà không cần điều kiện.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Về danh sách hành động</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="next-round">
+    <h2>Sang vòng mới <span class="badge">PRO</span></h2>
+    <p class="muted">Bỏ qua phần còn lại của vòng này và sang vòng mới khi điều kiện xảy ra.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/vi/next-round.mp4" poster="../../media/guide/vi/next-round.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video hướng dẫn hành động Sang vòng mới: Thêm bước Click vào nút “Bài tiếp”; Thêm Sang vòng mới khi màn hình có chữ “Được tài trợ”; Thêm bước Click vào nút “Thích”; Đặt lặp tập lệnh 4 vòng; Bấm Chạy thử rồi mở ứng dụng. AutoGest thích bài 1 và 3, bỏ qua bài được tài trợ."></video>
+        <figcaption>Quay trên máy thật · 75 giây</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Thêm bước Click vào nút “Bài tiếp”</li>
+          <li>Thêm Sang vòng mới khi màn hình có chữ “Được tài trợ”</li>
+          <li>Thêm bước Click vào nút “Thích”</li>
+          <li>Đặt lặp tập lệnh 4 vòng</li>
+          <li>Bấm Chạy thử rồi mở ứng dụng</li>
+        </ol>
+        <p class="result">▶ AutoGest thích bài 1 và 3, bỏ qua bài được tài trợ</p>
+        <div class="callout">
+          <strong>Mẹo</strong>
+          <ul>
+            <li>Tiện để bỏ qua quảng cáo hay mục không cần khi đi qua một danh sách.</li>
+            <li>Bước nhảy tới cuối vòng lặp gần nhất trong cùng tập lệnh.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Về danh sách hành động</a></p>
@@ -642,11 +834,11 @@
 
   <section class="guide" id="call-script">
     <h2>Gọi tập lệnh <span class="badge">PRO</span></h2>
-    <p class="muted">Chạy một tập lệnh khác ngay tại bước này rồi quay về — dựng một lần, dùng lại ở nhiều nơi.</p>
+    <p class="muted">Chạy một tập lệnh khác rồi quay về — dùng lại các bước bạn đã dựng.</p>
     <div class="guide-body">
       <figure class="phone">
-        <img src="../../media/guide/call-script.vi.webp" width="480" height="1100" loading="lazy" alt="Video hướng dẫn hành động Gọi tập lệnh: Bấm “Thêm hành động”, chọn Gọi tập lệnh; Bấm “Chọn tập lệnh”, chọn tập lệnh cần gọi; Chọn số lần gọi; Bấm Chạy thử rồi mở ứng dụng. AutoGest chạy tập lệnh “Bấm nút” 3 lần.">
-        <figcaption>Quay trên máy thật · 29 giây</figcaption>
+        <video src="../../media/guide/vi/call-script.mp4" poster="../../media/guide/vi/call-script.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video hướng dẫn hành động Gọi tập lệnh: Bấm “Thêm hành động”, chọn Gọi tập lệnh; Bấm “Chọn tập lệnh”, chọn tập lệnh cần gọi; Chọn số lần gọi; Bấm Chạy thử rồi mở ứng dụng. AutoGest chạy tập lệnh “Bấm nút” 3 lần."></video>
+        <figcaption>Quay trên máy thật · 34 giây</figcaption>
       </figure>
       <div>
         <ol class="steps">
@@ -659,8 +851,8 @@
         <div class="callout">
           <strong>Mẹo</strong>
           <ul>
-            <li>Tập lệnh được gọi giữ nguyên bản gốc: sửa một lần, mọi nơi dùng lại đều đổi theo.</li>
-            <li>Gọi lồng tối đa 5 cấp; vòng gọi lặp vô hạn bị chặn.</li>
+            <li>Chọn số lần gọi liên tiếp.</li>
+            <li>Tập lệnh được gọi chạy theo nhịp của tập lệnh này.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Về danh sách hành động</a></p>
@@ -668,8 +860,51 @@
     </div>
   </section>
 
-  <footer>© 2026 AutoGest · <a href="../">Trang chủ</a> ·
-    <a href="../privacy/">Chính sách quyền riêng tư</a> · <a href="../../guide/">English</a></footer>
+  <section class="guide" id="set-variable">
+    <h2>Ghi vào biến <span class="badge">PRO</span></h2>
+    <p class="muted">Đặt giá trị cho biến, hoặc cộng thêm một số — bộ đếm, tổng cộng dồn, chữ cần nhớ.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/vi/set-variable.mp4" poster="../../media/guide/vi/set-variable.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video hướng dẫn hành động Ghi vào biến: Bấm “Thêm hành động”, chọn Ghi vào biến; Đặt tên biến mới, bấm “Thêm biến”; Cho bước cộng thêm 1 vào biến; Thêm Dán văn bản vào ô chat: “Tin nhắn #” + biến; Thêm bước Click vào nút “Gửi”; Đặt lặp tập lệnh 3 vòng; Bấm Chạy thử rồi mở ứng dụng. Mỗi vòng số tăng lên: 1, 2, 3."></video>
+        <figcaption>Quay trên máy thật · 84 giây</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Bấm “Thêm hành động”, chọn Ghi vào biến</li>
+          <li>Đặt tên biến mới, bấm “Thêm biến”</li>
+          <li>Cho bước cộng thêm 1 vào biến</li>
+          <li>Thêm Dán văn bản vào ô chat: “Tin nhắn #” + biến</li>
+          <li>Thêm bước Click vào nút “Gửi”</li>
+          <li>Đặt lặp tập lệnh 3 vòng</li>
+          <li>Bấm Chạy thử rồi mở ứng dụng</li>
+        </ol>
+        <p class="result">▶ Mỗi vòng số tăng lên: 1, 2, 3</p>
+        <div class="callout">
+          <strong>Mẹo</strong>
+          <ul>
+            <li>Chèn <code>{tên}</code> vào ô chữ bất kỳ để dùng giá trị của biến.</li>
+            <li>Biến chỉ sống trong một lần chạy: bấm Dừng là mất.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Về danh sách hành động</a></p>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2026 AutoGest · <a href="../../vi/">Trang chủ</a> · <a href="../../vi/guide/">Hướng dẫn sử dụng</a> ·
+    <a href="../../vi/privacy/">Chính sách quyền riêng tư</a> ·
+    <a href="../../vi/terms/">Điều khoản dịch vụ</a></footer>
 </div>
+<script>
+  // Video chỉ chạy khi cuộn tới (tiết kiệm dữ liệu), tự lặp, không tiếng; bỏ thanh điều khiển khi có JavaScript.
+  const videos = document.querySelectorAll('.phone video');
+  const seen = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting) e.target.play().catch(() => {});
+      else e.target.pause();
+    }
+  }, { rootMargin: '200px 0px' });
+  videos.forEach((v) => { v.controls = false; v.preload = 'metadata'; seen.observe(v); });
+</script>
 </body>
 </html>

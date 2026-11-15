@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AutoGest</title>
+  <meta name="description" content="AutoGest は、自分で作成・記録したタップ、スワイプ、入力のスクリプトを実行する Android アプリです。完全オフラインで動きます。">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="icon" type="image/png" href="../icon.png">
+  <link rel="apple-touch-icon" href="../icon.png">
+  <link rel="canonical" href="https://auto-gest.github.io/ja/">
+  <link rel="alternate" hreflang="en" href="https://auto-gest.github.io/">
+  <link rel="alternate" hreflang="vi" href="https://auto-gest.github.io/vi/">
+  <link rel="alternate" hreflang="es" href="https://auto-gest.github.io/es/">
+  <link rel="alternate" hreflang="pt-BR" href="https://auto-gest.github.io/pt/">
+  <link rel="alternate" hreflang="fr" href="https://auto-gest.github.io/fr/">
+  <link rel="alternate" hreflang="de" href="https://auto-gest.github.io/de/">
+  <link rel="alternate" hreflang="it" href="https://auto-gest.github.io/it/">
+  <link rel="alternate" hreflang="pl" href="https://auto-gest.github.io/pl/">
+  <link rel="alternate" hreflang="ro" href="https://auto-gest.github.io/ro/">
+  <link rel="alternate" hreflang="cs" href="https://auto-gest.github.io/cs/">
+  <link rel="alternate" hreflang="id" href="https://auto-gest.github.io/id/">
+  <link rel="alternate" hreflang="ja" href="https://auto-gest.github.io/ja/">
+  <link rel="alternate" hreflang="ko" href="https://auto-gest.github.io/ko/">
+  <link rel="alternate" hreflang="zh-Hans" href="https://auto-gest.github.io/zh-hans/">
+  <link rel="alternate" hreflang="zh-Hant" href="https://auto-gest.github.io/zh-hant/">
+  <link rel="alternate" hreflang="x-default" href="https://auto-gest.github.io/">
+</head>
+<body>
+<!-- Trang sinh bằng user-guide/tools/gen-site.mjs trong repo mã nguồn AutoGest; sửa ở đó rồi sinh lại. -->
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="../ja/"><img class="brand-mark" src="../icon.png" alt="" width="36" height="36">AutoGest</a>
+    <details class="lang-menu">
+      <summary aria-label="言語">日本語</summary>
+      <ul>
+        <li><a href="../" hreflang="en" lang="en">English</a></li>
+        <li><a href="../vi/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+        <li><a href="../es/" hreflang="es" lang="es">Español</a></li>
+        <li><a href="../pt/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li>
+        <li><a href="../fr/" hreflang="fr" lang="fr">Français</a></li>
+        <li><a href="../de/" hreflang="de" lang="de">Deutsch</a></li>
+        <li><a href="../it/" hreflang="it" lang="it">Italiano</a></li>
+        <li><a href="../pl/" hreflang="pl" lang="pl">Polski</a></li>
+        <li><a href="../ro/" hreflang="ro" lang="ro">Română</a></li>
+        <li><a href="../cs/" hreflang="cs" lang="cs">Čeština</a></li>
+        <li><a href="../id/" hreflang="id" lang="id">Bahasa Indonesia</a></li>
+        <li><a href="../ja/" hreflang="ja" lang="ja" aria-current="true">日本語</a></li>
+        <li><a href="../ko/" hreflang="ko" lang="ko">한국어</a></li>
+        <li><a href="../zh-hans/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li>
+        <li><a href="../zh-hant/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li>
+      </ul>
+    </details>
+  </header>
+
+  <h1>退屈なタップは、スマホに任せよう</h1>
+  <p class="muted">AutoGest は、自分で作った、または記録した自動化スクリプトを実行する Android アプリです。タップ、スワイプ、文字入力、アプリの起動を、人のような自然なリズムで再現します。</p>
+
+  <p class="label">できること</p>
+  <div class="card">
+    <div class="row"><strong>ステップごとにスクリプトを作成</strong>
+      <span>タップ、長押し、スワイプ、スクロール、テキストの貼り付け・入力、待機、戻る／ホーム／履歴、アプリの起動。座標は画面上で直接選べます。</span></div>
+    <div class="row"><strong>作る代わりに記録</strong>
+      <span>記録しながら一度操作し、取り込まれたステップを確認して、必要なものだけ残します。</span></div>
+    <div class="row"><strong>画面に合わせて動く</strong>
+      <span>画像や文字が現れたらタップ（端末上の文字認識でゲームにも対応）、色を待つ、もし… なら、条件まで繰り返す、スクリプトを停止、次の回へが使えます。</span></div>
+    <div class="row"><strong>値を覚える</strong>
+      <span>画面や通知の文字・数字を変数に読み取り、周回を数え、その値を貼り付けられます。</span></div>
+    <div class="row"><strong>好きな方法で実行</strong>
+      <span>アプリから、ホーム画面のショートカット、スケジュール、通知の受信で開始。フローティングバブルや通知から一時停止・停止できます。</span></div>
+    <div class="row"><strong>スクリプトを共有</strong>
+      <span>スクリプトを <code>.autoscript</code> ファイルに書き出し、他の人から届いたスクリプトを取り込めます。</span></div>
+  </div>
+
+  <p class="label">使い方ガイド</p>
+  <p>すべてのアクションを、実機で録画した動画と手順で確認できます。</p>
+  <a class="button" href="../ja/guide/">使い方ガイドを開く</a>
+
+  <p class="label">プライバシー</p>
+  <div class="callout">
+    このアプリにはインターネット権限、アカウント、広告、分析がありません。ユーザー補助サービスは、あなたが作ったスクリプトの記録と実行だけに使い、作成したものはすべてスマホの中に残ります。
+    <br><a class="button" href="../privacy/">プライバシーポリシーを読む（英語）</a>
+  </div>
+
+  <p class="label">お問い合わせ</p>
+  <p>開発者: AutoGest ·
+    <a href="mailto:automatedgestures@gmail.com">automatedgestures@gmail.com</a></p>
+
+  <footer>© 2026 AutoGest · <a href="../ja/">ホーム</a> · <a href="../ja/guide/">使い方ガイド</a> ·
+    <a href="../privacy/">プライバシーポリシー</a> ·
+    <a href="../terms/">利用規約</a><br><span>プライバシーポリシーと利用規約は英語とベトナム語で提供しています。</span></footer>
+</div>
+</body>
+</html>

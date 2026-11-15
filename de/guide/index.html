@@ -1,0 +1,932 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Anleitung – AutoGest</title>
+  <meta name="description" content="Eine Anleitung zu jeder Aktion von AutoGest mit Videos von einem echten Handy: {a:action_click}, Wischen, Texterkennung (OCR), Wenn…-dann-Blöcke, Variablen und mehr.">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="icon" type="image/png" href="../../icon.png">
+  <link rel="apple-touch-icon" href="../../icon.png">
+  <link rel="canonical" href="https://auto-gest.github.io/de/guide/">
+  <link rel="alternate" hreflang="en" href="https://auto-gest.github.io/guide/">
+  <link rel="alternate" hreflang="vi" href="https://auto-gest.github.io/vi/guide/">
+  <link rel="alternate" hreflang="es" href="https://auto-gest.github.io/es/guide/">
+  <link rel="alternate" hreflang="pt-BR" href="https://auto-gest.github.io/pt/guide/">
+  <link rel="alternate" hreflang="fr" href="https://auto-gest.github.io/fr/guide/">
+  <link rel="alternate" hreflang="de" href="https://auto-gest.github.io/de/guide/">
+  <link rel="alternate" hreflang="it" href="https://auto-gest.github.io/it/guide/">
+  <link rel="alternate" hreflang="pl" href="https://auto-gest.github.io/pl/guide/">
+  <link rel="alternate" hreflang="ro" href="https://auto-gest.github.io/ro/guide/">
+  <link rel="alternate" hreflang="cs" href="https://auto-gest.github.io/cs/guide/">
+  <link rel="alternate" hreflang="id" href="https://auto-gest.github.io/id/guide/">
+  <link rel="alternate" hreflang="ja" href="https://auto-gest.github.io/ja/guide/">
+  <link rel="alternate" hreflang="ko" href="https://auto-gest.github.io/ko/guide/">
+  <link rel="alternate" hreflang="zh-Hans" href="https://auto-gest.github.io/zh-hans/guide/">
+  <link rel="alternate" hreflang="zh-Hant" href="https://auto-gest.github.io/zh-hant/guide/">
+  <link rel="alternate" hreflang="x-default" href="https://auto-gest.github.io/guide/">
+</head>
+<body>
+<!-- Trang sinh bằng user-guide/tools/gen-site.mjs trong repo mã nguồn AutoGest; sửa ở đó rồi sinh lại. -->
+<div class="wrap" id="top">
+  <header class="top">
+    <a class="brand" href="../../de/"><img class="brand-mark" src="../../icon.png" alt="" width="36" height="36">AutoGest</a>
+    <details class="lang-menu">
+      <summary aria-label="Sprache">Deutsch</summary>
+      <ul>
+        <li><a href="../../guide/" hreflang="en" lang="en">English</a></li>
+        <li><a href="../../vi/guide/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+        <li><a href="../../es/guide/" hreflang="es" lang="es">Español</a></li>
+        <li><a href="../../pt/guide/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li>
+        <li><a href="../../fr/guide/" hreflang="fr" lang="fr">Français</a></li>
+        <li><a href="../../de/guide/" hreflang="de" lang="de" aria-current="true">Deutsch</a></li>
+        <li><a href="../../it/guide/" hreflang="it" lang="it">Italiano</a></li>
+        <li><a href="../../pl/guide/" hreflang="pl" lang="pl">Polski</a></li>
+        <li><a href="../../ro/guide/" hreflang="ro" lang="ro">Română</a></li>
+        <li><a href="../../cs/guide/" hreflang="cs" lang="cs">Čeština</a></li>
+        <li><a href="../../id/guide/" hreflang="id" lang="id">Bahasa Indonesia</a></li>
+        <li><a href="../../ja/guide/" hreflang="ja" lang="ja">日本語</a></li>
+        <li><a href="../../ko/guide/" hreflang="ko" lang="ko">한국어</a></li>
+        <li><a href="../../zh-hans/guide/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li>
+        <li><a href="../../zh-hant/guide/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li>
+      </ul>
+    </details>
+  </header>
+
+  <h1>Anleitung</h1>
+  <p class="muted">Jede Aktion hat ein kurzes Video, aufgenommen auf einem echten Handy mit einer Beispiel-App, damit du das Ergebnis siehst. Jeder Tipp leuchtet auf, damit man leicht folgen kann. Aktionen mit <span class="badge">PRO</span> gehören zu AutoGest Pro.</p>
+
+  <ul class="legend">
+    <li><span class="dot user"></span>Du tippst</li>
+    <li><span class="dot auto"></span>AutoGest tippt selbst, während das Skript läuft</li>
+  </ul>
+
+  <nav class="chips" aria-label="Aktionsgruppen">
+    <a href="#touch">Berührungen und Gesten</a>
+    <a href="#wait">Warten und erkennen</a>
+    <a href="#system">System</a>
+    <a href="#flow">Skriptablauf</a>
+  </nav>
+
+  <p class="label" id="touch">Berührungen und Gesten</p>
+  <div class="action-grid">
+    <a class="action" href="#click"><strong>Tippen</strong><span>Einmal auf einen Punkt tippen</span><div class="state">▶ Video ansehen</div></a>
+    <a class="action" href="#rapid-click"><strong>Schnell tippen</strong><span>Sehr schnell mehrmals auf einen Punkt tippen</span><div class="state">▶ Video ansehen</div></a>
+    <a class="action" href="#long-click"><strong>Lange drücken</strong><span>Einen Punkt gedrückt halten</span><div class="state">▶ Video ansehen</div></a>
+    <a class="action" href="#swipe"><strong>Wischen</strong><span>Von Punkt A nach Punkt B ziehen</span><div class="state">▶ Video ansehen</div></a>
+    <a class="action" href="#scroll"><strong>Scrollen</strong><span>In eine Richtung scrollen, ohne Punkt</span><div class="state">▶ Video ansehen</div></a>
+    <a class="action" href="#paste-text"><strong>Text einfügen</strong><span>Den ganzen Text in ein Feld einfügen</span><div class="state">▶ Video ansehen</div></a>
+    <a class="action" href="#type-keys"><strong>Zeichen tippen <span class="badge">PRO</span></strong><span>Tippt jede Taste einzeln, wie beim Schreiben</span><div class="state">▶ Video ansehen</div></a>
+  </div>
+
+  <p class="label" id="wait">Warten und erkennen</p>
+  <div class="action-grid">
+    <a class="action" href="#delay"><strong>Warten</strong><span>Pause vor dem nächsten Schritt</span><div class="state">▶ Video ansehen</div></a>
+    <a class="action" href="#wait-image"><strong>Auf Bild warten <span class="badge">PRO</span></strong><span>Warten, bis ein Bild erscheint oder verschwindet, ohne zu tippen</span><div class="state">▶ Video ansehen</div></a>
+    <a class="action" href="#wait-color"><strong>Auf Farbe warten <span class="badge">PRO</span></strong><span>Warten, bis ein Punkt die gewählte Farbe annimmt</span><div class="state">▶ Video ansehen</div></a>
+    <a class="action" href="#image-click"><strong>Auf Bild tippen <span class="badge">PRO</span></strong><span>Ein Vorlagenbild auf dem Bildschirm suchen und darauf tippen</span><div class="state">▶ Video ansehen</div></a>
+    <a class="action" href="#ocr-click"><strong>Auf Text tippen (OCR) <span class="badge">PRO</span></strong><span>Text aus einem Screenshot lesen und darauf tippen · auch für Spiele</span><div class="state">▶ Video ansehen</div></a>
+    <a class="action" href="#ocr-wait"><strong>Auf Text warten (OCR) <span class="badge">PRO</span></strong><span>Warten, bis ein Text erscheint oder verschwindet, ohne zu tippen · auch für Spiele</span><div class="state">▶ Video ansehen</div></a>
+    <a class="action" href="#ocr-read"><strong>Text lesen (OCR) <span class="badge">PRO</span></strong><span>Text in einem Bereich lesen und in einer Variable speichern · auch für Spiele</span><div class="state">▶ Video ansehen</div></a>
+    <a class="action" href="#click-text"><strong>Auf Text tippen</strong><span>Text suchen und darauf tippen · nicht für Spiele</span><div class="state">▶ Video ansehen</div></a>
+    <a class="action" href="#click-node"><strong>Auf Knoten tippen <span class="badge">PRO</span></strong><span>Knoten auf einer Bildschirmaufnahme wählen und antippen · nicht für Spiele</span><div class="state">▶ Video ansehen</div></a>
+    <a class="action" href="#read-text"><strong>Bildschirmtext lesen <span class="badge">PRO</span></strong><span>Knoten wählen und seinen Text in einer Variable speichern · nicht für Spiele</span><div class="state">▶ Video ansehen</div></a>
+    <a class="action" href="#wait-notification"><strong>Auf Benachrichtigung warten und erkennen <span class="badge">PRO</span></strong><span>Wartet auf eine Benachrichtigung mit deinen Wörtern oder eine Kontomitteilung, liest sie vor oder macht weiter</span><div class="state">▶ Video ansehen</div></a>
+  </div>
+
+  <p class="label" id="system">System</p>
+  <div class="action-grid">
+    <a class="action" href="#open-app"><strong>App öffnen</strong><span>Eine App öffnen und warten, bis sie angezeigt wird</span><div class="state">▶ Video ansehen</div></a>
+    <a class="action" href="#back"><strong>Zurück</strong><span>Die Zurück-Taste des Systems drücken</span><div class="state">▶ Video ansehen</div></a>
+    <a class="action" href="#home"><strong>Startbildschirm</strong><span>Zum Startbildschirm des Smartphones wechseln</span><div class="state">▶ Video ansehen</div></a>
+    <a class="action" href="#recent"><strong>Letzte Apps</strong><span>Die Liste der letzten Apps öffnen</span><div class="state">▶ Video ansehen</div></a>
+  </div>
+
+  <p class="label" id="flow">Skriptablauf</p>
+  <div class="action-grid">
+    <a class="action" href="#if-then"><strong>Wenn… dann <span class="badge">PRO</span></strong><span>Bildschirm prüfen und einem von zwei Zweigen folgen</span><div class="state">▶ Video ansehen</div></a>
+    <a class="action" href="#loop-until"><strong>Wiederholen bis <span class="badge">PRO</span></strong><span>Die Schritte darin erneut ausführen, bis die Bedingung wahr ist</span><div class="state">▶ Video ansehen</div></a>
+    <a class="action" href="#stop-script"><strong>Skript stoppen <span class="badge">PRO</span></strong><span>Beendet den ganzen Lauf, wenn eine Bedingung erfüllt ist</span><div class="state">▶ Video ansehen</div></a>
+    <a class="action" href="#next-round"><strong>Nächste Runde <span class="badge">PRO</span></strong><span>Überspringt die restlichen Schritte und startet die nächste Runde</span><div class="state">▶ Video ansehen</div></a>
+    <a class="action" href="#call-script"><strong>Skript aufrufen <span class="badge">PRO</span></strong><span>Ein anderes Skript ausführen und dann zurückkehren</span><div class="state">▶ Video ansehen</div></a>
+    <a class="action" href="#set-variable"><strong>In Variable schreiben <span class="badge">PRO</span></strong><span>Wert einer gemerkten Variable setzen oder erhöhen</span><div class="state">▶ Video ansehen</div></a>
+  </div>
+
+  <section class="guide" id="click">
+    <h2>Tippen</h2>
+    <p class="muted">Die einfachste Aktion: AutoGest tippt genau auf den Punkt, den du auf dem Bildschirm gewählt hast.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/de/click.mp4" poster="../../media/guide/de/click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video zur Aktion Tippen: Tippe auf „Aktion hinzufügen“, wähle Tippen; Tippe auf „Punkt hinzufügen“; Öffne die App, zieh das Fadenkreuz auf die Stelle; Tippe auf OK, um den Punkt zu speichern; Zurück in AutoGest ist der Punkt eingetragen; Tippe auf Testlauf und öffne die App. AutoGest tippt genau auf die gewählte Stelle."></video>
+        <figcaption>Auf einem echten Handy aufgenommen · 28 Sekunden</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Tippe auf „Aktion hinzufügen“, wähle Tippen</li>
+          <li>Tippe auf „Punkt hinzufügen“</li>
+          <li>Öffne die App, zieh das Fadenkreuz auf die Stelle</li>
+          <li>Tippe auf OK, um den Punkt zu speichern</li>
+          <li>Zurück in AutoGest ist der Punkt eingetragen</li>
+          <li>Tippe auf Testlauf und öffne die App</li>
+        </ol>
+        <p class="result">▶ AutoGest tippt genau auf die gewählte Stelle</p>
+        <div class="callout">
+          <strong>Tipps</strong>
+          <ul>
+            <li>Punkte werden an die Bildschirmgröße angepasst, so trifft das Skript auch auf einem Handy mit anderem Bildschirm.</li>
+            <li>Unter <strong>Allgemeine Einstellungen</strong> stellst du die Pause zwischen Schritten und eine kleine Tippabweichung ein – wie bei einem echten Menschen.</li>
+            <li>Der Knopf wandert? Nutze <strong>Auf Bild tippen</strong>, <strong>Auf Text tippen (OCR)</strong> oder <strong>Auf Text tippen</strong>, damit AutoGest ihn zuerst sucht.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zurück zur Aktionsliste</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="rapid-click">
+    <h2>Schnell tippen</h2>
+    <p class="muted">Tippe immer wieder auf einen Punkt, 1- bis 20-mal pro Sekunde – ideal für Spiele mit schnellem Tippen.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/de/rapid-click.mp4" poster="../../media/guide/de/rapid-click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video zur Aktion Schnell tippen: Tippe auf „Aktion hinzufügen“, wähle Schnell tippen; Tippe auf „Punkt hinzufügen“; Öffne die App, setz das Fadenkreuz auf den Knopf; Tippe auf OK, um den Punkt zu speichern; Zurück in AutoGest: Anzahl der Tipps senken; Tippe auf Testlauf und öffne die App. AutoGest tippt 30-mal, 10-mal pro Sekunde."></video>
+        <figcaption>Auf einem echten Handy aufgenommen · 33 Sekunden</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Tippe auf „Aktion hinzufügen“, wähle Schnell tippen</li>
+          <li>Tippe auf „Punkt hinzufügen“</li>
+          <li>Öffne die App, setz das Fadenkreuz auf den Knopf</li>
+          <li>Tippe auf OK, um den Punkt zu speichern</li>
+          <li>Zurück in AutoGest: Anzahl der Tipps senken</li>
+          <li>Tippe auf Testlauf und öffne die App</li>
+        </ol>
+        <p class="result">▶ AutoGest tippt 30-mal, 10-mal pro Sekunde</p>
+        <div class="callout">
+          <strong>Tipps</strong>
+          <ul>
+            <li>Stopp nach einer Anzahl, nach einer Zeit oder erst, wenn du auf Stopp tippst.</li>
+            <li>Über 10 Tipps pro Sekunde ist schneller als eine Hand; manche Apps finden das ungewöhnlich.</li>
+            <li>Schalte den natürlichen Rhythmus ein, damit die Abstände leicht schwanken wie bei einem echten Finger.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zurück zur Aktionsliste</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="long-click">
+    <h2>Lange drücken</h2>
+    <p class="muted">Einen Punkt so lange gedrückt halten, wie du willst – für Halten-zum-Bestätigen, Kontextmenüs, Markieren durch Ziehen.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/de/long-click.mp4" poster="../../media/guide/de/long-click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video zur Aktion Lange drücken: Tippe auf „Aktion hinzufügen“, wähle Lange drücken; Tippe auf „Punkt hinzufügen“; Öffne die App, setz das Fadenkreuz auf den Knopf; Tippe auf OK, um den Punkt zu speichern; Zurück in AutoGest: wähle die Haltedauer; Tippe auf Testlauf und öffne die App. AutoGest hält den Knopf 2 s, er entsperrt."></video>
+        <figcaption>Auf einem echten Handy aufgenommen · 30 Sekunden</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Tippe auf „Aktion hinzufügen“, wähle Lange drücken</li>
+          <li>Tippe auf „Punkt hinzufügen“</li>
+          <li>Öffne die App, setz das Fadenkreuz auf den Knopf</li>
+          <li>Tippe auf OK, um den Punkt zu speichern</li>
+          <li>Zurück in AutoGest: wähle die Haltedauer</li>
+          <li>Tippe auf Testlauf und öffne die App</li>
+        </ol>
+        <p class="result">▶ AutoGest hält den Knopf 2 s, er entsperrt</p>
+        <div class="callout">
+          <strong>Tipps</strong>
+          <ul>
+            <li>Für „zum Bestätigen halten“ etwas länger wählen, als die App verlangt.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zurück zur Aktionsliste</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="swipe">
+    <h2>Wischen</h2>
+    <p class="muted">Mit dem Finger vom Start- zum Endpunkt ziehen – zum Entsperren wischen, Regler schieben, Seiten blättern.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/de/swipe.mp4" poster="../../media/guide/de/swipe.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video zur Aktion Wischen: Tippe auf „Aktion hinzufügen“, wähle Wischen; Wähle den Startpunkt; Zurück, wähle den Endpunkt; Zurück, wähle die Wischdauer; Tippe auf Testlauf und öffne die App. AutoGest wischt vom Start- zum Endpunkt."></video>
+        <figcaption>Auf einem echten Handy aufgenommen · 34 Sekunden</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Tippe auf „Aktion hinzufügen“, wähle Wischen</li>
+          <li>Wähle den Startpunkt</li>
+          <li>Zurück, wähle den Endpunkt</li>
+          <li>Zurück, wähle die Wischdauer</li>
+          <li>Tippe auf Testlauf und öffne die App</li>
+        </ol>
+        <p class="result">▶ AutoGest wischt vom Start- zum Endpunkt</p>
+        <div class="callout">
+          <strong>Tipps</strong>
+          <ul>
+            <li>Kurze Dauer ist ein schnelles Wischen, lange Dauer ein langsames Ziehen (Drag & Drop, Regler).</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zurück zur Aktionsliste</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="scroll">
+    <h2>Scrollen</h2>
+    <p class="muted">Eine Liste nach oben, unten, links oder rechts scrollen – mit einem Wisch durch die Mitte, ohne Punkt.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/de/scroll.mp4" poster="../../media/guide/de/scroll.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video zur Aktion Scrollen: Tippe auf „Aktion hinzufügen“, wähle Scrollen; Wähle Richtung und Dauer; Tippe auf Testlauf und öffne die App. AutoGest wischt durch die Mitte und scrollt."></video>
+        <figcaption>Auf einem echten Handy aufgenommen · 21 Sekunden</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Tippe auf „Aktion hinzufügen“, wähle Scrollen</li>
+          <li>Wähle Richtung und Dauer</li>
+          <li>Tippe auf Testlauf und öffne die App</li>
+        </ol>
+        <p class="result">▶ AutoGest wischt durch die Mitte und scrollt</p>
+        <div class="callout">
+          <strong>Tipps</strong>
+          <ul>
+            <li>Kombiniere es mit <strong>Wiederholen bis</strong>, um zu scrollen, bis das Gesuchte erscheint.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zurück zur Aktionsliste</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="paste-text">
+    <h2>Text einfügen</h2>
+    <p class="muted">Tippe in ein Textfeld und füge den vorbereiteten Text komplett ein – schnell und mit allen Umlauten.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/de/paste-text.mp4" poster="../../media/guide/de/paste-text.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video zur Aktion Text einfügen: Tippe auf „Aktion hinzufügen“, wähle Text einfügen; Tippe auf „Punkt hinzufügen“, ziel auf das Textfeld; Zurück, gib den Text zum Einfügen ein; Tippe auf Testlauf und öffne die App. AutoGest fügt den ganzen Text ins Feld ein."></video>
+        <figcaption>Auf einem echten Handy aufgenommen · 31 Sekunden</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Tippe auf „Aktion hinzufügen“, wähle Text einfügen</li>
+          <li>Tippe auf „Punkt hinzufügen“, ziel auf das Textfeld</li>
+          <li>Zurück, gib den Text zum Einfügen ein</li>
+          <li>Tippe auf Testlauf und öffne die App</li>
+        </ol>
+        <p class="result">▶ AutoGest fügt den ganzen Text ins Feld ein</p>
+        <div class="callout">
+          <strong>Tipps</strong>
+          <ul>
+            <li>Trenne mehrere Texte mit <code>||</code>, dann wählt AutoGest bei jedem Lauf zufällig einen.</li>
+            <li>Setze mit <strong>Variable einfügen</strong> eine Variable ein, um einen vorher gelesenen Wert einzufügen.</li>
+            <li>Die App blockiert Einfügen? Nutze <strong>Zeichen tippen</strong>, um jede Taste wie beim Tippen zu drücken.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zurück zur Aktionsliste</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="type-keys">
+    <h2>Zeichen tippen <span class="badge">PRO</span></h2>
+    <p class="muted">Nimm jede Taste auf, die du tippst; beim Ausführen tippt AutoGest dieselben Tasten in deinem Rhythmus.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/de/type-keys.mp4" poster="../../media/guide/de/type-keys.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video zur Aktion Zeichen tippen: Tippe auf „Aktion hinzufügen“, wähle Zeichen tippen; Tippe ins Aufnahmefeld, schreib auf der Tastatur; Tippe auf „Fertig“, um die Tasten zu speichern; Wähle das Feld zum Schreiben (optional); Zurück, auf Testlauf tippen, App öffnen. AutoGest tippt ins Feld und spielt jede Taste ab."></video>
+        <figcaption>Auf einem echten Handy aufgenommen · 39 Sekunden</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Tippe auf „Aktion hinzufügen“, wähle Zeichen tippen</li>
+          <li>Tippe ins Aufnahmefeld, schreib auf der Tastatur</li>
+          <li>Tippe auf „Fertig“, um die Tasten zu speichern</li>
+          <li>Wähle das Feld zum Schreiben (optional)</li>
+          <li>Zurück, auf Testlauf tippen, App öffnen</li>
+        </ol>
+        <p class="result">▶ AutoGest tippt ins Feld und spielt jede Taste ab</p>
+        <div class="callout">
+          <strong>Tipps</strong>
+          <ul>
+            <li>Nutze beim Aufnehmen und Ausführen dieselbe Tastatur (und dieselbe Feldart), denn AutoGest tippt nach Tastenposition.</li>
+            <li>Danach prüft AutoGest das Feld; passt der Text nicht, meldet der Schritt einen Fehler und hört auf.</li>
+            <li>Nicht jede Taste nötig? Stell die Karte auf <strong>Text einfügen</strong> um.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zurück zur Aktionsliste</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="delay">
+    <h2>Warten</h2>
+    <p class="muted">Pause vor dem nächsten Schritt – damit ein Bildschirm lädt, eine Animation endet oder ein Timer abläuft.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/de/delay.mp4" poster="../../media/guide/de/delay.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video zur Aktion Warten: Tippe auf „Aktion hinzufügen“, wähle Warten; Gib die Wartezeit ein (ms); Füge einen Tippen-Schritt hinzu, um die Pause zu sehen; Wiederhole das Skript 2-mal in „Allgemeine Einstellungen“; Tippe auf Testlauf und öffne die App. Zwischen den Tipps liegen 3 s plus Schrittpause."></video>
+        <figcaption>Auf einem echten Handy aufgenommen · 45 Sekunden</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Tippe auf „Aktion hinzufügen“, wähle Warten</li>
+          <li>Gib die Wartezeit ein (ms)</li>
+          <li>Füge einen Tippen-Schritt hinzu, um die Pause zu sehen</li>
+          <li>Wiederhole das Skript 2-mal in „Allgemeine Einstellungen“</li>
+          <li>Tippe auf Testlauf und öffne die App</li>
+        </ol>
+        <p class="result">▶ Zwischen den Tipps liegen 3 s plus Schrittpause</p>
+        <div class="callout">
+          <strong>Tipps</strong>
+          <ul>
+            <li>Jeder Schritt wartet schon eine kurze Zufallspause (unter <strong>Allgemeine Einstellungen</strong>); füge Warten nur hinzu, wenn es länger sein muss.</li>
+            <li>Du wartest, bis etwas erscheint? <strong>Auf Bild warten</strong>, <strong>Auf Text warten (OCR)</strong> oder <strong>Auf Farbe warten</strong> machen sofort weiter.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zurück zur Aktionsliste</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="wait-image">
+    <h2>Auf Bild warten <span class="badge">PRO</span></h2>
+    <p class="muted">Warten, bis ein Bild auf dem Bildschirm erscheint (oder verschwindet), ohne zu tippen – dann laufen die nächsten Schritte.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/de/wait-image.mp4" poster="../../media/guide/de/wait-image.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video zur Aktion Auf Bild warten: Tippe auf „Aktion hinzufügen“, wähle Auf Bild warten; Tippe auf „Bild auswählen“, wähle „Vom Bildschirm zuschneiden“; Öffne den Bildschirm, tippe auf Aufnehmen, rahme das Bild; Zurück, füge einen Tippen-Schritt dort hinzu, wo das Bild erscheint; Zurück, auf Testlauf tippen, App öffnen. AutoGest wartet auf die Geschenkbox, dann folgt der Tippen-Schritt."></video>
+        <figcaption>Auf einem echten Handy aufgenommen · 48 Sekunden</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Tippe auf „Aktion hinzufügen“, wähle Auf Bild warten</li>
+          <li>Tippe auf „Bild auswählen“, wähle „Vom Bildschirm zuschneiden“</li>
+          <li>Öffne den Bildschirm, tippe auf Aufnehmen, rahme das Bild</li>
+          <li>Zurück, füge einen Tippen-Schritt dort hinzu, wo das Bild erscheint</li>
+          <li>Zurück, auf Testlauf tippen, App öffnen</li>
+        </ol>
+        <p class="result">▶ AutoGest wartet auf die Geschenkbox, dann folgt der Tippen-Schritt</p>
+        <div class="callout">
+          <strong>Tipps</strong>
+          <ul>
+            <li>Schneide das Bild eng zu, ohne wechselnden Hintergrund.</li>
+            <li>Senke die Mindestübereinstimmung, wenn das Bild jedes Mal etwas anders aussieht.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zurück zur Aktionsliste</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="wait-color">
+    <h2>Auf Farbe warten <span class="badge">PRO</span></h2>
+    <p class="muted">Einen Punkt beobachten, bis er eine gewählte Farbe hat (oder die Farbe wechselt) – eine Ampel wird grün, ein Knopf aktiv.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/de/wait-color.mp4" poster="../../media/guide/de/wait-color.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video zur Aktion Auf Farbe warten: Tippe auf „Aktion hinzufügen“, wähle Auf Farbe warten; Tippe auf „Punkt hinzufügen“, ziel auf die Stelle mit der Farbe; Zurück: AutoGest hat die Farbe dort schon gelesen; Füge einen Tippen-Schritt auf „Los“ hinzu; Zurück, auf Testlauf tippen, App öffnen. AutoGest wartet auf Grün und tippt dann auf „Los“."></video>
+        <figcaption>Auf einem echten Handy aufgenommen · 46 Sekunden</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Tippe auf „Aktion hinzufügen“, wähle Auf Farbe warten</li>
+          <li>Tippe auf „Punkt hinzufügen“, ziel auf die Stelle mit der Farbe</li>
+          <li>Zurück: AutoGest hat die Farbe dort schon gelesen</li>
+          <li>Füge einen Tippen-Schritt auf „Los“ hinzu</li>
+          <li>Zurück, auf Testlauf tippen, App öffnen</li>
+        </ol>
+        <p class="result">▶ AutoGest wartet auf Grün und tippt dann auf „Los“</p>
+        <div class="callout">
+          <strong>Tipps</strong>
+          <ul>
+            <li>Wähle den Punkt, während die gewünschte Farbe zu sehen ist: AutoGest liest sie für dich.</li>
+            <li>Funktioniert auch in Spielen, da nur das Bildschirmbild zählt.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zurück zur Aktionsliste</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="image-click">
+    <h2>Auf Bild tippen <span class="badge">PRO</span></h2>
+    <p class="muted">Ein Bild auf dem Bildschirm finden und antippen, egal wo es ist – perfekt für wandernde Knöpfe.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/de/image-click.mp4" poster="../../media/guide/de/image-click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video zur Aktion Auf Bild tippen: Tippe auf „Aktion hinzufügen“, wähle Auf Bild tippen; Tippe auf „Bild auswählen“, wähle „Vom Bildschirm zuschneiden“; Öffne den Bildschirm mit dem Bild, tippe auf Aufnehmen; Zieh den Rahmen eng ums Bild, tippe auf OK; Zurück, auf Testlauf tippen, App öffnen. AutoGest wartet auf die Geschenkbox und tippt sie an."></video>
+        <figcaption>Auf einem echten Handy aufgenommen · 37 Sekunden</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Tippe auf „Aktion hinzufügen“, wähle Auf Bild tippen</li>
+          <li>Tippe auf „Bild auswählen“, wähle „Vom Bildschirm zuschneiden“</li>
+          <li>Öffne den Bildschirm mit dem Bild, tippe auf Aufnehmen</li>
+          <li>Zieh den Rahmen eng ums Bild, tippe auf OK</li>
+          <li>Zurück, auf Testlauf tippen, App öffnen</li>
+        </ol>
+        <p class="result">▶ AutoGest wartet auf die Geschenkbox und tippt sie an</p>
+        <div class="callout">
+          <strong>Tipps</strong>
+          <ul>
+            <li>Funktioniert in Spielen, weil AutoGest das Bildschirmbild ansieht, nicht den App-Aufbau.</li>
+            <li>Schneide nur den Knopf aus, ohne den Hintergrund.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zurück zur Aktionsliste</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="ocr-click">
+    <h2>Auf Text tippen (OCR) <span class="badge">PRO</span></h2>
+    <p class="muted">Text in einem Screenshot per Texterkennung (OCR) direkt auf dem Handy lesen und antippen – sogar in Spielen, die ihren Text selbst zeichnen.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/de/ocr-click.mp4" poster="../../media/guide/de/ocr-click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video zur Aktion Auf Text tippen (OCR): Tippe auf „Aktion hinzufügen“, wähle Auf Text tippen (OCR); Gib den Text auf dem Knopf ein; Tippe auf Testlauf und öffne die App. AutoGest liest das Bildschirmbild — auch in Spielen — und tippt den Text an."></video>
+        <figcaption>Auf einem echten Handy aufgenommen · 28 Sekunden</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Tippe auf „Aktion hinzufügen“, wähle Auf Text tippen (OCR)</li>
+          <li>Gib den Text auf dem Knopf ein</li>
+          <li>Tippe auf Testlauf und öffne die App</li>
+        </ol>
+        <p class="result">▶ AutoGest liest das Bildschirmbild — auch in Spielen — und tippt den Text an</p>
+        <div class="callout">
+          <strong>Tipps</strong>
+          <ul>
+            <li>Wähle für Chinesisch, Japanisch oder Koreanisch die passende Schrift; Latin deckt Deutsch, Englisch, Spanisch und mehr ab.</li>
+            <li>Verkleinere den Suchbereich für schnelleres, genaueres Lesen.</li>
+            <li>Die Erkennung läuft auf deinem Handy; nichts wird gesendet.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zurück zur Aktionsliste</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="ocr-wait">
+    <h2>Auf Text warten (OCR) <span class="badge">PRO</span></h2>
+    <p class="muted">Warten, bis ein Text im Bildschirmbild erscheint (oder verschwindet), ohne zu tippen.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/de/ocr-wait.mp4" poster="../../media/guide/de/ocr-wait.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video zur Aktion Auf Text warten (OCR): Tippe auf „Aktion hinzufügen“, wähle Auf Text warten (OCR); Gib den Text ein, auf den gewartet wird; Füge einen Tippen-Schritt auf „Starten“ hinzu; Zurück, auf Testlauf tippen, App öffnen. AutoGest wartet auf „LOS“ und tippt dann auf „Starten“."></video>
+        <figcaption>Auf einem echten Handy aufgenommen · 41 Sekunden</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Tippe auf „Aktion hinzufügen“, wähle Auf Text warten (OCR)</li>
+          <li>Gib den Text ein, auf den gewartet wird</li>
+          <li>Füge einen Tippen-Schritt auf „Starten“ hinzu</li>
+          <li>Zurück, auf Testlauf tippen, App öffnen</li>
+        </ol>
+        <p class="result">▶ AutoGest wartet auf „LOS“ und tippt dann auf „Starten“</p>
+        <div class="callout">
+          <strong>Tipps</strong>
+          <ul>
+            <li>Gut für Spielbildschirme wie „Fertig… LOS!“, „Sieg“ oder einen ablaufenden Countdown.</li>
+            <li>Wähle einen Bereich, um schneller zu warten und dasselbe Wort woanders nicht zu treffen.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zurück zur Aktionsliste</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="ocr-read">
+    <h2>Text lesen (OCR) <span class="badge">PRO</span></h2>
+    <p class="muted">Den Text in einem Bereich des Bildschirmbilds lesen und für spätere Schritte in einer Variable speichern.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/de/ocr-read.mp4" poster="../../media/guide/de/ocr-read.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video zur Aktion Text lesen (OCR): Tippe auf „Aktion hinzufügen“, wähle Text lesen (OCR); Tippe auf „Bereich wählen“, öffne den Bildschirm, tippe auf Aufnehmen; Rahme den Code, tippe auf OK; Zurück, wähle „Nur die Zahl“ und eine Variable zum Speichern; Füge Text einfügen ins Feld hinzu, setz die Variable ein; Füge einen Tippen-Schritt auf „Bestätigen“ hinzu; Tippe auf Testlauf und öffne die App. AutoGest liest den Code vom Bild und gibt ihn ein."></video>
+        <figcaption>Auf einem echten Handy aufgenommen · 77 Sekunden</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Tippe auf „Aktion hinzufügen“, wähle Text lesen (OCR)</li>
+          <li>Tippe auf „Bereich wählen“, öffne den Bildschirm, tippe auf Aufnehmen</li>
+          <li>Rahme den Code, tippe auf OK</li>
+          <li>Zurück, wähle „Nur die Zahl“ und eine Variable zum Speichern</li>
+          <li>Füge Text einfügen ins Feld hinzu, setz die Variable ein</li>
+          <li>Füge einen Tippen-Schritt auf „Bestätigen“ hinzu</li>
+          <li>Tippe auf Testlauf und öffne die App</li>
+        </ol>
+        <p class="result">▶ AutoGest liest den Code vom Bild und gibt ihn ein</p>
+        <div class="callout">
+          <strong>Tipps</strong>
+          <ul>
+            <li>Wähle „Nur die Zahl“, um nur die Ziffern zu behalten – Punkte, Preise oder Codes.</li>
+            <li>Nutze die Variable in Text einfügen oder vergleiche sie in einem Wenn…-dann-Block.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zurück zur Aktionsliste</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="click-text">
+    <h2>Auf Text tippen</h2>
+    <p class="muted">Gib den Text auf einem Knopf ein; beim Ausführen findet AutoGest diesen Text auf dem Bildschirm und tippt darauf.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/de/click-text.mp4" poster="../../media/guide/de/click-text.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video zur Aktion Auf Text tippen: Tippe auf „Aktion hinzufügen“, wähle Auf Text tippen; Gib den Text auf dem Knopf ein; Tippe auf Testlauf und öffne die App. Egal wo der Knopf ist: AutoGest findet den Text und tippt."></video>
+        <figcaption>Auf einem echten Handy aufgenommen · 29 Sekunden</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Tippe auf „Aktion hinzufügen“, wähle Auf Text tippen</li>
+          <li>Gib den Text auf dem Knopf ein</li>
+          <li>Tippe auf Testlauf und öffne die App</li>
+        </ol>
+        <p class="result">▶ Egal wo der Knopf ist: AutoGest findet den Text und tippt</p>
+        <div class="callout">
+          <strong>Tipps</strong>
+          <ul>
+            <li>Es liest den App-Aufbau und klappt daher nicht in Spielen, die ihren Text zeichnen – dort <strong>Auf Text tippen (OCR)</strong> nutzen.</li>
+            <li>Groß- und Kleinschreibung zählen nicht; der Text muss nur das Eingegebene enthalten.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zurück zur Aktionsliste</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="click-node">
+    <h2>Auf Knoten tippen <span class="badge">PRO</span></h2>
+    <p class="muted">Bildschirm erfassen, ein Element antippen – AutoGest merkt sich, wie es wiedergefunden wird, auch reine Symbolknöpfe.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/de/click-node.mp4" poster="../../media/guide/de/click-node.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video zur Aktion Auf Knoten tippen: Tippe auf „Aktion hinzufügen“, wähle Auf Knoten tippen; Tippe auf „Knoten wählen“, öffne die App, tippe auf Aufnehmen; Tippe auf den gewünschten Knopf, dann „Knoten wählen“; Zurück, wähle, wie der Knoten gefunden wird; Tippe auf Testlauf und öffne die App. AutoGest findet den Herz-Knopf und tippt ihn an."></video>
+        <figcaption>Auf einem echten Handy aufgenommen · 37 Sekunden</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Tippe auf „Aktion hinzufügen“, wähle Auf Knoten tippen</li>
+          <li>Tippe auf „Knoten wählen“, öffne die App, tippe auf Aufnehmen</li>
+          <li>Tippe auf den gewünschten Knopf, dann „Knoten wählen“</li>
+          <li>Zurück, wähle, wie der Knoten gefunden wird</li>
+          <li>Tippe auf Testlauf und öffne die App</li>
+        </ol>
+        <p class="result">▶ AutoGest findet den Herz-Knopf und tippt ihn an</p>
+        <div class="callout">
+          <strong>Tipps</strong>
+          <ul>
+            <li>Suche über text oder content-desc, wenn sie gleich bleiben; meide resource-id, wenn die App sie zwischen Versionen ändert.</li>
+            <li>Entferne wechselnde Teile (etwa Zähler), damit der Knoten wiedergefunden wird.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zurück zur Aktionsliste</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="read-text">
+    <h2>Bildschirmtext lesen <span class="badge">PRO</span></h2>
+    <p class="muted">Ein Element auf dem Bildschirm wählen und seinen Text in eine Variable kopieren, ohne zu tippen.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/de/read-text.mp4" poster="../../media/guide/de/read-text.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video zur Aktion Bildschirmtext lesen: Tippe auf „Aktion hinzufügen“, wähle Bildschirmtext lesen; Tippe auf „Knoten wählen“, öffne die App, tippe auf Aufnehmen; Tippe auf den Code, dann „Knoten wählen“; Zurück, wähle eine Variable zum Speichern; Füge Text einfügen ins Feld hinzu, setz die Variable ein; Füge einen Tippen-Schritt auf „Bestätigen“ hinzu; Tippe auf Testlauf und öffne die App. AutoGest kopiert den Code und gibt ihn ein."></video>
+        <figcaption>Auf einem echten Handy aufgenommen · 78 Sekunden</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Tippe auf „Aktion hinzufügen“, wähle Bildschirmtext lesen</li>
+          <li>Tippe auf „Knoten wählen“, öffne die App, tippe auf Aufnehmen</li>
+          <li>Tippe auf den Code, dann „Knoten wählen“</li>
+          <li>Zurück, wähle eine Variable zum Speichern</li>
+          <li>Füge Text einfügen ins Feld hinzu, setz die Variable ein</li>
+          <li>Füge einen Tippen-Schritt auf „Bestätigen“ hinzu</li>
+          <li>Tippe auf Testlauf und öffne die App</li>
+        </ol>
+        <p class="result">▶ AutoGest kopiert den Code und gibt ihn ein</p>
+        <div class="callout">
+          <strong>Tipps</strong>
+          <ul>
+            <li>Ideal für Einmalcodes, Bestellnummern oder Kontostände in einer App.</li>
+            <li>Es liest den App-Aufbau; in Spielen nutze <strong>Text lesen (OCR)</strong>.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zurück zur Aktionsliste</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="wait-notification">
+    <h2>Auf Benachrichtigung warten und erkennen <span class="badge">PRO</span></h2>
+    <p class="muted">Auf eine Benachrichtigung mit dem gewählten Text warten, sie vorlesen und dann weitermachen.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/de/wait-notification.mp4" poster="../../media/guide/de/wait-notification.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video zur Aktion Auf Benachrichtigung warten und erkennen: Tippe auf „Aktion hinzufügen“, wähle Auf Benachrichtigung warten und erkennen; Tippe auf „Musterbenachrichtigung wählen“, wähle eine Benachrichtigung; Gib die Wörter ein, die in der Benachrichtigung stehen müssen; Tippe auf „Dieses Muster verwenden“; Füge einen Tippen-Schritt auf „Bestellung bestätigen“ hinzu; Zurück, auf Testlauf tippen, App öffnen; Wenn ein Kunde bestellt …. AutoGest liest die Benachrichtigung vor und bestätigt."></video>
+        <figcaption>Auf einem echten Handy aufgenommen · 67 Sekunden</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Tippe auf „Aktion hinzufügen“, wähle Auf Benachrichtigung warten und erkennen</li>
+          <li>Tippe auf „Musterbenachrichtigung wählen“, wähle eine Benachrichtigung</li>
+          <li>Gib die Wörter ein, die in der Benachrichtigung stehen müssen</li>
+          <li>Tippe auf „Dieses Muster verwenden“</li>
+          <li>Füge einen Tippen-Schritt auf „Bestellung bestätigen“ hinzu</li>
+          <li>Zurück, auf Testlauf tippen, App öffnen</li>
+          <li>Wenn ein Kunde bestellt …</li>
+        </ol>
+        <p class="result">▶ AutoGest liest die Benachrichtigung vor und bestätigt</p>
+        <div class="callout">
+          <strong>Tipps</strong>
+          <ul>
+            <li>Nimm eine echte Benachrichtigung als Muster und tippe die Wörter an; wechselnde Teile (wie die Bestellnummer) werden flexibel verglichen.</li>
+            <li>Ein Skript, das nur auf Benachrichtigungen wartet, kann im Hintergrund laufen, auch bei ausgeschaltetem Bildschirm.</li>
+            <li>Der Inhalt bleibt auf deinem Handy und wird nie ins Protokoll geschrieben.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zurück zur Aktionsliste</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="open-app">
+    <h2>App öffnen</h2>
+    <p class="muted">Eine App aus der Liste öffnen und warten, bis sie da ist – ein guter erster Schritt für jedes Skript.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/de/open-app.mp4" poster="../../media/guide/de/open-app.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video zur Aktion App öffnen: Tippe auf „Aktion hinzufügen“, wähle App öffnen; Tippe auf „App auswählen“, wähle die App zum Öffnen; Tippe auf Testlauf — die App musst du nicht selbst öffnen. AutoGest öffnet die gewählte App selbst."></video>
+        <figcaption>Auf einem echten Handy aufgenommen · 28 Sekunden</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Tippe auf „Aktion hinzufügen“, wähle App öffnen</li>
+          <li>Tippe auf „App auswählen“, wähle die App zum Öffnen</li>
+          <li>Tippe auf Testlauf — die App musst du nicht selbst öffnen</li>
+        </ol>
+        <p class="result">▶ AutoGest öffnet die gewählte App selbst</p>
+        <div class="callout">
+          <strong>Tipps</strong>
+          <ul>
+            <li>Das Skript kann in AutoGest starten; dieser Schritt holt die richtige App nach vorn.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zurück zur Aktionsliste</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="back">
+    <h2>Zurück</h2>
+    <p class="muted">Die System-Zurück-Taste drücken.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/de/back.mp4" poster="../../media/guide/de/back.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video zur Aktion Zurück: Tippe auf „Aktion hinzufügen“, wähle Zurück; Tippe auf Testlauf und öffne die App; Öffne während des Countdowns eine Meldung. AutoGest drückt Zurück, die Liste ist wieder da."></video>
+        <figcaption>Auf einem echten Handy aufgenommen · 25 Sekunden</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Tippe auf „Aktion hinzufügen“, wähle Zurück</li>
+          <li>Tippe auf Testlauf und öffne die App</li>
+          <li>Öffne während des Countdowns eine Meldung</li>
+        </ol>
+        <p class="result">▶ AutoGest drückt Zurück, die Liste ist wieder da</p>
+        <div class="callout">
+          <strong>Tipps</strong>
+          <ul>
+            <li>Schließt einen Dialog oder geht einen Bildschirm zurück.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zurück zur Aktionsliste</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="home">
+    <h2>Startbildschirm</h2>
+    <p class="muted">Zum Startbildschirm gehen.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/de/home.mp4" poster="../../media/guide/de/home.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video zur Aktion Startbildschirm: Tippe auf „Aktion hinzufügen“, wähle Startbildschirm; Tippe auf Testlauf und öffne die App. AutoGest geht zum Startbildschirm (unscharf zum Schutz der Privatsphäre)."></video>
+        <figcaption>Auf einem echten Handy aufgenommen · 24 Sekunden</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Tippe auf „Aktion hinzufügen“, wähle Startbildschirm</li>
+          <li>Tippe auf Testlauf und öffne die App</li>
+        </ol>
+        <p class="result">▶ AutoGest geht zum Startbildschirm (unscharf zum Schutz der Privatsphäre)</p>
+        <div class="callout">
+          <strong>Tipps</strong>
+          <ul>
+            <li>Praktisch am Ende eines Skripts oder vor dem Öffnen einer anderen App.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zurück zur Aktionsliste</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="recent">
+    <h2>Letzte Apps</h2>
+    <p class="muted">Die Liste der letzten Apps öffnen.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/de/recent.mp4" poster="../../media/guide/de/recent.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video zur Aktion Letzte Apps: Tippe auf „Aktion hinzufügen“, wähle Letzte Apps; Tippe auf Testlauf und öffne die App. AutoGest öffnet die letzten Apps (unscharf zum Schutz der Privatsphäre)."></video>
+        <figcaption>Auf einem echten Handy aufgenommen · 25 Sekunden</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Tippe auf „Aktion hinzufügen“, wähle Letzte Apps</li>
+          <li>Tippe auf Testlauf und öffne die App</li>
+        </ol>
+        <p class="result">▶ AutoGest öffnet die letzten Apps (unscharf zum Schutz der Privatsphäre)</p>
+        <div class="callout">
+          <strong>Tipps</strong>
+          <ul>
+            <li>Mit einem Tippen-Schritt kombinieren, um zu einer anderen App zu wechseln.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zurück zur Aktionsliste</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="if-then">
+    <h2>Wenn… dann <span class="badge">PRO</span></h2>
+    <p class="muted">Einige Schritte nur ausführen, wenn eine Bedingung erfüllt ist – ein Bild, eine Farbe, ein Text, die Rundennummer oder eine Variable.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/de/if-then.mp4" poster="../../media/guide/de/if-then.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video zur Aktion Wenn… dann: Tippe auf „Aktion hinzufügen“, wähle Wenn… dann; Wähle „Text“, gib den gesuchten Text ein; Schalte den Sonst-Zweig aus, tippe auf „Fertig“; Im Dann-Zweig: Tippen-Schritt auf den Schließen-Knopf (✕); Zurück, auf Testlauf tippen, App öffnen. AutoGest sieht „Werbung“ und tippt auf Schließen."></video>
+        <figcaption>Auf einem echten Handy aufgenommen · 51 Sekunden</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Tippe auf „Aktion hinzufügen“, wähle Wenn… dann</li>
+          <li>Wähle „Text“, gib den gesuchten Text ein</li>
+          <li>Schalte den Sonst-Zweig aus, tippe auf „Fertig“</li>
+          <li>Im Dann-Zweig: Tippen-Schritt auf den Schließen-Knopf (✕)</li>
+          <li>Zurück, auf Testlauf tippen, App öffnen</li>
+        </ol>
+        <p class="result">▶ AutoGest sieht „Werbung“ und tippt auf Schließen</p>
+        <div class="callout">
+          <strong>Tipps</strong>
+          <ul>
+            <li>Schalte den Sonst-Zweig ein, um andere Schritte auszuführen, wenn die Bedingung falsch ist.</li>
+            <li>Blöcke haben nur eine Ebene; zum Verschachteln in ein anderes Skript auslagern und <strong>Skript aufrufen</strong> nutzen.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zurück zur Aktionsliste</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="loop-until">
+    <h2>Wiederholen bis <span class="badge">PRO</span></h2>
+    <p class="muted">Die Schritte im Block wiederholen, bis eine Bedingung erfüllt ist, oder eine feste Rundenzahl.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/de/loop-until.mp4" poster="../../media/guide/de/loop-until.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video zur Aktion Wiederholen bis: Tippe auf „Aktion hinzufügen“, wähle Wiederholen bis; Stopp bei „Text“: gib den Text am Ende ein; In die Schleife: Tippen-Schritt auf „Mehr laden“; Zurück, auf Testlauf tippen, App öffnen. AutoGest tippt „Mehr laden“, bis „Keine weiteren Meldungen“ erscheint."></video>
+        <figcaption>Auf einem echten Handy aufgenommen · 52 Sekunden</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Tippe auf „Aktion hinzufügen“, wähle Wiederholen bis</li>
+          <li>Stopp bei „Text“: gib den Text am Ende ein</li>
+          <li>In die Schleife: Tippen-Schritt auf „Mehr laden“</li>
+          <li>Zurück, auf Testlauf tippen, App öffnen</li>
+        </ol>
+        <p class="result">▶ AutoGest tippt „Mehr laden“, bis „Keine weiteren Meldungen“ erscheint</p>
+        <div class="callout">
+          <strong>Tipps</strong>
+          <ul>
+            <li>Setze immer eine Höchstzahl an Runden, damit das Skript nicht versehentlich endlos läuft.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zurück zur Aktionsliste</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="stop-script">
+    <h2>Skript stoppen <span class="badge">PRO</span></h2>
+    <p class="muted">Den ganzen Lauf beenden, wenn eine Bedingung eintritt – etwa wenn Züge oder Energie aufgebraucht sind.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/de/stop-script.mp4" poster="../../media/guide/de/stop-script.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video zur Aktion Skript stoppen: Füge einen Tippen-Schritt auf „Drehen“ hinzu; Zurück, füge Skript stoppen hinzu; Stoppen, wenn der Text „Keine Drehs mehr“ erscheint; Wiederhole das Skript ohne Limit; Tippe auf Testlauf und öffne die App. Nach dem letzten Dreh hört AutoGest von selbst auf."></video>
+        <figcaption>Auf einem echten Handy aufgenommen · 56 Sekunden</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Füge einen Tippen-Schritt auf „Drehen“ hinzu</li>
+          <li>Zurück, füge Skript stoppen hinzu</li>
+          <li>Stoppen, wenn der Text „Keine Drehs mehr“ erscheint</li>
+          <li>Wiederhole das Skript ohne Limit</li>
+          <li>Tippe auf Testlauf und öffne die App</li>
+        </ol>
+        <p class="result">▶ Nach dem letzten Dreh hört AutoGest von selbst auf</p>
+        <div class="callout">
+          <strong>Tipps</strong>
+          <ul>
+            <li>Bei einer endlosen Schleife ist das der saubere Weg zum Ende.</li>
+            <li>Im Zweig eines Wenn…-dann-Blocks kann es sofort und ohne Bedingung stoppen.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zurück zur Aktionsliste</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="next-round">
+    <h2>Nächste Runde <span class="badge">PRO</span></h2>
+    <p class="muted">Den Rest dieser Runde überspringen und die nächste beginnen, wenn eine Bedingung eintritt.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/de/next-round.mp4" poster="../../media/guide/de/next-round.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video zur Aktion Nächste Runde: Füge einen Tippen-Schritt auf „Nächster Beitrag“ hinzu; Füge Nächste Runde hinzu, wenn „Gesponsert“ erscheint; Füge einen Tippen-Schritt auf „Gefällt mir“ hinzu; Wiederhole das Skript 4-mal; Tippe auf Testlauf und öffne die App. AutoGest liked Beitrag 1 und 3 und überspringt die gesponserten."></video>
+        <figcaption>Auf einem echten Handy aufgenommen · 78 Sekunden</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Füge einen Tippen-Schritt auf „Nächster Beitrag“ hinzu</li>
+          <li>Füge Nächste Runde hinzu, wenn „Gesponsert“ erscheint</li>
+          <li>Füge einen Tippen-Schritt auf „Gefällt mir“ hinzu</li>
+          <li>Wiederhole das Skript 4-mal</li>
+          <li>Tippe auf Testlauf und öffne die App</li>
+        </ol>
+        <p class="result">▶ AutoGest liked Beitrag 1 und 3 und überspringt die gesponserten</p>
+        <div class="callout">
+          <strong>Tipps</strong>
+          <ul>
+            <li>Praktisch, um beim Durchgehen einer Liste Werbung oder Unerwünschtes zu überspringen.</li>
+            <li>Es springt ans Ende der nächstgelegenen Schleife im selben Skript.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zurück zur Aktionsliste</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="call-script">
+    <h2>Skript aufrufen <span class="badge">PRO</span></h2>
+    <p class="muted">Ein anderes Skript ausführen und zurückkehren – vorhandene Schritte wiederverwenden.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/de/call-script.mp4" poster="../../media/guide/de/call-script.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video zur Aktion Skript aufrufen: Tippe auf „Aktion hinzufügen“, wähle Skript aufrufen; Tippe auf „Skript auswählen“, wähle das aufzurufende Skript; Wähle, wie oft es aufgerufen wird; Tippe auf Testlauf und öffne die App. AutoGest führt „Knopf drücken“ 3-mal aus."></video>
+        <figcaption>Auf einem echten Handy aufgenommen · 35 Sekunden</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Tippe auf „Aktion hinzufügen“, wähle Skript aufrufen</li>
+          <li>Tippe auf „Skript auswählen“, wähle das aufzurufende Skript</li>
+          <li>Wähle, wie oft es aufgerufen wird</li>
+          <li>Tippe auf Testlauf und öffne die App</li>
+        </ol>
+        <p class="result">▶ AutoGest führt „Knopf drücken“ 3-mal aus</p>
+        <div class="callout">
+          <strong>Tipps</strong>
+          <ul>
+            <li>Wähle, wie oft es hintereinander aufgerufen wird.</li>
+            <li>Das aufgerufene Skript läuft im Rhythmus dieses Skripts.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zurück zur Aktionsliste</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="set-variable">
+    <h2>In Variable schreiben <span class="badge">PRO</span></h2>
+    <p class="muted">Einer Variable einen Wert geben oder eine Zahl dazuzählen – Zähler, laufende Summen, Text zum Merken.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/de/set-variable.mp4" poster="../../media/guide/de/set-variable.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video zur Aktion In Variable schreiben: Tippe auf „Aktion hinzufügen“, wähle In Variable schreiben; Benenne die neue Variable, tippe auf „Variable hinzufügen“; Lass den Schritt 1 zur Variable addieren; Füge Text einfügen ins Chatfeld: „Nachricht #“ + Variable; Füge einen Tippen-Schritt auf „Senden“ hinzu; Wiederhole das Skript 3-mal; Tippe auf Testlauf und öffne die App. Jede Runde steigt die Zahl: 1, 2, 3."></video>
+        <figcaption>Auf einem echten Handy aufgenommen · 86 Sekunden</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Tippe auf „Aktion hinzufügen“, wähle In Variable schreiben</li>
+          <li>Benenne die neue Variable, tippe auf „Variable hinzufügen“</li>
+          <li>Lass den Schritt 1 zur Variable addieren</li>
+          <li>Füge Text einfügen ins Chatfeld: „Nachricht #“ + Variable</li>
+          <li>Füge einen Tippen-Schritt auf „Senden“ hinzu</li>
+          <li>Wiederhole das Skript 3-mal</li>
+          <li>Tippe auf Testlauf und öffne die App</li>
+        </ol>
+        <p class="result">▶ Jede Runde steigt die Zahl: 1, 2, 3</p>
+        <div class="callout">
+          <strong>Tipps</strong>
+          <ul>
+            <li>Setze <code>{name}</code> in ein beliebiges Textfeld, um den Wert zu nutzen.</li>
+            <li>Variablen gelten nur für einen Lauf: Stopp setzt sie zurück.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zurück zur Aktionsliste</a></p>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2026 AutoGest · <a href="../../de/">Start</a> · <a href="../../de/guide/">Anleitung</a> ·
+    <a href="../../privacy/">Datenschutzerklärung</a> ·
+    <a href="../../terms/">Nutzungsbedingungen</a><br><span>Datenschutzerklärung und Nutzungsbedingungen gibt es auf Englisch und Vietnamesisch.</span></footer>
+</div>
+<script>
+  // Video chỉ chạy khi cuộn tới (tiết kiệm dữ liệu), tự lặp, không tiếng; bỏ thanh điều khiển khi có JavaScript.
+  const videos = document.querySelectorAll('.phone video');
+  const seen = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting) e.target.play().catch(() => {});
+      else e.target.pause();
+    }
+  }, { rootMargin: '200px 0px' });
+  videos.forEach((v) => { v.controls = false; v.preload = 'metadata'; seen.observe(v); });
+</script>
+</body>
+</html>

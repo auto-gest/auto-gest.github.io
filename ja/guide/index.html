@@ -1,0 +1,932 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>使い方ガイド – AutoGest</title>
+  <meta name="description" content="AutoGest のすべてのアクションを、実機で録画した動画で解説：{a:action_click}、スワイプ、文字認識（OCR）、もし…ならばブロック、変数など。">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="icon" type="image/png" href="../../icon.png">
+  <link rel="apple-touch-icon" href="../../icon.png">
+  <link rel="canonical" href="https://auto-gest.github.io/ja/guide/">
+  <link rel="alternate" hreflang="en" href="https://auto-gest.github.io/guide/">
+  <link rel="alternate" hreflang="vi" href="https://auto-gest.github.io/vi/guide/">
+  <link rel="alternate" hreflang="es" href="https://auto-gest.github.io/es/guide/">
+  <link rel="alternate" hreflang="pt-BR" href="https://auto-gest.github.io/pt/guide/">
+  <link rel="alternate" hreflang="fr" href="https://auto-gest.github.io/fr/guide/">
+  <link rel="alternate" hreflang="de" href="https://auto-gest.github.io/de/guide/">
+  <link rel="alternate" hreflang="it" href="https://auto-gest.github.io/it/guide/">
+  <link rel="alternate" hreflang="pl" href="https://auto-gest.github.io/pl/guide/">
+  <link rel="alternate" hreflang="ro" href="https://auto-gest.github.io/ro/guide/">
+  <link rel="alternate" hreflang="cs" href="https://auto-gest.github.io/cs/guide/">
+  <link rel="alternate" hreflang="id" href="https://auto-gest.github.io/id/guide/">
+  <link rel="alternate" hreflang="ja" href="https://auto-gest.github.io/ja/guide/">
+  <link rel="alternate" hreflang="ko" href="https://auto-gest.github.io/ko/guide/">
+  <link rel="alternate" hreflang="zh-Hans" href="https://auto-gest.github.io/zh-hans/guide/">
+  <link rel="alternate" hreflang="zh-Hant" href="https://auto-gest.github.io/zh-hant/guide/">
+  <link rel="alternate" hreflang="x-default" href="https://auto-gest.github.io/guide/">
+</head>
+<body>
+<!-- Trang sinh bằng user-guide/tools/gen-site.mjs trong repo mã nguồn AutoGest; sửa ở đó rồi sinh lại. -->
+<div class="wrap" id="top">
+  <header class="top">
+    <a class="brand" href="../../ja/"><img class="brand-mark" src="../../icon.png" alt="" width="36" height="36">AutoGest</a>
+    <details class="lang-menu">
+      <summary aria-label="言語">日本語</summary>
+      <ul>
+        <li><a href="../../guide/" hreflang="en" lang="en">English</a></li>
+        <li><a href="../../vi/guide/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+        <li><a href="../../es/guide/" hreflang="es" lang="es">Español</a></li>
+        <li><a href="../../pt/guide/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li>
+        <li><a href="../../fr/guide/" hreflang="fr" lang="fr">Français</a></li>
+        <li><a href="../../de/guide/" hreflang="de" lang="de">Deutsch</a></li>
+        <li><a href="../../it/guide/" hreflang="it" lang="it">Italiano</a></li>
+        <li><a href="../../pl/guide/" hreflang="pl" lang="pl">Polski</a></li>
+        <li><a href="../../ro/guide/" hreflang="ro" lang="ro">Română</a></li>
+        <li><a href="../../cs/guide/" hreflang="cs" lang="cs">Čeština</a></li>
+        <li><a href="../../id/guide/" hreflang="id" lang="id">Bahasa Indonesia</a></li>
+        <li><a href="../../ja/guide/" hreflang="ja" lang="ja" aria-current="true">日本語</a></li>
+        <li><a href="../../ko/guide/" hreflang="ko" lang="ko">한국어</a></li>
+        <li><a href="../../zh-hans/guide/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li>
+        <li><a href="../../zh-hant/guide/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li>
+      </ul>
+    </details>
+  </header>
+
+  <h1>使い方ガイド</h1>
+  <p class="muted">各アクションには実機で録画した短い動画があり、サンプルアプリで結果がわかります。タップした場所が光るので追いやすくなっています。<span class="badge">PRO</span> の付いたアクションは AutoGest Pro の機能です。</p>
+
+  <ul class="legend">
+    <li><span class="dot user"></span>あなたのタップ</li>
+    <li><span class="dot auto"></span>スクリプト実行中に AutoGest が自動でタップ</li>
+  </ul>
+
+  <nav class="chips" aria-label="アクションのグループ">
+    <a href="#touch">タッチとジェスチャー</a>
+    <a href="#wait">待機と検出</a>
+    <a href="#system">システム</a>
+    <a href="#flow">スクリプトの流れ</a>
+  </nav>
+
+  <p class="label" id="touch">タッチとジェスチャー</p>
+  <div class="action-grid">
+    <a class="action" href="#click"><strong>タップ</strong><span>1 点を 1 回タップ</span><div class="state">▶ 動画を見る</div></a>
+    <a class="action" href="#rapid-click"><strong>連続タップ</strong><span>1 点をすばやく何度もタップ</span><div class="state">▶ 動画を見る</div></a>
+    <a class="action" href="#long-click"><strong>長押し</strong><span>1 点を押し続ける</span><div class="state">▶ 動画を見る</div></a>
+    <a class="action" href="#swipe"><strong>スワイプ</strong><span>A 点から B 点までドラッグ</span><div class="state">▶ 動画を見る</div></a>
+    <a class="action" href="#scroll"><strong>スクロール</strong><span>指定した方向にスクロール(位置の指定は不要)</span><div class="state">▶ 動画を見る</div></a>
+    <a class="action" href="#paste-text"><strong>テキストを貼り付け</strong><span>テキスト全体を入力欄に貼り付け</span><div class="state">▶ 動画を見る</div></a>
+    <a class="action" href="#type-keys"><strong>文字を入力 <span class="badge">PRO</span></strong><span>キーを 1 つずつタップして入力</span><div class="state">▶ 動画を見る</div></a>
+  </div>
+
+  <p class="label" id="wait">待機と検出</p>
+  <div class="action-grid">
+    <a class="action" href="#delay"><strong>待機</strong><span>次のステップの前に一時停止</span><div class="state">▶ 動画を見る</div></a>
+    <a class="action" href="#wait-image"><strong>画像を待機 <span class="badge">PRO</span></strong><span>画像が表示または消えるのを待つ(タップなし)</span><div class="state">▶ 動画を見る</div></a>
+    <a class="action" href="#wait-color"><strong>色を待機 <span class="badge">PRO</span></strong><span>指定した位置が選んだ色になるまで待つ</span><div class="state">▶ 動画を見る</div></a>
+    <a class="action" href="#image-click"><strong>画像をタップ <span class="badge">PRO</span></strong><span>画面上でテンプレート画像を探してタップ</span><div class="state">▶ 動画を見る</div></a>
+    <a class="action" href="#ocr-click"><strong>文字をタップ(OCR) <span class="badge">PRO</span></strong><span>スクリーンショットから文字を読み取ってタップ · ゲームにも対応</span><div class="state">▶ 動画を見る</div></a>
+    <a class="action" href="#ocr-wait"><strong>文字を待機(OCR) <span class="badge">PRO</span></strong><span>文字が表示または消えるのを待つ(タップなし) · ゲームにも対応</span><div class="state">▶ 動画を見る</div></a>
+    <a class="action" href="#ocr-read"><strong>文字を読み取り(OCR) <span class="badge">PRO</span></strong><span>範囲内の文字を読み取って変数に保存 · ゲームにも対応</span><div class="state">▶ 動画を見る</div></a>
+    <a class="action" href="#click-text"><strong>文字をタップ</strong><span>文字を探してタップ · ゲームには非対応</span><div class="state">▶ 動画を見る</div></a>
+    <a class="action" href="#click-node"><strong>ノードをタップ <span class="badge">PRO</span></strong><span>画面キャプチャでノードを選んでタップ · ゲームには非対応</span><div class="state">▶ 動画を見る</div></a>
+    <a class="action" href="#read-text"><strong>画面の文字を取得 <span class="badge">PRO</span></strong><span>ノードを選び、その文字を変数に保存 · ゲームには使えません</span><div class="state">▶ 動画を見る</div></a>
+    <a class="action" href="#wait-notification"><strong>通知を待機して検出 <span class="badge">PRO</span></strong><span>指定した文字を含む通知か入出金通知を待ち、読み上げるか次へ進みます</span><div class="state">▶ 動画を見る</div></a>
+  </div>
+
+  <p class="label" id="system">システム</p>
+  <div class="action-grid">
+    <a class="action" href="#open-app"><strong>アプリを開く</strong><span>アプリを開き、表示されるまで待つ</span><div class="state">▶ 動画を見る</div></a>
+    <a class="action" href="#back"><strong>戻る</strong><span>システムの戻るキーを押す</span><div class="state">▶ 動画を見る</div></a>
+    <a class="action" href="#home"><strong>ホーム画面</strong><span>端末のホーム画面に移動</span><div class="state">▶ 動画を見る</div></a>
+    <a class="action" href="#recent"><strong>最近使ったアプリ</strong><span>最近使ったアプリの一覧を開く</span><div class="state">▶ 動画を見る</div></a>
+  </div>
+
+  <p class="label" id="flow">スクリプトの流れ</p>
+  <div class="action-grid">
+    <a class="action" href="#if-then"><strong>もし… なら <span class="badge">PRO</span></strong><span>画面を確認し、2 つの分岐のどちらかに進む</span><div class="state">▶ 動画を見る</div></a>
+    <a class="action" href="#loop-until"><strong>条件まで繰り返す <span class="badge">PRO</span></strong><span>条件が真になるまで、中のステップを繰り返し実行</span><div class="state">▶ 動画を見る</div></a>
+    <a class="action" href="#stop-script"><strong>スクリプトを停止 <span class="badge">PRO</span></strong><span>条件を満たしたら実行全体を終了します</span><div class="state">▶ 動画を見る</div></a>
+    <a class="action" href="#next-round"><strong>次の回へ <span class="badge">PRO</span></strong><span>残りのステップを飛ばして次の回を始めます</span><div class="state">▶ 動画を見る</div></a>
+    <a class="action" href="#call-script"><strong>スクリプトを呼び出す <span class="badge">PRO</span></strong><span>別のスクリプトを実行してから戻る</span><div class="state">▶ 動画を見る</div></a>
+    <a class="action" href="#set-variable"><strong>変数に書き込む <span class="badge">PRO</span></strong><span>記憶する変数に値を設定・加算します</span><div class="state">▶ 動画を見る</div></a>
+  </div>
+
+  <section class="guide" id="click">
+    <h2>タップ</h2>
+    <p class="muted">最も基本的なアクション：画面上で選んだ位置を AutoGest が正確にタップします。</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ja/click.mp4" poster="../../media/guide/ja/click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="タップアクションの動画ガイド：「アクションを追加」をタップし、タップを選ぶ; 「位置を追加」をタップ; アプリを開き、照準をその位置へドラッグ; OK をタップして座標を保存; AutoGest に戻ると座標が入っている; テスト実行をタップしてアプリを開く。AutoGest が選んだ位置を正確にタップ。"></video>
+        <figcaption>実機で録画 · 28 秒</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>「アクションを追加」をタップし、タップを選ぶ</li>
+          <li>「位置を追加」をタップ</li>
+          <li>アプリを開き、照準をその位置へドラッグ</li>
+          <li>OK をタップして座標を保存</li>
+          <li>AutoGest に戻ると座標が入っている</li>
+          <li>テスト実行をタップしてアプリを開く</li>
+        </ol>
+        <p class="result">▶ AutoGest が選んだ位置を正確にタップ</p>
+        <div class="callout">
+          <strong>ヒント</strong>
+          <ul>
+            <li>座標は画面サイズに合わせて換算されるので、画面サイズの違う端末でも正しい位置をタップします。</li>
+            <li><strong>共通設定</strong>でステップ間の休みとタップ位置の小さなずれを設定でき、人の操作のようになります。</li>
+            <li>ボタンの位置が変わる？ <strong>画像をタップ</strong>、<strong>文字をタップ(OCR)</strong>、<strong>文字をタップ</strong>で先にボタンを探させましょう。</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ アクション一覧に戻る</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="rapid-click">
+    <h2>連続タップ</h2>
+    <p class="muted">一点を毎秒 1〜20 回の速さで連続タップ。素早い連打が必要なゲームに最適です。</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ja/rapid-click.mp4" poster="../../media/guide/ja/rapid-click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="連続タップアクションの動画ガイド：「アクションを追加」をタップし、連続タップを選ぶ; 「位置を追加」をタップ; アプリを開き、照準をボタンに合わせる; OK をタップして座標を保存; AutoGest に戻り、タップ回数を減らす; テスト実行をタップしてアプリを開く。AutoGest が 30 回、毎秒 10 回タップ。"></video>
+        <figcaption>実機で録画 · 33 秒</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>「アクションを追加」をタップし、連続タップを選ぶ</li>
+          <li>「位置を追加」をタップ</li>
+          <li>アプリを開き、照準をボタンに合わせる</li>
+          <li>OK をタップして座標を保存</li>
+          <li>AutoGest に戻り、タップ回数を減らす</li>
+          <li>テスト実行をタップしてアプリを開く</li>
+        </ol>
+        <p class="result">▶ AutoGest が 30 回、毎秒 10 回タップ</p>
+        <div class="callout">
+          <strong>ヒント</strong>
+          <ul>
+            <li>回数、時間で止めるか、停止を押すまで続けるかを選べます。</li>
+            <li>毎秒 10 回を超えると人の手より速く、アプリによっては不自然と見なされることがあります。</li>
+            <li>自然なリズムをオンにすると、タップの間隔が本物の指のように少し揺らぎます。</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ アクション一覧に戻る</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="long-click">
+    <h2>長押し</h2>
+    <p class="muted">選んだ時間だけ一点を長押し。長押しで確定するボタン、コンテキストメニュー、ドラッグ選択に。</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ja/long-click.mp4" poster="../../media/guide/ja/long-click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="長押しアクションの動画ガイド：「アクションを追加」をタップし、長押しを選ぶ; 「位置を追加」をタップ; アプリを開き、照準をボタンに合わせる; OK をタップして座標を保存; AutoGest に戻り、長押しの時間を選ぶ; テスト実行をタップしてアプリを開く。AutoGest がボタンを 2 秒長押しし、ロック解除。"></video>
+        <figcaption>実機で録画 · 30 秒</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>「アクションを追加」をタップし、長押しを選ぶ</li>
+          <li>「位置を追加」をタップ</li>
+          <li>アプリを開き、照準をボタンに合わせる</li>
+          <li>OK をタップして座標を保存</li>
+          <li>AutoGest に戻り、長押しの時間を選ぶ</li>
+          <li>テスト実行をタップしてアプリを開く</li>
+        </ol>
+        <p class="result">▶ AutoGest がボタンを 2 秒長押しし、ロック解除</p>
+        <div class="callout">
+          <strong>ヒント</strong>
+          <ul>
+            <li>「長押しで確定」ボタンには、アプリが求める時間より少し長めに設定しましょう。</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ アクション一覧に戻る</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="swipe">
+    <h2>スワイプ</h2>
+    <p class="muted">開始位置から終了位置まで指をドラッグ。スワイプでロック解除、スライダー操作、ページめくりに。</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ja/swipe.mp4" poster="../../media/guide/ja/swipe.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="スワイプアクションの動画ガイド：「アクションを追加」をタップし、スワイプを選ぶ; 開始位置を選ぶ; 戻って終了位置を選ぶ; 戻ってスワイプの時間を選ぶ; テスト実行をタップしてアプリを開く。AutoGest が開始位置から終了位置へスワイプ。"></video>
+        <figcaption>実機で録画 · 34 秒</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>「アクションを追加」をタップし、スワイプを選ぶ</li>
+          <li>開始位置を選ぶ</li>
+          <li>戻って終了位置を選ぶ</li>
+          <li>戻ってスワイプの時間を選ぶ</li>
+          <li>テスト実行をタップしてアプリを開く</li>
+        </ol>
+        <p class="result">▶ AutoGest が開始位置から終了位置へスワイプ</p>
+        <div class="callout">
+          <strong>ヒント</strong>
+          <ul>
+            <li>短い時間は素早いフリック、長い時間はゆっくりしたドラッグ（ドラッグ＆ドロップ、スライダー）になります。</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ アクション一覧に戻る</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="scroll">
+    <h2>スクロール</h2>
+    <p class="muted">画面中央をスワイプして、リストを上下左右にスクロール。座標を選ぶ必要はありません。</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ja/scroll.mp4" poster="../../media/guide/ja/scroll.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="スクロールアクションの動画ガイド：「アクションを追加」をタップし、スクロールを選ぶ; 方向と時間を選ぶ; テスト実行をタップしてアプリを開く。AutoGest が画面中央をスワイプしてスクロール。"></video>
+        <figcaption>実機で録画 · 20 秒</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>「アクションを追加」をタップし、スクロールを選ぶ</li>
+          <li>方向と時間を選ぶ</li>
+          <li>テスト実行をタップしてアプリを開く</li>
+        </ol>
+        <p class="result">▶ AutoGest が画面中央をスワイプしてスクロール</p>
+        <div class="callout">
+          <strong>ヒント</strong>
+          <ul>
+            <li><strong>条件まで繰り返す</strong>と組み合わせると、探しているものが出るまでスクロールできます。</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ アクション一覧に戻る</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="paste-text">
+    <h2>テキストを貼り付け</h2>
+    <p class="muted">入力欄をタップし、用意した文章をまとめて入力。速く、文字化けもありません。</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ja/paste-text.mp4" poster="../../media/guide/ja/paste-text.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="テキストを貼り付けアクションの動画ガイド：「アクションを追加」をタップし、テキストを貼り付けを選ぶ; 「位置を追加」をタップ、入力欄に照準を合わせる; 戻って貼り付ける文章を入力; テスト実行をタップしてアプリを開く。AutoGest が文章全体を入力欄に貼り付け。"></video>
+        <figcaption>実機で録画 · 31 秒</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>「アクションを追加」をタップし、テキストを貼り付けを選ぶ</li>
+          <li>「位置を追加」をタップ、入力欄に照準を合わせる</li>
+          <li>戻って貼り付ける文章を入力</li>
+          <li>テスト実行をタップしてアプリを開く</li>
+        </ol>
+        <p class="result">▶ AutoGest が文章全体を入力欄に貼り付け</p>
+        <div class="callout">
+          <strong>ヒント</strong>
+          <ul>
+            <li><code>||</code> で複数の文章を区切ると、実行のたびに AutoGest がランダムに一つ選びます。</li>
+            <li><strong>変数を挿入</strong>で変数を挿入すると、実行中に読み取った値を貼り付けられます。</li>
+            <li>貼り付けできないアプリでは、<strong>文字を入力</strong>で一文字ずつキーを押しましょう。</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ アクション一覧に戻る</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="type-keys">
+    <h2>文字を入力 <span class="badge">PRO</span></h2>
+    <p class="muted">キーボードで押したキーを一つずつ記録し、実行時に AutoGest が同じキーをあなたのリズムで押します。</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ja/type-keys.mp4" poster="../../media/guide/ja/type-keys.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="文字を入力アクションの動画ガイド：「アクションを追加」をタップし、文字を入力を選ぶ; キー記録欄をタップし、キーボードで入力; 「完了」をタップしてキーを保存; 入力先の欄を選ぶ（任意）; 戻ってテスト実行をタップし、アプリを開く。AutoGest が欄をタップし、キーを一つずつ再現。"></video>
+        <figcaption>実機で録画 · 39 秒</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>「アクションを追加」をタップし、文字を入力を選ぶ</li>
+          <li>キー記録欄をタップし、キーボードで入力</li>
+          <li>「完了」をタップしてキーを保存</li>
+          <li>入力先の欄を選ぶ（任意）</li>
+          <li>戻ってテスト実行をタップし、アプリを開く</li>
+        </ol>
+        <p class="result">▶ AutoGest が欄をタップし、キーを一つずつ再現</p>
+        <div class="callout">
+          <strong>ヒント</strong>
+          <ul>
+            <li>AutoGest はキーの位置で押すため、記録と実行で同じキーボード（同じ種類の入力欄）を使ってください。</li>
+            <li>入力後に AutoGest が欄を確認し、文字が一致しなければエラーにして入力を止めます。</li>
+            <li>一つずつ押す必要がなければ、カードを<strong>テキストを貼り付け</strong>に切り替えられます。</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ アクション一覧に戻る</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="delay">
+    <h2>待機</h2>
+    <p class="muted">次のステップの前に一時停止。画面の読み込み、アニメーションの終了、タイマーの経過を待ちます。</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ja/delay.mp4" poster="../../media/guide/ja/delay.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="待機アクションの動画ガイド：「アクションを追加」をタップし、待機を選ぶ; 待ち時間（ms）を入力; タップ ステップを追加して間隔を見る; 「共通設定」でスクリプトを 2 回繰り返す; テスト実行をタップしてアプリを開く。タップの間隔は 3 秒＋ステップ間の休み。"></video>
+        <figcaption>実機で録画 · 45 秒</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>「アクションを追加」をタップし、待機を選ぶ</li>
+          <li>待ち時間（ms）を入力</li>
+          <li>タップ ステップを追加して間隔を見る</li>
+          <li>「共通設定」でスクリプトを 2 回繰り返す</li>
+          <li>テスト実行をタップしてアプリを開く</li>
+        </ol>
+        <p class="result">▶ タップの間隔は 3 秒＋ステップ間の休み</p>
+        <div class="callout">
+          <strong>ヒント</strong>
+          <ul>
+            <li>各ステップはすでに短いランダムな休みを入れています（<strong>共通設定</strong>で設定）。もっと長く待ちたいときだけ追加しましょう。</li>
+            <li>何かが表示されるのを待つなら、<strong>画像を待機</strong>、<strong>文字を待機(OCR)</strong>、<strong>色を待機</strong>なら表示された瞬間に進みます。</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ アクション一覧に戻る</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="wait-image">
+    <h2>画像を待機 <span class="badge">PRO</span></h2>
+    <p class="muted">画面に画像が現れる（または消える）までタップせずに待ち、そのあと次のステップへ進みます。</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ja/wait-image.mp4" poster="../../media/guide/ja/wait-image.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="画像を待機アクションの動画ガイド：「アクションを追加」をタップし、画像を待機を選ぶ; 「画像を選択」をタップし、「画面から切り取る」を選ぶ; 画面を開き、キャプチャをタップして画像を囲む; 戻って、画像が出る位置に タップ を追加; 戻ってテスト実行をタップし、アプリを開く。AutoGest がギフトボックスを待ってから タップ を実行。"></video>
+        <figcaption>実機で録画 · 47 秒</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>「アクションを追加」をタップし、画像を待機を選ぶ</li>
+          <li>「画像を選択」をタップし、「画面から切り取る」を選ぶ</li>
+          <li>画面を開き、キャプチャをタップして画像を囲む</li>
+          <li>戻って、画像が出る位置に タップ を追加</li>
+          <li>戻ってテスト実行をタップし、アプリを開く</li>
+        </ol>
+        <p class="result">▶ AutoGest がギフトボックスを待ってから タップ を実行</p>
+        <div class="callout">
+          <strong>ヒント</strong>
+          <ul>
+            <li>探したいものにぴったり合わせて切り取り、変わる背景を含めないようにしましょう。</li>
+            <li>毎回少し見た目が違うなら、最小一致度を下げてください。</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ アクション一覧に戻る</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="wait-color">
+    <h2>色を待機 <span class="badge">PRO</span></h2>
+    <p class="muted">一点が選んだ色になる（または色が変わる）まで監視。信号が青になる、ボタンが有効になる、など。</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ja/wait-color.mp4" poster="../../media/guide/ja/wait-color.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="色を待機アクションの動画ガイド：「アクションを追加」をタップし、色を待機を選ぶ; 「位置を追加」をタップ、色を待つ位置に照準を合わせる; 戻る：AutoGest がその位置の色を読み取り済み; 「進む」にタップステップを追加; 戻ってテスト実行をタップし、アプリを開く。AutoGest が青信号を待ってから「進む」をタップ。"></video>
+        <figcaption>実機で録画 · 46 秒</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>「アクションを追加」をタップし、色を待機を選ぶ</li>
+          <li>「位置を追加」をタップ、色を待つ位置に照準を合わせる</li>
+          <li>戻る：AutoGest がその位置の色を読み取り済み</li>
+          <li>「進む」にタップステップを追加</li>
+          <li>戻ってテスト実行をタップし、アプリを開く</li>
+        </ol>
+        <p class="result">▶ AutoGest が青信号を待ってから「進む」をタップ</p>
+        <div class="callout">
+          <strong>ヒント</strong>
+          <ul>
+            <li>待ちたい色が表示されているときに位置を選べば、AutoGest が色を読み取ります。</li>
+            <li>画面の画像だけを見るので、ゲームでも使えます。</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ アクション一覧に戻る</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="image-click">
+    <h2>画像をタップ <span class="badge">PRO</span></h2>
+    <p class="muted">画面上の画像を探してタップ。どこにあっても見つけるので、位置が変わるボタンに最適です。</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ja/image-click.mp4" poster="../../media/guide/ja/image-click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="画像をタップアクションの動画ガイド：「アクションを追加」をタップし、画像をタップを選ぶ; 「画像を選択」をタップし、「画面から切り取る」を選ぶ; 画像のある画面を開き、キャプチャをタップ; 枠を画像にぴったり合わせて OK; 戻ってテスト実行をタップし、アプリを開く。AutoGest がギフトボックスの出現を待ってタップ。"></video>
+        <figcaption>実機で録画 · 36 秒</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>「アクションを追加」をタップし、画像をタップを選ぶ</li>
+          <li>「画像を選択」をタップし、「画面から切り取る」を選ぶ</li>
+          <li>画像のある画面を開き、キャプチャをタップ</li>
+          <li>枠を画像にぴったり合わせて OK</li>
+          <li>戻ってテスト実行をタップし、アプリを開く</li>
+        </ol>
+        <p class="result">▶ AutoGest がギフトボックスの出現を待ってタップ</p>
+        <div class="callout">
+          <strong>ヒント</strong>
+          <ul>
+            <li>AutoGest はアプリの構造ではなく画面の画像を見るので、ゲームでも動きます。</li>
+            <li>周りの背景を含めず、ボタンだけを切り取りましょう。</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ アクション一覧に戻る</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="ocr-click">
+    <h2>文字をタップ(OCR) <span class="badge">PRO</span></h2>
+    <p class="muted">端末上の文字認識（OCR）でスクリーンショットの文字を読み取り、タップします。文字を自前で描くゲームでも使えます。</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ja/ocr-click.mp4" poster="../../media/guide/ja/ocr-click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="文字をタップ(OCR)アクションの動画ガイド：「アクションを追加」をタップし、文字をタップ(OCR)を選ぶ; ボタンの文字を入力; テスト実行をタップしてアプリを開く。AutoGest が画面の画像を読み取り（ゲームでも）、文字をタップ。"></video>
+        <figcaption>実機で録画 · 29 秒</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>「アクションを追加」をタップし、文字をタップ(OCR)を選ぶ</li>
+          <li>ボタンの文字を入力</li>
+          <li>テスト実行をタップしてアプリを開く</li>
+        </ol>
+        <p class="result">▶ AutoGest が画面の画像を読み取り（ゲームでも）、文字をタップ</p>
+        <div class="callout">
+          <strong>ヒント</strong>
+          <ul>
+            <li>日本語の文字は「日本語」の文字種を選んでください。英語などは Latin で読み取れます。</li>
+            <li>検索範囲を狭めると、より速く正確に読み取れます。</li>
+            <li>認識は端末内で行われ、どこにも送信されません。</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ アクション一覧に戻る</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="ocr-wait">
+    <h2>文字を待機(OCR) <span class="badge">PRO</span></h2>
+    <p class="muted">画面の画像に文字が現れる（または消える）まで、タップせずに待ちます。</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ja/ocr-wait.mp4" poster="../../media/guide/ja/ocr-wait.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="文字を待機(OCR)アクションの動画ガイド：「アクションを追加」をタップし、文字を待機(OCR)を選ぶ; 待つ文字を入力; 「走る」にタップステップを追加; 戻ってテスト実行をタップし、アプリを開く。AutoGest が「ドン」を待ってから「走る」をタップ。"></video>
+        <figcaption>実機で録画 · 42 秒</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>「アクションを追加」をタップし、文字を待機(OCR)を選ぶ</li>
+          <li>待つ文字を入力</li>
+          <li>「走る」にタップステップを追加</li>
+          <li>戻ってテスト実行をタップし、アプリを開く</li>
+        </ol>
+        <p class="result">▶ AutoGest が「ドン」を待ってから「走る」をタップ</p>
+        <div class="callout">
+          <strong>ヒント</strong>
+          <ul>
+            <li>「よーい…スタート！」「勝利」やカウントダウン終了などのゲーム画面に便利です。</li>
+            <li>範囲を選ぶと待ちが速くなり、別の場所の同じ言葉と取り違えません。</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ アクション一覧に戻る</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="ocr-read">
+    <h2>文字を読み取り(OCR) <span class="badge">PRO</span></h2>
+    <p class="muted">画面の画像の一部分の文字を読み取り、変数に保存して後のステップで使います。</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ja/ocr-read.mp4" poster="../../media/guide/ja/ocr-read.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="文字を読み取り(OCR)アクションの動画ガイド：「アクションを追加」をタップし、文字を読み取り(OCR)を選ぶ; 「範囲を選択」をタップし、画面を開いてキャプチャ; コードを囲んで OK; 戻って「数字のみ」と保存先の変数を選ぶ; 入力欄にテキストを貼り付けを追加し、変数を挿入; 「確認」にタップステップを追加; テスト実行をタップしてアプリを開く。AutoGest が画像からコードを読み取って入力。"></video>
+        <figcaption>実機で録画 · 77 秒</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>「アクションを追加」をタップし、文字を読み取り(OCR)を選ぶ</li>
+          <li>「範囲を選択」をタップし、画面を開いてキャプチャ</li>
+          <li>コードを囲んで OK</li>
+          <li>戻って「数字のみ」と保存先の変数を選ぶ</li>
+          <li>入力欄にテキストを貼り付けを追加し、変数を挿入</li>
+          <li>「確認」にタップステップを追加</li>
+          <li>テスト実行をタップしてアプリを開く</li>
+        </ol>
+        <p class="result">▶ AutoGest が画像からコードを読み取って入力</p>
+        <div class="callout">
+          <strong>ヒント</strong>
+          <ul>
+            <li>「数字のみ」を選ぶと数字だけを残せます。スコア、価格、コードに。</li>
+            <li>変数はテキスト貼り付けで使ったり、もし…ならばブロックで比較したりできます。</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ アクション一覧に戻る</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="click-text">
+    <h2>文字をタップ</h2>
+    <p class="muted">ボタンに表示される文字を入力すると、実行時に AutoGest が画面上でその文字を探してタップします。</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ja/click-text.mp4" poster="../../media/guide/ja/click-text.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="文字をタップアクションの動画ガイド：「アクションを追加」をタップし、文字をタップを選ぶ; ボタンに表示される文字を入力; テスト実行をタップしてアプリを開く。ボタンがどこにあっても、AutoGest が文字を見つけてタップ。"></video>
+        <figcaption>実機で録画 · 29 秒</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>「アクションを追加」をタップし、文字をタップを選ぶ</li>
+          <li>ボタンに表示される文字を入力</li>
+          <li>テスト実行をタップしてアプリを開く</li>
+        </ol>
+        <p class="result">▶ ボタンがどこにあっても、AutoGest が文字を見つけてタップ</p>
+        <div class="callout">
+          <strong>ヒント</strong>
+          <ul>
+            <li>アプリの構造を読むため、文字を自前で描くゲームでは動きません。その場合は<strong>文字をタップ(OCR)</strong>を使いましょう。</li>
+            <li>大文字・小文字は区別せず、入力した文字を含んでいれば一致します。</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ アクション一覧に戻る</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="click-node">
+    <h2>ノードをタップ <span class="badge">PRO</span></h2>
+    <p class="muted">画面をキャプチャして要素をタップすると、AutoGest がその要素の探し方を覚えます。アイコンだけのボタンも可。</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ja/click-node.mp4" poster="../../media/guide/ja/click-node.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="ノードをタップアクションの動画ガイド：「アクションを追加」をタップし、ノードをタップを選ぶ; 「ノードを選択」をタップし、アプリを開いてキャプチャ; 押したいボタンをタップし、「ノードを選択」; 戻って、ノードの探し方を選ぶ; テスト実行をタップしてアプリを開く。AutoGest がハートのボタンを見つけてタップ。"></video>
+        <figcaption>実機で録画 · 37 秒</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>「アクションを追加」をタップし、ノードをタップを選ぶ</li>
+          <li>「ノードを選択」をタップし、アプリを開いてキャプチャ</li>
+          <li>押したいボタンをタップし、「ノードを選択」</li>
+          <li>戻って、ノードの探し方を選ぶ</li>
+          <li>テスト実行をタップしてアプリを開く</li>
+        </ol>
+        <p class="result">▶ AutoGest がハートのボタンを見つけてタップ</p>
+        <div class="callout">
+          <strong>ヒント</strong>
+          <ul>
+            <li>text や content-desc が変わらないならそれで探し、アプリの更新で変わる resource-id は避けましょう。</li>
+            <li>毎回変わる部分（件数など）を消しておくと、次回も見つかります。</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ アクション一覧に戻る</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="read-text">
+    <h2>画面の文字を取得 <span class="badge">PRO</span></h2>
+    <p class="muted">画面上の要素を選び、その文字をタップせずに変数へコピーします。</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ja/read-text.mp4" poster="../../media/guide/ja/read-text.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="画面の文字を取得アクションの動画ガイド：「アクションを追加」をタップし、画面の文字を取得を選ぶ; 「ノードを選択」をタップし、アプリを開いてキャプチャ; コードをタップし、「ノードを選択」; 戻って、保存先の変数を選ぶ; 入力欄にテキストを貼り付けを追加し、変数を挿入; 「確認」にタップステップを追加; テスト実行をタップしてアプリを開く。AutoGest がコードをコピーして入力。"></video>
+        <figcaption>実機で録画 · 78 秒</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>「アクションを追加」をタップし、画面の文字を取得を選ぶ</li>
+          <li>「ノードを選択」をタップし、アプリを開いてキャプチャ</li>
+          <li>コードをタップし、「ノードを選択」</li>
+          <li>戻って、保存先の変数を選ぶ</li>
+          <li>入力欄にテキストを貼り付けを追加し、変数を挿入</li>
+          <li>「確認」にタップステップを追加</li>
+          <li>テスト実行をタップしてアプリを開く</li>
+        </ol>
+        <p class="result">▶ AutoGest がコードをコピーして入力</p>
+        <div class="callout">
+          <strong>ヒント</strong>
+          <ul>
+            <li>ワンタイムコード、注文番号、残高などの取得に便利です。</li>
+            <li>アプリの構造を読むため、ゲームでは<strong>文字を読み取り(OCR)</strong>を使いましょう。</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ アクション一覧に戻る</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="wait-notification">
+    <h2>通知を待機して検出 <span class="badge">PRO</span></h2>
+    <p class="muted">選んだ文字を含む通知を待ち、読み上げてからスクリプトを続けます。</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ja/wait-notification.mp4" poster="../../media/guide/ja/wait-notification.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="通知を待機して検出アクションの動画ガイド：「アクションを追加」をタップし、通知を待機して検出を選ぶ; 「見本の通知を選択」をタップし、通知を一つ選ぶ; 通知に含まれるべき言葉を入力; 「この見本を使う」をタップ; 「注文を確認」にタップステップを追加; 戻ってテスト実行をタップし、アプリを開く; お客様が注文すると…。AutoGest が通知を読み上げてから確認。"></video>
+        <figcaption>実機で録画 · 66 秒</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>「アクションを追加」をタップし、通知を待機して検出を選ぶ</li>
+          <li>「見本の通知を選択」をタップし、通知を一つ選ぶ</li>
+          <li>通知に含まれるべき言葉を入力</li>
+          <li>「この見本を使う」をタップ</li>
+          <li>「注文を確認」にタップステップを追加</li>
+          <li>戻ってテスト実行をタップし、アプリを開く</li>
+          <li>お客様が注文すると…</li>
+        </ol>
+        <p class="result">▶ AutoGest が通知を読み上げてから確認</p>
+        <div class="callout">
+          <strong>ヒント</strong>
+          <ul>
+            <li>実際の通知をサンプルに選び、待つ言葉を入力します。注文番号のように毎回変わる部分はゆるく照合されます。</li>
+            <li>通知を待つだけのスクリプトは、画面オフでもバックグラウンドで動かせます。</li>
+            <li>通知の内容は端末内にとどまり、ログには一切書かれません。</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ アクション一覧に戻る</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="open-app">
+    <h2>アプリを開く</h2>
+    <p class="muted">一覧からアプリを開き、表示されるまで待ちます。どのスクリプトでも最初のステップに向いています。</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ja/open-app.mp4" poster="../../media/guide/ja/open-app.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="アプリを開くアクションの動画ガイド：「アクションを追加」をタップし、アプリを開くを選ぶ; 「アプリを選択」をタップし、開くアプリを選ぶ; テスト実行をタップ。アプリを自分で開く必要なし。AutoGest が選んだアプリを自動で開く。"></video>
+        <figcaption>実機で録画 · 37 秒</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>「アクションを追加」をタップし、アプリを開くを選ぶ</li>
+          <li>「アプリを選択」をタップし、開くアプリを選ぶ</li>
+          <li>テスト実行をタップ。アプリを自分で開く必要なし</li>
+        </ol>
+        <p class="result">▶ AutoGest が選んだアプリを自動で開く</p>
+        <div class="callout">
+          <strong>ヒント</strong>
+          <ul>
+            <li>スクリプトは AutoGest から始められ、このステップで目的のアプリを前面に出します。</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ アクション一覧に戻る</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="back">
+    <h2>戻る</h2>
+    <p class="muted">システムの戻るボタンを押します。</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ja/back.mp4" poster="../../media/guide/ja/back.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="戻るアクションの動画ガイド：「アクションを追加」をタップし、戻るを選ぶ; テスト実行をタップしてアプリを開く; カウントダウン中にニュースを開く。AutoGest が戻るを押し、一覧に戻る。"></video>
+        <figcaption>実機で録画 · 25 秒</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>「アクションを追加」をタップし、戻るを選ぶ</li>
+          <li>テスト実行をタップしてアプリを開く</li>
+          <li>カウントダウン中にニュースを開く</li>
+        </ol>
+        <p class="result">▶ AutoGest が戻るを押し、一覧に戻る</p>
+        <div class="callout">
+          <strong>ヒント</strong>
+          <ul>
+            <li>ダイアログを閉じたり、一つ前の画面に戻ったりするのに使います。</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ アクション一覧に戻る</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="home">
+    <h2>ホーム画面</h2>
+    <p class="muted">ホーム画面に移動します。</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ja/home.mp4" poster="../../media/guide/ja/home.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="ホーム画面アクションの動画ガイド：「アクションを追加」をタップし、ホーム画面を選ぶ; テスト実行をタップしてアプリを開く。AutoGest がホーム画面へ（プライバシーのためぼかし）。"></video>
+        <figcaption>実機で録画 · 24 秒</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>「アクションを追加」をタップし、ホーム画面を選ぶ</li>
+          <li>テスト実行をタップしてアプリを開く</li>
+        </ol>
+        <p class="result">▶ AutoGest がホーム画面へ（プライバシーのためぼかし）</p>
+        <div class="callout">
+          <strong>ヒント</strong>
+          <ul>
+            <li>スクリプトの最後や、別のアプリを開く前に便利です。</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ アクション一覧に戻る</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="recent">
+    <h2>最近使ったアプリ</h2>
+    <p class="muted">最近使ったアプリの一覧を開きます。</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ja/recent.mp4" poster="../../media/guide/ja/recent.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="最近使ったアプリアクションの動画ガイド：「アクションを追加」をタップし、最近使ったアプリを選ぶ; テスト実行をタップしてアプリを開く。AutoGest が最近のアプリを開く（プライバシーのためぼかし）。"></video>
+        <figcaption>実機で録画 · 24 秒</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>「アクションを追加」をタップし、最近使ったアプリを選ぶ</li>
+          <li>テスト実行をタップしてアプリを開く</li>
+        </ol>
+        <p class="result">▶ AutoGest が最近のアプリを開く（プライバシーのためぼかし）</p>
+        <div class="callout">
+          <strong>ヒント</strong>
+          <ul>
+            <li>タップ と組み合わせて別のアプリに切り替えられます。</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ アクション一覧に戻る</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="if-then">
+    <h2>もし… なら <span class="badge">PRO</span></h2>
+    <p class="muted">条件を満たすときだけステップを実行。条件は画像、色、文字、周回数、変数から選べます。</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ja/if-then.mp4" poster="../../media/guide/ja/if-then.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="もし… ならアクションの動画ガイド：「アクションを追加」をタップし、もし… ならを選ぶ; 「文字」を選び、探す文字を入力; 「それ以外」の分岐をオフにし、「完了」; 「ならば」分岐に追加：閉じる（✕）ボタンを タップ; 戻ってテスト実行をタップし、アプリを開く。AutoGest が「広告」を見つけて閉じるをタップ。"></video>
+        <figcaption>実機で録画 · 50 秒</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>「アクションを追加」をタップし、もし… ならを選ぶ</li>
+          <li>「文字」を選び、探す文字を入力</li>
+          <li>「それ以外」の分岐をオフにし、「完了」</li>
+          <li>「ならば」分岐に追加：閉じる（✕）ボタンを タップ</li>
+          <li>戻ってテスト実行をタップし、アプリを開く</li>
+        </ol>
+        <p class="result">▶ AutoGest が「広告」を見つけて閉じるをタップ</p>
+        <div class="callout">
+          <strong>ヒント</strong>
+          <ul>
+            <li>「それ以外」の分岐をオンにすると、条件を満たさないときに別のステップを実行できます。</li>
+            <li>ブロックは一階層だけです。入れ子にしたい場合は別のスクリプトに分けて<strong>スクリプトを呼び出す</strong>を使いましょう。</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ アクション一覧に戻る</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="loop-until">
+    <h2>条件まで繰り返す <span class="badge">PRO</span></h2>
+    <p class="muted">条件を満たすまで、または指定回数だけ、ブロック内のステップを繰り返します。</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ja/loop-until.mp4" poster="../../media/guide/ja/loop-until.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="条件まで繰り返すアクションの動画ガイド：「アクションを追加」をタップし、条件まで繰り返すを選ぶ; 「文字」で停止：終わりに出る文字を入力; ループに追加：「もっと読み込む」を タップ; 戻ってテスト実行をタップし、アプリを開く。AutoGest が「これ以上ニュースはありません」が出るまで「もっと読み込む」をタップ。"></video>
+        <figcaption>実機で録画 · 50 秒</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>「アクションを追加」をタップし、条件まで繰り返すを選ぶ</li>
+          <li>「文字」で停止：終わりに出る文字を入力</li>
+          <li>ループに追加：「もっと読み込む」を タップ</li>
+          <li>戻ってテスト実行をタップし、アプリを開く</li>
+        </ol>
+        <p class="result">▶ AutoGest が「これ以上ニュースはありません」が出るまで「もっと読み込む」をタップ</p>
+        <div class="callout">
+          <strong>ヒント</strong>
+          <ul>
+            <li>誤って無限に動かないよう、必ず最大周回数を設定しましょう。</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ アクション一覧に戻る</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="stop-script">
+    <h2>スクリプトを停止 <span class="badge">PRO</span></h2>
+    <p class="muted">条件を満たしたら実行全体を終了。回数やエネルギーが尽きたときなどに。</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ja/stop-script.mp4" poster="../../media/guide/ja/stop-script.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="スクリプトを停止アクションの動画ガイド：「回す」にタップステップを追加; 戻ってスクリプトを停止を追加; 「回数がありません」の文字が出たら停止; スクリプトを無制限に繰り返す; テスト実行をタップしてアプリを開く。最後の回転のあと、AutoGest が自動で停止。"></video>
+        <figcaption>実機で録画 · 56 秒</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>「回す」にタップステップを追加</li>
+          <li>戻ってスクリプトを停止を追加</li>
+          <li>「回数がありません」の文字が出たら停止</li>
+          <li>スクリプトを無制限に繰り返す</li>
+          <li>テスト実行をタップしてアプリを開く</li>
+        </ol>
+        <p class="result">▶ 最後の回転のあと、AutoGest が自動で停止</p>
+        <div class="callout">
+          <strong>ヒント</strong>
+          <ul>
+            <li>無制限ループを終えるきれいな方法です。</li>
+            <li>もし…ならばの分岐内に置けば、条件なしですぐ止められます。</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ アクション一覧に戻る</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="next-round">
+    <h2>次の回へ <span class="badge">PRO</span></h2>
+    <p class="muted">条件を満たしたら、この周回の残りを飛ばして次の周回へ進みます。</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ja/next-round.mp4" poster="../../media/guide/ja/next-round.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="次の回へアクションの動画ガイド：「次の投稿」にタップステップを追加; 「スポンサー」が出たら次の回へを追加; 「いいね」にタップステップを追加; スクリプトを 4 回繰り返す; テスト実行をタップしてアプリを開く。AutoGest は投稿 1 と 3 にいいねし、スポンサー投稿は飛ばす。"></video>
+        <figcaption>実機で録画 · 76 秒</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>「次の投稿」にタップステップを追加</li>
+          <li>「スポンサー」が出たら次の回へを追加</li>
+          <li>「いいね」にタップステップを追加</li>
+          <li>スクリプトを 4 回繰り返す</li>
+          <li>テスト実行をタップしてアプリを開く</li>
+        </ol>
+        <p class="result">▶ AutoGest は投稿 1 と 3 にいいねし、スポンサー投稿は飛ばす</p>
+        <div class="callout">
+          <strong>ヒント</strong>
+          <ul>
+            <li>リストを順に処理するとき、広告や不要な項目を飛ばすのに便利です。</li>
+            <li>同じスクリプト内で一番近いループの終わりへジャンプします。</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ アクション一覧に戻る</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="call-script">
+    <h2>スクリプトを呼び出す <span class="badge">PRO</span></h2>
+    <p class="muted">別のスクリプトを実行して戻ってきます。作ったステップを再利用できます。</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ja/call-script.mp4" poster="../../media/guide/ja/call-script.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="スクリプトを呼び出すアクションの動画ガイド：「アクションを追加」をタップし、スクリプトを呼び出すを選ぶ; 「スクリプトを選択」をタップし、呼び出すスクリプトを選ぶ; 呼び出す回数を選ぶ; テスト実行をタップしてアプリを開く。AutoGest が「ボタンをタップ」を 3 回実行。"></video>
+        <figcaption>実機で録画 · 35 秒</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>「アクションを追加」をタップし、スクリプトを呼び出すを選ぶ</li>
+          <li>「スクリプトを選択」をタップし、呼び出すスクリプトを選ぶ</li>
+          <li>呼び出す回数を選ぶ</li>
+          <li>テスト実行をタップしてアプリを開く</li>
+        </ol>
+        <p class="result">▶ AutoGest が「ボタンをタップ」を 3 回実行</p>
+        <div class="callout">
+          <strong>ヒント</strong>
+          <ul>
+            <li>続けて呼び出す回数を選べます。</li>
+            <li>呼び出されたスクリプトは、このスクリプトのリズム設定で動きます。</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ アクション一覧に戻る</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="set-variable">
+    <h2>変数に書き込む <span class="badge">PRO</span></h2>
+    <p class="muted">変数に値を設定、または数を足します。カウンター、累計、覚えておく文字に。</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ja/set-variable.mp4" poster="../../media/guide/ja/set-variable.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="変数に書き込むアクションの動画ガイド：「アクションを追加」をタップし、変数に書き込むを選ぶ; 新しい変数に名前を付け、「変数を追加」; ステップで変数に 1 を足す; チャット欄にテキストを貼り付け：「メッセージ #」＋変数; 「送信」にタップステップを追加; スクリプトを 3 回繰り返す; テスト実行をタップしてアプリを開く。回ごとに数字が増える：1、2、3。"></video>
+        <figcaption>実機で録画 · 85 秒</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>「アクションを追加」をタップし、変数に書き込むを選ぶ</li>
+          <li>新しい変数に名前を付け、「変数を追加」</li>
+          <li>ステップで変数に 1 を足す</li>
+          <li>チャット欄にテキストを貼り付け：「メッセージ #」＋変数</li>
+          <li>「送信」にタップステップを追加</li>
+          <li>スクリプトを 3 回繰り返す</li>
+          <li>テスト実行をタップしてアプリを開く</li>
+        </ol>
+        <p class="result">▶ 回ごとに数字が増える：1、2、3</p>
+        <div class="callout">
+          <strong>ヒント</strong>
+          <ul>
+            <li>任意の文字入力欄に <code>{名前}</code> を挿入すると変数の値を使えます。</li>
+            <li>変数は一回の実行中だけ有効で、停止するとリセットされます。</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ アクション一覧に戻る</a></p>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2026 AutoGest · <a href="../../ja/">ホーム</a> · <a href="../../ja/guide/">使い方ガイド</a> ·
+    <a href="../../privacy/">プライバシーポリシー</a> ·
+    <a href="../../terms/">利用規約</a><br><span>プライバシーポリシーと利用規約は英語とベトナム語で提供しています。</span></footer>
+</div>
+<script>
+  // Video chỉ chạy khi cuộn tới (tiết kiệm dữ liệu), tự lặp, không tiếng; bỏ thanh điều khiển khi có JavaScript.
+  const videos = document.querySelectorAll('.phone video');
+  const seen = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting) e.target.play().catch(() => {});
+      else e.target.pause();
+    }
+  }, { rootMargin: '200px 0px' });
+  videos.forEach((v) => { v.controls = false; v.preload = 'metadata'; seen.observe(v); });
+</script>
+</body>
+</html>

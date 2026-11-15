@@ -1,0 +1,932 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Panduan penggunaan – AutoGest</title>
+  <meta name="description" content="Panduan setiap aksi AutoGest dengan video yang direkam di ponsel sungguhan: {a:action_click}, geser, pengenalan teks (OCR), blok Jika… maka, variabel, dan lainnya.">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="icon" type="image/png" href="../../icon.png">
+  <link rel="apple-touch-icon" href="../../icon.png">
+  <link rel="canonical" href="https://auto-gest.github.io/id/guide/">
+  <link rel="alternate" hreflang="en" href="https://auto-gest.github.io/guide/">
+  <link rel="alternate" hreflang="vi" href="https://auto-gest.github.io/vi/guide/">
+  <link rel="alternate" hreflang="es" href="https://auto-gest.github.io/es/guide/">
+  <link rel="alternate" hreflang="pt-BR" href="https://auto-gest.github.io/pt/guide/">
+  <link rel="alternate" hreflang="fr" href="https://auto-gest.github.io/fr/guide/">
+  <link rel="alternate" hreflang="de" href="https://auto-gest.github.io/de/guide/">
+  <link rel="alternate" hreflang="it" href="https://auto-gest.github.io/it/guide/">
+  <link rel="alternate" hreflang="pl" href="https://auto-gest.github.io/pl/guide/">
+  <link rel="alternate" hreflang="ro" href="https://auto-gest.github.io/ro/guide/">
+  <link rel="alternate" hreflang="cs" href="https://auto-gest.github.io/cs/guide/">
+  <link rel="alternate" hreflang="id" href="https://auto-gest.github.io/id/guide/">
+  <link rel="alternate" hreflang="ja" href="https://auto-gest.github.io/ja/guide/">
+  <link rel="alternate" hreflang="ko" href="https://auto-gest.github.io/ko/guide/">
+  <link rel="alternate" hreflang="zh-Hans" href="https://auto-gest.github.io/zh-hans/guide/">
+  <link rel="alternate" hreflang="zh-Hant" href="https://auto-gest.github.io/zh-hant/guide/">
+  <link rel="alternate" hreflang="x-default" href="https://auto-gest.github.io/guide/">
+</head>
+<body>
+<!-- Trang sinh bằng user-guide/tools/gen-site.mjs trong repo mã nguồn AutoGest; sửa ở đó rồi sinh lại. -->
+<div class="wrap" id="top">
+  <header class="top">
+    <a class="brand" href="../../id/"><img class="brand-mark" src="../../icon.png" alt="" width="36" height="36">AutoGest</a>
+    <details class="lang-menu">
+      <summary aria-label="Bahasa">Bahasa Indonesia</summary>
+      <ul>
+        <li><a href="../../guide/" hreflang="en" lang="en">English</a></li>
+        <li><a href="../../vi/guide/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+        <li><a href="../../es/guide/" hreflang="es" lang="es">Español</a></li>
+        <li><a href="../../pt/guide/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li>
+        <li><a href="../../fr/guide/" hreflang="fr" lang="fr">Français</a></li>
+        <li><a href="../../de/guide/" hreflang="de" lang="de">Deutsch</a></li>
+        <li><a href="../../it/guide/" hreflang="it" lang="it">Italiano</a></li>
+        <li><a href="../../pl/guide/" hreflang="pl" lang="pl">Polski</a></li>
+        <li><a href="../../ro/guide/" hreflang="ro" lang="ro">Română</a></li>
+        <li><a href="../../cs/guide/" hreflang="cs" lang="cs">Čeština</a></li>
+        <li><a href="../../id/guide/" hreflang="id" lang="id" aria-current="true">Bahasa Indonesia</a></li>
+        <li><a href="../../ja/guide/" hreflang="ja" lang="ja">日本語</a></li>
+        <li><a href="../../ko/guide/" hreflang="ko" lang="ko">한국어</a></li>
+        <li><a href="../../zh-hans/guide/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li>
+        <li><a href="../../zh-hant/guide/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li>
+      </ul>
+    </details>
+  </header>
+
+  <h1>Panduan penggunaan</h1>
+  <p class="muted">Setiap aksi punya video singkat yang direkam di ponsel sungguhan, dengan aplikasi contoh agar hasilnya terlihat. Setiap ketukan menyala supaya mudah diikuti. Aksi berlabel <span class="badge">PRO</span> termasuk AutoGest Pro.</p>
+
+  <ul class="legend">
+    <li><span class="dot user"></span>Kamu mengetuk</li>
+    <li><span class="dot auto"></span>AutoGest mengetuk sendiri saat skrip berjalan</li>
+  </ul>
+
+  <nav class="chips" aria-label="Kelompok aksi">
+    <a href="#touch">Sentuhan dan gestur</a>
+    <a href="#wait">Tunggu dan deteksi</a>
+    <a href="#system">Sistem</a>
+    <a href="#flow">Alur skrip</a>
+  </nav>
+
+  <p class="label" id="touch">Sentuhan dan gestur</p>
+  <div class="action-grid">
+    <a class="action" href="#click"><strong>Ketuk</strong><span>Ketuk sekali di satu titik</span><div class="state">▶ Tonton video</div></a>
+    <a class="action" href="#rapid-click"><strong>Ketuk beruntun</strong><span>Ketuk sangat cepat berkali-kali di satu titik</span><div class="state">▶ Tonton video</div></a>
+    <a class="action" href="#long-click"><strong>Tekan lama</strong><span>Tekan dan tahan di satu titik</span><div class="state">▶ Tonton video</div></a>
+    <a class="action" href="#swipe"><strong>Geser</strong><span>Seret dari titik A ke titik B</span><div class="state">▶ Tonton video</div></a>
+    <a class="action" href="#scroll"><strong>Gulir</strong><span>Gulir ke satu arah, tanpa memilih titik</span><div class="state">▶ Tonton video</div></a>
+    <a class="action" href="#paste-text"><strong>Tempel teks</strong><span>Tempel seluruh teks ke kolom input</span><div class="state">▶ Tonton video</div></a>
+    <a class="action" href="#type-keys"><strong>Ketik karakter <span class="badge">PRO</span></strong><span>Ketuk setiap tombol, seperti mengetik</span><div class="state">▶ Tonton video</div></a>
+  </div>
+
+  <p class="label" id="wait">Tunggu dan deteksi</p>
+  <div class="action-grid">
+    <a class="action" href="#delay"><strong>Tunggu</strong><span>Jeda sebelum langkah berikutnya</span><div class="state">▶ Tonton video</div></a>
+    <a class="action" href="#wait-image"><strong>Tunggu gambar <span class="badge">PRO</span></strong><span>Tunggu gambar muncul atau hilang, tanpa mengetuk</span><div class="state">▶ Tonton video</div></a>
+    <a class="action" href="#wait-color"><strong>Tunggu warna <span class="badge">PRO</span></strong><span>Tunggu sampai sebuah titik berubah ke warna yang dipilih</span><div class="state">▶ Tonton video</div></a>
+    <a class="action" href="#image-click"><strong>Ketuk gambar <span class="badge">PRO</span></strong><span>Cari gambar template di layar, lalu ketuk</span><div class="state">▶ Tonton video</div></a>
+    <a class="action" href="#ocr-click"><strong>Ketuk teks (OCR) <span class="badge">PRO</span></strong><span>Baca teks dari tangkapan layar, lalu ketuk · bisa untuk game</span><div class="state">▶ Tonton video</div></a>
+    <a class="action" href="#ocr-wait"><strong>Tunggu teks (OCR) <span class="badge">PRO</span></strong><span>Tunggu teks muncul atau hilang, tanpa mengetuk · bisa untuk game</span><div class="state">▶ Tonton video</div></a>
+    <a class="action" href="#ocr-read"><strong>Baca teks (OCR) <span class="badge">PRO</span></strong><span>Baca teks di suatu area lalu simpan ke variabel · bisa untuk game</span><div class="state">▶ Tonton video</div></a>
+    <a class="action" href="#click-text"><strong>Ketuk teks</strong><span>Cari teks, lalu ketuk · tidak untuk game</span><div class="state">▶ Tonton video</div></a>
+    <a class="action" href="#click-node"><strong>Ketuk node <span class="badge">PRO</span></strong><span>Pilih node di tangkapan layar, lalu ketuk · tidak untuk game</span><div class="state">▶ Tonton video</div></a>
+    <a class="action" href="#read-text"><strong>Ambil teks di layar <span class="badge">PRO</span></strong><span>Pilih node lalu simpan teksnya ke variabel · tidak untuk game</span><div class="state">▶ Tonton video</div></a>
+    <a class="action" href="#wait-notification"><strong>Tunggu dan deteksi notifikasi <span class="badge">PRO</span></strong><span>Menunggu notifikasi berisi kata pilihan Anda atau notifikasi mutasi, lalu membacakannya atau lanjut</span><div class="state">▶ Tonton video</div></a>
+  </div>
+
+  <p class="label" id="system">Sistem</p>
+  <div class="action-grid">
+    <a class="action" href="#open-app"><strong>Buka aplikasi</strong><span>Buka aplikasi dan tunggu sampai tampil</span><div class="state">▶ Tonton video</div></a>
+    <a class="action" href="#back"><strong>Kembali</strong><span>Tekan tombol Kembali sistem</span><div class="state">▶ Tonton video</div></a>
+    <a class="action" href="#home"><strong>Layar utama</strong><span>Buka layar utama ponsel</span><div class="state">▶ Tonton video</div></a>
+    <a class="action" href="#recent"><strong>Aplikasi terbaru</strong><span>Buka daftar aplikasi terbaru</span><div class="state">▶ Tonton video</div></a>
+  </div>
+
+  <p class="label" id="flow">Alur skrip</p>
+  <div class="action-grid">
+    <a class="action" href="#if-then"><strong>Jika… maka <span class="badge">PRO</span></strong><span>Periksa layar, lalu ambil salah satu dari dua cabang</span><div class="state">▶ Tonton video</div></a>
+    <a class="action" href="#loop-until"><strong>Ulangi sampai <span class="badge">PRO</span></strong><span>Jalankan langkah di dalamnya lagi sampai kondisi benar</span><div class="state">▶ Tonton video</div></a>
+    <a class="action" href="#stop-script"><strong>Hentikan skrip <span class="badge">PRO</span></strong><span>Akhiri seluruh jalannya skrip saat kondisi terpenuhi</span><div class="state">▶ Tonton video</div></a>
+    <a class="action" href="#next-round"><strong>Putaran berikutnya <span class="badge">PRO</span></strong><span>Lewati langkah sisanya dan mulai putaran berikutnya</span><div class="state">▶ Tonton video</div></a>
+    <a class="action" href="#call-script"><strong>Panggil skrip <span class="badge">PRO</span></strong><span>Jalankan skrip lain, lalu kembali</span><div class="state">▶ Tonton video</div></a>
+    <a class="action" href="#set-variable"><strong>Tulis ke variabel <span class="badge">PRO</span></strong><span>Setel atau tambahkan nilai ke variabel Diingat</span><div class="state">▶ Tonton video</div></a>
+  </div>
+
+  <section class="guide" id="click">
+    <h2>Ketuk</h2>
+    <p class="muted">Aksi paling dasar: AutoGest mengetuk tepat di titik yang kamu pilih di layar.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/id/click.mp4" poster="../../media/guide/id/click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video panduan aksi Ketuk: Ketuk “Tambah tindakan”, pilih Ketuk; Ketuk “Tambah titik”; Buka aplikasi, geser bidikan ke titiknya; Ketuk OK untuk menyimpan titik; Kembali di AutoGest, titik sudah terisi; Ketuk Uji coba, lalu buka aplikasinya. AutoGest mengetuk tepat di titik yang dipilih."></video>
+        <figcaption>Direkam di ponsel sungguhan · 28 detik</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Ketuk “Tambah tindakan”, pilih Ketuk</li>
+          <li>Ketuk “Tambah titik”</li>
+          <li>Buka aplikasi, geser bidikan ke titiknya</li>
+          <li>Ketuk OK untuk menyimpan titik</li>
+          <li>Kembali di AutoGest, titik sudah terisi</li>
+          <li>Ketuk Uji coba, lalu buka aplikasinya</li>
+        </ol>
+        <p class="result">▶ AutoGest mengetuk tepat di titik yang dipilih</p>
+        <div class="callout">
+          <strong>Tips</strong>
+          <ul>
+            <li>Titik disesuaikan dengan ukuran layar, jadi skrip tetap tepat sasaran di ponsel dengan layar berbeda.</li>
+            <li>Di <strong>Pengaturan umum</strong> kamu mengatur jeda antarlangkah dan sedikit pergeseran ketukan agar seperti orang sungguhan.</li>
+            <li>Tombolnya berpindah-pindah? Pakai <strong>Ketuk gambar</strong>, <strong>Ketuk teks (OCR)</strong>, atau <strong>Ketuk teks</strong> agar AutoGest mencarinya dulu.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Kembali ke daftar aksi</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="rapid-click">
+    <h2>Ketuk beruntun</h2>
+    <p class="muted">Ketuk satu titik berulang kali, 1 sampai 20 kali per detik — cocok untuk game yang butuh ketukan cepat.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/id/rapid-click.mp4" poster="../../media/guide/id/rapid-click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video panduan aksi Ketuk beruntun: Ketuk “Tambah tindakan”, pilih Ketuk beruntun; Ketuk “Tambah titik”; Buka aplikasi, taruh bidikan di tombol; Ketuk OK untuk menyimpan titik; Kembali di AutoGest, kurangi jumlah ketukan; Ketuk Uji coba, lalu buka aplikasinya. AutoGest mengetuk 30 kali, 10 kali per detik."></video>
+        <figcaption>Direkam di ponsel sungguhan · 33 detik</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Ketuk “Tambah tindakan”, pilih Ketuk beruntun</li>
+          <li>Ketuk “Tambah titik”</li>
+          <li>Buka aplikasi, taruh bidikan di tombol</li>
+          <li>Ketuk OK untuk menyimpan titik</li>
+          <li>Kembali di AutoGest, kurangi jumlah ketukan</li>
+          <li>Ketuk Uji coba, lalu buka aplikasinya</li>
+        </ol>
+        <p class="result">▶ AutoGest mengetuk 30 kali, 10 kali per detik</p>
+        <div class="callout">
+          <strong>Tips</strong>
+          <ul>
+            <li>Berhenti setelah sejumlah ketukan, setelah waktu tertentu, atau sampai kamu menekan Berhenti.</li>
+            <li>Lebih dari 10 ketukan per detik lebih cepat dari tangan manusia; sebagian aplikasi bisa menganggapnya tidak wajar.</li>
+            <li>Aktifkan ritme alami agar jarak antarketukan sedikit bervariasi, seperti jari sungguhan.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Kembali ke daftar aksi</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="long-click">
+    <h2>Tekan lama</h2>
+    <p class="muted">Sentuh dan tahan satu titik selama yang kamu mau — untuk tombol tahan-untuk-konfirmasi, menu konteks, memilih dengan menyeret.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/id/long-click.mp4" poster="../../media/guide/id/long-click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video panduan aksi Tekan lama: Ketuk “Tambah tindakan”, pilih Tekan lama; Ketuk “Tambah titik”; Buka aplikasi, taruh bidikan di tombol; Ketuk OK untuk menyimpan titik; Kembali di AutoGest, pilih lama menahan; Ketuk Uji coba, lalu buka aplikasinya. AutoGest menahan tombol 2 detik, kuncinya terbuka."></video>
+        <figcaption>Direkam di ponsel sungguhan · 30 detik</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Ketuk “Tambah tindakan”, pilih Tekan lama</li>
+          <li>Ketuk “Tambah titik”</li>
+          <li>Buka aplikasi, taruh bidikan di tombol</li>
+          <li>Ketuk OK untuk menyimpan titik</li>
+          <li>Kembali di AutoGest, pilih lama menahan</li>
+          <li>Ketuk Uji coba, lalu buka aplikasinya</li>
+        </ol>
+        <p class="result">▶ AutoGest menahan tombol 2 detik, kuncinya terbuka</p>
+        <div class="callout">
+          <strong>Tips</strong>
+          <ul>
+            <li>Untuk tombol “tahan untuk konfirmasi”, pilih waktu sedikit lebih lama dari yang diminta aplikasi.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Kembali ke daftar aksi</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="swipe">
+    <h2>Geser</h2>
+    <p class="muted">Seret jari dari titik awal ke titik akhir — geser untuk membuka kunci, menggeser slider, membalik halaman.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/id/swipe.mp4" poster="../../media/guide/id/swipe.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video panduan aksi Geser: Ketuk “Tambah tindakan”, pilih Geser; Pilih titik awal; Kembali, pilih titik akhir; Kembali, pilih durasi geser; Ketuk Uji coba, lalu buka aplikasinya. AutoGest menggeser dari titik awal ke titik akhir."></video>
+        <figcaption>Direkam di ponsel sungguhan · 34 detik</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Ketuk “Tambah tindakan”, pilih Geser</li>
+          <li>Pilih titik awal</li>
+          <li>Kembali, pilih titik akhir</li>
+          <li>Kembali, pilih durasi geser</li>
+          <li>Ketuk Uji coba, lalu buka aplikasinya</li>
+        </ol>
+        <p class="result">▶ AutoGest menggeser dari titik awal ke titik akhir</p>
+        <div class="callout">
+          <strong>Tips</strong>
+          <ul>
+            <li>Durasi pendek berarti geser cepat; durasi panjang berarti seret pelan (seret lepas, slider).</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Kembali ke daftar aksi</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="scroll">
+    <h2>Gulir</h2>
+    <p class="muted">Gulir daftar ke atas, bawah, kiri, atau kanan dengan satu geseran di tengah layar — tanpa memilih titik.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/id/scroll.mp4" poster="../../media/guide/id/scroll.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video panduan aksi Gulir: Ketuk “Tambah tindakan”, pilih Gulir; Pilih arah dan durasi; Ketuk Uji coba, lalu buka aplikasinya. AutoGest menggeser di tengah layar untuk menggulir."></video>
+        <figcaption>Direkam di ponsel sungguhan · 20 detik</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Ketuk “Tambah tindakan”, pilih Gulir</li>
+          <li>Pilih arah dan durasi</li>
+          <li>Ketuk Uji coba, lalu buka aplikasinya</li>
+        </ol>
+        <p class="result">▶ AutoGest menggeser di tengah layar untuk menggulir</p>
+        <div class="callout">
+          <strong>Tips</strong>
+          <ul>
+            <li>Gabungkan dengan <strong>Ulangi sampai</strong> untuk menggulir sampai yang dicari muncul.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Kembali ke daftar aksi</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="paste-text">
+    <h2>Tempel teks</h2>
+    <p class="muted">Ketuk kolom teks dan isi dengan seluruh teks yang kamu siapkan — cepat dan setiap karakter tepat.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/id/paste-text.mp4" poster="../../media/guide/id/paste-text.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video panduan aksi Tempel teks: Ketuk “Tambah tindakan”, pilih Tempel teks; Ketuk “Tambah titik”, bidik kolom teks; Kembali, tulis teks yang akan ditempel; Ketuk Uji coba, lalu buka aplikasinya. AutoGest menempel seluruh teks ke kolom."></video>
+        <figcaption>Direkam di ponsel sungguhan · 31 detik</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Ketuk “Tambah tindakan”, pilih Tempel teks</li>
+          <li>Ketuk “Tambah titik”, bidik kolom teks</li>
+          <li>Kembali, tulis teks yang akan ditempel</li>
+          <li>Ketuk Uji coba, lalu buka aplikasinya</li>
+        </ol>
+        <p class="result">▶ AutoGest menempel seluruh teks ke kolom</p>
+        <div class="callout">
+          <strong>Tips</strong>
+          <ul>
+            <li>Pisahkan beberapa teks dengan <code>||</code> dan AutoGest memilih satu secara acak setiap kali berjalan.</li>
+            <li>Sisipkan variabel dengan <strong>Sisipkan variabel</strong> untuk menempel nilai yang dibaca sebelumnya.</li>
+            <li>Aplikasi memblokir tempel? Pakai <strong>Ketik karakter</strong> untuk menekan tiap tombol seperti orang mengetik.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Kembali ke daftar aksi</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="type-keys">
+    <h2>Ketik karakter <span class="badge">PRO</span></h2>
+    <p class="muted">Rekam setiap tombol yang kamu tekan di keyboard; saat berjalan, AutoGest menekan tombol yang sama dengan ritme ketikanmu.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/id/type-keys.mp4" poster="../../media/guide/id/type-keys.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video panduan aksi Ketik karakter: Ketuk “Tambah tindakan”, pilih Ketik karakter; Ketuk kotak rekam tombol, ketik di keyboard; Ketuk “Selesai” untuk menyimpan ketukan; Pilih kolom untuk mengetik (opsional); Kembali, ketuk Uji coba, lalu buka aplikasinya. AutoGest mengetuk kolom, lalu mengulang tiap tombol."></video>
+        <figcaption>Direkam di ponsel sungguhan · 38 detik</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Ketuk “Tambah tindakan”, pilih Ketik karakter</li>
+          <li>Ketuk kotak rekam tombol, ketik di keyboard</li>
+          <li>Ketuk “Selesai” untuk menyimpan ketukan</li>
+          <li>Pilih kolom untuk mengetik (opsional)</li>
+          <li>Kembali, ketuk Uji coba, lalu buka aplikasinya</li>
+        </ol>
+        <p class="result">▶ AutoGest mengetuk kolom, lalu mengulang tiap tombol</p>
+        <div class="callout">
+          <strong>Tips</strong>
+          <ul>
+            <li>Pakai keyboard yang sama (dan jenis kolom yang sama) saat merekam dan menjalankan, karena AutoGest menekan berdasarkan posisi tombol.</li>
+            <li>Setelah mengetik, AutoGest memeriksa kolom; jika teksnya tidak cocok, langkah melaporkan galat dan berhenti mengetik.</li>
+            <li>Tidak perlu menekan tiap tombol? Ubah kartu ke <strong>Tempel teks</strong>.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Kembali ke daftar aksi</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="delay">
+    <h2>Tunggu</h2>
+    <p class="muted">Jeda sebelum langkah berikutnya — biarkan layar dimuat, animasi selesai, atau penghitung waktu habis.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/id/delay.mp4" poster="../../media/guide/id/delay.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video panduan aksi Tunggu: Ketuk “Tambah tindakan”, pilih Tunggu; Isi waktu tunggu (ms); Tambahkan langkah Ketuk untuk melihat jedanya; Ulangi skrip 2 kali di “Pengaturan umum”; Ketuk Uji coba, lalu buka aplikasinya. Ketukan berjarak 3 detik, ditambah jeda antarlangkah."></video>
+        <figcaption>Direkam di ponsel sungguhan · 45 detik</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Ketuk “Tambah tindakan”, pilih Tunggu</li>
+          <li>Isi waktu tunggu (ms)</li>
+          <li>Tambahkan langkah Ketuk untuk melihat jedanya</li>
+          <li>Ulangi skrip 2 kali di “Pengaturan umum”</li>
+          <li>Ketuk Uji coba, lalu buka aplikasinya</li>
+        </ol>
+        <p class="result">▶ Ketukan berjarak 3 detik, ditambah jeda antarlangkah</p>
+        <div class="callout">
+          <strong>Tips</strong>
+          <ul>
+            <li>Setiap langkah sudah menunggu jeda acak singkat (atur di <strong>Pengaturan umum</strong>); tambahkan Tunggu hanya jika perlu lebih lama.</li>
+            <li>Menunggu sesuatu muncul? <strong>Tunggu gambar</strong>, <strong>Tunggu teks (OCR)</strong>, atau <strong>Tunggu warna</strong> lanjut begitu ia muncul.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Kembali ke daftar aksi</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="wait-image">
+    <h2>Tunggu gambar <span class="badge">PRO</span></h2>
+    <p class="muted">Tunggu sampai gambar muncul (atau hilang) di layar, tanpa mengetuk — lalu langkah berikutnya berjalan.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/id/wait-image.mp4" poster="../../media/guide/id/wait-image.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video panduan aksi Tunggu gambar: Ketuk “Tambah tindakan”, pilih Tunggu gambar; Ketuk “Pilih gambar”, pilih “Potong dari layar”; Buka layarnya, ketuk Ambil, bingkai gambarnya; Kembali, tambahkan langkah Ketuk di tempat gambar muncul; Kembali, ketuk Uji coba, lalu buka aplikasinya. AutoGest menunggu kotak hadiah, lalu menjalankan langkah Ketuk."></video>
+        <figcaption>Direkam di ponsel sungguhan · 48 detik</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Ketuk “Tambah tindakan”, pilih Tunggu gambar</li>
+          <li>Ketuk “Pilih gambar”, pilih “Potong dari layar”</li>
+          <li>Buka layarnya, ketuk Ambil, bingkai gambarnya</li>
+          <li>Kembali, tambahkan langkah Ketuk di tempat gambar muncul</li>
+          <li>Kembali, ketuk Uji coba, lalu buka aplikasinya</li>
+        </ol>
+        <p class="result">▶ AutoGest menunggu kotak hadiah, lalu menjalankan langkah Ketuk</p>
+        <div class="callout">
+          <strong>Tips</strong>
+          <ul>
+            <li>Potong gambar rapat ke benda yang dicari, tanpa latar yang berubah.</li>
+            <li>Turunkan kecocokan minimum jika gambarnya sedikit berbeda setiap kali.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Kembali ke daftar aksi</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="wait-color">
+    <h2>Tunggu warna <span class="badge">PRO</span></h2>
+    <p class="muted">Pantau satu titik sampai berwarna tertentu (atau berganti warna) — lampu jadi hijau, tombol jadi aktif.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/id/wait-color.mp4" poster="../../media/guide/id/wait-color.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video panduan aksi Tunggu warna: Ketuk “Tambah tindakan”, pilih Tunggu warna; Ketuk “Tambah titik”, bidik titik berwarna; Kembali: AutoGest sudah membaca warnanya; Tambahkan langkah Ketuk pada “Jalan”; Kembali, ketuk Uji coba, lalu buka aplikasinya. AutoGest menunggu lampu hijau, lalu mengetuk “Jalan”."></video>
+        <figcaption>Direkam di ponsel sungguhan · 44 detik</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Ketuk “Tambah tindakan”, pilih Tunggu warna</li>
+          <li>Ketuk “Tambah titik”, bidik titik berwarna</li>
+          <li>Kembali: AutoGest sudah membaca warnanya</li>
+          <li>Tambahkan langkah Ketuk pada “Jalan”</li>
+          <li>Kembali, ketuk Uji coba, lalu buka aplikasinya</li>
+        </ol>
+        <p class="result">▶ AutoGest menunggu lampu hijau, lalu mengetuk “Jalan”</p>
+        <div class="callout">
+          <strong>Tips</strong>
+          <ul>
+            <li>Pilih titik saat layar menampilkan warna yang diinginkan: AutoGest membacakannya untukmu.</li>
+            <li>Bisa juga di game, karena hanya melihat gambar layar.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Kembali ke daftar aksi</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="image-click">
+    <h2>Ketuk gambar <span class="badge">PRO</span></h2>
+    <p class="muted">Temukan gambar di layar lalu ketuk, di mana pun letaknya — cocok untuk tombol yang berpindah.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/id/image-click.mp4" poster="../../media/guide/id/image-click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video panduan aksi Ketuk gambar: Ketuk “Tambah tindakan”, pilih Ketuk gambar; Ketuk “Pilih gambar”, pilih “Potong dari layar”; Buka layar dengan gambarnya, ketuk Ambil; Rapatkan bingkai ke gambar, ketuk OK; Kembali, ketuk Uji coba, lalu buka aplikasinya. AutoGest menunggu kotak hadiah, lalu mengetuknya."></video>
+        <figcaption>Direkam di ponsel sungguhan · 37 detik</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Ketuk “Tambah tindakan”, pilih Ketuk gambar</li>
+          <li>Ketuk “Pilih gambar”, pilih “Potong dari layar”</li>
+          <li>Buka layar dengan gambarnya, ketuk Ambil</li>
+          <li>Rapatkan bingkai ke gambar, ketuk OK</li>
+          <li>Kembali, ketuk Uji coba, lalu buka aplikasinya</li>
+        </ol>
+        <p class="result">▶ AutoGest menunggu kotak hadiah, lalu mengetuknya</p>
+        <div class="callout">
+          <strong>Tips</strong>
+          <ul>
+            <li>Bisa di game, karena AutoGest melihat gambar layar, bukan struktur aplikasi.</li>
+            <li>Potong tombolnya saja, tanpa latar di sekitarnya.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Kembali ke daftar aksi</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="ocr-click">
+    <h2>Ketuk teks (OCR) <span class="badge">PRO</span></h2>
+    <p class="muted">Baca teks pada tangkapan layar dengan pengenalan teks (OCR) di ponsel lalu ketuk — bahkan di game yang menggambar teksnya sendiri.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/id/ocr-click.mp4" poster="../../media/guide/id/ocr-click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video panduan aksi Ketuk teks (OCR): Ketuk “Tambah tindakan”, pilih Ketuk teks (OCR); Tulis teks di tombolnya; Ketuk Uji coba, lalu buka aplikasinya. AutoGest membaca gambar layar — bahkan di game — lalu mengetuk teksnya."></video>
+        <figcaption>Direkam di ponsel sungguhan · 28 detik</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Ketuk “Tambah tindakan”, pilih Ketuk teks (OCR)</li>
+          <li>Tulis teks di tombolnya</li>
+          <li>Ketuk Uji coba, lalu buka aplikasinya</li>
+        </ol>
+        <p class="result">▶ AutoGest membaca gambar layar — bahkan di game — lalu mengetuk teksnya</p>
+        <div class="callout">
+          <strong>Tips</strong>
+          <ul>
+            <li>Pilih aksara yang tepat untuk Tionghoa, Jepang, atau Korea; Latin untuk Indonesia, Inggris, Spanyol, dan lainnya.</li>
+            <li>Persempit area pencarian agar lebih cepat dan akurat.</li>
+            <li>Pengenalan berjalan di ponselmu; tidak ada yang dikirim ke mana pun.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Kembali ke daftar aksi</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="ocr-wait">
+    <h2>Tunggu teks (OCR) <span class="badge">PRO</span></h2>
+    <p class="muted">Tunggu sampai teks muncul (atau hilang) pada gambar layar, tanpa mengetuk.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/id/ocr-wait.mp4" poster="../../media/guide/id/ocr-wait.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video panduan aksi Tunggu teks (OCR): Ketuk “Tambah tindakan”, pilih Tunggu teks (OCR); Tulis teks yang ditunggu; Tambahkan langkah Ketuk pada “Lari”; Kembali, ketuk Uji coba, lalu buka aplikasinya. AutoGest menunggu “MULAI”, lalu mengetuk “Lari”."></video>
+        <figcaption>Direkam di ponsel sungguhan · 41 detik</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Ketuk “Tambah tindakan”, pilih Tunggu teks (OCR)</li>
+          <li>Tulis teks yang ditunggu</li>
+          <li>Tambahkan langkah Ketuk pada “Lari”</li>
+          <li>Kembali, ketuk Uji coba, lalu buka aplikasinya</li>
+        </ol>
+        <p class="result">▶ AutoGest menunggu “MULAI”, lalu mengetuk “Lari”</p>
+        <div class="callout">
+          <strong>Tips</strong>
+          <ul>
+            <li>Cocok untuk layar game seperti “Siap… MULAI!”, “Menang”, atau akhir hitung mundur.</li>
+            <li>Pilih area agar menunggu lebih cepat dan tidak tertukar kata yang sama di tempat lain.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Kembali ke daftar aksi</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="ocr-read">
+    <h2>Baca teks (OCR) <span class="badge">PRO</span></h2>
+    <p class="muted">Baca teks di satu area gambar layar dan simpan ke variabel untuk langkah berikutnya.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/id/ocr-read.mp4" poster="../../media/guide/id/ocr-read.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video panduan aksi Baca teks (OCR): Ketuk “Tambah tindakan”, pilih Baca teks (OCR); Ketuk “Pilih area”, buka layarnya, ketuk Ambil; Bingkai kodenya, ketuk OK; Kembali, pilih “Angkanya saja” dan variabel untuk menyimpan; Tambahkan Tempel teks di kolom, sisipkan variabel; Tambahkan langkah Ketuk pada “Konfirmasi”; Ketuk Uji coba, lalu buka aplikasinya. AutoGest membaca kode dari gambar lalu mengisinya."></video>
+        <figcaption>Direkam di ponsel sungguhan · 75 detik</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Ketuk “Tambah tindakan”, pilih Baca teks (OCR)</li>
+          <li>Ketuk “Pilih area”, buka layarnya, ketuk Ambil</li>
+          <li>Bingkai kodenya, ketuk OK</li>
+          <li>Kembali, pilih “Angkanya saja” dan variabel untuk menyimpan</li>
+          <li>Tambahkan Tempel teks di kolom, sisipkan variabel</li>
+          <li>Tambahkan langkah Ketuk pada “Konfirmasi”</li>
+          <li>Ketuk Uji coba, lalu buka aplikasinya</li>
+        </ol>
+        <p class="result">▶ AutoGest membaca kode dari gambar lalu mengisinya</p>
+        <div class="callout">
+          <strong>Tips</strong>
+          <ul>
+            <li>Pilih “Angkanya saja” untuk menyimpan angkanya saja — skor, harga, atau kode.</li>
+            <li>Pakai variabel di Tempel teks, atau bandingkan di blok Jika… maka.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Kembali ke daftar aksi</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="click-text">
+    <h2>Ketuk teks</h2>
+    <p class="muted">Tulis teks yang tampil di tombol; saat berjalan, AutoGest menemukan teks itu di layar lalu mengetuknya.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/id/click-text.mp4" poster="../../media/guide/id/click-text.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video panduan aksi Ketuk teks: Ketuk “Tambah tindakan”, pilih Ketuk teks; Tulis teks yang tampil di tombol; Ketuk Uji coba, lalu buka aplikasinya. Di mana pun tombolnya, AutoGest menemukan teksnya lalu mengetuk."></video>
+        <figcaption>Direkam di ponsel sungguhan · 29 detik</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Ketuk “Tambah tindakan”, pilih Ketuk teks</li>
+          <li>Tulis teks yang tampil di tombol</li>
+          <li>Ketuk Uji coba, lalu buka aplikasinya</li>
+        </ol>
+        <p class="result">▶ Di mana pun tombolnya, AutoGest menemukan teksnya lalu mengetuk</p>
+        <div class="callout">
+          <strong>Tips</strong>
+          <ul>
+            <li>Membaca struktur aplikasi, jadi tidak bisa di game yang menggambar teksnya sendiri — di sana pakai <strong>Ketuk teks (OCR)</strong>.</li>
+            <li>Huruf besar kecil tidak berpengaruh, cukup teksnya mengandung yang kamu tulis.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Kembali ke daftar aksi</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="click-node">
+    <h2>Ketuk node <span class="badge">PRO</span></h2>
+    <p class="muted">Tangkap layar, ketuk satu elemen, dan AutoGest mengingat cara menemukannya lagi — bahkan tombol yang hanya berupa ikon.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/id/click-node.mp4" poster="../../media/guide/id/click-node.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video panduan aksi Ketuk node: Ketuk “Tambah tindakan”, pilih Ketuk node; Ketuk “Pilih node”, buka aplikasi, ketuk Ambil; Ketuk tombol yang diinginkan, lalu “Pilih node”; Kembali, pilih cara menemukan node; Ketuk Uji coba, lalu buka aplikasinya. AutoGest menemukan tombol hati lalu mengetuknya."></video>
+        <figcaption>Direkam di ponsel sungguhan · 37 detik</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Ketuk “Tambah tindakan”, pilih Ketuk node</li>
+          <li>Ketuk “Pilih node”, buka aplikasi, ketuk Ambil</li>
+          <li>Ketuk tombol yang diinginkan, lalu “Pilih node”</li>
+          <li>Kembali, pilih cara menemukan node</li>
+          <li>Ketuk Uji coba, lalu buka aplikasinya</li>
+        </ol>
+        <p class="result">▶ AutoGest menemukan tombol hati lalu mengetuknya</p>
+        <div class="callout">
+          <strong>Tips</strong>
+          <ul>
+            <li>Cari berdasarkan text atau content-desc jika tetap; hindari resource-id jika aplikasi mengubahnya antarversi.</li>
+            <li>Hapus bagian yang berubah-ubah (seperti jumlah) agar node tetap ditemukan.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Kembali ke daftar aksi</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="read-text">
+    <h2>Ambil teks di layar <span class="badge">PRO</span></h2>
+    <p class="muted">Pilih satu elemen di layar dan salin teksnya ke variabel, tanpa mengetuk.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/id/read-text.mp4" poster="../../media/guide/id/read-text.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video panduan aksi Ambil teks di layar: Ketuk “Tambah tindakan”, pilih Ambil teks di layar; Ketuk “Pilih node”, buka aplikasi, ketuk Ambil; Ketuk kodenya, lalu “Pilih node”; Kembali, pilih variabel untuk menyimpan; Tambahkan Tempel teks di kolom, sisipkan variabel; Tambahkan langkah Ketuk pada “Konfirmasi”; Ketuk Uji coba, lalu buka aplikasinya. AutoGest menyalin kode lalu mengisinya."></video>
+        <figcaption>Direkam di ponsel sungguhan · 78 detik</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Ketuk “Tambah tindakan”, pilih Ambil teks di layar</li>
+          <li>Ketuk “Pilih node”, buka aplikasi, ketuk Ambil</li>
+          <li>Ketuk kodenya, lalu “Pilih node”</li>
+          <li>Kembali, pilih variabel untuk menyimpan</li>
+          <li>Tambahkan Tempel teks di kolom, sisipkan variabel</li>
+          <li>Tambahkan langkah Ketuk pada “Konfirmasi”</li>
+          <li>Ketuk Uji coba, lalu buka aplikasinya</li>
+        </ol>
+        <p class="result">▶ AutoGest menyalin kode lalu mengisinya</p>
+        <div class="callout">
+          <strong>Tips</strong>
+          <ul>
+            <li>Cocok untuk kode sekali pakai, nomor pesanan, atau saldo yang tampil di aplikasi.</li>
+            <li>Membaca struktur aplikasi; untuk game pakai <strong>Baca teks (OCR)</strong>.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Kembali ke daftar aksi</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="wait-notification">
+    <h2>Tunggu dan deteksi notifikasi <span class="badge">PRO</span></h2>
+    <p class="muted">Tunggu notifikasi yang berisi teks pilihanmu, bacakan, lalu lanjutkan skrip.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/id/wait-notification.mp4" poster="../../media/guide/id/wait-notification.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video panduan aksi Tunggu dan deteksi notifikasi: Ketuk “Tambah tindakan”, pilih Tunggu dan deteksi notifikasi; Ketuk “Pilih notifikasi contoh”, pilih satu notifikasi; Tulis kata yang harus ada di notifikasi; Ketuk “Gunakan contoh ini”; Tambahkan langkah Ketuk pada “Konfirmasi pesanan”; Kembali, ketuk Uji coba, lalu buka aplikasinya; Saat ada pelanggan memesan…. AutoGest membacakan notifikasi, lalu mengonfirmasi."></video>
+        <figcaption>Direkam di ponsel sungguhan · 64 detik</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Ketuk “Tambah tindakan”, pilih Tunggu dan deteksi notifikasi</li>
+          <li>Ketuk “Pilih notifikasi contoh”, pilih satu notifikasi</li>
+          <li>Tulis kata yang harus ada di notifikasi</li>
+          <li>Ketuk “Gunakan contoh ini”</li>
+          <li>Tambahkan langkah Ketuk pada “Konfirmasi pesanan”</li>
+          <li>Kembali, ketuk Uji coba, lalu buka aplikasinya</li>
+          <li>Saat ada pelanggan memesan…</li>
+        </ol>
+        <p class="result">▶ AutoGest membacakan notifikasi, lalu mengonfirmasi</p>
+        <div class="callout">
+          <strong>Tips</strong>
+          <ul>
+            <li>Pilih notifikasi sungguhan sebagai contoh lalu tulis kata yang ditunggu; bagian yang berubah (seperti nomor pesanan) dicocokkan dengan longgar.</li>
+            <li>Skrip yang hanya menunggu notifikasi bisa berjalan di latar belakang, bahkan saat layar mati.</li>
+            <li>Isi notifikasi tetap di ponselmu dan tidak pernah ditulis ke log.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Kembali ke daftar aksi</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="open-app">
+    <h2>Buka aplikasi</h2>
+    <p class="muted">Buka aplikasi dari daftar dan tunggu sampai muncul — langkah pertama yang baik untuk skrip apa pun.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/id/open-app.mp4" poster="../../media/guide/id/open-app.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video panduan aksi Buka aplikasi: Ketuk “Tambah tindakan”, pilih Buka aplikasi; Ketuk “Pilih aplikasi”, pilih aplikasi yang dibuka; Ketuk Uji coba, tidak perlu membuka aplikasi sendiri. AutoGest membuka sendiri aplikasi yang dipilih."></video>
+        <figcaption>Direkam di ponsel sungguhan · 28 detik</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Ketuk “Tambah tindakan”, pilih Buka aplikasi</li>
+          <li>Ketuk “Pilih aplikasi”, pilih aplikasi yang dibuka</li>
+          <li>Ketuk Uji coba, tidak perlu membuka aplikasi sendiri</li>
+        </ol>
+        <p class="result">▶ AutoGest membuka sendiri aplikasi yang dipilih</p>
+        <div class="callout">
+          <strong>Tips</strong>
+          <ul>
+            <li>Skrip bisa dimulai dari AutoGest; langkah ini membawa aplikasi yang benar ke depan.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Kembali ke daftar aksi</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="back">
+    <h2>Kembali</h2>
+    <p class="muted">Tekan tombol Kembali sistem.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/id/back.mp4" poster="../../media/guide/id/back.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video panduan aksi Kembali: Ketuk “Tambah tindakan”, pilih Kembali; Ketuk Uji coba, lalu buka aplikasinya; Saat hitung mundur, buka satu berita. AutoGest menekan Kembali, daftar muncul lagi."></video>
+        <figcaption>Direkam di ponsel sungguhan · 25 detik</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Ketuk “Tambah tindakan”, pilih Kembali</li>
+          <li>Ketuk Uji coba, lalu buka aplikasinya</li>
+          <li>Saat hitung mundur, buka satu berita</li>
+        </ol>
+        <p class="result">▶ AutoGest menekan Kembali, daftar muncul lagi</p>
+        <div class="callout">
+          <strong>Tips</strong>
+          <ul>
+            <li>Untuk menutup dialog atau mundur satu layar.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Kembali ke daftar aksi</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="home">
+    <h2>Layar utama</h2>
+    <p class="muted">Ke layar utama.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/id/home.mp4" poster="../../media/guide/id/home.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video panduan aksi Layar utama: Ketuk “Tambah tindakan”, pilih Layar utama; Ketuk Uji coba, lalu buka aplikasinya. AutoGest ke layar utama (diburamkan demi privasi)."></video>
+        <figcaption>Direkam di ponsel sungguhan · 24 detik</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Ketuk “Tambah tindakan”, pilih Layar utama</li>
+          <li>Ketuk Uji coba, lalu buka aplikasinya</li>
+        </ol>
+        <p class="result">▶ AutoGest ke layar utama (diburamkan demi privasi)</p>
+        <div class="callout">
+          <strong>Tips</strong>
+          <ul>
+            <li>Berguna di akhir skrip, atau sebelum membuka aplikasi lain.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Kembali ke daftar aksi</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="recent">
+    <h2>Aplikasi terbaru</h2>
+    <p class="muted">Buka daftar aplikasi terbaru.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/id/recent.mp4" poster="../../media/guide/id/recent.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video panduan aksi Aplikasi terbaru: Ketuk “Tambah tindakan”, pilih Aplikasi terbaru; Ketuk Uji coba, lalu buka aplikasinya. AutoGest membuka aplikasi terbaru (diburamkan demi privasi)."></video>
+        <figcaption>Direkam di ponsel sungguhan · 24 detik</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Ketuk “Tambah tindakan”, pilih Aplikasi terbaru</li>
+          <li>Ketuk Uji coba, lalu buka aplikasinya</li>
+        </ol>
+        <p class="result">▶ AutoGest membuka aplikasi terbaru (diburamkan demi privasi)</p>
+        <div class="callout">
+          <strong>Tips</strong>
+          <ul>
+            <li>Gabungkan dengan langkah Ketuk untuk beralih ke aplikasi lain.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Kembali ke daftar aksi</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="if-then">
+    <h2>Jika… maka <span class="badge">PRO</span></h2>
+    <p class="muted">Jalankan beberapa langkah hanya jika syarat terpenuhi — gambar, warna, teks, nomor putaran, atau variabel.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/id/if-then.mp4" poster="../../media/guide/id/if-then.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video panduan aksi Jika… maka: Ketuk “Tambah tindakan”, pilih Jika… maka; Pilih “Teks”, tulis teks yang dicari; Matikan cabang “Jika tidak”, ketuk “Selesai”; Tambahkan ke cabang “Maka”: langkah Ketuk pada tombol tutup (✕); Kembali, ketuk Uji coba, lalu buka aplikasinya. AutoGest melihat “Iklan”, jadi mengetuk tutup."></video>
+        <figcaption>Direkam di ponsel sungguhan · 48 detik</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Ketuk “Tambah tindakan”, pilih Jika… maka</li>
+          <li>Pilih “Teks”, tulis teks yang dicari</li>
+          <li>Matikan cabang “Jika tidak”, ketuk “Selesai”</li>
+          <li>Tambahkan ke cabang “Maka”: langkah Ketuk pada tombol tutup (✕)</li>
+          <li>Kembali, ketuk Uji coba, lalu buka aplikasinya</li>
+        </ol>
+        <p class="result">▶ AutoGest melihat “Iklan”, jadi mengetuk tutup</p>
+        <div class="callout">
+          <strong>Tips</strong>
+          <ul>
+            <li>Aktifkan cabang Jika tidak untuk menjalankan langkah lain saat syarat tidak terpenuhi.</li>
+            <li>Blok hanya satu tingkat; untuk bersarang, pisahkan ke skrip lain dan pakai <strong>Panggil skrip</strong>.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Kembali ke daftar aksi</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="loop-until">
+    <h2>Ulangi sampai <span class="badge">PRO</span></h2>
+    <p class="muted">Ulangi langkah di dalam blok sampai syarat terpenuhi, atau sebanyak putaran tertentu.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/id/loop-until.mp4" poster="../../media/guide/id/loop-until.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video panduan aksi Ulangi sampai: Ketuk “Tambah tindakan”, pilih Ulangi sampai; Berhenti saat “Teks”: tulis teks yang muncul di akhir; Tambahkan ke perulangan: langkah Ketuk pada “Muat lagi”; Kembali, ketuk Uji coba, lalu buka aplikasinya. AutoGest mengetuk “Muat lagi” sampai muncul “Tidak ada berita lagi”."></video>
+        <figcaption>Direkam di ponsel sungguhan · 50 detik</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Ketuk “Tambah tindakan”, pilih Ulangi sampai</li>
+          <li>Berhenti saat “Teks”: tulis teks yang muncul di akhir</li>
+          <li>Tambahkan ke perulangan: langkah Ketuk pada “Muat lagi”</li>
+          <li>Kembali, ketuk Uji coba, lalu buka aplikasinya</li>
+        </ol>
+        <p class="result">▶ AutoGest mengetuk “Muat lagi” sampai muncul “Tidak ada berita lagi”</p>
+        <div class="callout">
+          <strong>Tips</strong>
+          <ul>
+            <li>Selalu atur batas putaran agar skrip tidak berjalan selamanya karena keliru.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Kembali ke daftar aksi</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="stop-script">
+    <h2>Hentikan skrip <span class="badge">PRO</span></h2>
+    <p class="muted">Akhiri seluruh jalannya skrip saat syarat terpenuhi — misalnya saat giliran atau energi habis.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/id/stop-script.mp4" poster="../../media/guide/id/stop-script.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video panduan aksi Hentikan skrip: Tambahkan langkah Ketuk pada “Putar”; Kembali, tambahkan Hentikan skrip; Berhenti saat teks “Putaran habis” muncul; Ulangi skrip tanpa batas; Ketuk Uji coba, lalu buka aplikasinya. Setelah putaran terakhir, AutoGest berhenti sendiri."></video>
+        <figcaption>Direkam di ponsel sungguhan · 56 detik</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Tambahkan langkah Ketuk pada “Putar”</li>
+          <li>Kembali, tambahkan Hentikan skrip</li>
+          <li>Berhenti saat teks “Putaran habis” muncul</li>
+          <li>Ulangi skrip tanpa batas</li>
+          <li>Ketuk Uji coba, lalu buka aplikasinya</li>
+        </ol>
+        <p class="result">▶ Setelah putaran terakhir, AutoGest berhenti sendiri</p>
+        <div class="callout">
+          <strong>Tips</strong>
+          <ul>
+            <li>Dengan perulangan tanpa batas, ini cara rapi untuk selesai.</li>
+            <li>Di dalam cabang Jika… maka, ia bisa langsung berhenti tanpa syarat.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Kembali ke daftar aksi</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="next-round">
+    <h2>Putaran berikutnya <span class="badge">PRO</span></h2>
+    <p class="muted">Lewati sisa putaran ini dan mulai putaran berikutnya saat syarat terpenuhi.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/id/next-round.mp4" poster="../../media/guide/id/next-round.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video panduan aksi Putaran berikutnya: Tambahkan langkah Ketuk pada “Berikutnya”; Tambahkan Putaran berikutnya saat “Bersponsor” muncul; Tambahkan langkah Ketuk pada “Suka”; Ulangi skrip 4 kali; Ketuk Uji coba, lalu buka aplikasinya. AutoGest menyukai postingan 1 dan 3, melewati yang bersponsor."></video>
+        <figcaption>Direkam di ponsel sungguhan · 76 detik</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Tambahkan langkah Ketuk pada “Berikutnya”</li>
+          <li>Tambahkan Putaran berikutnya saat “Bersponsor” muncul</li>
+          <li>Tambahkan langkah Ketuk pada “Suka”</li>
+          <li>Ulangi skrip 4 kali</li>
+          <li>Ketuk Uji coba, lalu buka aplikasinya</li>
+        </ol>
+        <p class="result">▶ AutoGest menyukai postingan 1 dan 3, melewati yang bersponsor</p>
+        <div class="callout">
+          <strong>Tips</strong>
+          <ul>
+            <li>Berguna untuk melewati iklan atau item yang tidak diinginkan saat menelusuri daftar.</li>
+            <li>Melompat ke akhir perulangan terdekat di skrip yang sama.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Kembali ke daftar aksi</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="call-script">
+    <h2>Panggil skrip <span class="badge">PRO</span></h2>
+    <p class="muted">Jalankan skrip lain lalu kembali — pakai ulang langkah yang sudah kamu buat.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/id/call-script.mp4" poster="../../media/guide/id/call-script.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video panduan aksi Panggil skrip: Ketuk “Tambah tindakan”, pilih Panggil skrip; Ketuk “Pilih skrip”, pilih skrip yang dipanggil; Pilih berapa kali memanggilnya; Ketuk Uji coba, lalu buka aplikasinya. AutoGest menjalankan “Tekan tombol” 3 kali."></video>
+        <figcaption>Direkam di ponsel sungguhan · 34 detik</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Ketuk “Tambah tindakan”, pilih Panggil skrip</li>
+          <li>Ketuk “Pilih skrip”, pilih skrip yang dipanggil</li>
+          <li>Pilih berapa kali memanggilnya</li>
+          <li>Ketuk Uji coba, lalu buka aplikasinya</li>
+        </ol>
+        <p class="result">▶ AutoGest menjalankan “Tekan tombol” 3 kali</p>
+        <div class="callout">
+          <strong>Tips</strong>
+          <ul>
+            <li>Pilih berapa kali memanggilnya berturut-turut.</li>
+            <li>Skrip yang dipanggil mengikuti ritme skrip ini.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Kembali ke daftar aksi</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="set-variable">
+    <h2>Tulis ke variabel <span class="badge">PRO</span></h2>
+    <p class="muted">Beri nilai ke variabel, atau tambahkan angka — penghitung, total berjalan, teks untuk diingat.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/id/set-variable.mp4" poster="../../media/guide/id/set-variable.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video panduan aksi Tulis ke variabel: Ketuk “Tambah tindakan”, pilih Tulis ke variabel; Beri nama variabel baru, ketuk “Tambah variabel”; Buat langkahnya menambah 1 ke variabel; Tambahkan Tempel teks di kolom chat: “Pesan #” + variabel; Tambahkan langkah Ketuk pada “Kirim”; Ulangi skrip 3 kali; Ketuk Uji coba, lalu buka aplikasinya. Tiap putaran angkanya naik: 1, 2, 3."></video>
+        <figcaption>Direkam di ponsel sungguhan · 85 detik</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Ketuk “Tambah tindakan”, pilih Tulis ke variabel</li>
+          <li>Beri nama variabel baru, ketuk “Tambah variabel”</li>
+          <li>Buat langkahnya menambah 1 ke variabel</li>
+          <li>Tambahkan Tempel teks di kolom chat: “Pesan #” + variabel</li>
+          <li>Tambahkan langkah Ketuk pada “Kirim”</li>
+          <li>Ulangi skrip 3 kali</li>
+          <li>Ketuk Uji coba, lalu buka aplikasinya</li>
+        </ol>
+        <p class="result">▶ Tiap putaran angkanya naik: 1, 2, 3</p>
+        <div class="callout">
+          <strong>Tips</strong>
+          <ul>
+            <li>Sisipkan <code>{nama}</code> di kolom teks mana pun untuk memakai nilai variabel.</li>
+            <li>Variabel hanya hidup selama satu kali jalan: tekan Berhenti dan nilainya hilang.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Kembali ke daftar aksi</a></p>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2026 AutoGest · <a href="../../id/">Beranda</a> · <a href="../../id/guide/">Panduan penggunaan</a> ·
+    <a href="../../privacy/">Kebijakan Privasi</a> ·
+    <a href="../../terms/">Ketentuan Layanan</a><br><span>Kebijakan Privasi dan Ketentuan Layanan tersedia dalam bahasa Inggris dan Vietnam.</span></footer>
+</div>
+<script>
+  // Video chỉ chạy khi cuộn tới (tiết kiệm dữ liệu), tự lặp, không tiếng; bỏ thanh điều khiển khi có JavaScript.
+  const videos = document.querySelectorAll('.phone video');
+  const seen = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting) e.target.play().catch(() => {});
+      else e.target.pause();
+    }
+  }, { rootMargin: '200px 0px' });
+  videos.forEach((v) => { v.controls = false; v.preload = 'metadata'; seen.observe(v); });
+</script>
+</body>
+</html>

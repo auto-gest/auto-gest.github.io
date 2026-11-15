@@ -1,0 +1,920 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Návod – AutoGest</title>
+  <meta name="description" content="Návod ke každé akci AutoGest s videi natočenými na skutečném telefonu: {a:action_click}, přejetí, rozpoznávání textu (OCR), bloky Když… pak, proměnné a další.">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="icon" type="image/png" href="../../icon.png">
+  <link rel="apple-touch-icon" href="../../icon.png">
+  <link rel="canonical" href="https://auto-gest.github.io/cs/guide/">
+  <link rel="alternate" hreflang="en" href="https://auto-gest.github.io/guide/">
+  <link rel="alternate" hreflang="vi" href="https://auto-gest.github.io/vi/guide/">
+  <link rel="alternate" hreflang="es" href="https://auto-gest.github.io/es/guide/">
+  <link rel="alternate" hreflang="fr" href="https://auto-gest.github.io/fr/guide/">
+  <link rel="alternate" hreflang="it" href="https://auto-gest.github.io/it/guide/">
+  <link rel="alternate" hreflang="pl" href="https://auto-gest.github.io/pl/guide/">
+  <link rel="alternate" hreflang="ro" href="https://auto-gest.github.io/ro/guide/">
+  <link rel="alternate" hreflang="cs" href="https://auto-gest.github.io/cs/guide/">
+  <link rel="alternate" hreflang="ko" href="https://auto-gest.github.io/ko/guide/">
+  <link rel="alternate" hreflang="x-default" href="https://auto-gest.github.io/guide/">
+</head>
+<body>
+<!-- Trang sinh bằng user-guide/tools/gen-site.mjs trong repo mã nguồn AutoGest; sửa ở đó rồi sinh lại. -->
+<div class="wrap" id="top">
+  <header class="top">
+    <a class="brand" href="../../cs/"><img class="brand-mark" src="../../icon.png" alt="" width="36" height="36">AutoGest</a>
+    <details class="lang-menu">
+      <summary aria-label="Jazyk">Čeština</summary>
+      <ul>
+        <li><a href="../../guide/" hreflang="en" lang="en">English</a></li>
+        <li><a href="../../vi/guide/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+        <li><a href="../../es/guide/" hreflang="es" lang="es">Español</a></li>
+        <li><a href="../../fr/guide/" hreflang="fr" lang="fr">Français</a></li>
+        <li><a href="../../it/guide/" hreflang="it" lang="it">Italiano</a></li>
+        <li><a href="../../pl/guide/" hreflang="pl" lang="pl">Polski</a></li>
+        <li><a href="../../ro/guide/" hreflang="ro" lang="ro">Română</a></li>
+        <li><a href="../../cs/guide/" hreflang="cs" lang="cs" aria-current="true">Čeština</a></li>
+        <li><a href="../../ko/guide/" hreflang="ko" lang="ko">한국어</a></li>
+      </ul>
+    </details>
+  </header>
+
+  <h1>Návod</h1>
+  <p class="muted">Každá akce má krátké video natočené na skutečném telefonu s ukázkovou aplikací, ať je vidět výsledek. Každé klepnutí se rozsvítí, takže se snadno sleduje. Akce označené <span class="badge">PRO</span> patří do AutoGest Pro.</p>
+
+  <ul class="legend">
+    <li><span class="dot user"></span>Klepeš ty</li>
+    <li><span class="dot auto"></span>AutoGest klepe sám, zatímco běží skript</li>
+  </ul>
+
+  <nav class="chips" aria-label="Skupiny akcí">
+    <a href="#touch">Dotyky a gesta</a>
+    <a href="#wait">Čekání a rozpoznávání</a>
+    <a href="#system">Systém</a>
+    <a href="#flow">Průběh skriptu</a>
+  </nav>
+
+  <p class="label" id="touch">Dotyky a gesta</p>
+  <div class="action-grid">
+    <a class="action" href="#click"><strong>Klepnutí</strong><span>Jednou klepne na bod</span><div class="state">▶ Pustit video</div></a>
+    <a class="action" href="#rapid-click"><strong>Rychlé klepání</strong><span>Klepe velmi rychle mnohokrát na jeden bod</span><div class="state">▶ Pustit video</div></a>
+    <a class="action" href="#long-click"><strong>Dlouhé stisknutí</strong><span>Stiskne a podrží bod</span><div class="state">▶ Pustit video</div></a>
+    <a class="action" href="#swipe"><strong>Přejetí</strong><span>Táhne z bodu A do bodu B</span><div class="state">▶ Pustit video</div></a>
+    <a class="action" href="#scroll"><strong>Posunout</strong><span>Posune obsah daným směrem, bez bodu</span><div class="state">▶ Pustit video</div></a>
+    <a class="action" href="#paste-text"><strong>Vložit text</strong><span>Vloží celý text do pole</span><div class="state">▶ Pustit video</div></a>
+    <a class="action" href="#type-keys"><strong>Psát znaky <span class="badge">PRO</span></strong><span>Klepe na jednotlivé klávesy jako při psaní</span><div class="state">▶ Pustit video</div></a>
+  </div>
+
+  <p class="label" id="wait">Čekání a rozpoznávání</p>
+  <div class="action-grid">
+    <a class="action" href="#delay"><strong>Počkat</strong><span>Pauza před dalším krokem</span><div class="state">▶ Pustit video</div></a>
+    <a class="action" href="#wait-image"><strong>Čekat na obrázek <span class="badge">PRO</span></strong><span>Čeká, až se obrázek objeví nebo zmizí, bez klepnutí</span><div class="state">▶ Pustit video</div></a>
+    <a class="action" href="#wait-color"><strong>Čekat na barvu <span class="badge">PRO</span></strong><span>Čeká, až bod získá vybranou barvu</span><div class="state">▶ Pustit video</div></a>
+    <a class="action" href="#image-click"><strong>Klepnutí na obrázek <span class="badge">PRO</span></strong><span>Najde na obrazovce vzorový obrázek a klepne na něj</span><div class="state">▶ Pustit video</div></a>
+    <a class="action" href="#ocr-click"><strong>Klepnutí na text (OCR) <span class="badge">PRO</span></strong><span>Přečte text ze snímku obrazovky a klepne na něj · funguje ve hrách</span><div class="state">▶ Pustit video</div></a>
+    <a class="action" href="#ocr-wait"><strong>Čekat na text (OCR) <span class="badge">PRO</span></strong><span>Čeká, až se text objeví nebo zmizí, bez klepnutí · funguje ve hrách</span><div class="state">▶ Pustit video</div></a>
+    <a class="action" href="#ocr-read"><strong>Přečíst text (OCR) <span class="badge">PRO</span></strong><span>Přečte text v oblasti do proměnné · funguje ve hrách</span><div class="state">▶ Pustit video</div></a>
+    <a class="action" href="#click-text"><strong>Klepnutí na text</strong><span>Najde text a klepne na něj · ne pro hry</span><div class="state">▶ Pustit video</div></a>
+    <a class="action" href="#click-node"><strong>Klepnutí na uzel <span class="badge">PRO</span></strong><span>Vybere uzel na snímku obrazovky a klepne na něj · ne pro hry</span><div class="state">▶ Pustit video</div></a>
+    <a class="action" href="#read-text"><strong>Přečíst text z obrazovky <span class="badge">PRO</span></strong><span>Vybere uzel a uloží jeho text do proměnné · ne pro hry</span><div class="state">▶ Pustit video</div></a>
+    <a class="action" href="#wait-notification"><strong>Čekat a rozpoznat oznámení <span class="badge">PRO</span></strong><span>Čeká na oznámení s vašimi slovy nebo upozornění na zůstatek, pak ho přečte nahlas nebo pokračuje</span><div class="state">▶ Pustit video</div></a>
+  </div>
+
+  <p class="label" id="system">Systém</p>
+  <div class="action-grid">
+    <a class="action" href="#open-app"><strong>Otevřít aplikaci</strong><span>Otevře aplikaci a počká, až se zobrazí</span><div class="state">▶ Pustit video</div></a>
+    <a class="action" href="#back"><strong>Zpět</strong><span>Stiskne systémové tlačítko Zpět</span><div class="state">▶ Pustit video</div></a>
+    <a class="action" href="#home"><strong>Plocha</strong><span>Přejde na plochu telefonu</span><div class="state">▶ Pustit video</div></a>
+    <a class="action" href="#recent"><strong>Nedávné aplikace</strong><span>Otevře seznam nedávných aplikací</span><div class="state">▶ Pustit video</div></a>
+  </div>
+
+  <p class="label" id="flow">Průběh skriptu</p>
+  <div class="action-grid">
+    <a class="action" href="#if-then"><strong>Pokud… pak <span class="badge">PRO</span></strong><span>Zkontroluje obrazovku a pak pokračuje jednou ze dvou větví</span><div class="state">▶ Pustit video</div></a>
+    <a class="action" href="#loop-until"><strong>Opakovat do splnění <span class="badge">PRO</span></strong><span>Znovu provádí vnitřní kroky, dokud podmínka nebude splněna</span><div class="state">▶ Pustit video</div></a>
+    <a class="action" href="#stop-script"><strong>Zastavit skript <span class="badge">PRO</span></strong><span>Ukončí celý běh, když je splněna podmínka</span><div class="state">▶ Pustit video</div></a>
+    <a class="action" href="#next-round"><strong>Další opakování <span class="badge">PRO</span></strong><span>Přeskočí zbývající kroky a začne další opakování</span><div class="state">▶ Pustit video</div></a>
+    <a class="action" href="#call-script"><strong>Zavolat skript <span class="badge">PRO</span></strong><span>Spustí jiný skript a pak se vrátí</span><div class="state">▶ Pustit video</div></a>
+    <a class="action" href="#set-variable"><strong>Nastavit proměnnou <span class="badge">PRO</span></strong><span>Nastaví zapamatovanou proměnnou nebo k ní přičte</span><div class="state">▶ Pustit video</div></a>
+  </div>
+
+  <section class="guide" id="click">
+    <h2>Klepnutí</h2>
+    <p class="muted">Nejjednodušší akce: AutoGest klepne přesně na bod, který jsi vybral na obrazovce.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/cs/click.mp4" poster="../../media/guide/cs/click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video k akci Klepnutí: Klepni na „Přidat akci“, vyber Klepnutí; Klepni na „Přidat bod“; Otevři aplikaci, přetáhni zaměřovač na místo; Klepni na OK a ulož bod; Zpět v AutoGest je bod vyplněný; Klepni na Vyzkoušet a otevři aplikaci. AutoGest klepne přesně na vybrané místo."></video>
+        <figcaption>Natočeno na skutečném telefonu · 28 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Klepni na „Přidat akci“, vyber Klepnutí</li>
+          <li>Klepni na „Přidat bod“</li>
+          <li>Otevři aplikaci, přetáhni zaměřovač na místo</li>
+          <li>Klepni na OK a ulož bod</li>
+          <li>Zpět v AutoGest je bod vyplněný</li>
+          <li>Klepni na Vyzkoušet a otevři aplikaci</li>
+        </ol>
+        <p class="result">▶ AutoGest klepne přesně na vybrané místo</p>
+        <div class="callout">
+          <strong>Tipy</strong>
+          <ul>
+            <li>Body se přizpůsobí velikosti obrazovky, takže skript trefí i na telefonu s jinou obrazovkou.</li>
+            <li>V <strong>Obecná nastavení</strong> nastavíš pauzu mezi kroky a malou odchylku klepnutí, jako u skutečného člověka.</li>
+            <li>Tlačítko se přesouvá? Použij <strong>Klepnutí na obrázek</strong>, <strong>Klepnutí na text (OCR)</strong> nebo <strong>Klepnutí na text</strong>, ať ho AutoGest nejdřív najde.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zpět na seznam akcí</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="rapid-click">
+    <h2>Rychlé klepání</h2>
+    <p class="muted">Klepej na jeden bod pořád dokola, 1 až 20krát za sekundu — ideální pro hry, kde se rychle klepe.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/cs/rapid-click.mp4" poster="../../media/guide/cs/rapid-click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video k akci Rychlé klepání: Klepni na „Přidat akci“, vyber Rychlé klepání; Klepni na „Přidat bod“; Otevři aplikaci, dej zaměřovač na tlačítko; Klepni na OK a ulož bod; Zpět v AutoGest sniž počet klepnutí; Klepni na Vyzkoušet a otevři aplikaci. AutoGest klepne 30krát, 10krát za sekundu."></video>
+        <figcaption>Natočeno na skutečném telefonu · 33 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Klepni na „Přidat akci“, vyber Rychlé klepání</li>
+          <li>Klepni na „Přidat bod“</li>
+          <li>Otevři aplikaci, dej zaměřovač na tlačítko</li>
+          <li>Klepni na OK a ulož bod</li>
+          <li>Zpět v AutoGest sniž počet klepnutí</li>
+          <li>Klepni na Vyzkoušet a otevři aplikaci</li>
+        </ol>
+        <p class="result">▶ AutoGest klepne 30krát, 10krát za sekundu</p>
+        <div class="callout">
+          <strong>Tipy</strong>
+          <ul>
+            <li>Zastav po počtu klepnutí, po čase, nebo až klepneš na Stop.</li>
+            <li>Víc než 10 klepnutí za sekundu je rychlejší než ruka; některé aplikace to můžou brát jako neobvyklé.</li>
+            <li>Zapni přirozený rytmus, ať se rozestupy trochu liší jako u skutečného prstu.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zpět na seznam akcí</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="long-click">
+    <h2>Dlouhé stisknutí</h2>
+    <p class="muted">Klepni a drž bod tak dlouho, jak chceš — tlačítka „podrž pro potvrzení“, kontextové nabídky, výběr tažením.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/cs/long-click.mp4" poster="../../media/guide/cs/long-click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video k akci Dlouhé stisknutí: Klepni na „Přidat akci“, vyber Dlouhé stisknutí; Klepni na „Přidat bod“; Otevři aplikaci, dej zaměřovač na tlačítko; Klepni na OK a ulož bod; Zpět v AutoGest vyber dobu držení; Klepni na Vyzkoušet a otevři aplikaci. AutoGest drží tlačítko 2 s a odemkne."></video>
+        <figcaption>Natočeno na skutečném telefonu · 30 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Klepni na „Přidat akci“, vyber Dlouhé stisknutí</li>
+          <li>Klepni na „Přidat bod“</li>
+          <li>Otevři aplikaci, dej zaměřovač na tlačítko</li>
+          <li>Klepni na OK a ulož bod</li>
+          <li>Zpět v AutoGest vyber dobu držení</li>
+          <li>Klepni na Vyzkoušet a otevři aplikaci</li>
+        </ol>
+        <p class="result">▶ AutoGest drží tlačítko 2 s a odemkne</p>
+        <div class="callout">
+          <strong>Tipy</strong>
+          <ul>
+            <li>U tlačítka „podrž pro potvrzení“ zvol o něco delší dobu, než aplikace chce.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zpět na seznam akcí</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="swipe">
+    <h2>Přejetí</h2>
+    <p class="muted">Přejeď prstem z počátečního do koncového bodu — odemknutí přejetím, posuvník, listování stránkami.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/cs/swipe.mp4" poster="../../media/guide/cs/swipe.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video k akci Přejetí: Klepni na „Přidat akci“, vyber Přejetí; Vyber počáteční bod; Vrať se, vyber koncový bod; Vrať se, vyber délku přejetí; Klepni na Vyzkoušet a otevři aplikaci. AutoGest přejede od počátečního ke koncovému bodu."></video>
+        <figcaption>Natočeno na skutečném telefonu · 35 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Klepni na „Přidat akci“, vyber Přejetí</li>
+          <li>Vyber počáteční bod</li>
+          <li>Vrať se, vyber koncový bod</li>
+          <li>Vrať se, vyber délku přejetí</li>
+          <li>Klepni na Vyzkoušet a otevři aplikaci</li>
+        </ol>
+        <p class="result">▶ AutoGest přejede od počátečního ke koncovému bodu</p>
+        <div class="callout">
+          <strong>Tipy</strong>
+          <ul>
+            <li>Krátká doba je rychlé švihnutí, dlouhá je pomalé tažení (přetažení, posuvníky).</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zpět na seznam akcí</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="scroll">
+    <h2>Posunout</h2>
+    <p class="muted">Posuň seznam nahoru, dolů, doleva nebo doprava jedním přejetím středem obrazovky — bez výběru bodu.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/cs/scroll.mp4" poster="../../media/guide/cs/scroll.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video k akci Posunout: Klepni na „Přidat akci“, vyber Posunout; Vyber směr a délku; Klepni na Vyzkoušet a otevři aplikaci. AutoGest přejede středem obrazovky a posune."></video>
+        <figcaption>Natočeno na skutečném telefonu · 20 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Klepni na „Přidat akci“, vyber Posunout</li>
+          <li>Vyber směr a délku</li>
+          <li>Klepni na Vyzkoušet a otevři aplikaci</li>
+        </ol>
+        <p class="result">▶ AutoGest přejede středem obrazovky a posune</p>
+        <div class="callout">
+          <strong>Tipy</strong>
+          <ul>
+            <li>Spoj s <strong>Opakovat do splnění</strong> a posouvej, dokud se neobjeví, co hledáš.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zpět na seznam akcí</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="paste-text">
+    <h2>Vložit text</h2>
+    <p class="muted">Klepni do textového pole a vyplň ho celým připraveným textem — rychle a s háčky i čárkami.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/cs/paste-text.mp4" poster="../../media/guide/cs/paste-text.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video k akci Vložit text: Klepni na „Přidat akci“, vyber Vložit text; Klepni na „Přidat bod“, zamiř na textové pole; Vrať se, napiš text k vložení; Klepni na Vyzkoušet a otevři aplikaci. AutoGest vloží celý text do pole."></video>
+        <figcaption>Natočeno na skutečném telefonu · 31 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Klepni na „Přidat akci“, vyber Vložit text</li>
+          <li>Klepni na „Přidat bod“, zamiř na textové pole</li>
+          <li>Vrať se, napiš text k vložení</li>
+          <li>Klepni na Vyzkoušet a otevři aplikaci</li>
+        </ol>
+        <p class="result">▶ AutoGest vloží celý text do pole</p>
+        <div class="callout">
+          <strong>Tipy</strong>
+          <ul>
+            <li>Odděl víc textů pomocí <code>||</code> a AutoGest při každém spuštění vybere jeden náhodně.</li>
+            <li>Vlož proměnnou přes <strong>Vložit proměnnou</strong> a vlož hodnotu přečtenou dříve během běhu.</li>
+            <li>Aplikace blokuje vkládání? Použij <strong>Psát znaky</strong> a mačkej klávesy jako při psaní.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zpět na seznam akcí</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="type-keys">
+    <h2>Psát znaky <span class="badge">PRO</span></h2>
+    <p class="muted">Nahraj každou klávesu, kterou stiskneš; při běhu AutoGest stiskne stejné klávesy ve tvém rytmu.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/cs/type-keys.mp4" poster="../../media/guide/cs/type-keys.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video k akci Psát znaky: Klepni na „Přidat akci“, vyber Psát znaky; Klepni do pole nahrávání, piš na klávesnici; Klepni na „Hotovo“ a ulož klávesy; Vyber pole pro psaní (volitelné); Vrať se, klepni na Vyzkoušet, otevři aplikaci. AutoGest klepne do pole a zopakuje každou klávesu."></video>
+        <figcaption>Natočeno na skutečném telefonu · 38 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Klepni na „Přidat akci“, vyber Psát znaky</li>
+          <li>Klepni do pole nahrávání, piš na klávesnici</li>
+          <li>Klepni na „Hotovo“ a ulož klávesy</li>
+          <li>Vyber pole pro psaní (volitelné)</li>
+          <li>Vrať se, klepni na Vyzkoušet, otevři aplikaci</li>
+        </ol>
+        <p class="result">▶ AutoGest klepne do pole a zopakuje každou klávesu</p>
+        <div class="callout">
+          <strong>Tipy</strong>
+          <ul>
+            <li>Při nahrávání i spuštění použij stejnou klávesnici (a stejný typ pole), protože AutoGest mačká podle polohy kláves.</li>
+            <li>Po psaní AutoGest pole zkontroluje; když text nesedí, krok ohlásí chybu a přestane.</li>
+            <li>Nemusíš mačkat každou klávesu? Přepni kartu na <strong>Vložit text</strong>.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zpět na seznam akcí</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="delay">
+    <h2>Počkat</h2>
+    <p class="muted">Pauza před dalším krokem — ať se načte obrazovka, doběhne animace nebo vyprší časovač.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/cs/delay.mp4" poster="../../media/guide/cs/delay.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video k akci Počkat: Klepni na „Přidat akci“, vyber Počkat; Zadej dobu čekání (ms); Přidej krok Klepnutí, ať je vidět pauza; Opakuj skript 2krát v „Obecná nastavení“; Klepni na Vyzkoušet a otevři aplikaci. Klepnutí jdou po 3 s, plus pauza mezi kroky."></video>
+        <figcaption>Natočeno na skutečném telefonu · 45 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Klepni na „Přidat akci“, vyber Počkat</li>
+          <li>Zadej dobu čekání (ms)</li>
+          <li>Přidej krok Klepnutí, ať je vidět pauza</li>
+          <li>Opakuj skript 2krát v „Obecná nastavení“</li>
+          <li>Klepni na Vyzkoušet a otevři aplikaci</li>
+        </ol>
+        <p class="result">▶ Klepnutí jdou po 3 s, plus pauza mezi kroky</p>
+        <div class="callout">
+          <strong>Tipy</strong>
+          <ul>
+            <li>Každý krok už čeká krátkou náhodnou pauzu (nastavíš ji v <strong>Obecná nastavení</strong>); čekání přidej, jen když potřebuješ déle.</li>
+            <li>Čekáš, až se něco objeví? <strong>Čekat na obrázek</strong>, <strong>Čekat na text (OCR)</strong> nebo <strong>Čekat na barvu</strong> pokračují hned.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zpět na seznam akcí</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="wait-image">
+    <h2>Čekat na obrázek <span class="badge">PRO</span></h2>
+    <p class="muted">Počkej, až se na obrazovce objeví (nebo zmizí) obrázek, bez klepnutí — pak běží další kroky.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/cs/wait-image.mp4" poster="../../media/guide/cs/wait-image.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video k akci Čekat na obrázek: Klepni na „Přidat akci“, vyber Čekat na obrázek; Klepni na „Vybrat obrázek“, vyber „Oříznout z obrazovky“; Otevři obrazovku, klepni na Zachytit, ohranič obrázek; Vrať se, přidej krok Klepnutí tam, kde se obrázek objeví; Vrať se, klepni na Vyzkoušet, otevři aplikaci. AutoGest počká na dárek, pak provede krok Klepnutí."></video>
+        <figcaption>Natočeno na skutečném telefonu · 48 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Klepni na „Přidat akci“, vyber Čekat na obrázek</li>
+          <li>Klepni na „Vybrat obrázek“, vyber „Oříznout z obrazovky“</li>
+          <li>Otevři obrazovku, klepni na Zachytit, ohranič obrázek</li>
+          <li>Vrať se, přidej krok Klepnutí tam, kde se obrázek objeví</li>
+          <li>Vrať se, klepni na Vyzkoušet, otevři aplikaci</li>
+        </ol>
+        <p class="result">▶ AutoGest počká na dárek, pak provede krok Klepnutí</p>
+        <div class="callout">
+          <strong>Tipy</strong>
+          <ul>
+            <li>Ořízni obrázek těsně na hledanou věc, bez měnícího se pozadí.</li>
+            <li>Sniž minimální shodu, když obrázek vypadá pokaždé trochu jinak.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zpět na seznam akcí</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="wait-color">
+    <h2>Čekat na barvu <span class="badge">PRO</span></h2>
+    <p class="muted">Sleduj bod, dokud nemá zvolenou barvu (nebo ji nezmění) — semafor se změní na zelenou, tlačítko se aktivuje.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/cs/wait-color.mp4" poster="../../media/guide/cs/wait-color.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video k akci Čekat na barvu: Klepni na „Přidat akci“, vyber Čekat na barvu; Klepni na „Přidat bod“, zamiř na místo s barvou; Vrať se: AutoGest už tam barvu přečetl; Přidej krok Klepnutí na „Jeď“; Vrať se, klepni na Vyzkoušet, otevři aplikaci. AutoGest počká na zelenou a klepne na „Jeď“."></video>
+        <figcaption>Natočeno na skutečném telefonu · 44 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Klepni na „Přidat akci“, vyber Čekat na barvu</li>
+          <li>Klepni na „Přidat bod“, zamiř na místo s barvou</li>
+          <li>Vrať se: AutoGest už tam barvu přečetl</li>
+          <li>Přidej krok Klepnutí na „Jeď“</li>
+          <li>Vrať se, klepni na Vyzkoušet, otevři aplikaci</li>
+        </ol>
+        <p class="result">▶ AutoGest počká na zelenou a klepne na „Jeď“</p>
+        <div class="callout">
+          <strong>Tipy</strong>
+          <ul>
+            <li>Vyber bod, když obrazovka ukazuje požadovanou barvu: AutoGest ji přečte za tebe.</li>
+            <li>Funguje i ve hrách, protože se dívá jen na obraz obrazovky.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zpět na seznam akcí</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="image-click">
+    <h2>Klepnutí na obrázek <span class="badge">PRO</span></h2>
+    <p class="muted">Najdi obrázek na obrazovce a klepni na něj, ať je kdekoli — ideální pro tlačítka, která se přesouvají.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/cs/image-click.mp4" poster="../../media/guide/cs/image-click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video k akci Klepnutí na obrázek: Klepni na „Přidat akci“, vyber Klepnutí na obrázek; Klepni na „Vybrat obrázek“, vyber „Oříznout z obrazovky“; Otevři obrazovku s obrázkem, klepni na Zachytit; Stáhni rámeček těsně k obrázku, klepni na OK; Vrať se, klepni na Vyzkoušet, otevři aplikaci. AutoGest počká na dárek a klepne na něj."></video>
+        <figcaption>Natočeno na skutečném telefonu · 37 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Klepni na „Přidat akci“, vyber Klepnutí na obrázek</li>
+          <li>Klepni na „Vybrat obrázek“, vyber „Oříznout z obrazovky“</li>
+          <li>Otevři obrazovku s obrázkem, klepni na Zachytit</li>
+          <li>Stáhni rámeček těsně k obrázku, klepni na OK</li>
+          <li>Vrať se, klepni na Vyzkoušet, otevři aplikaci</li>
+        </ol>
+        <p class="result">▶ AutoGest počká na dárek a klepne na něj</p>
+        <div class="callout">
+          <strong>Tipy</strong>
+          <ul>
+            <li>Funguje ve hrách, protože AutoGest se dívá na obraz obrazovky, ne na strukturu aplikace.</li>
+            <li>Ořízni jen tlačítko, bez okolního pozadí.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zpět na seznam akcí</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="ocr-click">
+    <h2>Klepnutí na text (OCR) <span class="badge">PRO</span></h2>
+    <p class="muted">Přečti text ze snímku obrazovky rozpoznáváním textu (OCR) přímo v telefonu a klepni na něj — i ve hrách, které si text kreslí samy.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/cs/ocr-click.mp4" poster="../../media/guide/cs/ocr-click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video k akci Klepnutí na text (OCR): Klepni na „Přidat akci“, vyber Klepnutí na text (OCR); Napiš text z tlačítka; Klepni na Vyzkoušet a otevři aplikaci. AutoGest přečte obraz obrazovky — i ve hrách — a klepne na text."></video>
+        <figcaption>Natočeno na skutečném telefonu · 28 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Klepni na „Přidat akci“, vyber Klepnutí na text (OCR)</li>
+          <li>Napiš text z tlačítka</li>
+          <li>Klepni na Vyzkoušet a otevři aplikaci</li>
+        </ol>
+        <p class="result">▶ AutoGest přečte obraz obrazovky — i ve hrách — a klepne na text</p>
+        <div class="callout">
+          <strong>Tipy</strong>
+          <ul>
+            <li>Pro čínštinu, japonštinu nebo korejštinu vyber správné písmo; Latin pokrývá češtinu, angličtinu, španělštinu a další.</li>
+            <li>Zmenši oblast hledání pro rychlejší a přesnější čtení.</li>
+            <li>Rozpoznávání běží v telefonu; nic se neodesílá.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zpět na seznam akcí</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="ocr-wait">
+    <h2>Čekat na text (OCR) <span class="badge">PRO</span></h2>
+    <p class="muted">Počkej, až se text objeví (nebo zmizí) na obrazu obrazovky, bez klepnutí.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/cs/ocr-wait.mp4" poster="../../media/guide/cs/ocr-wait.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video k akci Čekat na text (OCR): Klepni na „Přidat akci“, vyber Čekat na text (OCR); Napiš text, na který se čeká; Přidej krok Klepnutí na „Běž“; Vrať se, klepni na Vyzkoušet, otevři aplikaci. AutoGest počká na „START“, pak klepne na „Běž“."></video>
+        <figcaption>Natočeno na skutečném telefonu · 41 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Klepni na „Přidat akci“, vyber Čekat na text (OCR)</li>
+          <li>Napiš text, na který se čeká</li>
+          <li>Přidej krok Klepnutí na „Běž“</li>
+          <li>Vrať se, klepni na Vyzkoušet, otevři aplikaci</li>
+        </ol>
+        <p class="result">▶ AutoGest počká na „START“, pak klepne na „Běž“</p>
+        <div class="callout">
+          <strong>Tipy</strong>
+          <ul>
+            <li>Hodí se na herní obrazovky jako „Připravit… START!“, „Vítězství“ nebo konec odpočtu.</li>
+            <li>Vyber oblast, ať čekáš rychleji a netrefíš stejné slovo jinde.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zpět na seznam akcí</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="ocr-read">
+    <h2>Přečíst text (OCR) <span class="badge">PRO</span></h2>
+    <p class="muted">Přečti text z části obrazu obrazovky a ulož ho do proměnné pro další kroky.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/cs/ocr-read.mp4" poster="../../media/guide/cs/ocr-read.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video k akci Přečíst text (OCR): Klepni na „Přidat akci“, vyber Přečíst text (OCR); Klepni na „Vybrat oblast“, otevři obrazovku, klepni na Zachytit; Ohranič kód, klepni na OK; Vrať se, vyber „Jen číslo“ a proměnnou pro uložení; Přidej Vložit text do pole, vlož proměnnou; Přidej krok Klepnutí na „Potvrdit“; Klepni na Vyzkoušet a otevři aplikaci. AutoGest přečte kód z obrázku a zadá ho."></video>
+        <figcaption>Natočeno na skutečném telefonu · 76 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Klepni na „Přidat akci“, vyber Přečíst text (OCR)</li>
+          <li>Klepni na „Vybrat oblast“, otevři obrazovku, klepni na Zachytit</li>
+          <li>Ohranič kód, klepni na OK</li>
+          <li>Vrať se, vyber „Jen číslo“ a proměnnou pro uložení</li>
+          <li>Přidej Vložit text do pole, vlož proměnnou</li>
+          <li>Přidej krok Klepnutí na „Potvrdit“</li>
+          <li>Klepni na Vyzkoušet a otevři aplikaci</li>
+        </ol>
+        <p class="result">▶ AutoGest přečte kód z obrázku a zadá ho</p>
+        <div class="callout">
+          <strong>Tipy</strong>
+          <ul>
+            <li>Vyber „Jen číslo“ a ponech jen číslice — skóre, ceny nebo kódy.</li>
+            <li>Použij proměnnou ve Vložit text nebo ji porovnej v bloku Když… pak.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zpět na seznam akcí</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="click-text">
+    <h2>Klepnutí na text</h2>
+    <p class="muted">Napiš text z tlačítka; při běhu AutoGest najde ten text na obrazovce a klepne na něj.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/cs/click-text.mp4" poster="../../media/guide/cs/click-text.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video k akci Klepnutí na text: Klepni na „Přidat akci“, vyber Klepnutí na text; Napiš text, který je na tlačítku; Klepni na Vyzkoušet a otevři aplikaci. Ať je tlačítko kdekoli, AutoGest najde text a klepne."></video>
+        <figcaption>Natočeno na skutečném telefonu · 29 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Klepni na „Přidat akci“, vyber Klepnutí na text</li>
+          <li>Napiš text, který je na tlačítku</li>
+          <li>Klepni na Vyzkoušet a otevři aplikaci</li>
+        </ol>
+        <p class="result">▶ Ať je tlačítko kdekoli, AutoGest najde text a klepne</p>
+        <div class="callout">
+          <strong>Tipy</strong>
+          <ul>
+            <li>Čte strukturu aplikace, takže nefunguje ve hrách, které text kreslí — tam použij <strong>Klepnutí na text (OCR)</strong>.</li>
+            <li>Na velikosti písmen nezáleží a stačí, když text obsahuje, co jsi napsal.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zpět na seznam akcí</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="click-node">
+    <h2>Klepnutí na uzel <span class="badge">PRO</span></h2>
+    <p class="muted">Zachyť obrazovku, klepni na prvek a AutoGest si zapamatuje, jak ho znovu najít — i tlačítka jen s ikonou.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/cs/click-node.mp4" poster="../../media/guide/cs/click-node.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video k akci Klepnutí na uzel: Klepni na „Přidat akci“, vyber Klepnutí na uzel; Klepni na „Vybrat uzel“, otevři aplikaci, klepni na Zachytit; Klepni na požadované tlačítko, pak „Vybrat uzel“; Vrať se, vyber, jak uzel hledat; Klepni na Vyzkoušet a otevři aplikaci. AutoGest najde tlačítko srdce a klepne na něj."></video>
+        <figcaption>Natočeno na skutečném telefonu · 37 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Klepni na „Přidat akci“, vyber Klepnutí na uzel</li>
+          <li>Klepni na „Vybrat uzel“, otevři aplikaci, klepni na Zachytit</li>
+          <li>Klepni na požadované tlačítko, pak „Vybrat uzel“</li>
+          <li>Vrať se, vyber, jak uzel hledat</li>
+          <li>Klepni na Vyzkoušet a otevři aplikaci</li>
+        </ol>
+        <p class="result">▶ AutoGest najde tlačítko srdce a klepne na něj</p>
+        <div class="callout">
+          <strong>Tipy</strong>
+          <ul>
+            <li>Hledej podle text nebo content-desc, když se nemění; vyhni se resource-id, pokud ho aplikace mění mezi verzemi.</li>
+            <li>Odstraň měnící se části (třeba počty), ať se uzel najde i příště.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zpět na seznam akcí</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="read-text">
+    <h2>Přečíst text z obrazovky <span class="badge">PRO</span></h2>
+    <p class="muted">Vyber prvek na obrazovce a zkopíruj jeho text do proměnné, bez klepnutí.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/cs/read-text.mp4" poster="../../media/guide/cs/read-text.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video k akci Přečíst text z obrazovky: Klepni na „Přidat akci“, vyber Přečíst text z obrazovky; Klepni na „Vybrat uzel“, otevři aplikaci, klepni na Zachytit; Klepni na kód, pak „Vybrat uzel“; Vrať se, vyber proměnnou pro uložení; Přidej Vložit text do pole, vlož proměnnou; Přidej krok Klepnutí na „Potvrdit“; Klepni na Vyzkoušet a otevři aplikaci. AutoGest zkopíruje kód a zadá ho."></video>
+        <figcaption>Natočeno na skutečném telefonu · 78 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Klepni na „Přidat akci“, vyber Přečíst text z obrazovky</li>
+          <li>Klepni na „Vybrat uzel“, otevři aplikaci, klepni na Zachytit</li>
+          <li>Klepni na kód, pak „Vybrat uzel“</li>
+          <li>Vrať se, vyber proměnnou pro uložení</li>
+          <li>Přidej Vložit text do pole, vlož proměnnou</li>
+          <li>Přidej krok Klepnutí na „Potvrdit“</li>
+          <li>Klepni na Vyzkoušet a otevři aplikaci</li>
+        </ol>
+        <p class="result">▶ AutoGest zkopíruje kód a zadá ho</p>
+        <div class="callout">
+          <strong>Tipy</strong>
+          <ul>
+            <li>Skvělé pro jednorázové kódy, čísla objednávek nebo zůstatky v aplikaci.</li>
+            <li>Čte strukturu aplikace; ve hrách použij <strong>Přečíst text (OCR)</strong>.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zpět na seznam akcí</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="wait-notification">
+    <h2>Čekat a rozpoznat oznámení <span class="badge">PRO</span></h2>
+    <p class="muted">Počkej na oznámení se zvoleným textem, přečti ho nahlas a pokračuj ve skriptu.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/cs/wait-notification.mp4" poster="../../media/guide/cs/wait-notification.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video k akci Čekat a rozpoznat oznámení: Klepni na „Přidat akci“, vyber Čekat a rozpoznat oznámení; Klepni na „Vybrat vzorové oznámení“, vyber oznámení; Napiš slova, která musí oznámení obsahovat; Klepni na „Použít tento vzor“; Přidej krok Klepnutí na „Potvrdit objednávku“; Vrať se, klepni na Vyzkoušet, otevři aplikaci; Když zákazník objedná…. AutoGest přečte oznámení nahlas a potvrdí."></video>
+        <figcaption>Natočeno na skutečném telefonu · 65 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Klepni na „Přidat akci“, vyber Čekat a rozpoznat oznámení</li>
+          <li>Klepni na „Vybrat vzorové oznámení“, vyber oznámení</li>
+          <li>Napiš slova, která musí oznámení obsahovat</li>
+          <li>Klepni na „Použít tento vzor“</li>
+          <li>Přidej krok Klepnutí na „Potvrdit objednávku“</li>
+          <li>Vrať se, klepni na Vyzkoušet, otevři aplikaci</li>
+          <li>Když zákazník objedná…</li>
+        </ol>
+        <p class="result">▶ AutoGest přečte oznámení nahlas a potvrdí</p>
+        <div class="callout">
+          <strong>Tipy</strong>
+          <ul>
+            <li>Vyber skutečné oznámení jako vzor a napiš slova, na která se čeká; měnící se části (jako číslo objednávky) se porovnávají volně.</li>
+            <li>Skript, který jen čeká na oznámení, může běžet na pozadí, i se zhasnutou obrazovkou.</li>
+            <li>Obsah oznámení zůstává v telefonu a nikdy se nezapisuje do logu.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zpět na seznam akcí</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="open-app">
+    <h2>Otevřít aplikaci</h2>
+    <p class="muted">Otevři aplikaci ze seznamu a počkej, až se ukáže — dobrý první krok každého skriptu.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/cs/open-app.mp4" poster="../../media/guide/cs/open-app.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video k akci Otevřít aplikaci: Klepni na „Přidat akci“, vyber Otevřít aplikaci; Klepni na „Vybrat aplikaci“, vyber aplikaci k otevření; Klepni na Vyzkoušet, aplikaci nemusíš otevírat sám. AutoGest sám otevře vybranou aplikaci."></video>
+        <figcaption>Natočeno na skutečném telefonu · 39 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Klepni na „Přidat akci“, vyber Otevřít aplikaci</li>
+          <li>Klepni na „Vybrat aplikaci“, vyber aplikaci k otevření</li>
+          <li>Klepni na Vyzkoušet, aplikaci nemusíš otevírat sám</li>
+        </ol>
+        <p class="result">▶ AutoGest sám otevře vybranou aplikaci</p>
+        <div class="callout">
+          <strong>Tipy</strong>
+          <ul>
+            <li>Skript může začít v AutoGest; tento krok přenese správnou aplikaci dopředu.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zpět na seznam akcí</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="back">
+    <h2>Zpět</h2>
+    <p class="muted">Stiskni systémové tlačítko Zpět.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/cs/back.mp4" poster="../../media/guide/cs/back.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video k akci Zpět: Klepni na „Přidat akci“, vyber Zpět; Klepni na Vyzkoušet a otevři aplikaci; Během odpočtu otevři zprávu. AutoGest zmáčkne Zpět, seznam je zpět."></video>
+        <figcaption>Natočeno na skutečném telefonu · 25 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Klepni na „Přidat akci“, vyber Zpět</li>
+          <li>Klepni na Vyzkoušet a otevři aplikaci</li>
+          <li>Během odpočtu otevři zprávu</li>
+        </ol>
+        <p class="result">▶ AutoGest zmáčkne Zpět, seznam je zpět</p>
+        <div class="callout">
+          <strong>Tipy</strong>
+          <ul>
+            <li>Zavře dialog nebo se vrátí o obrazovku.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zpět na seznam akcí</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="home">
+    <h2>Plocha</h2>
+    <p class="muted">Přejdi na plochu.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/cs/home.mp4" poster="../../media/guide/cs/home.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video k akci Plocha: Klepni na „Přidat akci“, vyber Plocha; Klepni na Vyzkoušet a otevři aplikaci. AutoGest přejde na plochu (rozmazanou kvůli soukromí)."></video>
+        <figcaption>Natočeno na skutečném telefonu · 24 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Klepni na „Přidat akci“, vyber Plocha</li>
+          <li>Klepni na Vyzkoušet a otevři aplikaci</li>
+        </ol>
+        <p class="result">▶ AutoGest přejde na plochu (rozmazanou kvůli soukromí)</p>
+        <div class="callout">
+          <strong>Tipy</strong>
+          <ul>
+            <li>Hodí se na konci skriptu nebo před otevřením jiné aplikace.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zpět na seznam akcí</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="recent">
+    <h2>Nedávné aplikace</h2>
+    <p class="muted">Otevři seznam nedávných aplikací.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/cs/recent.mp4" poster="../../media/guide/cs/recent.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video k akci Nedávné aplikace: Klepni na „Přidat akci“, vyber Nedávné aplikace; Klepni na Vyzkoušet a otevři aplikaci. AutoGest otevře nedávné aplikace (rozmazané kvůli soukromí)."></video>
+        <figcaption>Natočeno na skutečném telefonu · 24 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Klepni na „Přidat akci“, vyber Nedávné aplikace</li>
+          <li>Klepni na Vyzkoušet a otevři aplikaci</li>
+        </ol>
+        <p class="result">▶ AutoGest otevře nedávné aplikace (rozmazané kvůli soukromí)</p>
+        <div class="callout">
+          <strong>Tipy</strong>
+          <ul>
+            <li>Spoj s krokem Klepnutí a přepni do jiné aplikace.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zpět na seznam akcí</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="if-then">
+    <h2>Pokud… pak <span class="badge">PRO</span></h2>
+    <p class="muted">Spusť některé kroky, jen když platí podmínka — obrázek, barva, text, číslo kola nebo proměnná.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/cs/if-then.mp4" poster="../../media/guide/cs/if-then.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video k akci Pokud… pak: Klepni na „Přidat akci“, vyber Pokud… pak; Vyber „Text“, napiš hledaný text; Vypni větev „Jinak“, klepni na „Hotovo“; Do větve „Pak“: krok Klepnutí na zavírací tlačítko (✕); Vrať se, klepni na Vyzkoušet, otevři aplikaci. AutoGest vidí „Reklama“, tak klepne na zavřít."></video>
+        <figcaption>Natočeno na skutečném telefonu · 49 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Klepni na „Přidat akci“, vyber Pokud… pak</li>
+          <li>Vyber „Text“, napiš hledaný text</li>
+          <li>Vypni větev „Jinak“, klepni na „Hotovo“</li>
+          <li>Do větve „Pak“: krok Klepnutí na zavírací tlačítko (✕)</li>
+          <li>Vrať se, klepni na Vyzkoušet, otevři aplikaci</li>
+        </ol>
+        <p class="result">▶ AutoGest vidí „Reklama“, tak klepne na zavřít</p>
+        <div class="callout">
+          <strong>Tipy</strong>
+          <ul>
+            <li>Zapni větev Jinak a spouštěj jiné kroky, když podmínka neplatí.</li>
+            <li>Bloky mají jen jednu úroveň; pro vnoření přesuň logiku do jiného skriptu a použij <strong>Zavolat skript</strong>.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zpět na seznam akcí</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="loop-until">
+    <h2>Opakovat do splnění <span class="badge">PRO</span></h2>
+    <p class="muted">Opakuj kroky v bloku, dokud nezačne platit podmínka, nebo daný počet kol.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/cs/loop-until.mp4" poster="../../media/guide/cs/loop-until.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video k akci Opakovat do splnění: Klepni na „Přidat akci“, vyber Opakovat do splnění; Zastavit u „Text“: napiš text, který se ukáže na konci; Do smyčky: krok Klepnutí na „Načíst další“; Vrať se, klepni na Vyzkoušet, otevři aplikaci. AutoGest klepe na „Načíst další“, dokud se neobjeví „Žádné další zprávy“."></video>
+        <figcaption>Natočeno na skutečném telefonu · 50 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Klepni na „Přidat akci“, vyber Opakovat do splnění</li>
+          <li>Zastavit u „Text“: napiš text, který se ukáže na konci</li>
+          <li>Do smyčky: krok Klepnutí na „Načíst další“</li>
+          <li>Vrať se, klepni na Vyzkoušet, otevři aplikaci</li>
+        </ol>
+        <p class="result">▶ AutoGest klepe na „Načíst další“, dokud se neobjeví „Žádné další zprávy“</p>
+        <div class="callout">
+          <strong>Tipy</strong>
+          <ul>
+            <li>Vždy nastav maximální počet kol, ať skript omylem neběží donekonečna.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zpět na seznam akcí</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="stop-script">
+    <h2>Zastavit skript <span class="badge">PRO</span></h2>
+    <p class="muted">Ukonči celý běh, když nastane podmínka — třeba když dojdou tahy nebo energie.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/cs/stop-script.mp4" poster="../../media/guide/cs/stop-script.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video k akci Zastavit skript: Přidej krok Klepnutí na „Zatočit“; Vrať se, přidej Zastavit skript; Zastavit, když se objeví text „Žádná zatočení“; Opakuj skript bez omezení; Klepni na Vyzkoušet a otevři aplikaci. Po posledním zatočení se AutoGest sám zastaví."></video>
+        <figcaption>Natočeno na skutečném telefonu · 56 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Přidej krok Klepnutí na „Zatočit“</li>
+          <li>Vrať se, přidej Zastavit skript</li>
+          <li>Zastavit, když se objeví text „Žádná zatočení“</li>
+          <li>Opakuj skript bez omezení</li>
+          <li>Klepni na Vyzkoušet a otevři aplikaci</li>
+        </ol>
+        <p class="result">▶ Po posledním zatočení se AutoGest sám zastaví</p>
+        <div class="callout">
+          <strong>Tipy</strong>
+          <ul>
+            <li>U nekonečné smyčky je to čistý způsob, jak skončit.</li>
+            <li>Ve větvi bloku Když… pak může zastavit hned, bez podmínky.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zpět na seznam akcí</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="next-round">
+    <h2>Další opakování <span class="badge">PRO</span></h2>
+    <p class="muted">Přeskoč zbytek tohoto kola a začni další, když nastane podmínka.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/cs/next-round.mp4" poster="../../media/guide/cs/next-round.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video k akci Další opakování: Přidej krok Klepnutí na „Další příspěvek“; Přidej Další opakování, když je vidět „Sponzorováno“; Přidej krok Klepnutí na „To se mi líbí“; Opakuj skript 4krát; Klepni na Vyzkoušet a otevři aplikaci. AutoGest dá like příspěvkům 1 a 3, sponzorované přeskočí."></video>
+        <figcaption>Natočeno na skutečném telefonu · 76 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Přidej krok Klepnutí na „Další příspěvek“</li>
+          <li>Přidej Další opakování, když je vidět „Sponzorováno“</li>
+          <li>Přidej krok Klepnutí na „To se mi líbí“</li>
+          <li>Opakuj skript 4krát</li>
+          <li>Klepni na Vyzkoušet a otevři aplikaci</li>
+        </ol>
+        <p class="result">▶ AutoGest dá like příspěvkům 1 a 3, sponzorované přeskočí</p>
+        <div class="callout">
+          <strong>Tipy</strong>
+          <ul>
+            <li>Hodí se k přeskakování reklam nebo nechtěných položek v seznamu.</li>
+            <li>Skočí na konec nejbližší smyčky ve stejném skriptu.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zpět na seznam akcí</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="call-script">
+    <h2>Zavolat skript <span class="badge">PRO</span></h2>
+    <p class="muted">Spusť jiný skript a vrať se — využij kroky, které už máš.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/cs/call-script.mp4" poster="../../media/guide/cs/call-script.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video k akci Zavolat skript: Klepni na „Přidat akci“, vyber Zavolat skript; Klepni na „Vybrat skript“, vyber skript k zavolání; Vyber, kolikrát ho zavolat; Klepni na Vyzkoušet a otevři aplikaci. AutoGest spustí „Stisknout tlačítko“ 3krát."></video>
+        <figcaption>Natočeno na skutečném telefonu · 34 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Klepni na „Přidat akci“, vyber Zavolat skript</li>
+          <li>Klepni na „Vybrat skript“, vyber skript k zavolání</li>
+          <li>Vyber, kolikrát ho zavolat</li>
+          <li>Klepni na Vyzkoušet a otevři aplikaci</li>
+        </ol>
+        <p class="result">▶ AutoGest spustí „Stisknout tlačítko“ 3krát</p>
+        <div class="callout">
+          <strong>Tipy</strong>
+          <ul>
+            <li>Vyber, kolikrát po sobě ho zavolat.</li>
+            <li>Volaný skript běží v rytmu tohoto skriptu.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zpět na seznam akcí</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="set-variable">
+    <h2>Nastavit proměnnou <span class="badge">PRO</span></h2>
+    <p class="muted">Nastav proměnné hodnotu nebo k ní přičti číslo — počítadla, průběžné součty, text k zapamatování.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/cs/set-variable.mp4" poster="../../media/guide/cs/set-variable.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video k akci Nastavit proměnnou: Klepni na „Přidat akci“, vyber Nastavit proměnnou; Pojmenuj novou proměnnou, klepni na „Přidat proměnnou“; Ať krok přičte k proměnné 1; Přidej Vložit text do chatu: „Zpráva #“ + proměnná; Přidej krok Klepnutí na „Odeslat“; Opakuj skript 3krát; Klepni na Vyzkoušet a otevři aplikaci. Každé kolo číslo roste: 1, 2, 3."></video>
+        <figcaption>Natočeno na skutečném telefonu · 86 s</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Klepni na „Přidat akci“, vyber Nastavit proměnnou</li>
+          <li>Pojmenuj novou proměnnou, klepni na „Přidat proměnnou“</li>
+          <li>Ať krok přičte k proměnné 1</li>
+          <li>Přidej Vložit text do chatu: „Zpráva #“ + proměnná</li>
+          <li>Přidej krok Klepnutí na „Odeslat“</li>
+          <li>Opakuj skript 3krát</li>
+          <li>Klepni na Vyzkoušet a otevři aplikaci</li>
+        </ol>
+        <p class="result">▶ Každé kolo číslo roste: 1, 2, 3</p>
+        <div class="callout">
+          <strong>Tipy</strong>
+          <ul>
+            <li>Vlož <code>{název}</code> do libovolného textového pole a použij hodnotu proměnné.</li>
+            <li>Proměnné žijí jen během jednoho běhu: Stop je vynuluje.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Zpět na seznam akcí</a></p>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2026 AutoGest · <a href="../../cs/">Domů</a> · <a href="../../cs/guide/">Návod</a> ·
+    <a href="../../privacy/">Zásady ochrany soukromí</a> ·
+    <a href="../../terms/">Podmínky služby</a><br><span>Zásady ochrany soukromí a Podmínky služby jsou k dispozici v angličtině a vietnamštině.</span></footer>
+</div>
+<script>
+  // Video chỉ chạy khi cuộn tới (tiết kiệm dữ liệu), tự lặp, không tiếng; bỏ thanh điều khiển khi có JavaScript.
+  const videos = document.querySelectorAll('.phone video');
+  const seen = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting) e.target.play().catch(() => {});
+      else e.target.pause();
+    }
+  }, { rootMargin: '200px 0px' });
+  videos.forEach((v) => { v.controls = false; v.preload = 'metadata'; seen.observe(v); });
+</script>
+</body>
+</html>

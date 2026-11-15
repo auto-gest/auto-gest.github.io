@@ -1,0 +1,918 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ghid de utilizare – AutoGest</title>
+  <meta name="description" content="Un ghid pentru fiecare acțiune AutoGest, cu videoclipuri filmate pe un telefon real: {a:action_click}, glisare, recunoaștere text (OCR), blocuri Dacă… atunci, variabile și altele.">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="icon" type="image/png" href="../../icon.png">
+  <link rel="apple-touch-icon" href="../../icon.png">
+  <link rel="canonical" href="https://auto-gest.github.io/ro/guide/">
+  <link rel="alternate" hreflang="en" href="https://auto-gest.github.io/guide/">
+  <link rel="alternate" hreflang="vi" href="https://auto-gest.github.io/vi/guide/">
+  <link rel="alternate" hreflang="es" href="https://auto-gest.github.io/es/guide/">
+  <link rel="alternate" hreflang="fr" href="https://auto-gest.github.io/fr/guide/">
+  <link rel="alternate" hreflang="it" href="https://auto-gest.github.io/it/guide/">
+  <link rel="alternate" hreflang="pl" href="https://auto-gest.github.io/pl/guide/">
+  <link rel="alternate" hreflang="ro" href="https://auto-gest.github.io/ro/guide/">
+  <link rel="alternate" hreflang="ko" href="https://auto-gest.github.io/ko/guide/">
+  <link rel="alternate" hreflang="x-default" href="https://auto-gest.github.io/guide/">
+</head>
+<body>
+<!-- Trang sinh bằng user-guide/tools/gen-site.mjs trong repo mã nguồn AutoGest; sửa ở đó rồi sinh lại. -->
+<div class="wrap" id="top">
+  <header class="top">
+    <a class="brand" href="../../ro/"><img class="brand-mark" src="../../icon.png" alt="" width="36" height="36">AutoGest</a>
+    <details class="lang-menu">
+      <summary aria-label="Limbă">Română</summary>
+      <ul>
+        <li><a href="../../guide/" hreflang="en" lang="en">English</a></li>
+        <li><a href="../../vi/guide/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+        <li><a href="../../es/guide/" hreflang="es" lang="es">Español</a></li>
+        <li><a href="../../fr/guide/" hreflang="fr" lang="fr">Français</a></li>
+        <li><a href="../../it/guide/" hreflang="it" lang="it">Italiano</a></li>
+        <li><a href="../../pl/guide/" hreflang="pl" lang="pl">Polski</a></li>
+        <li><a href="../../ro/guide/" hreflang="ro" lang="ro" aria-current="true">Română</a></li>
+        <li><a href="../../ko/guide/" hreflang="ko" lang="ko">한국어</a></li>
+      </ul>
+    </details>
+  </header>
+
+  <h1>Ghid de utilizare</h1>
+  <p class="muted">Fiecare acțiune are un scurt videoclip filmat pe un telefon real, cu o aplicație demo ca să vezi rezultatul. Fiecare atingere se luminează, ca să o urmărești ușor. Acțiunile marcate <span class="badge">PRO</span> fac parte din AutoGest Pro.</p>
+
+  <ul class="legend">
+    <li><span class="dot user"></span>Atingi tu</li>
+    <li><span class="dot auto"></span>AutoGest atinge singur cât rulează scriptul</li>
+  </ul>
+
+  <nav class="chips" aria-label="Grupuri de acțiuni">
+    <a href="#touch">Atingeri și gesturi</a>
+    <a href="#wait">Așteptare și detectare</a>
+    <a href="#system">Sistem</a>
+    <a href="#flow">Fluxul scriptului</a>
+  </nav>
+
+  <p class="label" id="touch">Atingeri și gesturi</p>
+  <div class="action-grid">
+    <a class="action" href="#click"><strong>Clic</strong><span>Atinge o dată un punct</span><div class="state">▶ Vezi videoclipul</div></a>
+    <a class="action" href="#rapid-click"><strong>Clic rapid</strong><span>Atinge foarte repede, de multe ori, într-un punct</span><div class="state">▶ Vezi videoclipul</div></a>
+    <a class="action" href="#long-click"><strong>Apăsare lungă</strong><span>Apasă și ține apăsat pe un punct</span><div class="state">▶ Vezi videoclipul</div></a>
+    <a class="action" href="#swipe"><strong>Glisare</strong><span>Trage din punctul A în punctul B</span><div class="state">▶ Vezi videoclipul</div></a>
+    <a class="action" href="#scroll"><strong>Derulare</strong><span>Derulează într-o direcție, fără punct</span><div class="state">▶ Vezi videoclipul</div></a>
+    <a class="action" href="#paste-text"><strong>Lipire text</strong><span>Lipește tot textul într-un câmp</span><div class="state">▶ Vezi videoclipul</div></a>
+    <a class="action" href="#type-keys"><strong>Tastare caractere <span class="badge">PRO</span></strong><span>Atinge fiecare tastă, ca la scris</span><div class="state">▶ Vezi videoclipul</div></a>
+  </div>
+
+  <p class="label" id="wait">Așteptare și detectare</p>
+  <div class="action-grid">
+    <a class="action" href="#delay"><strong>Așteptare</strong><span>Pauză înainte de pasul următor</span><div class="state">▶ Vezi videoclipul</div></a>
+    <a class="action" href="#wait-image"><strong>Așteptare imagine <span class="badge">PRO</span></strong><span>Așteaptă să apară sau să dispară o imagine, fără atingere</span><div class="state">▶ Vezi videoclipul</div></a>
+    <a class="action" href="#wait-color"><strong>Așteptare culoare <span class="badge">PRO</span></strong><span>Așteaptă până când un punct ia culoarea aleasă</span><div class="state">▶ Vezi videoclipul</div></a>
+    <a class="action" href="#image-click"><strong>Clic pe imagine <span class="badge">PRO</span></strong><span>Găsește pe ecran o imagine șablon, apoi o atinge</span><div class="state">▶ Vezi videoclipul</div></a>
+    <a class="action" href="#ocr-click"><strong>Clic pe text (OCR) <span class="badge">PRO</span></strong><span>Citește textul dintr-o captură de ecran, apoi îl atinge · funcționează în jocuri</span><div class="state">▶ Vezi videoclipul</div></a>
+    <a class="action" href="#ocr-wait"><strong>Așteptare text (OCR) <span class="badge">PRO</span></strong><span>Așteaptă să apară sau să dispară un text, fără atingere · funcționează în jocuri</span><div class="state">▶ Vezi videoclipul</div></a>
+    <a class="action" href="#ocr-read"><strong>Citire text (OCR) <span class="badge">PRO</span></strong><span>Citește textul dintr-o zonă într-o variabilă · funcționează în jocuri</span><div class="state">▶ Vezi videoclipul</div></a>
+    <a class="action" href="#click-text"><strong>Clic pe text</strong><span>Găsește un text, apoi îl atinge · nu pentru jocuri</span><div class="state">▶ Vezi videoclipul</div></a>
+    <a class="action" href="#click-node"><strong>Clic pe nod <span class="badge">PRO</span></strong><span>Alege un nod pe o captură de ecran, apoi îl atinge · nu pentru jocuri</span><div class="state">▶ Vezi videoclipul</div></a>
+    <a class="action" href="#read-text"><strong>Citire text de pe ecran <span class="badge">PRO</span></strong><span>Alege un nod și îi salvează textul într-o variabilă · nu pentru jocuri</span><div class="state">▶ Vezi videoclipul</div></a>
+    <a class="action" href="#wait-notification"><strong>Așteptare și detectare notificare <span class="badge">PRO</span></strong><span>Așteaptă o notificare cu cuvintele dvs. sau o alertă de sold, apoi o citește cu voce tare sau trece mai departe</span><div class="state">▶ Vezi videoclipul</div></a>
+  </div>
+
+  <p class="label" id="system">Sistem</p>
+  <div class="action-grid">
+    <a class="action" href="#open-app"><strong>Deschidere aplicație</strong><span>Deschide o aplicație și așteaptă să apară</span><div class="state">▶ Vezi videoclipul</div></a>
+    <a class="action" href="#back"><strong>Înapoi</strong><span>Apasă tasta Înapoi a sistemului</span><div class="state">▶ Vezi videoclipul</div></a>
+    <a class="action" href="#home"><strong>Ecran de pornire</strong><span>Merge la ecranul de pornire al telefonului</span><div class="state">▶ Vezi videoclipul</div></a>
+    <a class="action" href="#recent"><strong>Aplicații recente</strong><span>Deschide lista aplicațiilor recente</span><div class="state">▶ Vezi videoclipul</div></a>
+  </div>
+
+  <p class="label" id="flow">Fluxul scriptului</p>
+  <div class="action-grid">
+    <a class="action" href="#if-then"><strong>Dacă… atunci <span class="badge">PRO</span></strong><span>Verifică ecranul, apoi urmează una din două ramuri</span><div class="state">▶ Vezi videoclipul</div></a>
+    <a class="action" href="#loop-until"><strong>Repetă până când <span class="badge">PRO</span></strong><span>Rulează din nou pașii din interior până când condiția e adevărată</span><div class="state">▶ Vezi videoclipul</div></a>
+    <a class="action" href="#stop-script"><strong>Oprire script <span class="badge">PRO</span></strong><span>Încheie întreaga rulare când o condiție este îndeplinită</span><div class="state">▶ Vezi videoclipul</div></a>
+    <a class="action" href="#next-round"><strong>Bucla următoare <span class="badge">PRO</span></strong><span>Sare peste pașii rămași și începe bucla următoare</span><div class="state">▶ Vezi videoclipul</div></a>
+    <a class="action" href="#call-script"><strong>Apelare script <span class="badge">PRO</span></strong><span>Rulează alt script, apoi revine</span><div class="state">▶ Vezi videoclipul</div></a>
+    <a class="action" href="#set-variable"><strong>Setare variabilă <span class="badge">PRO</span></strong><span>Setează sau adaugă la o variabilă memorată</span><div class="state">▶ Vezi videoclipul</div></a>
+  </div>
+
+  <section class="guide" id="click">
+    <h2>Clic</h2>
+    <p class="muted">Cea mai simplă acțiune: AutoGest atinge exact punctul ales pe ecran.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ro/click.mp4" poster="../../media/guide/ro/click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Videoclip pentru acțiunea Clic: Apasă „Adăugați o acțiune”, alege Clic; Apasă „Adăugați un punct”; Deschide aplicația, trage ținta pe punct; Apasă OK pentru a salva punctul; Înapoi în AutoGest, punctul e completat; Apasă Testați, apoi deschide aplicația. AutoGest atinge exact punctul ales."></video>
+        <figcaption>Filmat pe un telefon real · 28 secunde</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Apasă „Adăugați o acțiune”, alege Clic</li>
+          <li>Apasă „Adăugați un punct”</li>
+          <li>Deschide aplicația, trage ținta pe punct</li>
+          <li>Apasă OK pentru a salva punctul</li>
+          <li>Înapoi în AutoGest, punctul e completat</li>
+          <li>Apasă Testați, apoi deschide aplicația</li>
+        </ol>
+        <p class="result">▶ AutoGest atinge exact punctul ales</p>
+        <div class="callout">
+          <strong>Sfaturi</strong>
+          <ul>
+            <li>Punctele se adaptează mărimii ecranului, așa că scriptul nimerește și pe un telefon cu alt ecran.</li>
+            <li>În <strong>Setări generale</strong> setezi pauza dintre pași și o mică abatere a atingerii, ca la un om real.</li>
+            <li>Butonul își schimbă locul? Folosește <strong>Clic pe imagine</strong>, <strong>Clic pe text (OCR)</strong> sau <strong>Clic pe text</strong>, ca AutoGest să-l găsească întâi.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Înapoi la lista de acțiuni</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="rapid-click">
+    <h2>Clic rapid</h2>
+    <p class="muted">Atinge un punct iar și iar, de 1 până la 20 de ori pe secundă — ideal pentru jocuri cu atingeri rapide.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ro/rapid-click.mp4" poster="../../media/guide/ro/rapid-click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Videoclip pentru acțiunea Clic rapid: Apasă „Adăugați o acțiune”, alege Clic rapid; Apasă „Adăugați un punct”; Deschide aplicația, pune ținta pe buton; Apasă OK pentru a salva punctul; Înapoi în AutoGest, micșorează numărul de atingeri; Apasă Testați, apoi deschide aplicația. AutoGest atinge de 30 de ori, 10 atingeri pe secundă."></video>
+        <figcaption>Filmat pe un telefon real · 33 secunde</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Apasă „Adăugați o acțiune”, alege Clic rapid</li>
+          <li>Apasă „Adăugați un punct”</li>
+          <li>Deschide aplicația, pune ținta pe buton</li>
+          <li>Apasă OK pentru a salva punctul</li>
+          <li>Înapoi în AutoGest, micșorează numărul de atingeri</li>
+          <li>Apasă Testați, apoi deschide aplicația</li>
+        </ol>
+        <p class="result">▶ AutoGest atinge de 30 de ori, 10 atingeri pe secundă</p>
+        <div class="callout">
+          <strong>Sfaturi</strong>
+          <ul>
+            <li>Oprește după un număr de atingeri, după un timp sau abia când apeși Stop.</li>
+            <li>Peste 10 atingeri pe secundă e mai rapid decât o mână; unele aplicații pot considera asta neobișnuit.</li>
+            <li>Activează ritmul natural ca pauzele să varieze puțin, ca la un deget real.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Înapoi la lista de acțiuni</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="long-click">
+    <h2>Apăsare lungă</h2>
+    <p class="muted">Atinge și ține un punct cât vrei — butoane de ținut apăsat, meniuri contextuale, selectare prin tragere.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ro/long-click.mp4" poster="../../media/guide/ro/long-click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Videoclip pentru acțiunea Apăsare lungă: Apasă „Adăugați o acțiune”, alege Apăsare lungă; Apasă „Adăugați un punct”; Deschide aplicația, pune ținta pe buton; Apasă OK pentru a salva punctul; Înapoi în AutoGest, alege cât să țină apăsat; Apasă Testați, apoi deschide aplicația. AutoGest ține butonul 2 s și se deblochează."></video>
+        <figcaption>Filmat pe un telefon real · 30 secunde</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Apasă „Adăugați o acțiune”, alege Apăsare lungă</li>
+          <li>Apasă „Adăugați un punct”</li>
+          <li>Deschide aplicația, pune ținta pe buton</li>
+          <li>Apasă OK pentru a salva punctul</li>
+          <li>Înapoi în AutoGest, alege cât să țină apăsat</li>
+          <li>Apasă Testați, apoi deschide aplicația</li>
+        </ol>
+        <p class="result">▶ AutoGest ține butonul 2 s și se deblochează</p>
+        <div class="callout">
+          <strong>Sfaturi</strong>
+          <ul>
+            <li>Pentru un buton „ține apăsat pentru confirmare”, alege un timp puțin mai lung decât cere aplicația.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Înapoi la lista de acțiuni</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="swipe">
+    <h2>Glisare</h2>
+    <p class="muted">Trage degetul de la un punct de start la unul final — glisează pentru deblocare, mută un cursor, răsfoiește pagini.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ro/swipe.mp4" poster="../../media/guide/ro/swipe.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Videoclip pentru acțiunea Glisare: Apasă „Adăugați o acțiune”, alege Glisare; Alege punctul de start; Revino, alege punctul de final; Revino, alege durata glisării; Apasă Testați, apoi deschide aplicația. AutoGest glisează de la start la final."></video>
+        <figcaption>Filmat pe un telefon real · 34 secunde</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Apasă „Adăugați o acțiune”, alege Glisare</li>
+          <li>Alege punctul de start</li>
+          <li>Revino, alege punctul de final</li>
+          <li>Revino, alege durata glisării</li>
+          <li>Apasă Testați, apoi deschide aplicația</li>
+        </ol>
+        <p class="result">▶ AutoGest glisează de la start la final</p>
+        <div class="callout">
+          <strong>Sfaturi</strong>
+          <ul>
+            <li>Durata scurtă e o glisare rapidă; cea lungă e o tragere lentă (trage și plasează, cursoare).</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Înapoi la lista de acțiuni</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="scroll">
+    <h2>Derulare</h2>
+    <p class="muted">Derulează o listă în sus, în jos, la stânga sau la dreapta cu o glisare prin mijlocul ecranului — fără punct de ales.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ro/scroll.mp4" poster="../../media/guide/ro/scroll.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Videoclip pentru acțiunea Derulare: Apasă „Adăugați o acțiune”, alege Derulare; Alege direcția și durata; Apasă Testați, apoi deschide aplicația. AutoGest glisează prin mijlocul ecranului ca să deruleze."></video>
+        <figcaption>Filmat pe un telefon real · 20 secunde</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Apasă „Adăugați o acțiune”, alege Derulare</li>
+          <li>Alege direcția și durata</li>
+          <li>Apasă Testați, apoi deschide aplicația</li>
+        </ol>
+        <p class="result">▶ AutoGest glisează prin mijlocul ecranului ca să deruleze</p>
+        <div class="callout">
+          <strong>Sfaturi</strong>
+          <ul>
+            <li>Combină cu <strong>Repetă până când</strong> ca să derulezi până apare ce cauți.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Înapoi la lista de acțiuni</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="paste-text">
+    <h2>Lipire text</h2>
+    <p class="muted">Atinge un câmp de text și completează-l cu tot textul pregătit — rapid, cu diacriticele corecte.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ro/paste-text.mp4" poster="../../media/guide/ro/paste-text.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Videoclip pentru acțiunea Lipire text: Apasă „Adăugați o acțiune”, alege Lipire text; Apasă „Adăugați un punct”, țintește câmpul de text; Revino, scrie textul de lipit; Apasă Testați, apoi deschide aplicația. AutoGest lipește tot textul în câmp."></video>
+        <figcaption>Filmat pe un telefon real · 31 secunde</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Apasă „Adăugați o acțiune”, alege Lipire text</li>
+          <li>Apasă „Adăugați un punct”, țintește câmpul de text</li>
+          <li>Revino, scrie textul de lipit</li>
+          <li>Apasă Testați, apoi deschide aplicația</li>
+        </ol>
+        <p class="result">▶ AutoGest lipește tot textul în câmp</p>
+        <div class="callout">
+          <strong>Sfaturi</strong>
+          <ul>
+            <li>Separă mai multe texte cu <code>||</code> și AutoGest alege unul la întâmplare la fiecare rulare.</li>
+            <li>Inserează o variabilă cu <strong>Inserați o variabilă</strong> ca să lipești o valoare citită mai devreme.</li>
+            <li>Aplicația blochează lipirea? Folosește <strong>Tastare caractere</strong> ca să apeși fiecare tastă ca la scris.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Înapoi la lista de acțiuni</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="type-keys">
+    <h2>Tastare caractere <span class="badge">PRO</span></h2>
+    <p class="muted">Înregistrează fiecare tastă apăsată; la rulare, AutoGest apasă aceleași taste în ritmul tău.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ro/type-keys.mp4" poster="../../media/guide/ro/type-keys.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Videoclip pentru acțiunea Tastare caractere: Apasă „Adăugați o acțiune”, alege Tastare caractere; Atinge caseta de înregistrare, scrie pe tastatură; Apasă „Gata” ca să salvezi tastele; Alege câmpul în care să scrie (opțional); Revino, apasă Testați, deschide aplicația. AutoGest atinge câmpul și repetă fiecare tastă."></video>
+        <figcaption>Filmat pe un telefon real · 39 secunde</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Apasă „Adăugați o acțiune”, alege Tastare caractere</li>
+          <li>Atinge caseta de înregistrare, scrie pe tastatură</li>
+          <li>Apasă „Gata” ca să salvezi tastele</li>
+          <li>Alege câmpul în care să scrie (opțional)</li>
+          <li>Revino, apasă Testați, deschide aplicația</li>
+        </ol>
+        <p class="result">▶ AutoGest atinge câmpul și repetă fiecare tastă</p>
+        <div class="callout">
+          <strong>Sfaturi</strong>
+          <ul>
+            <li>Folosește aceeași tastatură (și același tip de câmp) la înregistrare și la rulare, pentru că AutoGest apasă după poziția tastelor.</li>
+            <li>După scriere, AutoGest verifică câmpul; dacă textul nu se potrivește, pasul dă eroare și se oprește.</li>
+            <li>Nu e nevoie de fiecare tastă? Comută cardul la <strong>Lipire text</strong>.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Înapoi la lista de acțiuni</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="delay">
+    <h2>Așteptare</h2>
+    <p class="muted">O pauză înainte de pasul următor — lasă un ecran să se încarce, o animație să se termine sau un cronometru să expire.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ro/delay.mp4" poster="../../media/guide/ro/delay.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Videoclip pentru acțiunea Așteptare: Apasă „Adăugați o acțiune”, alege Așteptare; Introdu timpul de așteptare (ms); Adaugă un pas Clic ca să vezi pauza; Repetă scriptul de 2 ori în „Setări generale”; Apasă Testați, apoi deschide aplicația. Atingerile vin la 3 s distanță, plus pauza dintre pași."></video>
+        <figcaption>Filmat pe un telefon real · 45 secunde</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Apasă „Adăugați o acțiune”, alege Așteptare</li>
+          <li>Introdu timpul de așteptare (ms)</li>
+          <li>Adaugă un pas Clic ca să vezi pauza</li>
+          <li>Repetă scriptul de 2 ori în „Setări generale”</li>
+          <li>Apasă Testați, apoi deschide aplicația</li>
+        </ol>
+        <p class="result">▶ Atingerile vin la 3 s distanță, plus pauza dintre pași</p>
+        <div class="callout">
+          <strong>Sfaturi</strong>
+          <ul>
+            <li>Fiecare pas așteaptă deja o scurtă pauză aleatorie (setată în <strong>Setări generale</strong>); adaugă o așteptare doar dacă ai nevoie de mai mult.</li>
+            <li>Aștepți să apară ceva? <strong>Așteptare imagine</strong>, <strong>Așteptare text (OCR)</strong> sau <strong>Așteptare culoare</strong> merg mai departe imediat.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Înapoi la lista de acțiuni</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="wait-image">
+    <h2>Așteptare imagine <span class="badge">PRO</span></h2>
+    <p class="muted">Așteaptă până apare (sau dispare) o imagine pe ecran, fără să atingi — apoi rulează pașii următori.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ro/wait-image.mp4" poster="../../media/guide/ro/wait-image.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Videoclip pentru acțiunea Așteptare imagine: Apasă „Adăugați o acțiune”, alege Așteptare imagine; Apasă „Alegeți o imagine”, alege „Decupați de pe ecran”; Deschide ecranul, apasă Capturați, încadrează imaginea; Revino, adaugă un pas Clic unde apare imaginea; Revino, apasă Testați, deschide aplicația. AutoGest așteaptă cutia cadou, apoi execută pasul Clic."></video>
+        <figcaption>Filmat pe un telefon real · 48 secunde</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Apasă „Adăugați o acțiune”, alege Așteptare imagine</li>
+          <li>Apasă „Alegeți o imagine”, alege „Decupați de pe ecran”</li>
+          <li>Deschide ecranul, apasă Capturați, încadrează imaginea</li>
+          <li>Revino, adaugă un pas Clic unde apare imaginea</li>
+          <li>Revino, apasă Testați, deschide aplicația</li>
+        </ol>
+        <p class="result">▶ AutoGest așteaptă cutia cadou, apoi execută pasul Clic</p>
+        <div class="callout">
+          <strong>Sfaturi</strong>
+          <ul>
+            <li>Decupează imaginea strâns pe ce cauți, fără fundal care se schimbă.</li>
+            <li>Scade potrivirea minimă dacă imaginea arată puțin diferit de fiecare dată.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Înapoi la lista de acțiuni</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="wait-color">
+    <h2>Așteptare culoare <span class="badge">PRO</span></h2>
+    <p class="muted">Urmărește un punct până capătă o culoare aleasă (sau își schimbă culoarea) — un semafor care devine verde, un buton care se activează.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ro/wait-color.mp4" poster="../../media/guide/ro/wait-color.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Videoclip pentru acțiunea Așteptare culoare: Apasă „Adăugați o acțiune”, alege Așteptare culoare; Apasă „Adăugați un punct”, țintește punctul cu culoarea; Revino: AutoGest a citit deja culoarea de acolo; Adaugă un pas Clic pe „Pornește”; Revino, apasă Testați, deschide aplicația. AutoGest așteaptă verdele, apoi apasă „Pornește”."></video>
+        <figcaption>Filmat pe un telefon real · 44 secunde</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Apasă „Adăugați o acțiune”, alege Așteptare culoare</li>
+          <li>Apasă „Adăugați un punct”, țintește punctul cu culoarea</li>
+          <li>Revino: AutoGest a citit deja culoarea de acolo</li>
+          <li>Adaugă un pas Clic pe „Pornește”</li>
+          <li>Revino, apasă Testați, deschide aplicația</li>
+        </ol>
+        <p class="result">▶ AutoGest așteaptă verdele, apoi apasă „Pornește”</p>
+        <div class="callout">
+          <strong>Sfaturi</strong>
+          <ul>
+            <li>Alege punctul când ecranul arată culoarea dorită: AutoGest o citește pentru tine.</li>
+            <li>Merge și în jocuri, pentru că se uită doar la imaginea ecranului.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Înapoi la lista de acțiuni</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="image-click">
+    <h2>Clic pe imagine <span class="badge">PRO</span></h2>
+    <p class="muted">Găsește o imagine pe ecran și atinge-o, oriunde ar fi — perfect pentru butoane care se mută.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ro/image-click.mp4" poster="../../media/guide/ro/image-click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Videoclip pentru acțiunea Clic pe imagine: Apasă „Adăugați o acțiune”, alege Clic pe imagine; Apasă „Alegeți o imagine”, alege „Decupați de pe ecran”; Deschide ecranul cu imaginea, apasă Capturați; Strânge cadrul în jurul imaginii, apasă OK; Revino, apasă Testați, deschide aplicația. AutoGest așteaptă cutia cadou, apoi o atinge."></video>
+        <figcaption>Filmat pe un telefon real · 37 secunde</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Apasă „Adăugați o acțiune”, alege Clic pe imagine</li>
+          <li>Apasă „Alegeți o imagine”, alege „Decupați de pe ecran”</li>
+          <li>Deschide ecranul cu imaginea, apasă Capturați</li>
+          <li>Strânge cadrul în jurul imaginii, apasă OK</li>
+          <li>Revino, apasă Testați, deschide aplicația</li>
+        </ol>
+        <p class="result">▶ AutoGest așteaptă cutia cadou, apoi o atinge</p>
+        <div class="callout">
+          <strong>Sfaturi</strong>
+          <ul>
+            <li>Merge în jocuri, pentru că AutoGest se uită la imaginea ecranului, nu la structura aplicației.</li>
+            <li>Decupează doar butonul, fără fundalul din jur.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Înapoi la lista de acțiuni</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="ocr-click">
+    <h2>Clic pe text (OCR) <span class="badge">PRO</span></h2>
+    <p class="muted">Citește textul dintr-o captură cu recunoaștere de text (OCR) pe telefon și atinge-l — chiar și în jocuri care își desenează textul.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ro/ocr-click.mp4" poster="../../media/guide/ro/ocr-click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Videoclip pentru acțiunea Clic pe text (OCR): Apasă „Adăugați o acțiune”, alege Clic pe text (OCR); Scrie textul de pe buton; Apasă Testați, apoi deschide aplicația. AutoGest citește imaginea ecranului — și în jocuri — și atinge textul."></video>
+        <figcaption>Filmat pe un telefon real · 28 secunde</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Apasă „Adăugați o acțiune”, alege Clic pe text (OCR)</li>
+          <li>Scrie textul de pe buton</li>
+          <li>Apasă Testați, apoi deschide aplicația</li>
+        </ol>
+        <p class="result">▶ AutoGest citește imaginea ecranului — și în jocuri — și atinge textul</p>
+        <div class="callout">
+          <strong>Sfaturi</strong>
+          <ul>
+            <li>Alege scrierea potrivită pentru chineză, japoneză sau coreeană; Latin acoperă româna, engleza, spaniola și altele.</li>
+            <li>Restrânge zona de căutare pentru citire mai rapidă și mai exactă.</li>
+            <li>Recunoașterea rulează pe telefon; nimic nu e trimis.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Înapoi la lista de acțiuni</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="ocr-wait">
+    <h2>Așteptare text (OCR) <span class="badge">PRO</span></h2>
+    <p class="muted">Așteaptă până apare (sau dispare) un text în imaginea ecranului, fără să atingi.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ro/ocr-wait.mp4" poster="../../media/guide/ro/ocr-wait.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Videoclip pentru acțiunea Așteptare text (OCR): Apasă „Adăugați o acțiune”, alege Așteptare text (OCR); Scrie textul de așteptat; Adaugă un pas Clic pe „Fugi”; Revino, apasă Testați, deschide aplicația. AutoGest așteaptă „START”, apoi apasă „Fugi”."></video>
+        <figcaption>Filmat pe un telefon real · 41 secunde</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Apasă „Adăugați o acțiune”, alege Așteptare text (OCR)</li>
+          <li>Scrie textul de așteptat</li>
+          <li>Adaugă un pas Clic pe „Fugi”</li>
+          <li>Revino, apasă Testați, deschide aplicația</li>
+        </ol>
+        <p class="result">▶ AutoGest așteaptă „START”, apoi apasă „Fugi”</p>
+        <div class="callout">
+          <strong>Sfaturi</strong>
+          <ul>
+            <li>Util pentru ecrane de joc ca „Pe locuri… START!”, „Victorie” sau finalul unei numărători.</li>
+            <li>Alege o zonă ca să aștepți mai repede și să nu prinzi același cuvânt altundeva.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Înapoi la lista de acțiuni</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="ocr-read">
+    <h2>Citire text (OCR) <span class="badge">PRO</span></h2>
+    <p class="muted">Citește textul dintr-o zonă a imaginii ecranului și salvează-l într-o variabilă pentru pașii următori.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ro/ocr-read.mp4" poster="../../media/guide/ro/ocr-read.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Videoclip pentru acțiunea Citire text (OCR): Apasă „Adăugați o acțiune”, alege Citire text (OCR); Apasă „Alegeți zona”, deschide ecranul, apasă Capturați; Încadrează codul, apasă OK; Revino, alege „Doar numărul” și o variabilă în care să-l salvezi; Adaugă Lipire text în câmp, inserează variabila; Adaugă un pas Clic pe „Confirmă”; Apasă Testați, apoi deschide aplicația. AutoGest citește codul din imagine și îl introduce."></video>
+        <figcaption>Filmat pe un telefon real · 76 secunde</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Apasă „Adăugați o acțiune”, alege Citire text (OCR)</li>
+          <li>Apasă „Alegeți zona”, deschide ecranul, apasă Capturați</li>
+          <li>Încadrează codul, apasă OK</li>
+          <li>Revino, alege „Doar numărul” și o variabilă în care să-l salvezi</li>
+          <li>Adaugă Lipire text în câmp, inserează variabila</li>
+          <li>Adaugă un pas Clic pe „Confirmă”</li>
+          <li>Apasă Testați, apoi deschide aplicația</li>
+        </ol>
+        <p class="result">▶ AutoGest citește codul din imagine și îl introduce</p>
+        <div class="callout">
+          <strong>Sfaturi</strong>
+          <ul>
+            <li>Alege „Doar numărul” ca să păstrezi doar cifrele — scoruri, prețuri sau coduri.</li>
+            <li>Folosește variabila în Lipește text sau compar-o într-un bloc Dacă… atunci.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Înapoi la lista de acțiuni</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="click-text">
+    <h2>Clic pe text</h2>
+    <p class="muted">Scrie textul de pe un buton; la rulare, AutoGest găsește acel text pe ecran și îl atinge.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ro/click-text.mp4" poster="../../media/guide/ro/click-text.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Videoclip pentru acțiunea Clic pe text: Apasă „Adăugați o acțiune”, alege Clic pe text; Scrie textul afișat pe buton; Apasă Testați, apoi deschide aplicația. Oriunde ar fi butonul, AutoGest găsește textul și îl atinge."></video>
+        <figcaption>Filmat pe un telefon real · 29 secunde</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Apasă „Adăugați o acțiune”, alege Clic pe text</li>
+          <li>Scrie textul afișat pe buton</li>
+          <li>Apasă Testați, apoi deschide aplicația</li>
+        </ol>
+        <p class="result">▶ Oriunde ar fi butonul, AutoGest găsește textul și îl atinge</p>
+        <div class="callout">
+          <strong>Sfaturi</strong>
+          <ul>
+            <li>Citește structura aplicației, deci nu merge în jocuri care își desenează textul — acolo folosește <strong>Clic pe text (OCR)</strong>.</li>
+            <li>Literele mari sau mici nu contează; e de ajuns ca textul să conțină ce ai scris.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Înapoi la lista de acțiuni</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="click-node">
+    <h2>Clic pe nod <span class="badge">PRO</span></h2>
+    <p class="muted">Capturează ecranul, atinge un element și AutoGest ține minte cum să-l regăsească — chiar și butoane doar cu pictogramă.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ro/click-node.mp4" poster="../../media/guide/ro/click-node.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Videoclip pentru acțiunea Clic pe nod: Apasă „Adăugați o acțiune”, alege Clic pe nod; Apasă „Alegeți nodul”, deschide aplicația, apasă Capturați; Atinge butonul dorit, apoi „Alegeți nodul”; Revino, alege cum se găsește nodul; Apasă Testați, apoi deschide aplicația. AutoGest găsește butonul inimă și îl atinge."></video>
+        <figcaption>Filmat pe un telefon real · 37 secunde</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Apasă „Adăugați o acțiune”, alege Clic pe nod</li>
+          <li>Apasă „Alegeți nodul”, deschide aplicația, apasă Capturați</li>
+          <li>Atinge butonul dorit, apoi „Alegeți nodul”</li>
+          <li>Revino, alege cum se găsește nodul</li>
+          <li>Apasă Testați, apoi deschide aplicația</li>
+        </ol>
+        <p class="result">▶ AutoGest găsește butonul inimă și îl atinge</p>
+        <div class="callout">
+          <strong>Sfaturi</strong>
+          <ul>
+            <li>Caută după text sau content-desc când nu se schimbă; evită resource-id dacă aplicația îl schimbă între versiuni.</li>
+            <li>Elimină părțile care se schimbă (cum ar fi contoarele) ca nodul să fie găsit data viitoare.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Înapoi la lista de acțiuni</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="read-text">
+    <h2>Citire text de pe ecran <span class="badge">PRO</span></h2>
+    <p class="muted">Alege un element de pe ecran și copiază-i textul într-o variabilă, fără să-l atingi.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ro/read-text.mp4" poster="../../media/guide/ro/read-text.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Videoclip pentru acțiunea Citire text de pe ecran: Apasă „Adăugați o acțiune”, alege Citire text de pe ecran; Apasă „Alegeți nodul”, deschide aplicația, apasă Capturați; Atinge codul, apoi „Alegeți nodul”; Revino, alege o variabilă în care să-l salvezi; Adaugă Lipire text în câmp, inserează variabila; Adaugă un pas Clic pe „Confirmă”; Apasă Testați, apoi deschide aplicația. AutoGest copiază codul și îl introduce."></video>
+        <figcaption>Filmat pe un telefon real · 78 secunde</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Apasă „Adăugați o acțiune”, alege Citire text de pe ecran</li>
+          <li>Apasă „Alegeți nodul”, deschide aplicația, apasă Capturați</li>
+          <li>Atinge codul, apoi „Alegeți nodul”</li>
+          <li>Revino, alege o variabilă în care să-l salvezi</li>
+          <li>Adaugă Lipire text în câmp, inserează variabila</li>
+          <li>Adaugă un pas Clic pe „Confirmă”</li>
+          <li>Apasă Testați, apoi deschide aplicația</li>
+        </ol>
+        <p class="result">▶ AutoGest copiază codul și îl introduce</p>
+        <div class="callout">
+          <strong>Sfaturi</strong>
+          <ul>
+            <li>Bun pentru coduri de unică folosință, numere de comandă sau solduri afișate.</li>
+            <li>Citește structura aplicației; în jocuri folosește <strong>Citire text (OCR)</strong>.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Înapoi la lista de acțiuni</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="wait-notification">
+    <h2>Așteptare și detectare notificare <span class="badge">PRO</span></h2>
+    <p class="muted">Așteaptă o notificare cu textul ales, citește-o cu voce tare și continuă scriptul.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ro/wait-notification.mp4" poster="../../media/guide/ro/wait-notification.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Videoclip pentru acțiunea Așteptare și detectare notificare: Apasă „Adăugați o acțiune”, alege Așteptare și detectare notificare; Apasă „Alegeți o notificare exemplu”, alege o notificare; Scrie cuvintele pe care trebuie să le conțină notificarea; Apasă „Folosiți acest exemplu”; Adaugă un pas Clic pe „Confirmă comanda”; Revino, apasă Testați, deschide aplicația; Când un client comandă…. AutoGest citește notificarea cu voce tare, apoi confirmă."></video>
+        <figcaption>Filmat pe un telefon real · 64 secunde</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Apasă „Adăugați o acțiune”, alege Așteptare și detectare notificare</li>
+          <li>Apasă „Alegeți o notificare exemplu”, alege o notificare</li>
+          <li>Scrie cuvintele pe care trebuie să le conțină notificarea</li>
+          <li>Apasă „Folosiți acest exemplu”</li>
+          <li>Adaugă un pas Clic pe „Confirmă comanda”</li>
+          <li>Revino, apasă Testați, deschide aplicația</li>
+          <li>Când un client comandă…</li>
+        </ol>
+        <p class="result">▶ AutoGest citește notificarea cu voce tare, apoi confirmă</p>
+        <div class="callout">
+          <strong>Sfaturi</strong>
+          <ul>
+            <li>Alege o notificare reală ca model și scrie cuvintele de așteptat; părțile care se schimbă (ca numărul comenzii) sunt comparate flexibil.</li>
+            <li>Un script care doar așteaptă notificări poate rula în fundal, chiar cu ecranul stins.</li>
+            <li>Conținutul notificărilor rămâne pe telefon și nu ajunge niciodată în jurnal.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Înapoi la lista de acțiuni</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="open-app">
+    <h2>Deschidere aplicație</h2>
+    <p class="muted">Deschide o aplicație din listă și așteaptă să apară — un prim pas bun pentru orice script.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ro/open-app.mp4" poster="../../media/guide/ro/open-app.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Videoclip pentru acțiunea Deschidere aplicație: Apasă „Adăugați o acțiune”, alege Deschidere aplicație; Apasă „Alegeți aplicația”, alege aplicația de deschis; Apasă Testați, nu trebuie să deschizi tu aplicația. AutoGest deschide singur aplicația aleasă."></video>
+        <figcaption>Filmat pe un telefon real · 28 secunde</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Apasă „Adăugați o acțiune”, alege Deschidere aplicație</li>
+          <li>Apasă „Alegeți aplicația”, alege aplicația de deschis</li>
+          <li>Apasă Testați, nu trebuie să deschizi tu aplicația</li>
+        </ol>
+        <p class="result">▶ AutoGest deschide singur aplicația aleasă</p>
+        <div class="callout">
+          <strong>Sfaturi</strong>
+          <ul>
+            <li>Scriptul poate porni din AutoGest; acest pas aduce în față aplicația potrivită.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Înapoi la lista de acțiuni</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="back">
+    <h2>Înapoi</h2>
+    <p class="muted">Apasă butonul Înapoi al sistemului.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ro/back.mp4" poster="../../media/guide/ro/back.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Videoclip pentru acțiunea Înapoi: Apasă „Adăugați o acțiune”, alege Înapoi; Apasă Testați, apoi deschide aplicația; În timpul numărătorii, deschide o știre. AutoGest apasă Înapoi, lista revine."></video>
+        <figcaption>Filmat pe un telefon real · 25 secunde</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Apasă „Adăugați o acțiune”, alege Înapoi</li>
+          <li>Apasă Testați, apoi deschide aplicația</li>
+          <li>În timpul numărătorii, deschide o știre</li>
+        </ol>
+        <p class="result">▶ AutoGest apasă Înapoi, lista revine</p>
+        <div class="callout">
+          <strong>Sfaturi</strong>
+          <ul>
+            <li>Închide un dialog sau revine un ecran.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Înapoi la lista de acțiuni</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="home">
+    <h2>Ecran de pornire</h2>
+    <p class="muted">Mergi la ecranul de pornire.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ro/home.mp4" poster="../../media/guide/ro/home.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Videoclip pentru acțiunea Ecran de pornire: Apasă „Adăugați o acțiune”, alege Ecran de pornire; Apasă Testați, apoi deschide aplicația. AutoGest merge la ecranul de pornire (estompat pentru confidențialitate)."></video>
+        <figcaption>Filmat pe un telefon real · 24 secunde</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Apasă „Adăugați o acțiune”, alege Ecran de pornire</li>
+          <li>Apasă Testați, apoi deschide aplicația</li>
+        </ol>
+        <p class="result">▶ AutoGest merge la ecranul de pornire (estompat pentru confidențialitate)</p>
+        <div class="callout">
+          <strong>Sfaturi</strong>
+          <ul>
+            <li>Util la finalul unui script sau înainte de a deschide altă aplicație.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Înapoi la lista de acțiuni</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="recent">
+    <h2>Aplicații recente</h2>
+    <p class="muted">Deschide lista aplicațiilor recente.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ro/recent.mp4" poster="../../media/guide/ro/recent.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Videoclip pentru acțiunea Aplicații recente: Apasă „Adăugați o acțiune”, alege Aplicații recente; Apasă Testați, apoi deschide aplicația. AutoGest deschide aplicațiile recente (estompate pentru confidențialitate)."></video>
+        <figcaption>Filmat pe un telefon real · 24 secunde</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Apasă „Adăugați o acțiune”, alege Aplicații recente</li>
+          <li>Apasă Testați, apoi deschide aplicația</li>
+        </ol>
+        <p class="result">▶ AutoGest deschide aplicațiile recente (estompate pentru confidențialitate)</p>
+        <div class="callout">
+          <strong>Sfaturi</strong>
+          <ul>
+            <li>Combină cu un pas Clic ca să treci la altă aplicație.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Înapoi la lista de acțiuni</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="if-then">
+    <h2>Dacă… atunci <span class="badge">PRO</span></h2>
+    <p class="muted">Rulează niște pași doar când o condiție e adevărată — o imagine, o culoare, un text, numărul turei sau o variabilă.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ro/if-then.mp4" poster="../../media/guide/ro/if-then.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Videoclip pentru acțiunea Dacă… atunci: Apasă „Adăugați o acțiune”, alege Dacă… atunci; Alege „Text”, scrie textul căutat; Dezactivează ramura „Altfel”, apasă „Gata”; Adaugă în ramura „Atunci”: pas Clic pe butonul închide (✕); Revino, apasă Testați, deschide aplicația. AutoGest vede „Reclamă”, deci apasă închide."></video>
+        <figcaption>Filmat pe un telefon real · 50 secunde</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Apasă „Adăugați o acțiune”, alege Dacă… atunci</li>
+          <li>Alege „Text”, scrie textul căutat</li>
+          <li>Dezactivează ramura „Altfel”, apasă „Gata”</li>
+          <li>Adaugă în ramura „Atunci”: pas Clic pe butonul închide (✕)</li>
+          <li>Revino, apasă Testați, deschide aplicația</li>
+        </ol>
+        <p class="result">▶ AutoGest vede „Reclamă”, deci apasă închide</p>
+        <div class="callout">
+          <strong>Sfaturi</strong>
+          <ul>
+            <li>Activează ramura Altfel ca să rulezi alți pași când condiția e falsă.</li>
+            <li>Blocurile au un singur nivel; ca să imbrici, mută logica în alt script și folosește <strong>Apelare script</strong>.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Înapoi la lista de acțiuni</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="loop-until">
+    <h2>Repetă până când <span class="badge">PRO</span></h2>
+    <p class="muted">Repetă pașii din bloc până devine adevărată o condiție sau pentru un număr de ture.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ro/loop-until.mp4" poster="../../media/guide/ro/loop-until.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Videoclip pentru acțiunea Repetă până când: Apasă „Adăugați o acțiune”, alege Repetă până când; Oprire la „Text”: scrie textul afișat la final; Adaugă în buclă: pas Clic pe „Încarcă mai mult”; Revino, apasă Testați, deschide aplicația. AutoGest apasă „Încarcă mai mult” până apare „Nu mai sunt știri”."></video>
+        <figcaption>Filmat pe un telefon real · 51 secunde</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Apasă „Adăugați o acțiune”, alege Repetă până când</li>
+          <li>Oprire la „Text”: scrie textul afișat la final</li>
+          <li>Adaugă în buclă: pas Clic pe „Încarcă mai mult”</li>
+          <li>Revino, apasă Testați, deschide aplicația</li>
+        </ol>
+        <p class="result">▶ AutoGest apasă „Încarcă mai mult” până apare „Nu mai sunt știri”</p>
+        <div class="callout">
+          <strong>Sfaturi</strong>
+          <ul>
+            <li>Setează mereu un număr maxim de ture, ca scriptul să nu ruleze la nesfârșit din greșeală.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Înapoi la lista de acțiuni</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="stop-script">
+    <h2>Oprire script <span class="badge">PRO</span></h2>
+    <p class="muted">Încheie toată rularea când se îndeplinește o condiție — de exemplu când se termină turele sau energia.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ro/stop-script.mp4" poster="../../media/guide/ro/stop-script.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Videoclip pentru acțiunea Oprire script: Adaugă un pas Clic pe „Învârte”; Revino, adaugă Oprire script; Oprește când apare textul „Nu mai ai rotiri”; Repetă scriptul fără limită; Apasă Testați, apoi deschide aplicația. După ultima rotire, AutoGest se oprește singur."></video>
+        <figcaption>Filmat pe un telefon real · 56 secunde</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Adaugă un pas Clic pe „Învârte”</li>
+          <li>Revino, adaugă Oprire script</li>
+          <li>Oprește când apare textul „Nu mai ai rotiri”</li>
+          <li>Repetă scriptul fără limită</li>
+          <li>Apasă Testați, apoi deschide aplicația</li>
+        </ol>
+        <p class="result">▶ După ultima rotire, AutoGest se oprește singur</p>
+        <div class="callout">
+          <strong>Sfaturi</strong>
+          <ul>
+            <li>Cu o buclă fără limită, e modul curat de a termina.</li>
+            <li>Într-o ramură Dacă… atunci se poate opri imediat, fără condiție.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Înapoi la lista de acțiuni</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="next-round">
+    <h2>Bucla următoare <span class="badge">PRO</span></h2>
+    <p class="muted">Sari peste restul turei și începe următoarea când se îndeplinește o condiție.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ro/next-round.mp4" poster="../../media/guide/ro/next-round.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Videoclip pentru acțiunea Bucla următoare: Adaugă un pas Clic pe „Postarea următoare”; Adaugă Bucla următoare când apare „Sponsorizat”; Adaugă un pas Clic pe „Apreciază”; Repetă scriptul de 4 ori; Apasă Testați, apoi deschide aplicația. AutoGest apreciază postările 1 și 3 și sare peste cele sponsorizate."></video>
+        <figcaption>Filmat pe un telefon real · 77 secunde</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Adaugă un pas Clic pe „Postarea următoare”</li>
+          <li>Adaugă Bucla următoare când apare „Sponsorizat”</li>
+          <li>Adaugă un pas Clic pe „Apreciază”</li>
+          <li>Repetă scriptul de 4 ori</li>
+          <li>Apasă Testați, apoi deschide aplicația</li>
+        </ol>
+        <p class="result">▶ AutoGest apreciază postările 1 și 3 și sare peste cele sponsorizate</p>
+        <div class="callout">
+          <strong>Sfaturi</strong>
+          <ul>
+            <li>Util ca să sari peste reclame sau elemente nedorite într-o listă.</li>
+            <li>Sare la finalul celei mai apropiate bucle din același script.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Înapoi la lista de acțiuni</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="call-script">
+    <h2>Apelare script <span class="badge">PRO</span></h2>
+    <p class="muted">Rulează alt script și revino — refolosește pașii deja creați.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ro/call-script.mp4" poster="../../media/guide/ro/call-script.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Videoclip pentru acțiunea Apelare script: Apasă „Adăugați o acțiune”, alege Apelare script; Apasă „Alegeți scriptul”, alege scriptul de apelat; Alege de câte ori să fie apelat; Apasă Testați, apoi deschide aplicația. AutoGest rulează „Apasă butonul” de 3 ori."></video>
+        <figcaption>Filmat pe un telefon real · 35 secunde</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Apasă „Adăugați o acțiune”, alege Apelare script</li>
+          <li>Apasă „Alegeți scriptul”, alege scriptul de apelat</li>
+          <li>Alege de câte ori să fie apelat</li>
+          <li>Apasă Testați, apoi deschide aplicația</li>
+        </ol>
+        <p class="result">▶ AutoGest rulează „Apasă butonul” de 3 ori</p>
+        <div class="callout">
+          <strong>Sfaturi</strong>
+          <ul>
+            <li>Alege de câte ori la rând să-l apelezi.</li>
+            <li>Scriptul apelat folosește ritmul acestui script.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Înapoi la lista de acțiuni</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="set-variable">
+    <h2>Setare variabilă <span class="badge">PRO</span></h2>
+    <p class="muted">Dă o valoare unei variabile sau adaugă-i un număr — contoare, totaluri cumulate, text de ținut minte.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ro/set-variable.mp4" poster="../../media/guide/ro/set-variable.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Videoclip pentru acțiunea Setare variabilă: Apasă „Adăugați o acțiune”, alege Setare variabilă; Denumește variabila nouă, apasă „Adăugați variabila”; Fă pasul să adune 1 la variabilă; Adaugă Lipire text în chat: „Mesaj #” + variabila; Adaugă un pas Clic pe „Trimite”; Repetă scriptul de 3 ori; Apasă Testați, apoi deschide aplicația. La fiecare tură numărul crește: 1, 2, 3."></video>
+        <figcaption>Filmat pe un telefon real · 86 secunde</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>Apasă „Adăugați o acțiune”, alege Setare variabilă</li>
+          <li>Denumește variabila nouă, apasă „Adăugați variabila”</li>
+          <li>Fă pasul să adune 1 la variabilă</li>
+          <li>Adaugă Lipire text în chat: „Mesaj #” + variabila</li>
+          <li>Adaugă un pas Clic pe „Trimite”</li>
+          <li>Repetă scriptul de 3 ori</li>
+          <li>Apasă Testați, apoi deschide aplicația</li>
+        </ol>
+        <p class="result">▶ La fiecare tură numărul crește: 1, 2, 3</p>
+        <div class="callout">
+          <strong>Sfaturi</strong>
+          <ul>
+            <li>Inserează <code>{nume}</code> în orice câmp de text ca să folosești valoarea.</li>
+            <li>Variabilele trăiesc doar o rulare: apasă Stop și se resetează.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ Înapoi la lista de acțiuni</a></p>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2026 AutoGest · <a href="../../ro/">Acasă</a> · <a href="../../ro/guide/">Ghid de utilizare</a> ·
+    <a href="../../privacy/">Politica de confidențialitate</a> ·
+    <a href="../../terms/">Termeni și condiții</a><br><span>Politica de confidențialitate și Termenii și condițiile sunt disponibile în engleză și vietnameză.</span></footer>
+</div>
+<script>
+  // Video chỉ chạy khi cuộn tới (tiết kiệm dữ liệu), tự lặp, không tiếng; bỏ thanh điều khiển khi có JavaScript.
+  const videos = document.querySelectorAll('.phone video');
+  const seen = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting) e.target.play().catch(() => {});
+      else e.target.pause();
+    }
+  }, { rootMargin: '200px 0px' });
+  videos.forEach((v) => { v.controls = false; v.preload = 'metadata'; seen.observe(v); });
+</script>
+</body>
+</html>

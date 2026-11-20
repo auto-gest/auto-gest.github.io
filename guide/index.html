@@ -134,7 +134,7 @@
           <strong>Tips</strong>
           <ul>
             <li>Points are scaled to the screen size, so the script still hits the right spot on a phone with a different screen.</li>
-            <li>In <strong>General settings</strong> you set the pause between steps and a small tap offset, so it feels like a real person.</li>
+            <li>In <strong>General settings</strong> you set the pause between steps and an optional tap offset.</li>
             <li>The button moves around? Use <strong>Click image</strong>, <strong>Click text (OCR)</strong> or <strong>Click text</strong> so AutoGest finds it first.</li>
           </ul>
         </div>
@@ -145,7 +145,7 @@
 
   <section class="guide" id="rapid-click">
     <h2>Rapid click</h2>
-    <p class="muted">Tap one point over and over, from 1 to 20 times per second — great for games that need fast tapping.</p>
+    <p class="muted">Tap one point over and over, from 1 to 20 times per second — for buttons you have to press many times.</p>
     <div class="guide-body">
       <figure class="phone">
         <video src="../media/guide/en/rapid-click.mp4" poster="../media/guide/en/rapid-click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video guide for the Rapid click action: Tap “Add action”, choose Rapid click; Tap “Add point”; Open the app, put the crosshair on the button; Tap OK to save the point; Back in AutoGest, lower the tap count; Tap Test run, then open the app. AutoGest taps 30 times, 10 taps per second."></video>
@@ -165,8 +165,8 @@
           <strong>Tips</strong>
           <ul>
             <li>Stop after a number of taps, after a time, or keep going until you press Stop.</li>
-            <li>Above 10 taps per second is faster than a human hand; some apps may treat it as unusual.</li>
-            <li>Turn on the natural rhythm so the gaps between taps vary slightly, like a real finger.</li>
+            <li>Above 10 taps per second some apps can’t keep up and miss taps; lower the speed if that happens.</li>
+            <li>Turn on <strong>Random variation</strong> to vary the gap between taps slightly.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Back to the action list</a></p>
@@ -278,7 +278,7 @@
           <ul>
             <li>Separate several texts with <code>||</code> and AutoGest picks one at random each run.</li>
             <li>Insert a variable with <strong>Insert variable</strong> to paste a value read earlier in the run.</li>
-            <li>The app blocks pasting? Use <strong>Type characters</strong> to tap each key like a person typing.</li>
+            <li>The app blocks pasting? Use <strong>Type characters</strong> to tap each key on the keyboard.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Back to the action list</a></p>

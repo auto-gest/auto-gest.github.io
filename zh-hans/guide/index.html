@@ -54,7 +54,7 @@
   </header>
 
   <h1>使用指南</h1>
-  <p class="muted">每个动作都有一段在真机上录制的短视频，配合示例应用让你看到效果。每次点击都会亮起，方便跟上。带 <span class="badge">PRO</span> 标记的动作属于 AutoGest Pro。</p>
+  <p class="muted">大多数动作都有一段在真机上录制的短视频，配合示例应用让你看到效果。每次点击都会亮起，方便跟上。带 <span class="badge">PRO</span> 标记的动作属于 AutoGest Pro。</p>
 
   <ul class="legend">
     <li><span class="dot user"></span>你点击</li>
@@ -85,12 +85,12 @@
     <a class="action" href="#wait-image"><strong>等待图片 <span class="badge">PRO</span></strong><span>等待图片出现或消失，不点按</span><div class="state">▶ 观看视频</div></a>
     <a class="action" href="#wait-color"><strong>等待颜色 <span class="badge">PRO</span></strong><span>等待某个位置变成所选颜色</span><div class="state">▶ 观看视频</div></a>
     <a class="action" href="#image-click"><strong>点按图片 <span class="badge">PRO</span></strong><span>在屏幕上查找模板图片并点按</span><div class="state">▶ 观看视频</div></a>
-    <a class="action" href="#ocr-click"><strong>点按文字(OCR) <span class="badge">PRO</span></strong><span>从截图中识别文字再点按 · 适用于游戏</span><div class="state">▶ 观看视频</div></a>
-    <a class="action" href="#ocr-wait"><strong>等待文字(OCR) <span class="badge">PRO</span></strong><span>等待文字出现或消失，不点按 · 适用于游戏</span><div class="state">▶ 观看视频</div></a>
-    <a class="action" href="#ocr-read"><strong>识别文字(OCR) <span class="badge">PRO</span></strong><span>识别区域内的文字并存入变量 · 适用于游戏</span><div class="state">▶ 观看视频</div></a>
-    <a class="action" href="#click-text"><strong>点按文字</strong><span>查找文字并点按 · 不适用于游戏</span><div class="state">▶ 观看视频</div></a>
-    <a class="action" href="#click-node"><strong>点按节点 <span class="badge">PRO</span></strong><span>在屏幕截图上选取节点并点按 · 不适用于游戏</span><div class="state">▶ 观看视频</div></a>
-    <a class="action" href="#read-text"><strong>读取屏幕文字 <span class="badge">PRO</span></strong><span>选择节点并把它的文字存入变量 · 不适用于游戏</span><div class="state">▶ 观看视频</div></a>
+    <a class="action" href="#ocr-click"><strong>点按文字(OCR) <span class="badge">PRO</span></strong><span>从截图中识别文字再点按</span><div class="state">▶ 观看视频</div></a>
+    <a class="action" href="#ocr-wait"><strong>等待文字(OCR) <span class="badge">PRO</span></strong><span>等待文字出现或消失，不点按</span><div class="state">▶ 观看视频</div></a>
+    <a class="action" href="#ocr-read"><strong>识别文字(OCR) <span class="badge">PRO</span></strong><span>识别区域内的文字并存入变量</span><div class="state">▶ 观看视频</div></a>
+    <a class="action" href="#click-text"><strong>点按文字</strong><span>在应用的布局中查找文字并点按</span><div class="state">▶ 观看视频</div></a>
+    <a class="action" href="#click-node"><strong>点按节点 <span class="badge">PRO</span></strong><span>在屏幕截图上选取节点并点按</span><div class="state">▶ 观看视频</div></a>
+    <a class="action" href="#read-text"><strong>读取屏幕文字 <span class="badge">PRO</span></strong><span>选择节点并把它的文字存入变量</span><div class="state">▶ 观看视频</div></a>
     <a class="action" href="#wait-notification"><strong>等待并识别通知 <span class="badge">PRO</span></strong><span>等待含有指定文字的通知或余额变动通知，然后朗读或继续下一步</span><div class="state">▶ 观看视频</div></a>
   </div>
 
@@ -166,7 +166,6 @@
           <ul>
             <li>可以按次数、按时间停止，或一直点到你按停止。</li>
             <li>每秒超过 10 次时，有些应用跟不上，可能漏掉点击；这时请降低速度。</li>
-            <li>打开<strong>随机浮动</strong>，点击间隔会略有变化。</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ 返回动作列表</a></p>
@@ -276,7 +275,6 @@
         <div class="callout">
           <strong>小提示</strong>
           <ul>
-            <li>用 <code>||</code> 分隔多段文字，每次运行 AutoGest 会随机选一段。</li>
             <li>用<strong>插入变量</strong>插入变量，可粘贴本次运行中先前读到的值。</li>
             <li>应用禁止粘贴？用<strong>逐键输入</strong>逐个点按键盘上的按键。</li>
           </ul>
@@ -288,7 +286,7 @@
 
   <section class="guide" id="type-keys">
     <h2>逐键输入 <span class="badge">PRO</span></h2>
-    <p class="muted">录下你在键盘上按的每个键；运行时 AutoGest 按你的节奏按同样的键。</p>
+    <p class="muted">录下你在键盘上按的每个键；运行时 AutoGest 按同样的键。</p>
     <div class="guide-body">
       <figure class="phone">
         <video src="../../media/guide/zh-hans/type-keys.mp4" poster="../../media/guide/zh-hans/type-keys.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="逐键输入动作的视频指南：点“添加动作”，选逐键输入; 点按键录制框，在键盘上输入; 点“完成”保存按键; 选择要输入的框（可选）; 返回，点试运行，然后打开应用。AutoGest 点输入框，再逐个重放按键。"></video>
@@ -336,7 +334,7 @@
         <div class="callout">
           <strong>小提示</strong>
           <ul>
-            <li>每一步本来就会随机停顿一小会儿（在<strong>通用设置</strong>里设置）；只有需要更久时才加等待。</li>
+            <li>每一步本来就会停顿一小会儿（在<strong>通用设置</strong>里设置）；只有需要更久时才加等待。</li>
             <li>在等某样东西出现？<strong>等待图片</strong>、<strong>等待文字(OCR)</strong>或<strong>等待颜色</strong>一出现就继续。</li>
           </ul>
         </div>
@@ -350,8 +348,8 @@
     <p class="muted">不点击，等到屏幕上出现（或消失）某张图片，然后再执行后面的步骤。</p>
     <div class="guide-body">
       <figure class="phone">
-        <video src="../../media/guide/zh-hans/wait-image.mp4" poster="../../media/guide/zh-hans/wait-image.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="等待图片动作的视频指南：点“添加动作”，选等待图片; 点“选择图片”，选“从屏幕裁剪”; 打开画面，点截取，框住图片; 返回，在图片出现的位置添加 点按; 返回，点试运行，然后打开应用。AutoGest 等礼物盒出现后才执行 点按。"></video>
-        <figcaption>真机录制 · 48 秒</figcaption>
+        <video src="../../media/guide/zh-hans/wait-image.mp4" poster="../../media/guide/zh-hans/wait-image.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="等待图片动作的视频指南：点“添加动作”，选等待图片; 点“选择图片”，选“从屏幕裁剪”; 打开画面，点截取，框住图片; 返回，在图片出现的位置添加 点按; 返回，点试运行，然后打开应用。AutoGest 等信箱出现后才执行 点按。"></video>
+        <figcaption>真机录制 · 52 秒</figcaption>
       </figure>
       <div>
         <ol class="steps">
@@ -361,7 +359,7 @@
           <li>返回，在图片出现的位置添加 点按</li>
           <li>返回，点试运行，然后打开应用</li>
         </ol>
-        <p class="result">▶ AutoGest 等礼物盒出现后才执行 点按</p>
+        <p class="result">▶ AutoGest 等信箱出现后才执行 点按</p>
         <div class="callout">
           <strong>小提示</strong>
           <ul>
@@ -395,7 +393,7 @@
           <strong>小提示</strong>
           <ul>
             <li>在屏幕显示目标颜色时选点，AutoGest 会帮你读出颜色。</li>
-            <li>只看屏幕图像，所以游戏里也能用。</li>
+            <li>只看屏幕图像，所以在应用没有公开文字或元素的地方也能用。</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ 返回动作列表</a></p>
@@ -408,8 +406,8 @@
     <p class="muted">在屏幕上找到一张图片并点击，无论它在哪——最适合会移动的按钮。</p>
     <div class="guide-body">
       <figure class="phone">
-        <video src="../../media/guide/zh-hans/image-click.mp4" poster="../../media/guide/zh-hans/image-click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="点按图片动作的视频指南：点“添加动作”，选点按图片; 点“选择图片”，选“从屏幕裁剪”; 打开有图片的画面，点截取; 把框贴紧图片，点 OK; 返回，点试运行，然后打开应用。AutoGest 等礼物盒出现后点击它。"></video>
-        <figcaption>真机录制 · 37 秒</figcaption>
+        <video src="../../media/guide/zh-hans/image-click.mp4" poster="../../media/guide/zh-hans/image-click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="点按图片动作的视频指南：点“添加动作”，选点按图片; 点“选择图片”，选“从屏幕裁剪”; 打开有图片的画面，点截取; 把框贴紧图片，点 OK; 返回，点试运行，然后打开应用。AutoGest 等信箱出现后点击它。"></video>
+        <figcaption>真机录制 · 38 秒</figcaption>
       </figure>
       <div>
         <ol class="steps">
@@ -419,11 +417,11 @@
           <li>把框贴紧图片，点 OK</li>
           <li>返回，点试运行，然后打开应用</li>
         </ol>
-        <p class="result">▶ AutoGest 等礼物盒出现后点击它</p>
+        <p class="result">▶ AutoGest 等信箱出现后点击它</p>
         <div class="callout">
           <strong>小提示</strong>
           <ul>
-            <li>AutoGest 看的是屏幕图像而不是应用结构，所以游戏里也能用。</li>
+            <li>AutoGest 看的是屏幕图像而不是应用结构，所以没有文字的按钮也能找到。</li>
             <li>只裁按钮本身，不要带周围的背景。</li>
           </ul>
         </div>
@@ -434,11 +432,11 @@
 
   <section class="guide" id="ocr-click">
     <h2>点按文字(OCR) <span class="badge">PRO</span></h2>
-    <p class="muted">用手机本地的文字识别（OCR）读取截图里的文字并点击——即使是自己绘制文字的游戏也行。</p>
+    <p class="muted">用手机本地的文字识别（OCR）读取截图里的文字并点击——应用以图像方式绘制的文字也能找到。</p>
     <div class="guide-body">
       <figure class="phone">
-        <video src="../../media/guide/zh-hans/ocr-click.mp4" poster="../../media/guide/zh-hans/ocr-click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="点按文字(OCR)动作的视频指南：点“添加动作”，选点按文字(OCR); 输入按钮上的文字; 点试运行，然后打开应用。AutoGest 读取屏幕图像（游戏里也行）并点击文字。"></video>
-        <figcaption>真机录制 · 29 秒</figcaption>
+        <video src="../../media/guide/zh-hans/ocr-click.mp4" poster="../../media/guide/zh-hans/ocr-click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="点按文字(OCR)动作的视频指南：点“添加动作”，选点按文字(OCR); 输入按钮上的文字; 点试运行，然后打开应用。AutoGest 读取屏幕图像并点击文字。"></video>
+        <figcaption>真机录制 · 31 秒</figcaption>
       </figure>
       <div>
         <ol class="steps">
@@ -446,7 +444,7 @@
           <li>输入按钮上的文字</li>
           <li>点试运行，然后打开应用</li>
         </ol>
-        <p class="result">▶ AutoGest 读取屏幕图像（游戏里也行）并点击文字</p>
+        <p class="result">▶ AutoGest 读取屏幕图像并点击文字</p>
         <div class="callout">
           <strong>小提示</strong>
           <ul>
@@ -465,21 +463,21 @@
     <p class="muted">不点击，等到屏幕图像上出现（或消失）某段文字。</p>
     <div class="guide-body">
       <figure class="phone">
-        <video src="../../media/guide/zh-hans/ocr-wait.mp4" poster="../../media/guide/zh-hans/ocr-wait.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="等待文字(OCR)动作的视频指南：点“添加动作”，选等待文字(OCR); 输入要等待的文字; 在“起跑”上添加点按步骤; 返回，点试运行，然后打开应用。AutoGest 等到“出发”才点“起跑”。"></video>
-        <figcaption>真机录制 · 42 秒</figcaption>
+        <video src="../../media/guide/zh-hans/ocr-wait.mp4" poster="../../media/guide/zh-hans/ocr-wait.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="等待文字(OCR)动作的视频指南：点“添加动作”，选等待文字(OCR); 输入要等待的文字; 在“分享链接”上添加点按步骤; 返回，点试运行，然后打开应用。AutoGest 等到“上传完成”才点“分享链接”。"></video>
+        <figcaption>真机录制 · 45 秒</figcaption>
       </figure>
       <div>
         <ol class="steps">
           <li>点“添加动作”，选等待文字(OCR)</li>
           <li>输入要等待的文字</li>
-          <li>在“起跑”上添加点按步骤</li>
+          <li>在“分享链接”上添加点按步骤</li>
           <li>返回，点试运行，然后打开应用</li>
         </ol>
-        <p class="result">▶ AutoGest 等到“出发”才点“起跑”</p>
+        <p class="result">▶ AutoGest 等到“上传完成”才点“分享链接”</p>
         <div class="callout">
           <strong>小提示</strong>
           <ul>
-            <li>适合“预备…出发！”“胜利”或倒计时结束这类游戏画面。</li>
+            <li>适合“上传完成”“已保存”或倒计时结束这类提示。</li>
             <li>选定区域可以更快等到，也不会误认别处的相同文字。</li>
           </ul>
         </div>
@@ -493,24 +491,24 @@
     <p class="muted">读取屏幕图像某个区域里的文字，存到变量供后面的步骤使用。</p>
     <div class="guide-body">
       <figure class="phone">
-        <video src="../../media/guide/zh-hans/ocr-read.mp4" poster="../../media/guide/zh-hans/ocr-read.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="识别文字(OCR)动作的视频指南：点“添加动作”，选识别文字(OCR); 点“选择区域”，打开画面，点截取; 框住验证码，点 OK; 返回，选“只取数字”和要保存的变量; 在输入框添加粘贴文本，插入变量; 在“确认”上添加点按步骤; 点试运行，然后打开应用。AutoGest 从图像读出验证码并填入。"></video>
-        <figcaption>真机录制 · 76 秒</figcaption>
+        <video src="../../media/guide/zh-hans/ocr-read.mp4" poster="../../media/guide/zh-hans/ocr-read.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="识别文字(OCR)动作的视频指南：点“添加动作”，选识别文字(OCR); 点“选择区域”，打开画面，点截取; 框住订单号，点 OK; 返回，选“只取数字”和要保存的变量; 在输入框添加粘贴文本，插入变量; 在“查询”上添加点按步骤; 点试运行，然后打开应用。AutoGest 从图像读出订单号并填入。"></video>
+        <figcaption>真机录制 · 80 秒</figcaption>
       </figure>
       <div>
         <ol class="steps">
           <li>点“添加动作”，选识别文字(OCR)</li>
           <li>点“选择区域”，打开画面，点截取</li>
-          <li>框住验证码，点 OK</li>
+          <li>框住订单号，点 OK</li>
           <li>返回，选“只取数字”和要保存的变量</li>
           <li>在输入框添加粘贴文本，插入变量</li>
-          <li>在“确认”上添加点按步骤</li>
+          <li>在“查询”上添加点按步骤</li>
           <li>点试运行，然后打开应用</li>
         </ol>
-        <p class="result">▶ AutoGest 从图像读出验证码并填入</p>
+        <p class="result">▶ AutoGest 从图像读出订单号并填入</p>
         <div class="callout">
           <strong>小提示</strong>
           <ul>
-            <li>选“只取数字”只保留数字——分数、价格或验证码。</li>
+            <li>选“只取数字”只保留数字——价格、合计或订单号。</li>
             <li>变量可用于粘贴文字，或在如果…则区块里比较。</li>
           </ul>
         </div>
@@ -525,7 +523,7 @@
     <div class="guide-body">
       <figure class="phone">
         <video src="../../media/guide/zh-hans/click-text.mp4" poster="../../media/guide/zh-hans/click-text.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="点按文字动作的视频指南：点“添加动作”，选点按文字; 输入按钮上显示的文字; 点试运行，然后打开应用。无论按钮在哪里，AutoGest 都能找到文字并点击。"></video>
-        <figcaption>真机录制 · 28 秒</figcaption>
+        <figcaption>真机录制 · 31 秒</figcaption>
       </figure>
       <div>
         <ol class="steps">
@@ -537,7 +535,7 @@
         <div class="callout">
           <strong>小提示</strong>
           <ul>
-            <li>它读取应用结构，所以对自己绘制文字的游戏无效——这时请用<strong>点按文字(OCR)</strong>。</li>
+            <li>它读取应用结构，所以看不到以图像方式绘制的文字——这时请用<strong>点按文字(OCR)</strong>。</li>
             <li>不区分大小写，只要包含你输入的文字即可。</li>
           </ul>
         </div>
@@ -551,8 +549,8 @@
     <p class="muted">截取屏幕、点一个元素，AutoGest 就会记住如何再次找到它——只有图标的按钮也可以。</p>
     <div class="guide-body">
       <figure class="phone">
-        <video src="../../media/guide/zh-hans/click-node.mp4" poster="../../media/guide/zh-hans/click-node.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="点按节点动作的视频指南：点“添加动作”，选点按节点; 点“选取节点”，打开应用，点截取; 点要按的按钮，再点“选取节点”; 返回，选择查找节点的方式; 点试运行，然后打开应用。AutoGest 找到爱心按钮并点击。"></video>
-        <figcaption>真机录制 · 37 秒</figcaption>
+        <video src="../../media/guide/zh-hans/click-node.mp4" poster="../../media/guide/zh-hans/click-node.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="点按节点动作的视频指南：点“添加动作”，选点按节点; 点“选取节点”，打开应用，点截取; 点要按的按钮，再点“选取节点”; 返回，选择查找节点的方式; 点试运行，然后打开应用。AutoGest 找到灯开关并点击。"></video>
+        <figcaption>真机录制 · 40 秒</figcaption>
       </figure>
       <div>
         <ol class="steps">
@@ -562,7 +560,7 @@
           <li>返回，选择查找节点的方式</li>
           <li>点试运行，然后打开应用</li>
         </ol>
-        <p class="result">▶ AutoGest 找到爱心按钮并点击</p>
+        <p class="result">▶ AutoGest 找到灯开关并点击</p>
         <div class="callout">
           <strong>小提示</strong>
           <ul>
@@ -580,25 +578,25 @@
     <p class="muted">选屏幕上的一个元素，不点击，把它的文字复制到变量。</p>
     <div class="guide-body">
       <figure class="phone">
-        <video src="../../media/guide/zh-hans/read-text.mp4" poster="../../media/guide/zh-hans/read-text.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="读取屏幕文字动作的视频指南：点“添加动作”，选读取屏幕文字; 点“选取节点”，打开应用，点截取; 点验证码，再点“选取节点”; 返回，选择要保存的变量; 在输入框添加粘贴文本，插入变量; 在“确认”上添加点按步骤; 点试运行，然后打开应用。AutoGest 复制验证码并填入。"></video>
-        <figcaption>真机录制 · 77 秒</figcaption>
+        <video src="../../media/guide/zh-hans/read-text.mp4" poster="../../media/guide/zh-hans/read-text.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="读取屏幕文字动作的视频指南：点“添加动作”，选读取屏幕文字; 点“选取节点”，打开应用，点截取; 点订单号，再点“选取节点”; 返回，选择要保存的变量; 在输入框添加粘贴文本，插入变量; 在“查询”上添加点按步骤; 点试运行，然后打开应用。AutoGest 复制订单号并填入。"></video>
+        <figcaption>真机录制 · 83 秒</figcaption>
       </figure>
       <div>
         <ol class="steps">
           <li>点“添加动作”，选读取屏幕文字</li>
           <li>点“选取节点”，打开应用，点截取</li>
-          <li>点验证码，再点“选取节点”</li>
+          <li>点订单号，再点“选取节点”</li>
           <li>返回，选择要保存的变量</li>
           <li>在输入框添加粘贴文本，插入变量</li>
-          <li>在“确认”上添加点按步骤</li>
+          <li>在“查询”上添加点按步骤</li>
           <li>点试运行，然后打开应用</li>
         </ol>
-        <p class="result">▶ AutoGest 复制验证码并填入</p>
+        <p class="result">▶ AutoGest 复制订单号并填入</p>
         <div class="callout">
           <strong>小提示</strong>
           <ul>
-            <li>适合获取一次性验证码、订单号或应用里显示的余额。</li>
-            <li>它读取应用结构；游戏请用<strong>识别文字(OCR)</strong>。</li>
+            <li>适合获取应用里显示的订单号、价格或参考编号。</li>
+            <li>它读取应用结构；以图像方式绘制的文字请用<strong>识别文字(OCR)</strong>。</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ 返回动作列表</a></p>
@@ -745,8 +743,8 @@
     <p class="muted">条件成立时才执行某些步骤——条件可以是图片、颜色、文字、轮次或变量。</p>
     <div class="guide-body">
       <figure class="phone">
-        <video src="../../media/guide/zh-hans/if-then.mp4" poster="../../media/guide/zh-hans/if-then.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="如果… 就动作的视频指南：点“添加动作”，选如果… 就; 选“文字”，输入要找的文字; 关闭“否则”分支，点“完成”; 在“则”分支添加：点按 关闭（✕）按钮; 返回，点试运行，然后打开应用。AutoGest 看到“广告”就点关闭。"></video>
-        <figcaption>真机录制 · 49 秒</figcaption>
+        <video src="../../media/guide/zh-hans/if-then.mp4" poster="../../media/guide/zh-hans/if-then.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="如果… 就动作的视频指南：点“添加动作”，选如果… 就; 选“文字”，输入要找的文字; 关闭“否则”分支，点“完成”; 在“则”分支添加：点按 关闭（✕）按钮; 返回，点试运行，然后打开应用。AutoGest 看到“新功能”就点关闭。"></video>
+        <figcaption>真机录制 · 54 秒</figcaption>
       </figure>
       <div>
         <ol class="steps">
@@ -756,7 +754,7 @@
           <li>在“则”分支添加：点按 关闭（✕）按钮</li>
           <li>返回，点试运行，然后打开应用</li>
         </ol>
-        <p class="result">▶ AutoGest 看到“广告”就点关闭</p>
+        <p class="result">▶ AutoGest 看到“新功能”就点关闭</p>
         <div class="callout">
           <strong>小提示</strong>
           <ul>
@@ -798,25 +796,25 @@
 
   <section class="guide" id="stop-script">
     <h2>停止脚本 <span class="badge">PRO</span></h2>
-    <p class="muted">条件满足时结束整次运行——比如次数或体力用完时。</p>
+    <p class="muted">条件满足时结束整次运行——比如列表到底或任务提示已完成时。</p>
     <div class="guide-body">
       <figure class="phone">
-        <video src="../../media/guide/zh-hans/stop-script.mp4" poster="../../media/guide/zh-hans/stop-script.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="停止脚本动作的视频指南：在“转动”上添加点按步骤; 返回，添加停止脚本; 出现“次数已用完”时停止; 脚本无限重复; 点试运行，然后打开应用。最后一次转完后，AutoGest 自动停止。"></video>
-        <figcaption>真机录制 · 56 秒</figcaption>
+        <video src="../../media/guide/zh-hans/stop-script.mp4" poster="../../media/guide/zh-hans/stop-script.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="停止脚本动作的视频指南：在“标记完成”上添加点按步骤; 返回，添加停止脚本; 出现“全部完成”时停止; 脚本无限重复; 点试运行，然后打开应用。最后一项做完后，AutoGest 自动停止。"></video>
+        <figcaption>真机录制 · 70 秒</figcaption>
       </figure>
       <div>
         <ol class="steps">
-          <li>在“转动”上添加点按步骤</li>
+          <li>在“标记完成”上添加点按步骤</li>
           <li>返回，添加停止脚本</li>
-          <li>出现“次数已用完”时停止</li>
+          <li>出现“全部完成”时停止</li>
           <li>脚本无限重复</li>
           <li>点试运行，然后打开应用</li>
         </ol>
-        <p class="result">▶ 最后一次转完后，AutoGest 自动停止</p>
+        <p class="result">▶ 最后一项做完后，AutoGest 自动停止</p>
         <div class="callout">
           <strong>小提示</strong>
           <ul>
-            <li>对无限循环来说，这是干净的结束方式。</li>
+            <li>脚本不限次数重复时，这是干净的结束方式。</li>
             <li>放在如果…则的分支里，可以不设条件直接停止。</li>
           </ul>
         </div>
@@ -830,22 +828,22 @@
     <p class="muted">条件满足时跳过本轮剩下的步骤，开始下一轮。</p>
     <div class="guide-body">
       <figure class="phone">
-        <video src="../../media/guide/zh-hans/next-round.mp4" poster="../../media/guide/zh-hans/next-round.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="进入下一轮动作的视频指南：在“下一条”上添加点按步骤; 出现“赞助”时添加进入下一轮; 在“点赞”上添加点按步骤; 脚本重复 4 次; 点试运行，然后打开应用。AutoGest 给第 1、3 条点赞，跳过赞助内容。"></video>
-        <figcaption>真机录制 · 76 秒</figcaption>
+        <video src="../../media/guide/zh-hans/next-round.mp4" poster="../../media/guide/zh-hans/next-round.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="进入下一轮动作的视频指南：在“下一单”上添加点按步骤; 出现“已取消”时添加进入下一轮; 在“确认”上添加点按步骤; 脚本重复 4 次; 点试运行，然后打开应用。AutoGest 确认第 1、2 单，跳过已取消的订单。"></video>
+        <figcaption>真机录制 · 80 秒</figcaption>
       </figure>
       <div>
         <ol class="steps">
-          <li>在“下一条”上添加点按步骤</li>
-          <li>出现“赞助”时添加进入下一轮</li>
-          <li>在“点赞”上添加点按步骤</li>
+          <li>在“下一单”上添加点按步骤</li>
+          <li>出现“已取消”时添加进入下一轮</li>
+          <li>在“确认”上添加点按步骤</li>
           <li>脚本重复 4 次</li>
           <li>点试运行，然后打开应用</li>
         </ol>
-        <p class="result">▶ AutoGest 给第 1、3 条点赞，跳过赞助内容</p>
+        <p class="result">▶ AutoGest 确认第 1、2 单，跳过已取消的订单</p>
         <div class="callout">
           <strong>小提示</strong>
           <ul>
-            <li>浏览列表时用来跳过广告或不需要的项目。</li>
+            <li>浏览列表时用来跳过不需要的项目。</li>
             <li>它会跳到同一脚本中最近的循环末尾。</li>
           </ul>
         </div>
@@ -887,16 +885,16 @@
     <p class="muted">给变量赋值或加上一个数——计数器、累计总数、需要记住的文字。</p>
     <div class="guide-body">
       <figure class="phone">
-        <video src="../../media/guide/zh-hans/set-variable.mp4" poster="../../media/guide/zh-hans/set-variable.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="写入变量动作的视频指南：点“添加动作”，选写入变量; 给新变量起名，点“添加变量”; 让步骤给变量加 1; 在聊天框添加粘贴文本：“消息 #”+ 变量; 在“发送”上添加点按步骤; 脚本重复 3 次; 点试运行，然后打开应用。每一轮数字递增：1、2、3。"></video>
-        <figcaption>真机录制 · 84 秒</figcaption>
+        <video src="../../media/guide/zh-hans/set-variable.mp4" poster="../../media/guide/zh-hans/set-variable.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="写入变量动作的视频指南：点“添加动作”，选写入变量; 给新变量起名，点“添加变量”; 让步骤给变量加 1; 在清单输入框添加粘贴文本：“项目 #”+ 变量; 在“添加”上添加点按步骤; 脚本重复 3 次; 点试运行，然后打开应用。每一轮数字递增：1、2、3。"></video>
+        <figcaption>真机录制 · 91 秒</figcaption>
       </figure>
       <div>
         <ol class="steps">
           <li>点“添加动作”，选写入变量</li>
           <li>给新变量起名，点“添加变量”</li>
           <li>让步骤给变量加 1</li>
-          <li>在聊天框添加粘贴文本：“消息 #”+ 变量</li>
-          <li>在“发送”上添加点按步骤</li>
+          <li>在清单输入框添加粘贴文本：“项目 #”+ 变量</li>
+          <li>在“添加”上添加点按步骤</li>
           <li>脚本重复 3 次</li>
           <li>点试运行，然后打开应用</li>
         </ol>

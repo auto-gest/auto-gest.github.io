@@ -18,7 +18,7 @@
   </header>
 
   <h1>Privacy Policy</h1>
-  <p class="muted">Effective date: November 9, 2026</p>
+  <p class="muted">Effective date: November 22, 2026</p>
 
   <p>This policy explains how the Android app <strong>AutoGest</strong> handles your
     information.</p>
@@ -41,6 +41,10 @@
         section 2).</li>
       <li>Everything you create (scripts, images, schedules, triggers, run history) is kept in the app’s
         private storage on your phone and is removed when you uninstall the app.</li>
+      <li>Two things the app reads are kept on your phone so you can look back: the balance changes a
+        “Wait &amp; detect notification” step recognizes in your bank’s alerts, and — only if you turn on
+        “Screenshot when a step fails” (off by default) — the screen at the first failed step of a run.
+        Both stay on this phone only, are left out of backups and can be deleted at any time (sections 1–3).</li>
       <li><strong>Only install AutoGest from Google Play.</strong> “Mod” or “cracked” copies on other
         websites are not made by us and can misuse Accessibility access to steal your data (see
         section 9).</li>
@@ -74,12 +78,21 @@
     <li><strong>Takes screenshots</strong> (Android 11 and newer) only when you pick a color on screen,
       freeze the screen to pick a point or an element or crop a template image, or when a script has an image or
       color step or condition, to compare the screen with the image or color you chose. Screenshots
-      are held in memory only while matching or while you pick on the frozen screen, then discarded;
-      they are never saved to storage. The only part kept is an area you crop yourself as a template
-      image.</li>
+      are held in memory only while matching or while you pick on the frozen screen, then discarded.
+      The only parts kept are an area you crop yourself as a template image and, if you turn it on, the
+      screenshot of a failed step described below.</li>
+    <li><strong>Keeps the screen when a step fails</strong> (optional, off by default; Android 11 and
+      newer). If you turn on “Screenshot when a step fails” in Settings, the app captures the screen the
+      first time a step of a running script fails in that run, and saves it with that run in Run history
+      as a reduced JPEG image (at most 1280 pixels on the long side), so you can see what went wrong. It
+      can show anything that was on screen at that moment, including content of other apps. It stays in
+      the app’s private storage on this phone, is left out of backups and device transfers, is never
+      written to logs or sent anywhere, and is deleted together with its run — when the run drops out of
+      the last 200 runs or you clear the history. Turn the option off and no new screenshots are taken.</li>
     <li><strong>Recognizes text in screenshots</strong> (text recognition, OCR, Pro; Android 11 and newer).
       “Click text (OCR)”, “Wait for text (OCR)” and “Read text (OCR)” steps, and the “Text (OCR)” condition,
-      take screenshots and read the text in them so they work in games too. Recognition runs entirely on
+      take screenshots and read the text in them, so they also work on screens that show no text to the
+      Accessibility service. Recognition runs entirely on
       your device with Google ML Kit models bundled in the app; nothing is sent anywhere and the app has no
       internet permission. The recognized text is only used during that run: to find where to tap, or —
       for “Read text (OCR)” or “Save result to variable” — kept in a variable in memory and cleared when the
@@ -111,8 +124,10 @@
   <p>The service does not read the screen, take screenshots or act at any other time: not when no
     script is running, you are not recording and you are not picking on screen. We do not use the
     Accessibility service to collect personal or sensitive data, to change your settings behind your
-    back, or for advertising, and we never receive anything it reads. You can turn it off at any time
-    in <em>Settings &gt; Accessibility</em>.</p>
+    back, or for advertising, and we never receive anything it reads. It does not grant the app any
+    permission and does not turn off or get around any Android security protection: you turn on every
+    permission yourself in the system Settings. You can turn the service off at any time in
+    <em>Settings &gt; Accessibility</em>.</p>
 
   <h2>2. Notification access (NotificationListenerService)</h2>
   <p>This access is only needed for two Pro features:</p>
@@ -150,6 +165,14 @@
       is kept in a variable during that run so later steps can use it — for example to paste it into a field
       of another app — and is cleared when the script stops. It is never saved into the script or written to
       logs.</li>
+    <li><strong>Keeping a log of balance changes.</strong> When a “Wait &amp; detect notification” step
+      recognizes a balance alert, that change is saved on your phone under <em>Run history &gt; Balance
+      changes</em>, so you can look back if you missed the announcement or want to check a day’s totals:
+      the time, the app, whether money came in or went out, the amount and currency, the balance after it
+      and the transfer note. Up to 1,000 changes are kept per script, and you can clear them there at any
+      time. This log stays on your phone only: it is left out of backups and device transfers, never written
+      to logs, never included in an exported script and never sent anywhere. Notifications that are not
+      balance alerts are not logged.</li>
   </ul>
   <p>Notifications are read and matched on your device. The text of a notification is never written to
     logs and nothing is sent anywhere. You can turn this access off at any time in <em>Settings &gt;
@@ -183,8 +206,20 @@
         <td>To wait for that color</td></tr>
       <tr><td>Run history</td>
         <td>The last 200 runs: script name, start and end time, how the run ended (including runs a
-          trigger missed)</td>
-        <td>So you can see what ran and whether it succeeded</td></tr>
+          trigger missed); which steps failed and why, with the settings you entered for those steps
+          (such as the text to look for, an app’s package name, a variable name or the name of a called
+          script); and the steps of the last loop with their result and duration. Never text read from the
+          screen or the values of variables</td>
+        <td>So you can see what ran, whether it succeeded and why a step failed</td></tr>
+      <tr><td>Failure screenshots</td>
+        <td>Only if you turn on “Screenshot when a step fails”: one reduced screenshot per run, taken at
+          its first failed step (see section 1). Left out of backups</td>
+        <td>So you can see what was on screen when the step failed</td></tr>
+      <tr><td>Balance changes</td>
+        <td>For balance alerts recognized by a “Wait &amp; detect notification” step: time, app, money in
+          or out, amount and currency, balance and transfer note — up to 1,000 per script (see section 2).
+          Left out of backups</td>
+        <td>So you can look back at money that came in or went out</td></tr>
       <tr><td>Schedules</td>
         <td>Script, time of day and days of the week you chose</td>
         <td>To start scripts at the time you set</td></tr>
@@ -237,6 +272,9 @@
       <span>When a script starts, finds which apps on your phone show the incoming-call screen (your
         default Phone app and system call apps), so a call notification from them can be recognized
         (section 1). Only their package names are used, and they are not stored.</span></div>
+    <div class="row"><strong>Text-to-speech engines</strong>
+      <span>Finds the text-to-speech engines installed on your phone so a “Wait &amp; detect
+        notification” step can read aloud with the voice you choose.</span></div>
     <div class="row"><strong>Storage (Android 9 and older only)</strong>
       <span>Saves an exported script file to the Downloads folder when you ask for it. Newer Android
         versions need no storage permission for this.</span></div>
@@ -264,7 +302,8 @@
     policy applies. Importing a file someone sent you only reads that file. A “Wait &amp; detect
     notification” action only carries the app name, the words and labels of the sample and, for SMS, the
     sender, never the text of a notification. A “Click node” step carries the attributes of the element
-    you picked (section 1).</p>
+    you picked (section 1). Run history, balance changes and failure screenshots are never included in
+    an exported file.</p>
 
   <h2>7. Google Play</h2>
   <p>The app is distributed through Google Play. Depending on your device settings, Google may collect
@@ -275,14 +314,20 @@
     record of whether your account owns Pro, checks it on your device and keeps the result there
     (section 3). Pro belongs to your Google account, so reinstalling from Google Play or moving to a new
     phone with the same account restores it for free.</p>
+  <p>The app also asks Google Play whether a newer version of AutoGest is available, so it can offer
+    you the update.</p>
   <p>Google’s processing is covered by
     <a href="https://policies.google.com/privacy" rel="noopener">Google’s Privacy Policy</a>.</p>
 
   <h2>8. Retention and deletion</h2>
-  <p>Data stays on your phone until you delete it. You can delete scripts, schedules and history inside
-    the app, clear everything with <em>Settings &gt; Apps &gt; AutoGest &gt; Storage &gt;
-    Clear data</em>, or uninstall the app. Because we hold no copy of your data, there is nothing for us
-    to delete on our side.</p>
+  <p>Data stays on your phone until you delete it. You can delete scripts, schedules, run history and
+    balance changes inside the app, clear everything with <em>Settings &gt; Apps &gt; AutoGest &gt;
+    Storage &gt; Clear data</em>, or uninstall the app. Because we hold no copy of your data, there is
+    nothing for us to delete on our side.</p>
+  <p>If Android backup is turned on for your Google account, Android may include your scripts,
+    schedules, triggers, settings and run history in that backup, which Google keeps with your account
+    and restores when you set up a phone. We never receive this backup. Balance changes, failure
+    screenshots and your AutoGest Pro status are always left out of it.</p>
 
   <h2>9. Security</h2>
   <p>Your data is kept in the app’s private storage, which Android isolates from other apps. The app

@@ -54,7 +54,7 @@
   </header>
 
   <h1>Guida all’uso</h1>
-  <p class="muted">Ogni azione ha un breve video registrato su un telefono vero, con un’app di esempio per vedere il risultato. Ogni tocco si illumina per seguirlo facilmente. Le azioni con l’etichetta <span class="badge">PRO</span> fanno parte di AutoGest Pro.</p>
+  <p class="muted">La maggior parte delle azioni ha un breve video registrato su un telefono vero, con un’app di esempio per vedere il risultato. Ogni tocco si illumina per seguirlo facilmente. Le azioni con l’etichetta <span class="badge">PRO</span> fanno parte di AutoGest Pro.</p>
 
   <ul class="legend">
     <li><span class="dot user"></span>Tocchi tu</li>
@@ -82,15 +82,15 @@
   <p class="label" id="wait">Attesa e rilevamento</p>
   <div class="action-grid">
     <a class="action" href="#delay"><strong>Attendi</strong><span>Pausa prima del passaggio successivo</span><div class="state">▶ Guarda il video</div></a>
-    <a class="action" href="#wait-image"><strong>Attendi immagine <span class="badge">PRO</span></strong><span>Attendi che un’immagine compaia o scompaia, senza toccare</span><div class="state">▶ Guarda il video</div></a>
+    <a class="action" href="#wait-image"><strong>Attendi immagine <span class="badge">PRO</span></strong><span>Attendi che un’immagine compaia o scompaia, senza toccare</span></a>
     <a class="action" href="#wait-color"><strong>Attendi colore <span class="badge">PRO</span></strong><span>Attendi che un punto assuma il colore scelto</span><div class="state">▶ Guarda il video</div></a>
-    <a class="action" href="#image-click"><strong>Clic su immagine <span class="badge">PRO</span></strong><span>Trova un’immagine modello sullo schermo, poi toccala</span><div class="state">▶ Guarda il video</div></a>
-    <a class="action" href="#ocr-click"><strong>Clic su testo (OCR) <span class="badge">PRO</span></strong><span>Legge il testo da uno screenshot, poi lo tocca · funziona nei giochi</span><div class="state">▶ Guarda il video</div></a>
-    <a class="action" href="#ocr-wait"><strong>Attendi testo (OCR) <span class="badge">PRO</span></strong><span>Attendi che un testo compaia o scompaia, senza toccare · funziona nei giochi</span><div class="state">▶ Guarda il video</div></a>
-    <a class="action" href="#ocr-read"><strong>Leggi testo (OCR) <span class="badge">PRO</span></strong><span>Legge il testo di un’area in una variabile · funziona nei giochi</span><div class="state">▶ Guarda il video</div></a>
-    <a class="action" href="#click-text"><strong>Clic su testo</strong><span>Trova un testo, poi toccalo · non per i giochi</span><div class="state">▶ Guarda il video</div></a>
-    <a class="action" href="#click-node"><strong>Clic su nodo <span class="badge">PRO</span></strong><span>Scegli un nodo su una cattura dello schermo, poi toccalo · non per i giochi</span><div class="state">▶ Guarda il video</div></a>
-    <a class="action" href="#read-text"><strong>Leggi testo dello schermo <span class="badge">PRO</span></strong><span>Scegli un nodo e salva il suo testo in una variabile · non per i giochi</span><div class="state">▶ Guarda il video</div></a>
+    <a class="action" href="#image-click"><strong>Clic su immagine <span class="badge">PRO</span></strong><span>Trova un’immagine modello sullo schermo, poi toccala</span></a>
+    <a class="action" href="#ocr-click"><strong>Clic su testo (OCR) <span class="badge">PRO</span></strong><span>Legge il testo da uno screenshot, poi lo tocca</span></a>
+    <a class="action" href="#ocr-wait"><strong>Attendi testo (OCR) <span class="badge">PRO</span></strong><span>Attendi che un testo compaia o scompaia, senza toccare</span></a>
+    <a class="action" href="#ocr-read"><strong>Leggi testo (OCR) <span class="badge">PRO</span></strong><span>Legge il testo di un’area in una variabile</span></a>
+    <a class="action" href="#click-text"><strong>Clic su testo</strong><span>Trova un testo nel layout dell’app, poi toccalo</span></a>
+    <a class="action" href="#click-node"><strong>Clic su nodo <span class="badge">PRO</span></strong><span>Scegli un nodo su una cattura dello schermo, poi toccalo</span></a>
+    <a class="action" href="#read-text"><strong>Leggi testo dello schermo <span class="badge">PRO</span></strong><span>Scegli un nodo e salva il suo testo in una variabile</span></a>
     <a class="action" href="#wait-notification"><strong>Attendi e rileva notifica <span class="badge">PRO</span></strong><span>Attende una notifica con le tue parole o un avviso di saldo, poi la legge ad alta voce o prosegue</span><div class="state">▶ Guarda il video</div></a>
   </div>
 
@@ -104,12 +104,12 @@
 
   <p class="label" id="flow">Flusso dello script</p>
   <div class="action-grid">
-    <a class="action" href="#if-then"><strong>Se… allora <span class="badge">PRO</span></strong><span>Controlla lo schermo, poi segue uno dei due rami</span><div class="state">▶ Guarda il video</div></a>
+    <a class="action" href="#if-then"><strong>Se… allora <span class="badge">PRO</span></strong><span>Controlla lo schermo, poi segue uno dei due rami</span></a>
     <a class="action" href="#loop-until"><strong>Ripeti finché non <span class="badge">PRO</span></strong><span>Esegue di nuovo i passaggi interni finché la condizione non è vera</span><div class="state">▶ Guarda il video</div></a>
-    <a class="action" href="#stop-script"><strong>Ferma script <span class="badge">PRO</span></strong><span>Termina l’intera esecuzione quando una condizione è soddisfatta</span><div class="state">▶ Guarda il video</div></a>
-    <a class="action" href="#next-round"><strong>Ciclo successivo <span class="badge">PRO</span></strong><span>Salta i passaggi rimanenti e inizia il ciclo successivo</span><div class="state">▶ Guarda il video</div></a>
+    <a class="action" href="#stop-script"><strong>Ferma script <span class="badge">PRO</span></strong><span>Termina l’intera esecuzione quando una condizione è soddisfatta</span></a>
+    <a class="action" href="#next-round"><strong>Ciclo successivo <span class="badge">PRO</span></strong><span>Salta i passaggi rimanenti e inizia il ciclo successivo</span></a>
     <a class="action" href="#call-script"><strong>Chiama script <span class="badge">PRO</span></strong><span>Esegue un altro script, poi torna qui</span><div class="state">▶ Guarda il video</div></a>
-    <a class="action" href="#set-variable"><strong>Imposta variabile <span class="badge">PRO</span></strong><span>Imposta o somma a una variabile memorizzata</span><div class="state">▶ Guarda il video</div></a>
+    <a class="action" href="#set-variable"><strong>Imposta variabile <span class="badge">PRO</span></strong><span>Imposta o somma a una variabile memorizzata</span></a>
   </div>
 
   <section class="guide" id="click">
@@ -166,7 +166,6 @@
           <ul>
             <li>Fermati dopo un numero di tocchi, dopo un tempo, o continua finché premi Stop.</li>
             <li>Oltre 10 tocchi al secondo alcune app non stanno al passo e perdono tocchi; in quel caso abbassa la velocità.</li>
-            <li>Attiva <strong>Variazione casuale</strong> perché gli intervalli tra i tocchi varino un po’.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Torna all’elenco delle azioni</a></p>
@@ -276,7 +275,6 @@
         <div class="callout">
           <strong>Consigli</strong>
           <ul>
-            <li>Separa più testi con <code>||</code> e AutoGest ne sceglie uno a caso a ogni esecuzione.</li>
             <li>Inserisci una variabile con <strong>Inserisci variabile</strong> per incollare un valore letto prima nell’esecuzione.</li>
             <li>L’app blocca l’incolla? Usa <strong>Digita caratteri</strong> per premere ogni tasto della tastiera.</li>
           </ul>
@@ -288,7 +286,7 @@
 
   <section class="guide" id="type-keys">
     <h2>Digita caratteri <span class="badge">PRO</span></h2>
-    <p class="muted">Registra ogni tasto che premi sulla tastiera; durante l’esecuzione AutoGest preme gli stessi tasti con il tuo ritmo.</p>
+    <p class="muted">Registra ogni tasto che premi sulla tastiera; durante l’esecuzione AutoGest preme di nuovo gli stessi tasti.</p>
     <div class="guide-body">
       <figure class="phone">
         <video src="../../media/guide/it/type-keys.mp4" poster="../../media/guide/it/type-keys.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video guida dell’azione Digita caratteri: Tocca «Aggiungi azione», scegli Digita caratteri; Tocca il riquadro di registrazione, scrivi sulla tastiera; Tocca «Fine» per salvare i tasti; Scegli il campo in cui scrivere (facoltativo); Torna indietro, tocca Prova, poi apri l’app. AutoGest tocca il campo e ripete ogni tasto."></video>
@@ -336,7 +334,7 @@
         <div class="callout">
           <strong>Consigli</strong>
           <ul>
-            <li>Ogni passo aspetta già una breve pausa casuale (in <strong>Impostazioni generali</strong>); aggiungi un’attesa solo se serve di più.</li>
+            <li>Ogni passo aspetta già una breve pausa (in <strong>Impostazioni generali</strong>); aggiungi un’attesa solo se serve di più.</li>
             <li>Aspetti che qualcosa compaia? <strong>Attendi immagine</strong>, <strong>Attendi testo (OCR)</strong> o <strong>Attendi colore</strong> proseguono appena c’è.</li>
           </ul>
         </div>
@@ -348,20 +346,7 @@
   <section class="guide" id="wait-image">
     <h2>Attendi immagine <span class="badge">PRO</span></h2>
     <p class="muted">Aspetta che un’immagine compaia (o sparisca) sullo schermo, senza toccare — poi partono i passi successivi.</p>
-    <div class="guide-body">
-      <figure class="phone">
-        <video src="../../media/guide/it/wait-image.mp4" poster="../../media/guide/it/wait-image.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video guida dell’azione Attendi immagine: Tocca «Aggiungi azione», scegli Attendi immagine; Tocca «Scegli immagine», scegli «Ritaglia dallo schermo»; Apri la schermata, tocca Acquisisci, inquadra l’immagine; Torna indietro, aggiungi un passo Clic dove appare l’immagine; Torna indietro, tocca Prova, poi apri l’app. AutoGest aspetta la scatola regalo, poi esegue il passo Clic."></video>
-        <figcaption>Registrato su un telefono vero · 48 secondi</figcaption>
-      </figure>
-      <div>
-        <ol class="steps">
-          <li>Tocca «Aggiungi azione», scegli Attendi immagine</li>
-          <li>Tocca «Scegli immagine», scegli «Ritaglia dallo schermo»</li>
-          <li>Apri la schermata, tocca Acquisisci, inquadra l’immagine</li>
-          <li>Torna indietro, aggiungi un passo Clic dove appare l’immagine</li>
-          <li>Torna indietro, tocca Prova, poi apri l’app</li>
-        </ol>
-        <p class="result">▶ AutoGest aspetta la scatola regalo, poi esegue il passo Clic</p>
+    <div>
         <div class="callout">
           <strong>Consigli</strong>
           <ul>
@@ -370,7 +355,6 @@
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Torna all’elenco delle azioni</a></p>
-      </div>
     </div>
   </section>
 
@@ -395,7 +379,7 @@
           <strong>Consigli</strong>
           <ul>
             <li>Scegli il punto quando lo schermo mostra il colore voluto: AutoGest lo legge per te.</li>
-            <li>Funziona anche nei giochi, perché guarda solo l’immagine dello schermo.</li>
+            <li>Guarda solo l’immagine dello schermo, quindi funziona anche dove l’app non espone testo né elementi.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Torna all’elenco delle azioni</a></p>
@@ -406,47 +390,22 @@
   <section class="guide" id="image-click">
     <h2>Clic su immagine <span class="badge">PRO</span></h2>
     <p class="muted">Trova un’immagine sullo schermo e toccala, ovunque sia — perfetto per pulsanti che si spostano.</p>
-    <div class="guide-body">
-      <figure class="phone">
-        <video src="../../media/guide/it/image-click.mp4" poster="../../media/guide/it/image-click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video guida dell’azione Clic su immagine: Tocca «Aggiungi azione», scegli Clic su immagine; Tocca «Scegli immagine», scegli «Ritaglia dallo schermo»; Apri la schermata con l’immagine, tocca Acquisisci; Stringi il riquadro attorno all’immagine, tocca OK; Torna indietro, tocca Prova, poi apri l’app. AutoGest aspetta la scatola regalo, poi la tocca."></video>
-        <figcaption>Registrato su un telefono vero · 37 secondi</figcaption>
-      </figure>
-      <div>
-        <ol class="steps">
-          <li>Tocca «Aggiungi azione», scegli Clic su immagine</li>
-          <li>Tocca «Scegli immagine», scegli «Ritaglia dallo schermo»</li>
-          <li>Apri la schermata con l’immagine, tocca Acquisisci</li>
-          <li>Stringi il riquadro attorno all’immagine, tocca OK</li>
-          <li>Torna indietro, tocca Prova, poi apri l’app</li>
-        </ol>
-        <p class="result">▶ AutoGest aspetta la scatola regalo, poi la tocca</p>
+    <div>
         <div class="callout">
           <strong>Consigli</strong>
           <ul>
-            <li>Funziona nei giochi, perché AutoGest guarda l’immagine dello schermo, non la struttura dell’app.</li>
+            <li>AutoGest guarda l’immagine dello schermo, non la struttura dell’app, quindi trova anche pulsanti senza testo.</li>
             <li>Ritaglia solo il pulsante, senza lo sfondo attorno.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Torna all’elenco delle azioni</a></p>
-      </div>
     </div>
   </section>
 
   <section class="guide" id="ocr-click">
     <h2>Clic su testo (OCR) <span class="badge">PRO</span></h2>
-    <p class="muted">Leggi il testo di uno screenshot con il riconoscimento del testo (OCR) sul telefono e toccalo — anche nei giochi che disegnano il proprio testo.</p>
-    <div class="guide-body">
-      <figure class="phone">
-        <video src="../../media/guide/it/ocr-click.mp4" poster="../../media/guide/it/ocr-click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video guida dell’azione Clic su testo (OCR): Tocca «Aggiungi azione», scegli Clic su testo (OCR); Scrivi il testo del pulsante; Tocca Prova, poi apri l’app. AutoGest legge l’immagine dello schermo — anche nei giochi — e tocca il testo."></video>
-        <figcaption>Registrato su un telefono vero · 28 secondi</figcaption>
-      </figure>
-      <div>
-        <ol class="steps">
-          <li>Tocca «Aggiungi azione», scegli Clic su testo (OCR)</li>
-          <li>Scrivi il testo del pulsante</li>
-          <li>Tocca Prova, poi apri l’app</li>
-        </ol>
-        <p class="result">▶ AutoGest legge l’immagine dello schermo — anche nei giochi — e tocca il testo</p>
+    <p class="muted">Leggi il testo di uno screenshot con il riconoscimento del testo (OCR) sul telefono e toccalo — trova anche il testo che un’app disegna come immagine.</p>
+    <div>
         <div class="callout">
           <strong>Consigli</strong>
           <ul>
@@ -456,113 +415,58 @@
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Torna all’elenco delle azioni</a></p>
-      </div>
     </div>
   </section>
 
   <section class="guide" id="ocr-wait">
     <h2>Attendi testo (OCR) <span class="badge">PRO</span></h2>
     <p class="muted">Aspetta che un testo compaia (o sparisca) nell’immagine dello schermo, senza toccare.</p>
-    <div class="guide-body">
-      <figure class="phone">
-        <video src="../../media/guide/it/ocr-wait.mp4" poster="../../media/guide/it/ocr-wait.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video guida dell’azione Attendi testo (OCR): Tocca «Aggiungi azione», scegli Attendi testo (OCR); Scrivi il testo da attendere; Aggiungi un passo Clic su «Corri»; Torna indietro, tocca Prova, poi apri l’app. AutoGest aspetta «VIA», poi tocca «Corri»."></video>
-        <figcaption>Registrato su un telefono vero · 41 secondi</figcaption>
-      </figure>
-      <div>
-        <ol class="steps">
-          <li>Tocca «Aggiungi azione», scegli Attendi testo (OCR)</li>
-          <li>Scrivi il testo da attendere</li>
-          <li>Aggiungi un passo Clic su «Corri»</li>
-          <li>Torna indietro, tocca Prova, poi apri l’app</li>
-        </ol>
-        <p class="result">▶ AutoGest aspetta «VIA», poi tocca «Corri»</p>
+    <div>
         <div class="callout">
           <strong>Consigli</strong>
           <ul>
-            <li>Utile per schermate di gioco come «Pronti… VIA!», «Vittoria» o la fine di un conto alla rovescia.</li>
+            <li>Utile per messaggi come «Caricamento completato», «Salvato» o la fine di un conto alla rovescia.</li>
             <li>Scegli un’area per attendere più in fretta ed evitare la stessa parola altrove.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Torna all’elenco delle azioni</a></p>
-      </div>
     </div>
   </section>
 
   <section class="guide" id="ocr-read">
     <h2>Leggi testo (OCR) <span class="badge">PRO</span></h2>
     <p class="muted">Leggi il testo in un’area dell’immagine dello schermo e salvalo in una variabile per i passi successivi.</p>
-    <div class="guide-body">
-      <figure class="phone">
-        <video src="../../media/guide/it/ocr-read.mp4" poster="../../media/guide/it/ocr-read.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video guida dell’azione Leggi testo (OCR): Tocca «Aggiungi azione», scegli Leggi testo (OCR); Tocca «Scegli area», apri la schermata, tocca Acquisisci; Inquadra il codice, tocca OK; Torna indietro, scegli «Solo il numero» e una variabile in cui salvarlo; Aggiungi Incolla testo nel campo, inserisci la variabile; Aggiungi un passo Clic su «Conferma»; Tocca Prova, poi apri l’app. AutoGest legge il codice dall’immagine e lo inserisce."></video>
-        <figcaption>Registrato su un telefono vero · 76 secondi</figcaption>
-      </figure>
-      <div>
-        <ol class="steps">
-          <li>Tocca «Aggiungi azione», scegli Leggi testo (OCR)</li>
-          <li>Tocca «Scegli area», apri la schermata, tocca Acquisisci</li>
-          <li>Inquadra il codice, tocca OK</li>
-          <li>Torna indietro, scegli «Solo il numero» e una variabile in cui salvarlo</li>
-          <li>Aggiungi Incolla testo nel campo, inserisci la variabile</li>
-          <li>Aggiungi un passo Clic su «Conferma»</li>
-          <li>Tocca Prova, poi apri l’app</li>
-        </ol>
-        <p class="result">▶ AutoGest legge il codice dall’immagine e lo inserisce</p>
+    <div>
         <div class="callout">
           <strong>Consigli</strong>
           <ul>
-            <li>Scegli «Solo il numero» per tenere solo le cifre — punteggi, prezzi o codici.</li>
+            <li>Scegli «Solo il numero» per tenere solo le cifre — prezzi, totali o numeri d’ordine.</li>
             <li>Usa la variabile in Incolla testo o confrontala in un blocco Se… allora.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Torna all’elenco delle azioni</a></p>
-      </div>
     </div>
   </section>
 
   <section class="guide" id="click-text">
     <h2>Clic su testo</h2>
     <p class="muted">Scrivi il testo mostrato su un pulsante; durante l’esecuzione AutoGest trova quel testo sullo schermo e lo tocca.</p>
-    <div class="guide-body">
-      <figure class="phone">
-        <video src="../../media/guide/it/click-text.mp4" poster="../../media/guide/it/click-text.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video guida dell’azione Clic su testo: Tocca «Aggiungi azione», scegli Clic su testo; Scrivi il testo mostrato sul pulsante; Tocca Prova, poi apri l’app. Ovunque sia il pulsante, AutoGest trova il testo e lo tocca."></video>
-        <figcaption>Registrato su un telefono vero · 29 secondi</figcaption>
-      </figure>
-      <div>
-        <ol class="steps">
-          <li>Tocca «Aggiungi azione», scegli Clic su testo</li>
-          <li>Scrivi il testo mostrato sul pulsante</li>
-          <li>Tocca Prova, poi apri l’app</li>
-        </ol>
-        <p class="result">▶ Ovunque sia il pulsante, AutoGest trova il testo e lo tocca</p>
+    <div>
         <div class="callout">
           <strong>Consigli</strong>
           <ul>
-            <li>Legge la struttura dell’app, quindi non funziona nei giochi che disegnano il testo — lì usa <strong>Clic su testo (OCR)</strong>.</li>
+            <li>Legge la struttura dell’app, quindi non vede il testo disegnato come immagine — lì usa <strong>Clic su testo (OCR)</strong>.</li>
             <li>Maiuscole e minuscole non contano, basta che il testo contenga ciò che hai scritto.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Torna all’elenco delle azioni</a></p>
-      </div>
     </div>
   </section>
 
   <section class="guide" id="click-node">
     <h2>Clic su nodo <span class="badge">PRO</span></h2>
     <p class="muted">Cattura lo schermo, tocca un elemento e AutoGest ricorda come ritrovarlo — anche pulsanti con sola icona.</p>
-    <div class="guide-body">
-      <figure class="phone">
-        <video src="../../media/guide/it/click-node.mp4" poster="../../media/guide/it/click-node.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video guida dell’azione Clic su nodo: Tocca «Aggiungi azione», scegli Clic su nodo; Tocca «Scegli nodo», apri l’app, tocca Acquisisci; Tocca il pulsante desiderato, poi «Scegli nodo»; Torna indietro, scegli come trovare il nodo; Tocca Prova, poi apri l’app. AutoGest trova il pulsante cuore e lo tocca."></video>
-        <figcaption>Registrato su un telefono vero · 37 secondi</figcaption>
-      </figure>
-      <div>
-        <ol class="steps">
-          <li>Tocca «Aggiungi azione», scegli Clic su nodo</li>
-          <li>Tocca «Scegli nodo», apri l’app, tocca Acquisisci</li>
-          <li>Tocca il pulsante desiderato, poi «Scegli nodo»</li>
-          <li>Torna indietro, scegli come trovare il nodo</li>
-          <li>Tocca Prova, poi apri l’app</li>
-        </ol>
-        <p class="result">▶ AutoGest trova il pulsante cuore e lo tocca</p>
+    <div>
         <div class="callout">
           <strong>Consigli</strong>
           <ul>
@@ -571,38 +475,21 @@
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Torna all’elenco delle azioni</a></p>
-      </div>
     </div>
   </section>
 
   <section class="guide" id="read-text">
     <h2>Leggi testo dello schermo <span class="badge">PRO</span></h2>
     <p class="muted">Scegli un elemento sullo schermo e copia il suo testo in una variabile, senza toccarlo.</p>
-    <div class="guide-body">
-      <figure class="phone">
-        <video src="../../media/guide/it/read-text.mp4" poster="../../media/guide/it/read-text.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video guida dell’azione Leggi testo dello schermo: Tocca «Aggiungi azione», scegli Leggi testo dello schermo; Tocca «Scegli nodo», apri l’app, tocca Acquisisci; Tocca il codice, poi «Scegli nodo»; Torna indietro, scegli una variabile in cui salvarlo; Aggiungi Incolla testo nel campo, inserisci la variabile; Aggiungi un passo Clic su «Conferma»; Tocca Prova, poi apri l’app. AutoGest copia il codice e lo inserisce."></video>
-        <figcaption>Registrato su un telefono vero · 79 secondi</figcaption>
-      </figure>
-      <div>
-        <ol class="steps">
-          <li>Tocca «Aggiungi azione», scegli Leggi testo dello schermo</li>
-          <li>Tocca «Scegli nodo», apri l’app, tocca Acquisisci</li>
-          <li>Tocca il codice, poi «Scegli nodo»</li>
-          <li>Torna indietro, scegli una variabile in cui salvarlo</li>
-          <li>Aggiungi Incolla testo nel campo, inserisci la variabile</li>
-          <li>Aggiungi un passo Clic su «Conferma»</li>
-          <li>Tocca Prova, poi apri l’app</li>
-        </ol>
-        <p class="result">▶ AutoGest copia il codice e lo inserisce</p>
+    <div>
         <div class="callout">
           <strong>Consigli</strong>
           <ul>
-            <li>Ottimo per codici monouso, numeri d’ordine o saldi mostrati in un’app.</li>
-            <li>Legge la struttura dell’app; per i giochi usa <strong>Leggi testo (OCR)</strong>.</li>
+            <li>Ottimo per numeri d’ordine, prezzi o numeri di riferimento mostrati in un’app.</li>
+            <li>Legge la struttura dell’app; per il testo disegnato come immagine usa <strong>Leggi testo (OCR)</strong>.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Torna all’elenco delle azioni</a></p>
-      </div>
     </div>
   </section>
 
@@ -743,20 +630,7 @@
   <section class="guide" id="if-then">
     <h2>Se… allora <span class="badge">PRO</span></h2>
     <p class="muted">Esegui alcuni passi solo quando una condizione è vera — un’immagine, un colore, un testo, il numero del giro o una variabile.</p>
-    <div class="guide-body">
-      <figure class="phone">
-        <video src="../../media/guide/it/if-then.mp4" poster="../../media/guide/it/if-then.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video guida dell’azione Se… allora: Tocca «Aggiungi azione», scegli Se… allora; Scegli «Testo», scrivi il testo da cercare; Disattiva il ramo «Altrimenti», tocca «Fine»; Nel ramo «Allora»: passo Clic sul pulsante chiudi (✕); Torna indietro, tocca Prova, poi apri l’app. AutoGest vede «Pubblicità» e tocca chiudi."></video>
-        <figcaption>Registrato su un telefono vero · 50 secondi</figcaption>
-      </figure>
-      <div>
-        <ol class="steps">
-          <li>Tocca «Aggiungi azione», scegli Se… allora</li>
-          <li>Scegli «Testo», scrivi il testo da cercare</li>
-          <li>Disattiva il ramo «Altrimenti», tocca «Fine»</li>
-          <li>Nel ramo «Allora»: passo Clic sul pulsante chiudi (✕)</li>
-          <li>Torna indietro, tocca Prova, poi apri l’app</li>
-        </ol>
-        <p class="result">▶ AutoGest vede «Pubblicità» e tocca chiudi</p>
+    <div>
         <div class="callout">
           <strong>Consigli</strong>
           <ul>
@@ -765,7 +639,6 @@
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Torna all’elenco delle azioni</a></p>
-      </div>
     </div>
   </section>
 
@@ -798,59 +671,31 @@
 
   <section class="guide" id="stop-script">
     <h2>Ferma script <span class="badge">PRO</span></h2>
-    <p class="muted">Termina l’intera esecuzione quando si verifica una condizione — ad esempio quando finiscono i turni o l’energia.</p>
-    <div class="guide-body">
-      <figure class="phone">
-        <video src="../../media/guide/it/stop-script.mp4" poster="../../media/guide/it/stop-script.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video guida dell’azione Ferma script: Aggiungi un passo Clic su «Gira»; Torna indietro, aggiungi Ferma script; Fermati quando compare il testo «Giri finiti»; Ripeti lo script senza limite; Tocca Prova, poi apri l’app. Dopo l’ultimo giro, AutoGest si ferma da solo."></video>
-        <figcaption>Registrato su un telefono vero · 56 secondi</figcaption>
-      </figure>
-      <div>
-        <ol class="steps">
-          <li>Aggiungi un passo Clic su «Gira»</li>
-          <li>Torna indietro, aggiungi Ferma script</li>
-          <li>Fermati quando compare il testo «Giri finiti»</li>
-          <li>Ripeti lo script senza limite</li>
-          <li>Tocca Prova, poi apri l’app</li>
-        </ol>
-        <p class="result">▶ Dopo l’ultimo giro, AutoGest si ferma da solo</p>
+    <p class="muted">Termina l’intera esecuzione quando si verifica una condizione — ad esempio quando un elenco finisce o un’attività risulta completata.</p>
+    <div>
         <div class="callout">
           <strong>Consigli</strong>
           <ul>
-            <li>Con un ciclo senza limite, è il modo pulito per finire.</li>
+            <li>Se lo script si ripete senza limite, è il modo pulito per finire.</li>
             <li>Dentro un ramo di Se… allora può fermarsi subito, senza condizione.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Torna all’elenco delle azioni</a></p>
-      </div>
     </div>
   </section>
 
   <section class="guide" id="next-round">
     <h2>Ciclo successivo <span class="badge">PRO</span></h2>
     <p class="muted">Salta il resto di questo giro e inizia il successivo quando si verifica una condizione.</p>
-    <div class="guide-body">
-      <figure class="phone">
-        <video src="../../media/guide/it/next-round.mp4" poster="../../media/guide/it/next-round.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video guida dell’azione Ciclo successivo: Aggiungi un passo Clic su «Post successivo»; Aggiungi Ciclo successivo quando compare «Sponsorizzato»; Aggiungi un passo Clic su «Mi piace»; Ripeti lo script 4 volte; Tocca Prova, poi apri l’app. AutoGest mette mi piace ai post 1 e 3 e salta quelli sponsorizzati."></video>
-        <figcaption>Registrato su un telefono vero · 76 secondi</figcaption>
-      </figure>
-      <div>
-        <ol class="steps">
-          <li>Aggiungi un passo Clic su «Post successivo»</li>
-          <li>Aggiungi Ciclo successivo quando compare «Sponsorizzato»</li>
-          <li>Aggiungi un passo Clic su «Mi piace»</li>
-          <li>Ripeti lo script 4 volte</li>
-          <li>Tocca Prova, poi apri l’app</li>
-        </ol>
-        <p class="result">▶ AutoGest mette mi piace ai post 1 e 3 e salta quelli sponsorizzati</p>
+    <div>
         <div class="callout">
           <strong>Consigli</strong>
           <ul>
-            <li>Utile per saltare pubblicità o elementi indesiderati scorrendo un elenco.</li>
+            <li>Utile per saltare gli elementi che non servono scorrendo un elenco.</li>
             <li>Salta alla fine del ciclo più vicino nello stesso script.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Torna all’elenco delle azioni</a></p>
-      </div>
     </div>
   </section>
 
@@ -885,22 +730,7 @@
   <section class="guide" id="set-variable">
     <h2>Imposta variabile <span class="badge">PRO</span></h2>
     <p class="muted">Dai un valore a una variabile o aggiungi un numero — contatori, totali progressivi, testo da ricordare.</p>
-    <div class="guide-body">
-      <figure class="phone">
-        <video src="../../media/guide/it/set-variable.mp4" poster="../../media/guide/it/set-variable.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="Video guida dell’azione Imposta variabile: Tocca «Aggiungi azione», scegli Imposta variabile; Dai un nome alla nuova variabile, tocca «Aggiungi variabile»; Fai aggiungere 1 alla variabile; Aggiungi Incolla testo nella chat: «Messaggio #» + la variabile; Aggiungi un passo Clic su «Invia»; Ripeti lo script 3 volte; Tocca Prova, poi apri l’app. A ogni giro il numero sale: 1, 2, 3."></video>
-        <figcaption>Registrato su un telefono vero · 86 secondi</figcaption>
-      </figure>
-      <div>
-        <ol class="steps">
-          <li>Tocca «Aggiungi azione», scegli Imposta variabile</li>
-          <li>Dai un nome alla nuova variabile, tocca «Aggiungi variabile»</li>
-          <li>Fai aggiungere 1 alla variabile</li>
-          <li>Aggiungi Incolla testo nella chat: «Messaggio #» + la variabile</li>
-          <li>Aggiungi un passo Clic su «Invia»</li>
-          <li>Ripeti lo script 3 volte</li>
-          <li>Tocca Prova, poi apri l’app</li>
-        </ol>
-        <p class="result">▶ A ogni giro il numero sale: 1, 2, 3</p>
+    <div>
         <div class="callout">
           <strong>Consigli</strong>
           <ul>
@@ -909,7 +739,6 @@
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ Torna all’elenco delle azioni</a></p>
-      </div>
     </div>
   </section>
 

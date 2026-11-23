@@ -54,7 +54,7 @@
   </header>
 
   <h1>使用指南</h1>
-  <p class="muted">每個動作都有一段在實機上錄製的短片，搭配範例應用程式讓你看到結果。每次點擊都會亮起，方便跟上。標有 <span class="badge">PRO</span> 的動作屬於 AutoGest Pro。</p>
+  <p class="muted">大多數動作都有一段在實機上錄製的短片，搭配範例應用程式讓你看到結果。每次點擊都會亮起，方便跟上。標有 <span class="badge">PRO</span> 的動作屬於 AutoGest Pro。</p>
 
   <ul class="legend">
     <li><span class="dot user"></span>你點擊</li>
@@ -85,12 +85,12 @@
     <a class="action" href="#wait-image"><strong>等待圖片 <span class="badge">PRO</span></strong><span>等待圖片出現或消失，不輕觸</span><div class="state">▶ 觀看影片</div></a>
     <a class="action" href="#wait-color"><strong>等待顏色 <span class="badge">PRO</span></strong><span>等待某個位置變成選取的顏色</span><div class="state">▶ 觀看影片</div></a>
     <a class="action" href="#image-click"><strong>輕觸圖片 <span class="badge">PRO</span></strong><span>在螢幕上尋找範本圖片並輕觸</span><div class="state">▶ 觀看影片</div></a>
-    <a class="action" href="#ocr-click"><strong>輕觸文字(OCR) <span class="badge">PRO</span></strong><span>從螢幕截圖辨識文字再輕觸 · 適用於遊戲</span><div class="state">▶ 觀看影片</div></a>
-    <a class="action" href="#ocr-wait"><strong>等待文字(OCR) <span class="badge">PRO</span></strong><span>等待文字出現或消失，不輕觸 · 適用於遊戲</span><div class="state">▶ 觀看影片</div></a>
-    <a class="action" href="#ocr-read"><strong>辨識文字(OCR) <span class="badge">PRO</span></strong><span>辨識區域內的文字並存入變數 · 適用於遊戲</span><div class="state">▶ 觀看影片</div></a>
-    <a class="action" href="#click-text"><strong>輕觸文字</strong><span>尋找文字並輕觸 · 不適用於遊戲</span><div class="state">▶ 觀看影片</div></a>
-    <a class="action" href="#click-node"><strong>輕觸節點 <span class="badge">PRO</span></strong><span>在螢幕截圖上選取節點並輕觸 · 不適用於遊戲</span><div class="state">▶ 觀看影片</div></a>
-    <a class="action" href="#read-text"><strong>讀取螢幕文字 <span class="badge">PRO</span></strong><span>選擇節點並把它的文字存入變數 · 不適用於遊戲</span><div class="state">▶ 觀看影片</div></a>
+    <a class="action" href="#ocr-click"><strong>輕觸文字(OCR) <span class="badge">PRO</span></strong><span>從螢幕截圖辨識文字再輕觸</span><div class="state">▶ 觀看影片</div></a>
+    <a class="action" href="#ocr-wait"><strong>等待文字(OCR) <span class="badge">PRO</span></strong><span>等待文字出現或消失，不輕觸</span><div class="state">▶ 觀看影片</div></a>
+    <a class="action" href="#ocr-read"><strong>辨識文字(OCR) <span class="badge">PRO</span></strong><span>辨識區域內的文字並存入變數</span><div class="state">▶ 觀看影片</div></a>
+    <a class="action" href="#click-text"><strong>輕觸文字</strong><span>在應用程式的版面中尋找文字並輕觸</span><div class="state">▶ 觀看影片</div></a>
+    <a class="action" href="#click-node"><strong>輕觸節點 <span class="badge">PRO</span></strong><span>在螢幕截圖上選取節點並輕觸</span><div class="state">▶ 觀看影片</div></a>
+    <a class="action" href="#read-text"><strong>讀取螢幕文字 <span class="badge">PRO</span></strong><span>選擇節點並把它的文字存入變數</span><div class="state">▶ 觀看影片</div></a>
     <a class="action" href="#wait-notification"><strong>等待並辨識通知 <span class="badge">PRO</span></strong><span>等待含有指定文字的通知或帳戶異動通知，然後朗讀或繼續下一步</span><div class="state">▶ 觀看影片</div></a>
   </div>
 
@@ -166,7 +166,6 @@
           <ul>
             <li>可以依次數、依時間停止，或一直點到你按停止。</li>
             <li>每秒超過 10 次時，有些應用程式跟不上，可能漏掉點擊；這時請降低速度。</li>
-            <li>開啟<strong>隨機浮動</strong>，點擊間隔會稍有變化。</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ 回到動作列表</a></p>
@@ -276,7 +275,6 @@
         <div class="callout">
           <strong>小技巧</strong>
           <ul>
-            <li>用 <code>||</code> 分隔多段文字，每次執行 AutoGest 會隨機選一段。</li>
             <li>用<strong>插入變數</strong>插入變數，可貼上本次執行中先前讀到的值。</li>
             <li>應用程式禁止貼上？用<strong>逐鍵輸入</strong>逐一點按鍵盤上的按鍵。</li>
           </ul>
@@ -288,7 +286,7 @@
 
   <section class="guide" id="type-keys">
     <h2>逐鍵輸入 <span class="badge">PRO</span></h2>
-    <p class="muted">錄下你在鍵盤上按的每個鍵；執行時 AutoGest 依你的節奏按同樣的鍵。</p>
+    <p class="muted">錄下你在鍵盤上按的每個鍵；執行時 AutoGest 按同樣的鍵。</p>
     <div class="guide-body">
       <figure class="phone">
         <video src="../../media/guide/zh-hant/type-keys.mp4" poster="../../media/guide/zh-hant/type-keys.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="逐鍵輸入動作的影片教學：點選「新增動作」，選擇逐鍵輸入; 點選按鍵錄製框，在鍵盤上輸入; 點選「完成」儲存按鍵; 選擇要輸入的欄位（選用）; 返回，點選試執行，再開啟應用程式。AutoGest 點選欄位，再逐一重播按鍵。"></video>
@@ -336,7 +334,7 @@
         <div class="callout">
           <strong>小技巧</strong>
           <ul>
-            <li>每一步本來就會隨機停頓一小段時間（在<strong>通用設定</strong>設定）；只有需要更久時才加等待。</li>
+            <li>每一步本來就會停頓一小段時間（在<strong>通用設定</strong>設定）；只有需要更久時才加等待。</li>
             <li>在等某樣東西出現？<strong>等待圖片</strong>、<strong>等待文字(OCR)</strong>或<strong>等待顏色</strong>一出現就繼續。</li>
           </ul>
         </div>
@@ -350,8 +348,8 @@
     <p class="muted">不點擊，等到螢幕上出現（或消失）某張圖片，再執行後面的步驟。</p>
     <div class="guide-body">
       <figure class="phone">
-        <video src="../../media/guide/zh-hant/wait-image.mp4" poster="../../media/guide/zh-hant/wait-image.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="等待圖片動作的影片教學：點選「新增動作」，選擇等待圖片; 點選「選取圖片」，選擇「從螢幕裁剪」; 開啟畫面，點選擷取，框住圖片; 返回，在圖片出現的位置新增 輕觸; 返回，點選試執行，再開啟應用程式。AutoGest 等禮物盒出現後才執行 輕觸。"></video>
-        <figcaption>實機錄製 · 47 秒</figcaption>
+        <video src="../../media/guide/zh-hant/wait-image.mp4" poster="../../media/guide/zh-hant/wait-image.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="等待圖片動作的影片教學：點選「新增動作」，選擇等待圖片; 點選「選取圖片」，選擇「從螢幕裁剪」; 開啟畫面，點選擷取，框住圖片; 返回，在圖片出現的位置新增 輕觸; 返回，點選試執行，再開啟應用程式。AutoGest 等信箱出現後才執行 輕觸。"></video>
+        <figcaption>實機錄製 · 52 秒</figcaption>
       </figure>
       <div>
         <ol class="steps">
@@ -361,7 +359,7 @@
           <li>返回，在圖片出現的位置新增 輕觸</li>
           <li>返回，點選試執行，再開啟應用程式</li>
         </ol>
-        <p class="result">▶ AutoGest 等禮物盒出現後才執行 輕觸</p>
+        <p class="result">▶ AutoGest 等信箱出現後才執行 輕觸</p>
         <div class="callout">
           <strong>小技巧</strong>
           <ul>
@@ -395,7 +393,7 @@
           <strong>小技巧</strong>
           <ul>
             <li>在螢幕顯示目標顏色時選點，AutoGest 會幫你讀出顏色。</li>
-            <li>只看螢幕影像，所以遊戲中也能用。</li>
+            <li>只看螢幕影像，所以在應用程式沒有公開文字或元素的地方也能用。</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ 回到動作列表</a></p>
@@ -408,8 +406,8 @@
     <p class="muted">在螢幕上找到一張圖片並點擊，不管它在哪——最適合會移動的按鈕。</p>
     <div class="guide-body">
       <figure class="phone">
-        <video src="../../media/guide/zh-hant/image-click.mp4" poster="../../media/guide/zh-hant/image-click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="輕觸圖片動作的影片教學：點選「新增動作」，選擇輕觸圖片; 點選「選取圖片」，選擇「從螢幕裁剪」; 開啟有圖片的畫面，點選擷取; 把框貼齊圖片，點選 OK; 返回，點選試執行，再開啟應用程式。AutoGest 等禮物盒出現後點擊它。"></video>
-        <figcaption>實機錄製 · 36 秒</figcaption>
+        <video src="../../media/guide/zh-hant/image-click.mp4" poster="../../media/guide/zh-hant/image-click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="輕觸圖片動作的影片教學：點選「新增動作」，選擇輕觸圖片; 點選「選取圖片」，選擇「從螢幕裁剪」; 開啟有圖片的畫面，點選擷取; 把框貼齊圖片，點選 OK; 返回，點選試執行，再開啟應用程式。AutoGest 等信箱出現後點擊它。"></video>
+        <figcaption>實機錄製 · 38 秒</figcaption>
       </figure>
       <div>
         <ol class="steps">
@@ -419,11 +417,11 @@
           <li>把框貼齊圖片，點選 OK</li>
           <li>返回，點選試執行，再開啟應用程式</li>
         </ol>
-        <p class="result">▶ AutoGest 等禮物盒出現後點擊它</p>
+        <p class="result">▶ AutoGest 等信箱出現後點擊它</p>
         <div class="callout">
           <strong>小技巧</strong>
           <ul>
-            <li>AutoGest 看的是螢幕影像而不是應用程式結構，所以遊戲中也能用。</li>
+            <li>AutoGest 看的是螢幕影像而不是應用程式結構，所以沒有文字的按鈕也找得到。</li>
             <li>只裁按鈕本身，不要帶到周圍的背景。</li>
           </ul>
         </div>
@@ -434,11 +432,11 @@
 
   <section class="guide" id="ocr-click">
     <h2>輕觸文字(OCR) <span class="badge">PRO</span></h2>
-    <p class="muted">用手機本機的文字辨識（OCR）讀取螢幕截圖裡的文字並點擊——即使是自己繪製文字的遊戲也可以。</p>
+    <p class="muted">用手機本機的文字辨識（OCR）讀取螢幕截圖裡的文字並點擊——應用程式以圖像繪製的文字也找得到。</p>
     <div class="guide-body">
       <figure class="phone">
-        <video src="../../media/guide/zh-hant/ocr-click.mp4" poster="../../media/guide/zh-hant/ocr-click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="輕觸文字(OCR)動作的影片教學：點選「新增動作」，選擇輕觸文字(OCR); 輸入按鈕上的文字; 點選試執行，再開啟應用程式。AutoGest 讀取螢幕影像（遊戲中也行）並點擊文字。"></video>
-        <figcaption>實機錄製 · 29 秒</figcaption>
+        <video src="../../media/guide/zh-hant/ocr-click.mp4" poster="../../media/guide/zh-hant/ocr-click.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="輕觸文字(OCR)動作的影片教學：點選「新增動作」，選擇輕觸文字(OCR); 輸入按鈕上的文字; 點選試執行，再開啟應用程式。AutoGest 讀取螢幕影像並點擊文字。"></video>
+        <figcaption>實機錄製 · 30 秒</figcaption>
       </figure>
       <div>
         <ol class="steps">
@@ -446,7 +444,7 @@
           <li>輸入按鈕上的文字</li>
           <li>點選試執行，再開啟應用程式</li>
         </ol>
-        <p class="result">▶ AutoGest 讀取螢幕影像（遊戲中也行）並點擊文字</p>
+        <p class="result">▶ AutoGest 讀取螢幕影像並點擊文字</p>
         <div class="callout">
           <strong>小技巧</strong>
           <ul>
@@ -465,21 +463,21 @@
     <p class="muted">不點擊，等到螢幕影像上出現（或消失）某段文字。</p>
     <div class="guide-body">
       <figure class="phone">
-        <video src="../../media/guide/zh-hant/ocr-wait.mp4" poster="../../media/guide/zh-hant/ocr-wait.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="等待文字(OCR)動作的影片教學：點選「新增動作」，選擇等待文字(OCR); 輸入要等待的文字; 在「起跑」新增輕觸步驟; 返回，點選試執行，再開啟應用程式。AutoGest 等到「出發」才點「起跑」。"></video>
-        <figcaption>實機錄製 · 42 秒</figcaption>
+        <video src="../../media/guide/zh-hant/ocr-wait.mp4" poster="../../media/guide/zh-hant/ocr-wait.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="等待文字(OCR)動作的影片教學：點選「新增動作」，選擇等待文字(OCR); 輸入要等待的文字; 在「分享連結」新增輕觸步驟; 返回，點選試執行，再開啟應用程式。AutoGest 等到「已完成」才點「分享連結」。"></video>
+        <figcaption>實機錄製 · 47 秒</figcaption>
       </figure>
       <div>
         <ol class="steps">
           <li>點選「新增動作」，選擇等待文字(OCR)</li>
           <li>輸入要等待的文字</li>
-          <li>在「起跑」新增輕觸步驟</li>
+          <li>在「分享連結」新增輕觸步驟</li>
           <li>返回，點選試執行，再開啟應用程式</li>
         </ol>
-        <p class="result">▶ AutoGest 等到「出發」才點「起跑」</p>
+        <p class="result">▶ AutoGest 等到「已完成」才點「分享連結」</p>
         <div class="callout">
           <strong>小技巧</strong>
           <ul>
-            <li>適合「預備…出發！」「勝利」或倒數結束這類遊戲畫面。</li>
+            <li>適合「上傳完成」「已儲存」或倒數結束這類提示。</li>
             <li>選定範圍可以更快等到，也不會誤認別處的相同文字。</li>
           </ul>
         </div>
@@ -493,24 +491,24 @@
     <p class="muted">讀取螢幕影像某個範圍內的文字，存進變數供後面的步驟使用。</p>
     <div class="guide-body">
       <figure class="phone">
-        <video src="../../media/guide/zh-hant/ocr-read.mp4" poster="../../media/guide/zh-hant/ocr-read.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="辨識文字(OCR)動作的影片教學：點選「新增動作」，選擇辨識文字(OCR); 點選「選擇區域」，開啟畫面，點選擷取; 框住驗證碼，點選 OK; 返回，選擇「只取數字」和要儲存的變數; 在輸入框新增貼上文字，插入變數; 在「確認」新增輕觸步驟; 點選試執行，再開啟應用程式。AutoGest 從影像讀出驗證碼並填入。"></video>
-        <figcaption>實機錄製 · 75 秒</figcaption>
+        <video src="../../media/guide/zh-hant/ocr-read.mp4" poster="../../media/guide/zh-hant/ocr-read.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="辨識文字(OCR)動作的影片教學：點選「新增動作」，選擇辨識文字(OCR); 點選「選擇區域」，開啟畫面，點選擷取; 框住訂單編號，點選 OK; 返回，選擇「只取數字」和要儲存的變數; 在輸入框新增貼上文字，插入變數; 在「查詢」新增輕觸步驟; 點選試執行，再開啟應用程式。AutoGest 從影像讀出訂單編號並填入。"></video>
+        <figcaption>實機錄製 · 80 秒</figcaption>
       </figure>
       <div>
         <ol class="steps">
           <li>點選「新增動作」，選擇辨識文字(OCR)</li>
           <li>點選「選擇區域」，開啟畫面，點選擷取</li>
-          <li>框住驗證碼，點選 OK</li>
+          <li>框住訂單編號，點選 OK</li>
           <li>返回，選擇「只取數字」和要儲存的變數</li>
           <li>在輸入框新增貼上文字，插入變數</li>
-          <li>在「確認」新增輕觸步驟</li>
+          <li>在「查詢」新增輕觸步驟</li>
           <li>點選試執行，再開啟應用程式</li>
         </ol>
-        <p class="result">▶ AutoGest 從影像讀出驗證碼並填入</p>
+        <p class="result">▶ AutoGest 從影像讀出訂單編號並填入</p>
         <div class="callout">
           <strong>小技巧</strong>
           <ul>
-            <li>選「只取數字」只保留數字——分數、價格或驗證碼。</li>
+            <li>選「只取數字」只保留數字——價格、合計或訂單編號。</li>
             <li>變數可用於貼上文字，或在如果…則區塊中比較。</li>
           </ul>
         </div>
@@ -525,7 +523,7 @@
     <div class="guide-body">
       <figure class="phone">
         <video src="../../media/guide/zh-hant/click-text.mp4" poster="../../media/guide/zh-hant/click-text.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="輕觸文字動作的影片教學：點選「新增動作」，選擇輕觸文字; 輸入按鈕上顯示的文字; 點選試執行，再開啟應用程式。不管按鈕在哪裡，AutoGest 都能找到文字並點擊。"></video>
-        <figcaption>實機錄製 · 28 秒</figcaption>
+        <figcaption>實機錄製 · 31 秒</figcaption>
       </figure>
       <div>
         <ol class="steps">
@@ -537,7 +535,7 @@
         <div class="callout">
           <strong>小技巧</strong>
           <ul>
-            <li>它讀取應用程式結構，所以對自行繪製文字的遊戲無效——這時請用<strong>輕觸文字(OCR)</strong>。</li>
+            <li>它讀取應用程式結構，所以看不到以圖像繪製的文字——這時請用<strong>輕觸文字(OCR)</strong>。</li>
             <li>不分大小寫，只要包含你輸入的文字即可。</li>
           </ul>
         </div>
@@ -551,8 +549,8 @@
     <p class="muted">擷取螢幕、點選一個元素，AutoGest 就會記住如何再次找到它——只有圖示的按鈕也可以。</p>
     <div class="guide-body">
       <figure class="phone">
-        <video src="../../media/guide/zh-hant/click-node.mp4" poster="../../media/guide/zh-hant/click-node.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="輕觸節點動作的影片教學：點選「新增動作」，選擇輕觸節點; 點選「選取節點」，開啟應用程式，點選擷取; 點選要按的按鈕，再點「選取節點」; 返回，選擇尋找節點的方式; 點選試執行，再開啟應用程式。AutoGest 找到愛心按鈕並點擊。"></video>
-        <figcaption>實機錄製 · 37 秒</figcaption>
+        <video src="../../media/guide/zh-hant/click-node.mp4" poster="../../media/guide/zh-hant/click-node.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="輕觸節點動作的影片教學：點選「新增動作」，選擇輕觸節點; 點選「選取節點」，開啟應用程式，點選擷取; 點選要按的按鈕，再點「選取節點」; 返回，選擇尋找節點的方式; 點選試執行，再開啟應用程式。AutoGest 找到燈開關並點擊。"></video>
+        <figcaption>實機錄製 · 41 秒</figcaption>
       </figure>
       <div>
         <ol class="steps">
@@ -562,7 +560,7 @@
           <li>返回，選擇尋找節點的方式</li>
           <li>點選試執行，再開啟應用程式</li>
         </ol>
-        <p class="result">▶ AutoGest 找到愛心按鈕並點擊</p>
+        <p class="result">▶ AutoGest 找到燈開關並點擊</p>
         <div class="callout">
           <strong>小技巧</strong>
           <ul>
@@ -580,25 +578,25 @@
     <p class="muted">選螢幕上的一個元素，不點擊，把它的文字複製到變數。</p>
     <div class="guide-body">
       <figure class="phone">
-        <video src="../../media/guide/zh-hant/read-text.mp4" poster="../../media/guide/zh-hant/read-text.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="讀取螢幕文字動作的影片教學：點選「新增動作」，選擇讀取螢幕文字; 點選「選取節點」，開啟應用程式，點選擷取; 點選驗證碼，再點「選取節點」; 返回，選擇要儲存的變數; 在輸入框新增貼上文字，插入變數; 在「確認」新增輕觸步驟; 點選試執行，再開啟應用程式。AutoGest 複製驗證碼並填入。"></video>
-        <figcaption>實機錄製 · 76 秒</figcaption>
+        <video src="../../media/guide/zh-hant/read-text.mp4" poster="../../media/guide/zh-hant/read-text.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="讀取螢幕文字動作的影片教學：點選「新增動作」，選擇讀取螢幕文字; 點選「選取節點」，開啟應用程式，點選擷取; 點選訂單編號，再點「選取節點」; 返回，選擇要儲存的變數; 在輸入框新增貼上文字，插入變數; 在「查詢」新增輕觸步驟; 點選試執行，再開啟應用程式。AutoGest 複製訂單編號並填入。"></video>
+        <figcaption>實機錄製 · 81 秒</figcaption>
       </figure>
       <div>
         <ol class="steps">
           <li>點選「新增動作」，選擇讀取螢幕文字</li>
           <li>點選「選取節點」，開啟應用程式，點選擷取</li>
-          <li>點選驗證碼，再點「選取節點」</li>
+          <li>點選訂單編號，再點「選取節點」</li>
           <li>返回，選擇要儲存的變數</li>
           <li>在輸入框新增貼上文字，插入變數</li>
-          <li>在「確認」新增輕觸步驟</li>
+          <li>在「查詢」新增輕觸步驟</li>
           <li>點選試執行，再開啟應用程式</li>
         </ol>
-        <p class="result">▶ AutoGest 複製驗證碼並填入</p>
+        <p class="result">▶ AutoGest 複製訂單編號並填入</p>
         <div class="callout">
           <strong>小技巧</strong>
           <ul>
-            <li>適合取得一次性驗證碼、訂單編號或應用程式裡顯示的餘額。</li>
-            <li>它讀取應用程式結構；遊戲請用<strong>辨識文字(OCR)</strong>。</li>
+            <li>適合取得應用程式裡顯示的訂單編號、價格或參考編號。</li>
+            <li>它讀取應用程式結構；以圖像繪製的文字請用<strong>辨識文字(OCR)</strong>。</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ 回到動作列表</a></p>
@@ -745,8 +743,8 @@
     <p class="muted">條件成立時才執行某些步驟——條件可以是圖片、顏色、文字、輪次或變數。</p>
     <div class="guide-body">
       <figure class="phone">
-        <video src="../../media/guide/zh-hant/if-then.mp4" poster="../../media/guide/zh-hant/if-then.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="如果… 就動作的影片教學：點選「新增動作」，選擇如果… 就; 選擇「文字」，輸入要找的文字; 關閉「否則」分支，點選「完成」; 在「則」分支新增：輕觸 關閉（✕）按鈕; 返回，點選試執行，再開啟應用程式。AutoGest 看到「廣告」就點關閉。"></video>
-        <figcaption>實機錄製 · 48 秒</figcaption>
+        <video src="../../media/guide/zh-hant/if-then.mp4" poster="../../media/guide/zh-hant/if-then.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="如果… 就動作的影片教學：點選「新增動作」，選擇如果… 就; 選擇「文字」，輸入要找的文字; 關閉「否則」分支，點選「完成」; 在「則」分支新增：輕觸 關閉（✕）按鈕; 返回，點選試執行，再開啟應用程式。AutoGest 看到「新功能」就點關閉。"></video>
+        <figcaption>實機錄製 · 53 秒</figcaption>
       </figure>
       <div>
         <ol class="steps">
@@ -756,7 +754,7 @@
           <li>在「則」分支新增：輕觸 關閉（✕）按鈕</li>
           <li>返回，點選試執行，再開啟應用程式</li>
         </ol>
-        <p class="result">▶ AutoGest 看到「廣告」就點關閉</p>
+        <p class="result">▶ AutoGest 看到「新功能」就點關閉</p>
         <div class="callout">
           <strong>小技巧</strong>
           <ul>
@@ -798,25 +796,25 @@
 
   <section class="guide" id="stop-script">
     <h2>停止腳本 <span class="badge">PRO</span></h2>
-    <p class="muted">條件符合時結束整次執行——例如次數或體力用完時。</p>
+    <p class="muted">條件符合時結束整次執行——例如清單到底或工作提示已完成時。</p>
     <div class="guide-body">
       <figure class="phone">
-        <video src="../../media/guide/zh-hant/stop-script.mp4" poster="../../media/guide/zh-hant/stop-script.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="停止腳本動作的影片教學：在「轉動」新增輕觸步驟; 返回，新增停止腳本; 出現「次數已用完」時停止; 腳本無限重複; 點選試執行，再開啟應用程式。最後一次轉完後，AutoGest 自動停止。"></video>
-        <figcaption>實機錄製 · 56 秒</figcaption>
+        <video src="../../media/guide/zh-hant/stop-script.mp4" poster="../../media/guide/zh-hant/stop-script.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="停止腳本動作的影片教學：在「標記完成」新增輕觸步驟; 返回，新增停止腳本; 出現「全部完成」時停止; 腳本無限重複; 點選試執行，再開啟應用程式。最後一項做完後，AutoGest 自動停止。"></video>
+        <figcaption>實機錄製 · 70 秒</figcaption>
       </figure>
       <div>
         <ol class="steps">
-          <li>在「轉動」新增輕觸步驟</li>
+          <li>在「標記完成」新增輕觸步驟</li>
           <li>返回，新增停止腳本</li>
-          <li>出現「次數已用完」時停止</li>
+          <li>出現「全部完成」時停止</li>
           <li>腳本無限重複</li>
           <li>點選試執行，再開啟應用程式</li>
         </ol>
-        <p class="result">▶ 最後一次轉完後，AutoGest 自動停止</p>
+        <p class="result">▶ 最後一項做完後，AutoGest 自動停止</p>
         <div class="callout">
           <strong>小技巧</strong>
           <ul>
-            <li>對無限迴圈來說，這是乾淨的結束方式。</li>
+            <li>腳本不限次數重複時，這是乾淨的結束方式。</li>
             <li>放在如果…則的分支裡，可以不設條件直接停止。</li>
           </ul>
         </div>
@@ -830,22 +828,22 @@
     <p class="muted">條件符合時跳過本輪剩下的步驟，開始下一輪。</p>
     <div class="guide-body">
       <figure class="phone">
-        <video src="../../media/guide/zh-hant/next-round.mp4" poster="../../media/guide/zh-hant/next-round.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="進入下一輪動作的影片教學：在「下一則」新增輕觸步驟; 出現「贊助」時新增進入下一輪; 在「按讚」新增輕觸步驟; 腳本重複 4 次; 點選試執行，再開啟應用程式。AutoGest 對第 1、3 則按讚，跳過贊助內容。"></video>
-        <figcaption>實機錄製 · 76 秒</figcaption>
+        <video src="../../media/guide/zh-hant/next-round.mp4" poster="../../media/guide/zh-hant/next-round.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="進入下一輪動作的影片教學：在「下一筆」新增輕觸步驟; 出現「已取消」時新增進入下一輪; 在「確認」新增輕觸步驟; 腳本重複 4 次; 點選試執行，再開啟應用程式。AutoGest 確認第 1、2 筆，跳過已取消的訂單。"></video>
+        <figcaption>實機錄製 · 79 秒</figcaption>
       </figure>
       <div>
         <ol class="steps">
-          <li>在「下一則」新增輕觸步驟</li>
-          <li>出現「贊助」時新增進入下一輪</li>
-          <li>在「按讚」新增輕觸步驟</li>
+          <li>在「下一筆」新增輕觸步驟</li>
+          <li>出現「已取消」時新增進入下一輪</li>
+          <li>在「確認」新增輕觸步驟</li>
           <li>腳本重複 4 次</li>
           <li>點選試執行，再開啟應用程式</li>
         </ol>
-        <p class="result">▶ AutoGest 對第 1、3 則按讚，跳過贊助內容</p>
+        <p class="result">▶ AutoGest 確認第 1、2 筆，跳過已取消的訂單</p>
         <div class="callout">
           <strong>小技巧</strong>
           <ul>
-            <li>瀏覽列表時用來跳過廣告或不需要的項目。</li>
+            <li>瀏覽列表時用來跳過不需要的項目。</li>
             <li>它會跳到同一腳本中最近的迴圈結尾。</li>
           </ul>
         </div>
@@ -887,16 +885,16 @@
     <p class="muted">給變數設定值或加上一個數——計數器、累計總數、需要記住的文字。</p>
     <div class="guide-body">
       <figure class="phone">
-        <video src="../../media/guide/zh-hant/set-variable.mp4" poster="../../media/guide/zh-hant/set-variable.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="寫入變數動作的影片教學：點選「新增動作」，選擇寫入變數; 為新變數命名，點選「新增變數」; 讓步驟為變數加 1; 在聊天框新增貼上文字：「訊息 #」＋變數; 在「傳送」新增輕觸步驟; 腳本重複 3 次; 點選試執行，再開啟應用程式。每一輪數字遞增：1、2、3。"></video>
-        <figcaption>實機錄製 · 84 秒</figcaption>
+        <video src="../../media/guide/zh-hant/set-variable.mp4" poster="../../media/guide/zh-hant/set-variable.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="寫入變數動作的影片教學：點選「新增動作」，選擇寫入變數; 為新變數命名，點選「新增變數」; 讓步驟為變數加 1; 在清單輸入框新增貼上文字：「項目 #」＋變數; 在「新增」新增輕觸步驟; 腳本重複 3 次; 點選試執行，再開啟應用程式。每一輪數字遞增：1、2、3。"></video>
+        <figcaption>實機錄製 · 89 秒</figcaption>
       </figure>
       <div>
         <ol class="steps">
           <li>點選「新增動作」，選擇寫入變數</li>
           <li>為新變數命名，點選「新增變數」</li>
           <li>讓步驟為變數加 1</li>
-          <li>在聊天框新增貼上文字：「訊息 #」＋變數</li>
-          <li>在「傳送」新增輕觸步驟</li>
+          <li>在清單輸入框新增貼上文字：「項目 #」＋變數</li>
+          <li>在「新增」新增輕觸步驟</li>
           <li>腳本重複 3 次</li>
           <li>點選試執行，再開啟應用程式</li>
         </ol>

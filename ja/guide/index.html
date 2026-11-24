@@ -74,6 +74,7 @@
     <a class="action" href="#rapid-click"><strong>連続タップ</strong><span>1 点をすばやく何度もタップ</span><div class="state">▶ 動画を見る</div></a>
     <a class="action" href="#long-click"><strong>長押し</strong><span>1 点を押し続ける</span><div class="state">▶ 動画を見る</div></a>
     <a class="action" href="#swipe"><strong>スワイプ</strong><span>A 点から B 点までドラッグ</span><div class="state">▶ 動画を見る</div></a>
+    <a class="action" href="#drag-path"><strong>軌跡に沿ってドラッグ</strong><span>押して、手で描いた軌跡に沿ってドラッグし、指を離してドロップします</span><div class="state">▶ 動画を見る</div></a>
     <a class="action" href="#scroll"><strong>スクロール</strong><span>指定した方向にスクロール(位置の指定は不要)</span><div class="state">▶ 動画を見る</div></a>
     <a class="action" href="#two-finger"><strong>2 本指ジェスチャー</strong><span>1 点を中心に 2 本指で拡大、縮小、回転します</span><div class="state">▶ 動画を見る</div></a>
     <a class="action" href="#paste-text"><strong>テキストを貼り付け</strong><span>テキスト全体を入力欄に貼り付け</span><div class="state">▶ 動画を見る</div></a>
@@ -209,7 +210,7 @@
     <div class="guide-body">
       <figure class="phone">
         <video src="../../media/guide/ja/swipe.mp4" poster="../../media/guide/ja/swipe.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="スワイプアクションの動画ガイド：「アクションを追加」をタップし、スワイプを選ぶ; 開始位置を選ぶ; 戻って終了位置を選ぶ; 戻ってスワイプの時間を選ぶ; テスト実行をタップしてアプリを開く。AutoGest が開始位置から終了位置へスワイプ。"></video>
-        <figcaption>実機で録画 · 34 秒</figcaption>
+        <figcaption>実機で録画 · 35 秒</figcaption>
       </figure>
       <div>
         <ol class="steps">
@@ -224,6 +225,38 @@
           <strong>ヒント</strong>
           <ul>
             <li>短い時間は素早いフリック、長い時間はゆっくりしたドラッグ（ドラッグ＆ドロップ、スライダー）になります。</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ アクション一覧に戻る</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="drag-path">
+    <h2>軌跡に沿ってドラッグ</h2>
+    <p class="muted">長押しで項目をつかみ、手で描いたとおりの軌跡でドラッグし（カーブ、波線、途中の停止も再現）、指を離してドロップします。</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ja/drag-path.mp4" poster="../../media/guide/ja/drag-path.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="軌跡に沿ってドラッグアクションの動画ガイド：「アクションを追加」をタップし、軌跡に沿ってドラッグを選ぶ; 「描く」をタップし、カードのあるアプリを開く; パネルの「描く」をタップ。カードを少し長押しし、「完了」まで軌跡を描いて指を離す; OK をタップして軌跡を保存; AutoGest に戻ると、ステップに描いた軌跡が表示される; テスト実行をタップしてアプリを開く。AutoGest がカードを長押しし、同じ軌跡でドラッグして「完了」に置く。"></video>
+        <figcaption>実機で録画 · 35 秒</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>「アクションを追加」をタップし、軌跡に沿ってドラッグを選ぶ</li>
+          <li>「描く」をタップし、カードのあるアプリを開く</li>
+          <li>パネルの「描く」をタップ。カードを少し長押しし、「完了」まで軌跡を描いて指を離す</li>
+          <li>OK をタップして軌跡を保存</li>
+          <li>AutoGest に戻ると、ステップに描いた軌跡が表示される</li>
+          <li>テスト実行をタップしてアプリを開く</li>
+        </ol>
+        <p class="result">▶ AutoGest がカードを長押しし、同じ軌跡でドラッグして「完了」に置く</p>
+        <div class="callout">
+          <strong>ヒント</strong>
+          <ul>
+            <li>項目をつかむのに長押しが必要なアプリ（アイコン、カード、リストの行）では、描き始めに指を少し止めてください。</li>
+            <li>描いている間、下のアプリはタップを受け取らないので、まだ何も動きません。</li>
+            <li>AutoGest のドラッグ中は画面に触れないでください。システムがドラッグを取り消します。</li>
+            <li>2 点間をまっすぐ動かすだけなら <strong>スワイプ</strong> を使います。</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ アクション一覧に戻る</a></p>

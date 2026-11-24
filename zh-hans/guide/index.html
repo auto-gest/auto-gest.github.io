@@ -74,6 +74,7 @@
     <a class="action" href="#rapid-click"><strong>连续点按</strong><span>在一个位置快速点按多次</span><div class="state">▶ 观看视频</div></a>
     <a class="action" href="#long-click"><strong>长按</strong><span>在某个位置按住不放</span><div class="state">▶ 观看视频</div></a>
     <a class="action" href="#swipe"><strong>滑动</strong><span>从 A 点拖动到 B 点</span><div class="state">▶ 观看视频</div></a>
+    <a class="action" href="#drag-path"><strong>沿路径拖动</strong><span>按住，沿你手绘的路径拖动，然后抬起手指放下</span><div class="state">▶ 观看视频</div></a>
     <a class="action" href="#scroll"><strong>滚动</strong><span>向某个方向滚动，无需选择位置</span><div class="state">▶ 观看视频</div></a>
     <a class="action" href="#two-finger"><strong>双指手势</strong><span>以某个点为中心，用两根手指放大、缩小或旋转</span><div class="state">▶ 观看视频</div></a>
     <a class="action" href="#paste-text"><strong>粘贴文本</strong><span>把整段文字粘贴到输入框</span><div class="state">▶ 观看视频</div></a>
@@ -224,6 +225,38 @@
           <strong>小提示</strong>
           <ul>
             <li>时长短是快速滑动，时长长是慢慢拖动（拖放、滑块）。</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ 返回动作列表</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="drag-path">
+    <h2>沿路径拖动</h2>
+    <p class="muted">长按拿起一项，沿你手绘的路径原样拖动（曲线、波浪、中途停顿都会重现），松手放下。</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/zh-hans/drag-path.mp4" poster="../../media/guide/zh-hans/drag-path.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="沿路径拖动动作的视频指南：点“添加动作”，选沿路径拖动; 点“绘制”，打开有卡片的应用; 点面板上的“绘制”，按住卡片片刻，画出到“已完成”的路径后松手; 点 OK 保存路径; 回到 AutoGest，步骤显示刚画的路径; 点试运行，然后打开应用。AutoGest 按住卡片，沿同一路径拖动，放进“已完成”。"></video>
+        <figcaption>真机录制 · 36 秒</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>点“添加动作”，选沿路径拖动</li>
+          <li>点“绘制”，打开有卡片的应用</li>
+          <li>点面板上的“绘制”，按住卡片片刻，画出到“已完成”的路径后松手</li>
+          <li>点 OK 保存路径</li>
+          <li>回到 AutoGest，步骤显示刚画的路径</li>
+          <li>点试运行，然后打开应用</li>
+        </ol>
+        <p class="result">▶ AutoGest 按住卡片，沿同一路径拖动，放进“已完成”</p>
+        <div class="callout">
+          <strong>小提示</strong>
+          <ul>
+            <li>如果应用需要长按才能拿起项目（图标、卡片、列表行），画的时候先在起点停住手指片刻。</li>
+            <li>画路径时，下面的应用收不到你的触摸，所以还不会真的移动任何东西。</li>
+            <li>AutoGest 拖动时不要触摸屏幕：系统会取消这次拖动。</li>
+            <li>只需从一点直线拖到另一点？用<strong>滑动</strong>。</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ 返回动作列表</a></p>
@@ -526,7 +559,7 @@
     <div class="guide-body">
       <figure class="phone">
         <video src="../../media/guide/zh-hans/ocr-read.mp4" poster="../../media/guide/zh-hans/ocr-read.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="识别文字(OCR)动作的视频指南：点“添加动作”，选识别文字(OCR); 点“选择区域”，打开画面，点截取; 框住订单号，点 OK; 返回，选“只取数字”和要保存的变量; 在输入框添加粘贴文本，插入变量; 在“查询”上添加点按步骤; 点试运行，然后打开应用。AutoGest 从图像读出订单号并填入。"></video>
-        <figcaption>真机录制 · 81 秒</figcaption>
+        <figcaption>真机录制 · 80 秒</figcaption>
       </figure>
       <div>
         <ol class="steps">
@@ -778,7 +811,7 @@
     <div class="guide-body">
       <figure class="phone">
         <video src="../../media/guide/zh-hans/if-then.mp4" poster="../../media/guide/zh-hans/if-then.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="如果… 就动作的视频指南：点“添加动作”，选如果… 就; 选“文字”，输入要找的文字; 关闭“否则”分支，点“完成”; 在“则”分支添加：点按 关闭（✕）按钮; 返回，点试运行，然后打开应用。AutoGest 看到“新功能”就点关闭。"></video>
-        <figcaption>真机录制 · 55 秒</figcaption>
+        <figcaption>真机录制 · 54 秒</figcaption>
       </figure>
       <div>
         <ol class="steps">

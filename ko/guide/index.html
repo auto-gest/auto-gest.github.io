@@ -74,6 +74,7 @@
     <a class="action" href="#rapid-click"><strong>연속 탭</strong><span>한 지점을 아주 빠르게 여러 번 탭</span><div class="state">▶ 영상 보기</div></a>
     <a class="action" href="#long-click"><strong>길게 누르기</strong><span>한 지점을 길게 누름</span><div class="state">▶ 영상 보기</div></a>
     <a class="action" href="#swipe"><strong>스와이프</strong><span>A 지점에서 B 지점으로 드래그</span><div class="state">▶ 영상 보기</div></a>
+    <a class="action" href="#drag-path"><strong>경로 따라 드래그</strong><span>누른 채 직접 그린 경로를 따라 드래그하고 손가락을 떼어 놓습니다</span><div class="state">▶ 영상 보기</div></a>
     <a class="action" href="#scroll"><strong>스크롤</strong><span>지점 없이 한 방향으로 스크롤</span><div class="state">▶ 영상 보기</div></a>
     <a class="action" href="#two-finger"><strong>두 손가락 제스처</strong><span>한 지점을 중심으로 두 손가락으로 확대, 축소 또는 회전합니다</span><div class="state">▶ 영상 보기</div></a>
     <a class="action" href="#paste-text"><strong>텍스트 붙여넣기</strong><span>입력란에 텍스트 전체를 붙여넣기</span><div class="state">▶ 영상 보기</div></a>
@@ -224,6 +225,38 @@
           <strong>팁</strong>
           <ul>
             <li>짧으면 빠른 넘김, 길면 천천히 끌기(끌어다 놓기, 슬라이더)입니다.</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ 동작 목록으로</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="drag-path">
+    <h2>경로 따라 드래그</h2>
+    <p class="muted">길게 눌러 항목을 집고, 손으로 그린 경로를 그대로 따라 끈 다음(곡선, 물결, 중간 멈춤까지) 손을 떼어 놓습니다.</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ko/drag-path.mp4" poster="../../media/guide/ko/drag-path.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="경로 따라 드래그 동작 영상 가이드: “동작 추가”을 누르고 경로 따라 드래그 선택; “그리기”를 누르고 카드가 있는 앱 열기; 패널의 “그리기”를 누르고, 카드를 잠시 누른 채 “완료”까지 경로를 그린 뒤 손 떼기; OK를 눌러 경로 저장; AutoGest로 돌아오면 단계에 그린 경로가 표시됨; 테스트 실행을 누르고 앱을 열기. AutoGest가 카드를 길게 누르고 같은 경로로 끌어 “완료”에 놓음."></video>
+        <figcaption>실제 휴대폰으로 녹화 · 35초</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>“동작 추가”을 누르고 경로 따라 드래그 선택</li>
+          <li>“그리기”를 누르고 카드가 있는 앱 열기</li>
+          <li>패널의 “그리기”를 누르고, 카드를 잠시 누른 채 “완료”까지 경로를 그린 뒤 손 떼기</li>
+          <li>OK를 눌러 경로 저장</li>
+          <li>AutoGest로 돌아오면 단계에 그린 경로가 표시됨</li>
+          <li>테스트 실행을 누르고 앱을 열기</li>
+        </ol>
+        <p class="result">▶ AutoGest가 카드를 길게 누르고 같은 경로로 끌어 “완료”에 놓음</p>
+        <div class="callout">
+          <strong>팁</strong>
+          <ul>
+            <li>항목을 집으려면 길게 눌러야 하는 앱(아이콘, 카드, 목록 행)이라면 그릴 때 시작점에서 잠시 손가락을 멈추세요.</li>
+            <li>그리는 동안에는 아래 앱이 터치를 받지 않으므로 아직 아무것도 옮겨지지 않습니다.</li>
+            <li>AutoGest가 끄는 동안 화면을 만지지 마세요. 시스템이 드래그를 취소합니다.</li>
+            <li>한 지점에서 다른 지점으로 곧게 옮기기만 하면 <strong>스와이프</strong>를 쓰세요.</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ 동작 목록으로</a></p>
@@ -834,7 +867,7 @@
     <div class="guide-body">
       <figure class="phone">
         <video src="../../media/guide/ko/stop-script.mp4" poster="../../media/guide/ko/stop-script.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="스크립트 중지 동작 영상 가이드: “완료 표시”에 탭 단계 추가; 돌아와 스크립트 중지 추가; “모두 완료” 글자가 나오면 멈춤; 스크립트를 무제한 반복; 테스트 실행을 누르고 앱을 열기. 마지막 할 일 뒤 AutoGest가 스스로 멈춤."></video>
-        <figcaption>실제 휴대폰으로 녹화 · 73초</figcaption>
+        <figcaption>실제 휴대폰으로 녹화 · 72초</figcaption>
       </figure>
       <div>
         <ol class="steps">

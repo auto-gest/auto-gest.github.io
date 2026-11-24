@@ -75,6 +75,7 @@
     <a class="action" href="#long-click"><strong>長押し</strong><span>1 点を押し続ける</span><div class="state">▶ 動画を見る</div></a>
     <a class="action" href="#swipe"><strong>スワイプ</strong><span>A 点から B 点までドラッグ</span><div class="state">▶ 動画を見る</div></a>
     <a class="action" href="#scroll"><strong>スクロール</strong><span>指定した方向にスクロール(位置の指定は不要)</span><div class="state">▶ 動画を見る</div></a>
+    <a class="action" href="#two-finger"><strong>2 本指ジェスチャー</strong><span>1 点を中心に 2 本指で拡大、縮小、回転します</span><div class="state">▶ 動画を見る</div></a>
     <a class="action" href="#paste-text"><strong>テキストを貼り付け</strong><span>テキスト全体を入力欄に貼り付け</span><div class="state">▶ 動画を見る</div></a>
     <a class="action" href="#type-keys"><strong>文字を入力 <span class="badge">PRO</span></strong><span>キーを 1 つずつタップして入力</span><div class="state">▶ 動画を見る</div></a>
   </div>
@@ -208,7 +209,7 @@
     <div class="guide-body">
       <figure class="phone">
         <video src="../../media/guide/ja/swipe.mp4" poster="../../media/guide/ja/swipe.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="スワイプアクションの動画ガイド：「アクションを追加」をタップし、スワイプを選ぶ; 開始位置を選ぶ; 戻って終了位置を選ぶ; 戻ってスワイプの時間を選ぶ; テスト実行をタップしてアプリを開く。AutoGest が開始位置から終了位置へスワイプ。"></video>
-        <figcaption>実機で録画 · 35 秒</figcaption>
+        <figcaption>実機で録画 · 34 秒</figcaption>
       </figure>
       <div>
         <ol class="steps">
@@ -249,6 +250,39 @@
           <strong>ヒント</strong>
           <ul>
             <li><strong>条件まで繰り返す</strong>と組み合わせると、探しているものが出るまでスクロールできます。</li>
+          </ul>
+        </div>
+        <p class="top-link"><a href="#top">↑ アクション一覧に戻る</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide" id="two-finger">
+    <h2>2 本指ジェスチャー</h2>
+    <p class="muted">1 点のまわりで 2 本の指を広げる・つまむ・回す操作で、地図や写真を拡大、縮小、回転します。</p>
+    <div class="guide-body">
+      <figure class="phone">
+        <video src="../../media/guide/ja/two-finger.mp4" poster="../../media/guide/ja/two-finger.webp" width="480" height="1100" muted loop playsinline controls preload="none" aria-label="2 本指ジェスチャーアクションの動画ガイド：「アクションを追加」をタップし、2 本指ジェスチャーを選ぶ; 「位置を追加」をタップし、地図の中央に合わせて OK をタップ; AutoGest に戻ると「拡大」「中」が初期設定; 同じ位置で 2 つ目のステップを追加; 戻って「縮小」を選ぶ; 3 つ目のステップも地図の中央に追加; 戻って「回転」を選ぶ（右回り）; テスト実行をタップしてアプリを開く。AutoGest が地図を拡大、縮小してから回転。"></video>
+        <figcaption>実機で録画 · 65 秒</figcaption>
+      </figure>
+      <div>
+        <ol class="steps">
+          <li>「アクションを追加」をタップし、2 本指ジェスチャーを選ぶ</li>
+          <li>「位置を追加」をタップし、地図の中央に合わせて OK をタップ</li>
+          <li>AutoGest に戻ると「拡大」「中」が初期設定</li>
+          <li>同じ位置で 2 つ目のステップを追加</li>
+          <li>戻って「縮小」を選ぶ</li>
+          <li>3 つ目のステップも地図の中央に追加</li>
+          <li>戻って「回転」を選ぶ（右回り）</li>
+          <li>テスト実行をタップしてアプリを開く</li>
+        </ol>
+        <p class="result">▶ AutoGest が地図を拡大、縮小してから回転</p>
+        <div class="callout">
+          <strong>ヒント</strong>
+          <ul>
+            <li><strong>小</strong> / <strong>中</strong> / <strong>大</strong> で約 ×1.5 / ×2 / ×3 に拡大、または 30° / 90° / 180° 回転します。</li>
+            <li>速すぎるジェスチャーだと、指を離した後も慣性で動き続けるアプリがあります。1000ms にすると結果が安定します。</li>
+            <li>記録機能はまだ 2 本指ジェスチャーを記録できません。このステップは手動で追加してください。</li>
           </ul>
         </div>
         <p class="top-link"><a href="#top">↑ アクション一覧に戻る</a></p>
